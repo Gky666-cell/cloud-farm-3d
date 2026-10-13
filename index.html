@@ -1,14 +1,25 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 梦幻空岛 V2</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 精致空岛 V3</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 3px 6px;font-size:10px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
+
+/* V3: softer daylight, foreground depth and polished compact mobile HUD. */
+#world{background:radial-gradient(circle at 77% 16%,#fff3c7 0%,#e5f8e7 23%,transparent 47%),linear-gradient(170deg,#a5dded 0%,#d3f1e3 55%,#fcefd5 100%)}
+#world:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 45%,transparent 36%,#d9efd624 95%)}
+#sun{width:165px;height:165px;top:9%;left:67%;background:radial-gradient(circle,#fffbeaef 0%,#fff4d77b 31%,#fff3d000 70%)}
+.cloud{background:#fffdf6e3;filter:blur(3px);opacity:.7;box-shadow:0 0 27px #fffefa90}
+.brand{box-shadow:0 8px 30px #51897438;border-radius:21px}.brand .name{letter-spacing:.2px}
+#dock{background:linear-gradient(180deg,#fffef4f8,#faf7eafa);box-shadow:0 11px 42px #4e78584d}
+.seed{background:linear-gradient(165deg,#f5f6e9,#edf3e5)}.seed.active{background:linear-gradient(160deg,#e3f7dd,#d2edcb);box-shadow:inset 0 0 0 1px #f5fff4,0 5px 12px #73ab7b29}
+#ambientTag{background:#fffdf1d4;border:1px solid #ffffffb0;box-shadow:0 3px 12px #7aab9225}
+@media(max-width:365px){.brand{padding:9px}.count{padding:9px 8px}#dock{left:7px;right:7px}.nav{gap:4px}}
 </style></head>
 <body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
-<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">V2</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><div class="count">⭐ <b id="level">1</b></div></div></div>
-<div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 云端晴天 · 微风轻拂</div><div id="floatHint">👆 点农田种植 · 滑动平移 · 双指缩放</div><div id="toast"></div><div id="spark"></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">V3</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><div class="count">⭐ <b id="level">1</b></div></div></div>
+<div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 滑动平移 · 双指缩放</div><div id="toast"></div><div id="spark"></div>
 <div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子商店</button><button data-panel="bag"><span class="sym">🧺</span>收获记录</button><button data-panel="goals"><span class="sym">📜</span>每日任务</button><button data-panel="help"><span class="sym">📖</span>玩法介绍</button></div></div>
 <div id="panelShade"></div><section id="panel" role="dialog" aria-label="农场菜单"><div class="panelHead"><h2 id="panelTitle"></h2><button id="closePanel" class="x" aria-label="关闭">×</button></div><div id="panelBody"></div></section>
-<div id="welcome"><div class="welcomeCard"><div class="welcomeIllustration">🏡🌳🌷</div><h1>欢迎来到云朵农场</h1><p>在天空中种下第一颗种子。<br>建造属于你的梦幻漂浮小岛吧！</p><button id="play" class="play">☁️ 进入我的空岛</button><div class="foot">立体 WebGL 场景 · 自动保存 · 无需安装</div></div></div><div id="no3d">当前浏览器未能启动 3D 图形。请尝试使用手机 Chrome、Safari 或系统浏览器打开。</div>
+<div id="welcome"><div class="welcomeCard"><div class="welcomeIllustration">🏡🌳🌷</div><h1>欢迎来到云朵农场</h1><p>在天空中种下第一颗种子。<br>经营你自己的精致梦幻空岛农场吧！</p><button id="play" class="play">☁️ 进入我的空岛</button><div class="foot">立体 WebGL 场景 · 自动保存 · 无需安装</div></div></div><div id="no3d">当前浏览器未能启动 3D 图形。请尝试使用手机 Chrome、Safari 或系统浏览器打开。</div>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
@@ -141,9 +152,159 @@ function crop(x,z,type,progress){const k=Math.max(0.12,Math.min(1,progress));con
 }
 // Small satellite islands are separate modeled bodies, visible past the main island.
 function satellite(x,z,r,yOffset){let n=9;for(let i=0;i<n;i++){let a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;const top=[x+Math.cos(a)*r,yOffset,z+Math.sin(a)*r],top2=[x+Math.cos(b)*r,yOffset,z+Math.sin(b)*r],side=[x+Math.cos(a)*r*.72,yOffset-1,z+Math.sin(a)*r*.72],side2=[x+Math.cos(b)*r*.72,yOffset-1,z+Math.sin(b)*r*.72];face([x,yOffset+.04,z],top2,top,'#a8d294');quad(top,top2,side2,side,i%3===0?'#b18d69':'#93745c');face(side,side2,[x,yOffset-1.5,z],'#785c4d');}ball(x,yOffset+.28,z,.42,.35,.36,['#8fca8a','#6db77d','#a2dba2'],4,7);}
+
+// V3 artwork: faceted architecture and decorations built from real triangle meshes.
+function petalCluster(x,z,palette,scale=1){
+ shadow(x,z,.41*scale,.37*scale);
+ for(let j=0;j<5;j++){const a=j*1.2566;
+  cyl(x+Math.cos(a)*.23*scale,.08,z+Math.sin(a)*.22*scale,.075*scale,.45*scale,['#4e8c62','#6fbb7c'],5,.035*scale);
+  ball(x+Math.cos(a)*.26*scale,.51*scale,z+Math.sin(a)*.24*scale,.27*scale,.28*scale,.27*scale,palette,4,7);
+ }
+ for(let k=0;k<5;k++){let a=k*2.4;flower(x+Math.cos(a)*.45*scale,z+Math.sin(a)*.37*scale,k%2?'#ffedbb':'#fff9f0',.06)}
+}
+function makePond(){
+ const x=4.72,z=-.9;
+ shadow(x,z,1.13,.99);
+ // warm irregular pebbled shoreline and inset turquoise water
+ ball(x,.12,z,1.18,.09,.85,['#f5deb0','#e6d1a6','#d9c29b'],3,14);
+ ball(x,.175,z,1.03,.027,.71,['#6bb9ba','#81d2d0','#74bdc3','#80d7c9'],3,16);
+ for(let i=0;i<17;i++){const a=i*2.4,rr=.87+.12*Math.sin(i*7);
+  rock(x+Math.cos(a)*rr,.13,z+Math.sin(a)*rr*.76,.085+.03*(i%3));
+ }
+ for(let j=0;j<3;j++){let xx=x-.45+j*.33,zz=z+(j%2)*.25;
+  ball(xx,.225,zz,.21,.022,.19,['#6aa764','#93c27a'],2,7);
+  flower(xx+.09,zz+.01,j===1?'#fff9dc':'#ffd4d9',.10);
+ }
+ // bamboo reeds, tiny sprigs on shore
+ for(let i=0;i<5;i++){let zz=z-.45+i*.2;
+  tapered(x-1.05,.12,zz,.055,.46,['#66ae72','#94ca7e'],5);
+ }
+}
+function makeMarket(){
+ let x=-5.00,z=-.72;
+ shadow(x+.50,z+.4,.92,.71);
+ box(x,.13,z,1.15,.24,.84,['#ebd5a7','#c29e6f','#ad8a62']);
+ for(let a of [.13,1.0])for(let b of [.12,.70]){
+  postLine([x+a,.36,z+b],[x+a,1.80,z+b],.085,.085,['#e6bd83','#bb9368']);
+ }
+ // cream-and-coral scalloped fabric canopy, correctly viewed in 3D
+ for(let i=0;i<6;i++){let xx=x-.16+i*.245;
+  quad([xx,1.79,z-.12],[xx+.245,1.79,z-.12],[xx+.245,1.67,z+1.0],[xx,1.67,z+1.0],i%2?'#f7e7c7':'#eea795');
+  ball(xx+.12,1.65,z+1.0,.135,.085,.08,i%2?'#f7e7c7':'#ed9e8c',3,5);
+ }
+ // produce crates and jewel-colored fruit
+ box(x+.10,.37,z+.10,.42,.32,.49,['#cb945d','#a76d4b','#a5774c']);
+ box(x+.61,.37,z+.12,.36,.24,.42,['#dfb582','#ae7852','#a16a48']);
+ for(let j=0;j<6;j++){let xx=x+.18+(j%3)*.115,zz=z+.18+Math.floor(j/3)*.17;
+  ball(xx,.75,zz,.073,.074,.073,j%2?'#f3ad53':'#e86972',4,6);
+ }
+ ball(x+.8,.70,z+.35,.12,.10,.13,'#82c472',4,6);
+ // tiny carved hanging sign
+ postLine([x+.58,1.97,z+.96],[x+.58,1.68,z+.96],.035,.04,'#ad805c');
+ box(x+.22,1.55,z+.95,.70,.23,.08,['#fff0ce','#d7b084','#c18c63']);
+}
+function makeFlowersArc(){
+ const palettes=[['#eab6cb','#ffdfec','#f8b2bb'],['#ffd995','#fff0c1','#f5cea4'],['#c1b9e9','#dcd5f1','#b2abd9']];
+ for(let i=0;i<19;i++){
+  const a=i*2.39996,r=5.65+Math.sin(i*2.6)*.46,x=Math.cos(a)*r,z=Math.sin(a)*r*.87;
+  if((x<-3.0&&z<-1.7)||(x>3.4&&z>-2.4&&z<3.7))continue;
+  if(i%3===0)petalCluster(x,z,palettes[i%3],.63+(i%2)*.14);
+  else for(let j=0;j<4;j++)flower(x+.10*Math.cos(j*2.1),z+.13*Math.sin(j*2.1),['#fff8ec','#fac5cd','#e7d7ff','#ffdca5'][(i+j)%4],.075);
+ }
+}
+function makeBench(x,z){
+ for(let i=0;i<2;i++)box(x+i*.85,.09,z,.12,.47,.7,['#f7e0b7','#d7b88b','#c7a277']);
+ box(x-.12,.52,z-.09,1.2,.13,.55,['#d49c71','#ba7955','#9f694c']);
+ box(x-.12,.70,z-.06,1.2,.42,.10,['#d8a078','#ba805b','#a46e51']);
+ for(let i=0;i<4;i++)box(x+.05+i*.26,.53,z+.48,.09,.06,.05,['#fae1aa','#cf9c69','#c28d63']);
+}
+function makeLantern(x,z){
+ cyl(x,.10,z,.075,.95,['#b4845e','#96704f'],6,.055);
+ ball(x,1.09,z,.14,.15,.14,['#fff3c7','#ffe0a7'],4,8);
+ cyl(x,1.20,z,.17,.11,['#c38b61','#a46c4d'],7,.09);
+ tapered(x,1.30,z,.17,.23,['#e4b780','#c38b5f'],6);
+}
+function makeStoneWalk(){
+ // garden walkway and stepping stones keep every clickable plot unobstructed
+ const pts=[[-4.38,-2.05],[-4.1,-1.55],[-3.85,-.95],[-3.63,-.35],[-3.72,.35],[-3.92,1.02],[-4.12,1.65]];
+ for(let i=0;i<pts.length;i++){let p=pts[i];ball(p[0],.097,p[1],.24,.035,.18,i%3===0?['#f5e3c2','#e2d2ae']:['#ead9b9','#d9c49b'],2,7);}
+ makeLantern(-3.66,-1.65);makeLantern(-4.37,1.59);
+}
+function makeHouseDetails(){
+ let x=-5.25,z=-4.35,front=z+2.62;
+ // ridge cap tiles and hanging eave trim
+ for(let j=0;j<11;j++){
+  const zz=z-.16+j*.27;
+  ball(x+1.275,3.12,zz,.115,.075,.145,j%2?'#da8a7d':'#e5a394',3,6);
+  box(x-.29,1.91,zz,.17,.11,.11,['#f6c4ad','#d68d7e','#bc756b']);
+  box(x+2.73,1.91,zz,.16,.11,.11,['#f1b5a3','#ce8072','#ac675e']);
+ }
+ // wooden porch and three stone steps
+ box(x+.7,.075,front+.05,1.27,.16,.68,['#e6c58b','#b78d63','#a98157']);
+ box(x+.84,.07,front+.76,.98,.08,.20,['#eddeb9','#c9b38f','#bda17b']);
+ for(let i=0;i<3;i++){
+  box(x+.67+i*.63,.23,front+.13,.10,.42,.10,['#f5e5c9','#d4b18a','#c39b74']);
+  ball(x+.50+i*.70,.24,front+.72,.16,.12,.15,['#e2ceaa','#cbb38e'],3,6);
+ }
+ // kitchen awning and shutter trim
+ box(x+.19,1.52,front-.17,.73,.07,.24,['#d48870','#ad705d','#a86956']);
+ for(let y of [.93,1.15,1.37])box(x+.18,y,front-.22,.07,.05,.07,['#d2a17b','#a56d57','#9d684e']);
+ for(let y of [.92,1.15,1.37])box(x+.89,y,front-.22,.07,.05,.07,['#d2a17b','#a56d57','#9d684e']);
+ // potted flowers and planter under window
+ for(let j=0;j<3;j++){
+  let xx=x+.2+j*.29;
+  tapered(xx,.35,front+.18,.14,.25,['#cb8871','#b36b62'],7);
+  flower(xx,front+.18,j%2?'#fff5c4':'#ffd8df',.16);
+ }
+ // timber-framed gable crest and wooden paneling
+ postLine([x+1.275,3.05,front+.009],[x+1.275,2.10,front+.009],.07,.06,'#d3a47d');
+ box(x+.08,.33,z+2.37,2.36,.075,.095,['#f8dcc0','#cd9a7c','#bb836a']);
+}
+function makeCliffDetails(){
+ // diagonal sediment bands on visible island walls + pointed crystals
+ for(let i=0;i<29;i++){
+  let a=.03+i*.079,x=6.2*Math.cos(a),z=5.95*Math.sin(a),y=-.40-(i%4)*.25;
+  if(i%2===0){postLine([x,y,z],[x-.18,y-.24,z+.13],.038,.045,i%3?'#d1ac80':'#e5c69c');}
+ }
+ for(let i=0;i<10;i++){
+  let a=i*.52+.3,rad=6.0,x=Math.cos(a)*rad,z=Math.sin(a)*rad;
+  if(i%2===0){tapered(x,-1.03,z,.095,.36,['#89b174','#acd08e'],5);}
+ }
+ // hanging gemstone clusters and trailing roots from the bottom edge
+ for(let i=0;i<9;i++){
+  const a=.45+i*.56,x=4.8*Math.cos(a),z=4.8*Math.sin(a),y=-2.05-.18*(i%3);
+  if(i%3===0){tapered(x,y-.38,z,.22,.77,['#83bac0','#a0e1d8'],5);}
+  else {postLine([x,y+.25,z],[x+.15,y-.80,z+.11],.055,.04,'#72594b');}
+ }
+}
+function makeWaterfall(){
+ const x=5.95,z=3.7;
+ // three lightly faceted strips spilling off the cliff into open sky
+ const xx=[x-.42,x-.22,x,x+.21], colors=['#a5e4e3','#82cfdb','#c3f3e6'];
+ for(let i=0;i<3;i++){
+  let a=xx[i],b=xx[i+1];
+  quad([a,.12,z-.26],[b,.12,z-.26],[b,.05,z+.32],[a,.05,z+.32],i===1?'#d3f6e9':'#8ed7d8');
+  quad([a,.02,z+.32],[b,.02,z+.32],[b+.13,-1.35,z+.53],[a+.12,-1.35,z+.53],colors[i]);
+  quad([a+.12,-1.35,z+.53],[b+.13,-1.35,z+.53],[b+.32,-2.42,z+.37],[a+.21,-2.42,z+.37],i%2?'#b9f1ea':'#81cbd8');
+ }
+ for(let i=0;i<7;i++)ball(x-.28+i*.10,-2.46-(i%2)*.13,z+.4,.09,.065,.095,i%2?'#f3faf2':'#c3f2ee',3,6);
+}
+function makeIslandDetails(){
+ makeCliffDetails();makeWaterfall();makePond();makeMarket();makeStoneWalk();makeHouseDetails();
+ makeFlowersArc();makeBench(3.90,4.25);
+ // fruit / blossom tree planting and soft lawn shrubs
+ petalCluster(-5.72,-.05,['#f9c6cf','#ffdce1','#eea4bd'],.65);
+ petalCluster(4.55,4.90,['#e7d5fb','#f5ddf7','#cbb4e9'],.65);
+ for(let i=0;i<9;i++){
+  const t=i*2.35,x=Math.cos(t)*4.65,z=Math.sin(t)*4.75;
+  if(x<-3.3&&z<-.8)continue;
+  rock(x,.14,z,.11+.04*(i%3));
+ }
+}
+
 function sceneStatic(){mesh=[];buildIsland(); // satellites projected past main island
  satellite(9.45,-2.45,1.15,-1.25);satellite(-9.0,2.1,.78,-1.0);
- makeHouse();windmill();well();
+ makeHouse();windmill();well();makeIslandDetails();
  makeTree(-5.35,.25,.95,0);makeTree(-5.0,4.6,.87,1);makeTree(4.25,4.76,.82,2);makeTree(5.20,.03,.75,1);makeTree(-2.2,5.55,.71,0);makeTree(1.96,-5.62,.60,2);
  fence(-5.8,1.95,2.32,2.75);
  for(let i=0;i<16;i++)makePlotBase(i);
@@ -161,8 +322,8 @@ let softTris=[],softNeedsSort=true;
 function softRebuild(){softTris=[];for(let obj of [fixed,moving]){let arr=obj.handle.data;if(!arr)continue;for(let i=0;i<arr.length;i+=30){let pts=[],dep=0;for(let j=0;j<3;j++){const ii=i+j*10,x=arr[ii],y=arr[ii+1],z=arr[ii+2];pts.push([x,y,z]);dep+=(x*depth[0]+z*depth[1])*cv+y*sv;}
  const n=[arr[i+3],arr[i+4],arr[i+5]],lum=.72+.31*Math.max(0,(n[0]*-.55+n[1]*.9+n[2]*.65)/Math.sqrt(.55*.55+.9*.9+.65*.65));const r=Math.min(255,Math.round(arr[i+6]*lum*255)),g=Math.min(255,Math.round(arr[i+7]*lum*255)),b=Math.min(255,Math.round(arr[i+8]*lum*255));const alpha=arr[i+9];softTris.push({pts,dep:dep/3,color:`rgb(${r},${g},${b})`,alpha});}}
  softTris.sort((a,b)=>a.dep-b.dep);}
-function drawSoft(){if(softNeedsSort){softRebuild();softNeedsSort=false;}ctx2d.setTransform(DPR,0,0,DPR,0,0);ctx2d.clearRect(0,0,W,H);for(const tri of softTris){const pts=tri.pts.map(p=>project(...p));ctx2d.beginPath();ctx2d.moveTo(pts[0][0],pts[0][1]);ctx2d.lineTo(pts[1][0],pts[1][1]);ctx2d.lineTo(pts[2][0],pts[2][1]);ctx2d.closePath();ctx2d.fillStyle=tri.color;ctx2d.globalAlpha=tri.alpha;ctx2d.fill();ctx2d.strokeStyle=tri.color;ctx2d.lineWidth=.4;ctx2d.stroke();}ctx2d.globalAlpha=1;}
-let W=0,H=0,DPR=1,zoom=1.06,shiftX=0,shiftY=0,projW=17.3,projH=32;
+function drawSoft(){if(softNeedsSort){softRebuild();softNeedsSort=false;}ctx2d.setTransform(DPR,0,0,DPR,0,0);ctx2d.clearRect(0,0,W,H);for(const tri of softTris){const pts=tri.pts.map(p=>project(...p));ctx2d.beginPath();ctx2d.moveTo(pts[0][0],pts[0][1]);ctx2d.lineTo(pts[1][0],pts[1][1]);ctx2d.lineTo(pts[2][0],pts[2][1]);ctx2d.closePath();ctx2d.fillStyle=tri.color;ctx2d.globalAlpha=tri.alpha;ctx2d.fill();ctx2d.strokeStyle=tri.color;ctx2d.lineWidth=tri.pts.every(p=>Math.abs(p[1]-.06)<.001)?.85:.25;ctx2d.stroke();}ctx2d.globalAlpha=1;}
+let W=0,H=0,DPR=1,zoom=1.08,shiftX=0,shiftY=0,projW=17.3,projH=32;
 const camAngle=Math.PI/4;const right=[Math.cos(camAngle),-Math.sin(camAngle)],depth=[Math.sin(camAngle),Math.cos(camAngle)],elev=.77;
 const sv=Math.sin(elev),cv=Math.cos(elev);
 function resize(){const ww=innerWidth,hh=innerHeight;if(ww===W&&hh===H)return;W=ww;H=hh;DPR=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);gl.viewport(0,0,canvas.width,canvas.height);}
@@ -194,7 +355,7 @@ const tasks=[{name:'丰收初体验',need:3,reward:120},{name:'快乐农场主',
 let openPanelName='';function panel(name){openPanelName=name;const titles={shop:'🛒 种子商店',bag:'🧺 我的收获',goals:'📜 农场任务',help:'📖 游戏说明'};$('panelTitle').textContent=titles[name];let content='';if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">选择种子后，点击岛上空的农田即可播种。金币会自动扣除，成熟后再次点击收获。</div>';
  }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+'<div class="sub">目前收获后自动出售换金币，后续版本会加入真正的物品仓库。</div>';
  }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
- }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击下方种子，再点击空农田播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 单指拖动可以平移视角，双指可缩放。<br>⑤ 游戏自动保存进度，下次打开继续游玩。<br><br>当前为手机浏览器 V2 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击下方种子，再点击空农田播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 单指拖动可以平移视角，双指可缩放。<br>⑤ 游戏自动保存进度，下次打开继续游玩。<br><br>当前为手机浏览器 V3 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
  $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
 function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
 document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>panel(b.dataset.panel));$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
