@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 梦幻空岛 V2</title>
+<style>
+:root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 3px 6px;font-size:10px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
+</style></head>
+<body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">V2</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><div class="count">⭐ <b id="level">1</b></div></div></div>
+<div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 云端晴天 · 微风轻拂</div><div id="floatHint">👆 点农田种植 · 滑动平移 · 双指缩放</div><div id="toast"></div><div id="spark"></div>
+<div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子商店</button><button data-panel="bag"><span class="sym">🧺</span>收获记录</button><button data-panel="goals"><span class="sym">📜</span>每日任务</button><button data-panel="help"><span class="sym">📖</span>玩法介绍</button></div></div>
+<div id="panelShade"></div><section id="panel" role="dialog" aria-label="农场菜单"><div class="panelHead"><h2 id="panelTitle"></h2><button id="closePanel" class="x" aria-label="关闭">×</button></div><div id="panelBody"></div></section>
+<div id="welcome"><div class="welcomeCard"><div class="welcomeIllustration">🏡🌳🌷</div><h1>欢迎来到云朵农场</h1><p>在天空中种下第一颗种子。<br>建造属于你的梦幻漂浮小岛吧！</p><button id="play" class="play">☁️ 进入我的空岛</button><div class="foot">立体 WebGL 场景 · 自动保存 · 无需安装</div></div></div><div id="no3d">当前浏览器未能启动 3D 图形。请尝试使用手机 Chrome、Safari 或系统浏览器打开。</div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const CROPS=[{name:'胡萝卜',emoji:'🥕',cost:10,sell:24,time:8000,xp:12},{name:'草莓',emoji:'🍓',cost:22,sell:58,time:15000,xp:21},{name:'玉米',emoji:'🌽',cost:38,sell:96,time:23000,xp:30},{name:'南瓜',emoji:'🎃',cost:65,sell:158,time:35000,xp:44}];
+const KEY='yun-farm-3d-2026-v1';
+const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0});
+let state=initial();try{let p=JSON.parse(localStorage.getItem(KEY));if(p&&p.plots&&p.plots.length===16){state={...state,...p};}}catch(_e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(_e){}}
+const canvas=$('glCanvas');let gl,soft=false,ctx2d=null;
+try{gl=canvas.getContext('webgl',{alpha:true,antialias:true,preserveDrawingBuffer:false,premultipliedAlpha:false})||canvas.getContext('experimental-webgl',{alpha:true,antialias:true});}catch(e){}
+// No WebGL? Keep the exact same 3D mesh and provide a CPU isometric fallback.
+if(!gl){soft=true;ctx2d=canvas.getContext('2d',{alpha:true});let currentBuffer=null;
+ const f=()=>{};
+ gl={VERTEX_SHADER:35633,FRAGMENT_SHADER:35632,COMPILE_STATUS:35713,LINK_STATUS:35714,ARRAY_BUFFER:34962,STATIC_DRAW:35044,FLOAT:5126,TRIANGLES:4,DEPTH_TEST:2929,LEQUAL:515,CULL_FACE:2884,BLEND:3042,SRC_ALPHA:770,ONE_MINUS_SRC_ALPHA:771,COLOR_BUFFER_BIT:16384,DEPTH_BUFFER_BIT:256,
+ createShader:()=>({}),shaderSource:f,compileShader:f,getShaderParameter:()=>true,getShaderInfoLog:()=>'',createProgram:()=>({}),attachShader:f,linkProgram:f,getProgramParameter:()=>true,getProgramInfoLog:()=>'',useProgram:f,getAttribLocation:()=>0,getUniformLocation:()=>0,enable:f,disable:f,depthFunc:f,blendFunc:f,createBuffer:()=>({data:null}),bindBuffer:(_kind,b)=>{currentBuffer=b},bufferData:(_kind,data)=>{currentBuffer.data=data},viewport:f,enableVertexAttribArray:f,vertexAttribPointer:f,drawArrays:f,clearColor:f,clear:f,uniform1f:f,uniform2f:f};}
+const VS=`attribute vec3 aPos;attribute vec3 aNormal;attribute vec4 aColor;uniform float uHalfW;uniform float uHalfH;uniform vec2 uShift;uniform vec2 uRight;uniform vec2 uDepth;uniform float uSin;uniform float uCos;varying vec4 vColor;void main(){vec2 xz=aPos.xz;float xx=dot(xz,uRight);float yy=aPos.y*uCos-dot(xz,uDepth)*uSin;float dd=dot(xz,uDepth)*uCos+aPos.y*uSin;gl_Position=vec4(xx/uHalfW+uShift.x,yy/uHalfH+uShift.y,-dd/42.,1.);vec3 lightDir=normalize(vec3(-0.55,0.9,0.65));float light=max(0.,dot(normalize(aNormal),lightDir));float shade=0.72+light*.31;vColor=vec4(aColor.rgb*shade,aColor.a);}`;
+const FS=`precision mediump float;varying vec4 vColor;void main(){gl_FragColor=vColor;}`;
+function shader(type,source){const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){throw Error(gl.getShaderInfoLog(sh))}return sh;}
+const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VS));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS)){throw Error(gl.getProgramInfoLog(program));}gl.useProgram(program);
+const attr={pos:gl.getAttribLocation(program,'aPos'),normal:gl.getAttribLocation(program,'aNormal'),color:gl.getAttribLocation(program,'aColor')};const uni={halfW:gl.getUniformLocation(program,'uHalfW'),halfH:gl.getUniformLocation(program,'uHalfH'),shift:gl.getUniformLocation(program,'uShift'),right:gl.getUniformLocation(program,'uRight'),depth:gl.getUniformLocation(program,'uDepth'),sine:gl.getUniformLocation(program,'uSin'),cos:gl.getUniformLocation(program,'uCos')};
+gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+const PALETTE={grass:'#90c97e',grassLite:'#a8d88f',gold:'#f2cf7f',wood:'#b78c65',soil:'#946b4e'};
+function rgb(hex,alpha=1){let h=hex.replace('#','');if(h.length===3)h=h.split('').map(v=>v+v).join('');return [parseInt(h.slice(0,2),16)/255,parseInt(h.slice(2,4),16)/255,parseInt(h.slice(4,6),16)/255,alpha]}
+let mesh=[];
+function v(p,n,c){mesh.push(...p,...n,...c)}
+function face(a,b,c,col,alpha=1){const ab=b.map((q,i)=>q-a[i]),ac=c.map((q,i)=>q-a[i]);let n=[ab[1]*ac[2]-ab[2]*ac[1],ab[2]*ac[0]-ab[0]*ac[2],ab[0]*ac[1]-ab[1]*ac[0]];let len=Math.hypot(...n)||1;n=n.map(q=>q/len);const color=Array.isArray(col)?col:rgb(col,alpha);v(a,n,color);v(b,n,color);v(c,n,color)}
+function quad(a,b,c,d,col,alpha=1){face(a,b,c,col,alpha);face(a,c,d,col,alpha)}
+function box(x,y,z,w,h,d,cols){const a=[x,y,z],b=[x+w,y,z],c=[x+w,y,z+d],e=[x,y,z+d],A=[x,y+h,z],B=[x+w,y+h,z],C=[x+w,y+h,z+d],D=[x,y+h,z+d];const ct=Array.isArray(cols)?cols:[cols,cols,cols];quad(D,C,B,A,ct[0]);quad(e,c,C,D,ct[1]);quad(c,b,B,C,ct[2]);quad(a,e,D,A,ct[1]);quad(b,a,A,B,ct[2]);quad(a,b,c,e,ct[1]);}
+function cyl(x,y,z,r,h,cols,n=8,rTop=r){const col=Array.isArray(cols)?cols:[cols,cols];const top=[],bot=[];for(let j=0;j<n;j++){const a=j*2*Math.PI/n;top.push([x+Math.cos(a)*rTop,y+h,z+Math.sin(a)*rTop]);bot.push([x+Math.cos(a)*r,y,z+Math.sin(a)*r]);}for(let j=0;j<n;j++){const q=(j+1)%n;quad(bot[j],bot[q],top[q],top[j],j%3===0?col[1]:col[0]);face([x,y+h,z],top[j],top[q],col[0]);} }
+function ball(x,y,z,rx,ry,rz,colors,rows=5,cols=8){const colorArr=Array.isArray(colors)?colors:[colors];for(let j=0;j<rows;j++){const a=Math.PI*j/rows,b=Math.PI*(j+1)/rows;for(let k=0;k<cols;k++){const c=2*Math.PI*k/cols,d=2*Math.PI*(k+1)/cols;const f=(u,t)=>[x+Math.sin(u)*Math.cos(t)*rx,y+Math.cos(u)*ry,z+Math.sin(u)*Math.sin(t)*rz];const p=f(a,c),q=f(b,c),r=f(b,d),s=f(a,d);const cc=colorArr[(j*cols+k*3)%colorArr.length];quad(p,q,r,s,cc);}}}
+function tapered(x,y,z,r,h,cols,n=7){cyl(x,y,z,r,h,cols,n,.02)}
+function polyGround(points,y,color){for(let i=1;i<points.length-1;i++)face([points[0][0],y,points[0][1]],[points[i][0],y,points[i][1]],[points[i+1][0],y,points[i+1][1]],color)}
+function postLine(a,b,width,depth,colors){const dx=b[0]-a[0],dy=b[1]-a[1],dz=b[2]-a[2],length=Math.hypot(dx,dy,dz);if(length<.001)return; // oriented square-section beam
+const u=[dx/length,dy/length,dz/length];let per=[-u[2],0,u[0]];if(Math.hypot(...per)<.2)per=[1,0,0];const plen=Math.hypot(...per);per=per.map(q=>q/plen*width/2);const cross=[u[1]*per[2]-u[2]*per[1],u[2]*per[0]-u[0]*per[2],u[0]*per[1]-u[1]*per[0]].map(q=>q*depth/width);const corners=[[1,1],[-1,1],[-1,-1],[1,-1]];const p=corners.map(([l,m])=>a.map((q,i)=>q+per[i]*l+cross[i]*m));const q=corners.map(([l,m])=>b.map((w,i)=>w+per[i]*l+cross[i]*m));for(let i=0;i<4;i++)quad(p[i],p[(i+1)%4],q[(i+1)%4],q[i],Array.isArray(colors)?colors[i%colors.length]:colors);}
+function shadow(x,z,rx,rz){let pts=[];for(let i=0;i<20;i++){const a=2*Math.PI*i/20;pts.push([x+rx*Math.cos(a),z+rz*Math.sin(a)]);}polyGround(pts,.085,[.23,.43,.29,.20]);}
+function flower(x,z,color,size=.075){cyl(x,.09,z,.02,.18,'#4e9c64',5);for(let k=0;k<5;k++){const a=k*2*Math.PI/5;ball(x+Math.cos(a)*size*.75,.30,z+Math.sin(a)*size*.75,size*.65,.055,size*.65,color,3,5);}ball(x,.31,z,size*.34,.05,size*.34,'#f8d66d',3,5)}
+function grassTuft(x,z,s=.16){for(let k=0;k<3;k++){const a=k*2*Math.PI/3;tapered(x+Math.cos(a)*.04,.05,z+Math.sin(a)*.04,.06*s/.16,.24*s/.16,['#5fae6a','#91d58a'],4);}}
+function rock(x,y,z,r=.25){ball(x,y,z,r,r*.73,r*.88,['#c6c4a5','#a6ae95','#dedac0','#b2ae91'],3,7)}
+const island=[];for(let i=0;i<24;i++){const a=i*2*Math.PI/24;const r=7.2+Math.sin(i*2.91)*.26+Math.cos(i*1.47)*.17;island.push([Math.cos(a)*r*1.05,Math.sin(a)*r*.92]);}
+function buildIsland(){// tapered sediment rings create a thick sculpted floating rock
+  const rings=[{r:1.0,y:-.04},{r:1.065,y:-.22},{r:.99,y:-.63},{r:.81,y:-2.05},{r:.49,y:-3.35},{r:.24,y:-5.10}];
+  for(let layer=0;layer<rings.length-1;layer++){const ra=rings[layer],rb=rings[layer+1];for(let i=0;i<island.length;i++){const j=(i+1)%island.length;const a=island[i],b=island[j];const p=[a[0]*ra.r,ra.y,a[1]*ra.r],q=[b[0]*ra.r,ra.y,b[1]*ra.r],r=[b[0]*rb.r,rb.y,b[1]*rb.r],t=[a[0]*rb.r,rb.y,a[1]*rb.r];const cols=layer===0?['#a6c77f','#8fba72','#b2cd82']:layer===1?['#d4bb86','#c7ac79','#c1ad84']:layer===2?['#ac8665','#aa7959','#c19b74']:layer===3?['#8d6e60','#967462','#826656']:['#6f5a4f','#80604f','#756356'];quad(p,q,r,t,cols[(i*7+layer)%3]);}}
+  const tip=[.1,-8.25,.2],last=rings[rings.length-1];for(let i=0;i<island.length;i++){let a=island[i],b=island[(i+1)%island.length];face([a[0]*last.r,last.y,a[1]*last.r],[b[0]*last.r,last.y,b[1]*last.r],tip,i%3===0?'#69554d':'#826855');}
+  // top grass with recessed lighter meadow and a natural irregular transition
+  for(let i=0;i<island.length;i++)face([0,.06,0],[island[(i+1)%island.length][0],.06,island[(i+1)%island.length][1]],[island[i][0],.06,island[i][1]],'#a1d487');
+  // soft meadow color patches, not giant triangles across the farm
+  for(let k=0;k<27;k++){const a=k*2.399,r=.8+Math.sqrt((k*71%29)/29)*5.9,x=Math.cos(a)*r,z=Math.sin(a)*r;if(Math.abs(x)<3.45&&Math.abs(z)<3.4)continue;
+    let pts=[];for(let j=0;j<7;j++){const t=j*6.28/7;pts.push([x+Math.cos(t)*(.26+(k%3)*.07),z+Math.sin(t)*(.19+(k%2)*.06)]);}
+    polyGround(pts,.068,k%3===0?'#a9db96':'#9ace84');}
+  // jagged cliff protrusions, make the floating rock readable from the side
+  for(let k=0;k<9;k++){let a=Math.PI*.12+k*.25,x=Math.sin(a)*4.9,z=Math.cos(a)*4.3;const baseY=-1.1-(k%3)*.25;
+    face([x-.50,baseY,z-.26],[x+.45,baseY-.13,z+.10],[x+.09,baseY-1.75-(k%3)*.46,z+.08],k%2?'#93715b':'#785d4f');}
+  // tiny strata breaks along cliff and rocky clusters
+  for(let j=0;j<28;j++){const a=j*6.28/28,r=6.3+.25*Math.sin(j*9);if(j%3===0){rock(Math.cos(a)*r,-.60,Math.sin(a)*r,.25)}else{ball(Math.cos(a)*r,-.35,Math.sin(a)*r,.2,.1,.2,['#b29d7a','#b9a984'],3,5)}}
+  for(let i=0;i<55;i++){let t=i*2.39996,r=5.2+Math.sin(i*4.3)*1.35;const x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.6&&Math.abs(z)<3.3)continue;if(i%3===0)flower(x,z,i%2?'#fff5ca':'#ffdad7',.09);else grassTuft(x,z,.10)}
+  for(let j=0;j<10;j++){const a=j*2.39;rock(Math.sin(a)*4.9,0.05,Math.cos(a)*5.8,.1+.08*(j%3));}
+  // trail winding behind farm, made from warm stone tiles
+  for(let i=0;i<11;i++){let x=-4.85+i*.72,z=-3.3+.25*Math.sin(i*.8);box(x,.08,z,.38,.08,.32,['#f6dfaf','#dcc18f','#d6b889']);}
+  for(let i=0;i<8;i++){let x=4.65+Math.sin(i*.7)*.2,z=-3.1+i*.7;box(x,.09,z,.29,.06,.37,['#f8e3b5','#dfc79a','#ddc396']);}
+}
+function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.65,1.40);
+ // stone plinth with painted stucco walls and timber frame
+ box(x-.10,.06,z-.06,2.75,.23,2.55,['#e8d2ad','#c9b28d','#bbaa8a']);
+ box(x,.29,z,2.55,1.72,2.35,['#ffe7ca','#f0bd9b','#e9ac91']);
+ // corner posts / cross beams
+ [x+.09,x+2.37].forEach(X=>{box(X,.36,z+2.34,.10,1.60,.08,['#fff6db','#b38b69','#9a785b']);});
+ box(x,.55,z+2.37,2.55,.12,.08,['#e8bf90','#c39471','#aa8164']);
+ box(x,1.65,z+2.37,2.55,.13,.09,['#e8cba6','#b58c6a','#9d7055']);
+ // coral gabled roof double slopes (large eaves)
+ const front=z+2.62,back=z-.22,mid=x+1.275,left=x-.30,right=x+2.85,ridgeY=3.10,edgeY=1.95;
+ quad([left,edgeY,front],[mid,ridgeY,front],[mid,ridgeY,back],[left,edgeY,back],'#d37d74');
+ quad([mid,ridgeY,front],[right,edgeY,front],[right,edgeY,back],[mid,ridgeY,back],'#bc655f');
+ face([left,edgeY,front],[right,edgeY,front],[mid,ridgeY,front],'#f6ddba');
+ face([left,edgeY,back],[mid,ridgeY,back],[right,edgeY,back],'#de9a86');
+ postLine([left,edgeY,front],[mid,ridgeY,front],.105,.11,['#f2b9a4','#bd6d6b']);postLine([mid,ridgeY,front],[right,edgeY,front],.105,.11,['#ecaba1','#b96a64']);
+ for(let j=0;j<5;j++){let zz=front-j*.52;postLine([left+.17,edgeY+.13,zz],[mid,ridgeY+.03,zz],.035,.035,'#e89a89');postLine([mid,ridgeY+.04,zz],[right-.17,edgeY+.13,zz],.035,.035,'#e39383');}
+ // chimney protruding from roof
+ box(x+.43,2.55,z+.43,.43,1.0,.44,['#f4d5b6','#c59780','#b88372']);box(x+.36,3.50,z+.36,.58,.12,.58,['#fcdfbb','#b78777','#9b6a64']);
+ // door with arch-like top and golden knob
+ box(x+1.03,.30,front-.18,.59,1.24,.08,['#b47d61','#986449','#8e5944']);
+ box(x+.97,1.53,front-.185,.71,.13,.09,['#edc399','#c38d68','#ba8260']);ball(x+1.51,1.00,front-.22,.046,.047,.047,'#f8d978',4,6);
+ // window cross-panes and flower shelf
+ box(x+.26,.88,front-.20,.61,.60,.08,['#eaf6e9','#a3d4cc','#a6c8c3']);
+ postLine([x+.56,.89,front-.21],[x+.56,1.47,front-.21],.055,.05,'#fff9e8');postLine([x+.26,1.18,front-.22],[x+.87,1.18,front-.22],.055,.05,'#fff9e8');
+ box(x+.20,.78,front-.27,.76,.13,.18,['#b97f64','#a46b51','#986246']);for(let i=0;i<4;i++)flower(x+.26+i*.17,z+2.52,i%2?'#ffd8d9':'#ffffff',.1);
+ // side-wall window
+ box(x+2.53,.90,z+.51,.06,.65,.69,['#e9f7e5','#b8dccc','#a0cbcb']);
+ for(let k=0;k<3;k++)box(x+2.62,.20,z+.25+k*.8,.16,.22,.18,['#e9cf9e','#bc9870','#bd966a']);
+ // cute lantern by door
+ box(x+1.88,1.36,front-.17,.15,.24,.15,['#fff0af','#deb36f','#d4a267']);ball(x+1.95,1.55,front-.20,.17,.17,.17,['#fff2b7','#ffe6a8'],4,7);
+}
+function makeTree(x,z,scale=1,variant=0){shadow(x,z,.95*scale,.75*scale);cyl(x,.03,z,.20*scale,1.25*scale,['#936a4e','#ab7d55'],7,.14*scale);
+ // soft rounded multi-lobed faceted canopy
+ const palettes=variant%3===0?['#68b982','#81c894','#97d7a3','#5da878']:variant%3===1?['#8fc48a','#abd899','#73b983','#98cd86']:['#65af8f','#7ac6a1','#95d2ad','#58a27f'];
+ ball(x,1.92*scale,z,.82*scale,.75*scale,.82*scale,palettes,5,9);
+ [[-.53,1.73,-.12],[.42,1.9,.37],[.21,2.28,-.35],[-.12,2.30,.2]].forEach((q,i)=>ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,.53*scale,.49*scale,.51*scale,palettes.slice(i%3).concat(palettes),5,8));
+ for(let j=0;j<5;j++){let a=j*2.32;ball(x+Math.cos(a)*.65*scale,(1.7+.18*Math.sin(a))*scale,z+Math.sin(a)*.57*scale,.09*scale,.095*scale,.085*scale,j%2?'#f7a9a4':'#f9d99c',3,6);}
+}
+function windmill(){let x=5.0,z=-3.75;shadow(x,z,.9,.85);cyl(x,.06,z,.69,2.85,['#efdbc2','#d3c19f'],8,.45);
+ // balcony rim, door, roof
+ cyl(x,2.70,z,.58,.14,['#f6edd8','#c2a77f'],8);cyl(x,2.88,z,.68,.72,['#c37b6b','#e49d84'],8,.045);
+ box(x-.18,.15,z+.58,.37,.91,.075,['#a87a63','#875c48','#714c3e']);
+ // wooden clock face and windmill propeller as crossed timber beams
+ ball(x,2.20,z+.54,.19,.19,.13,'#e9d39e',4,8);
+ const hub=[x,2.22,z+.74];for(let i=0;i<4;i++){let a=Math.PI/2*i+.4;let vec=[Math.cos(a),Math.sin(a)];postLine(hub,[x+vec[0]*1.27,2.22+vec[1]*1.27,z+.77],.12,.13,['#e6bb82','#b6815b']);const px=x+vec[0]*.87,py=2.22+vec[1]*.87;box(px-.14,py-.12,z+.74,.28,.24,.06,['#f8e4bc','#dfc9a1','#d2ad85']);}
+ ball(x,2.22,z+.81,.2,.2,.11,'#e8b67d',4,9);
+}
+function well(){let x=4.86,z=2.72;shadow(x,z,.8,.7);cyl(x,.12,z,.57,.64,['#d1bd9d','#bda486','#e6d3b4'],9);cyl(x,.75,z,.47,.08,'#8abec1',9);for(let j of [-.5,.5])box(x+j-.06,.12,z-.48,.12,1.55,.11,['#edd3a4','#c4a075','#b99167']);
+ const yy=1.72;quad([x-.78,yy,z+.53],[x,2.14,z+.53],[x,2.14,z-.57],[x-.78,yy,z-.57],'#e0a97b');quad([x,2.14,z+.53],[x+.78,yy,z+.53],[x+.78,yy,z-.57],[x,2.14,z-.57],'#c58760');
+}
+function fence(x,z,w,d){for(let i=0;i<=Math.round(w/.65);i++){let xx=x+i*w/Math.round(w/.65);box(xx,.07,z,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(xx,.07,z+d,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let j=0;j<=Math.round(d/.65);j++){let zz=z+j*d/Math.round(d/.65);box(x,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(x+w,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let y of [.28,.53]){postLine([x,y,z],[x+w,y,z],.08,.08,'#e4c393');postLine([x,y,z+d],[x+w,y,z+d],.08,.08,'#e4c393');}}
+function makePlotBase(i){const ix=i%4,iz=Math.floor(i/4),x=-2.98+ix*1.52,z=-2.78+iz*1.52,w=1.34;const s=state.plots[i];shadow(x+w/2,z+w/2,.75,.69);
+ box(x,.13,z,w,.16,w,[s.unlock?'#bb8e62':'#b9ca9c',s.unlock?'#987251':'#9eb58e',s.unlock?'#876245':'#94ad83']);
+ if(!s.unlock){box(x+.09,.27,z+.09,w-.18,.045,w-.18,['#c8d8b1','#9eae92','#91ad84']);for(let j=0;j<4;j++)ball(x+.35+(j%2)*.49,.35,z+.32+Math.floor(j/2)*.5,.10,.1,.09,['#d9e6cb','#adbea6'],4,6);return;}
+ // raised wooden beds with plank joints and decorative nails
+ for(let j of [0,1]){const zz=z+j*w-.035;box(x,.25,zz,w,.17,.09,['#d5a877','#a77953','#c18e60']);for(let t=0;t<4;t++)ball(x+.12+t*.34,.36,zz+.04,.024,.017,.022,'#f0daaa',3,5)}
+ for(let j of [0,1]){const xx=x+j*w-.035;box(xx,.25,z,.09,.17,w,['#d5a877','#a77953','#ae8058']);}
+ box(x+.095,.30,z+.095,w-.19,.045,w-.19,['#8a6549','#684935','#76533b']);
+ for(let t=0;t<3;t++){let xx=x+.30+t*.36;box(xx,.34,z+.17,.035,.023,w-.34,['#ac8160','#8f6d50','#8a684f']);}
+}
+function leaf(x,y,z,dx,dy,dz,color){let end=[x+dx,y+dy,z+dz],mid=[x+dx*.54,y+dy*.58,z+dz*.54];let perp=[-dz,0,dx];let len=Math.hypot(...perp)||1;perp=perp.map(q=>q/len*.105);let a=mid.map((q,i)=>q+perp[i]),b=mid.map((q,i)=>q-perp[i]);face([x,y,z],a,end,color);face([x,y,z],end,b,color);}
+function crop(x,z,type,progress){const k=Math.max(0.12,Math.min(1,progress));const grow=.25+.75*Math.min(1,k*2.2),mature=k>=.93;
+ for(let j=0;j<3;j++){let cx=x+(j-1)*.31;let cz=z+(.08*((j%2)*2-1));if(type===0){ // carrot crown + leafy fronds
+ if(k>.24)tapered(cx,.35,cz,.12*grow,.44*grow,['#e48a4d','#ffac64'],7);
+ for(let a=0;a<5;a++){let ang=a*1.26+j*.41;leaf(cx,.43,cz,Math.cos(ang)*.22*grow,.56*grow,Math.sin(ang)*.23*grow,a%2?'#4f9b5f':'#83c879');}
+ }else if(type===1){cyl(cx,.39,cz,.038*grow,.43*grow,'#5d9e5d',5);for(let a=0;a<6;a++){let ang=a*1.047;leaf(cx,.48+grow*.18,cz,Math.cos(ang)*.30*grow,.18*grow,Math.sin(ang)*.3*grow,a%2?'#62af69':'#8ed48c');}if(k>.5){for(let a=0;a<3;a++){let ang=a*2.12+j*.5;const xx=cx+Math.cos(ang)*.15*grow,zz=cz+Math.sin(ang)*.14*grow;ball(xx,.43+grow*.13,zz,.105*grow,.13*grow,.10*grow,['#e75960','#f3756c','#d44251'],4,8);ball(xx,.55+grow*.14,zz,.065,.025,.065,'#72b66c',3,5);}}
+ }else if(type===2){cyl(cx,.38,cz,.050*grow,.76*grow,['#519a5a','#78c878'],6,.03*grow);for(let a=0;a<4;a++){let ang=a*1.57+.4;leaf(cx,.43+grow*.18,cz,Math.cos(ang)*.26*grow,.39*grow,Math.sin(ang)*.29*grow,a%2?'#5fac5e':'#86ce7e');}if(k>.5){cyl(cx+.08,.58,cz,.13*grow,.34*grow,['#f2c962','#e6b94d'],7,.11*grow);ball(cx+.08,.93,cz,.1,.14,.1,'#f6dc88',4,7);}
+ }else {for(let a=0;a<5;a++){let ang=a*1.26;leaf(cx,.39,cz,Math.cos(ang)*.23*grow,.19*grow,Math.sin(ang)*.26*grow,'#61a95c')}if(k>.37){ball(cx,.50,cz,.20*grow,.17*grow,.21*grow,['#df913e','#f7af58','#d47f34'],4,9);cyl(cx,.61,cz,.033,.13,'#56854b',5);} }
+ }
+}
+// Small satellite islands are separate modeled bodies, visible past the main island.
+function satellite(x,z,r,yOffset){let n=9;for(let i=0;i<n;i++){let a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;const top=[x+Math.cos(a)*r,yOffset,z+Math.sin(a)*r],top2=[x+Math.cos(b)*r,yOffset,z+Math.sin(b)*r],side=[x+Math.cos(a)*r*.72,yOffset-1,z+Math.sin(a)*r*.72],side2=[x+Math.cos(b)*r*.72,yOffset-1,z+Math.sin(b)*r*.72];face([x,yOffset+.04,z],top2,top,'#a8d294');quad(top,top2,side2,side,i%3===0?'#b18d69':'#93745c');face(side,side2,[x,yOffset-1.5,z],'#785c4d');}ball(x,yOffset+.28,z,.42,.35,.36,['#8fca8a','#6db77d','#a2dba2'],4,7);}
+function sceneStatic(){mesh=[];buildIsland(); // satellites projected past main island
+ satellite(9.45,-2.45,1.15,-1.25);satellite(-9.0,2.1,.78,-1.0);
+ makeHouse();windmill();well();
+ makeTree(-5.35,.25,.95,0);makeTree(-5.0,4.6,.87,1);makeTree(4.25,4.76,.82,2);makeTree(5.20,.03,.75,1);makeTree(-2.2,5.55,.71,0);makeTree(1.96,-5.62,.60,2);
+ fence(-5.8,1.95,2.32,2.75);
+ for(let i=0;i<16;i++)makePlotBase(i);
+ // mushrooms, rose borders, soft stepping pebbles
+ for(let i=0;i<21;i++){let t=i*2.399963,r=4.15+Math.sin(i*4.6)*1.25;let x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.8&&Math.abs(z)<3.5)continue;flower(x,z,['#f7d3d9','#fbf1bc','#ffffff','#eec9f2'][i%4],.07+.02*(i%3));}
+ return new Float32Array(mesh);
+}
+function sceneCrops(){mesh=[];for(let i=0;i<16;i++){let p=state.plots[i];if(!p.unlock||p.seed<0)continue;let x=-2.98+(i%4)*1.52,z=-2.78+Math.floor(i/4)*1.52;crop(x+.68,z+.68,p.seed,(Date.now()-p.at)/CROPS[p.seed].time);}
+ return new Float32Array(mesh);
+}
+function gpuBuffer(){return {handle:gl.createBuffer(),count:0};}let fixed=gpuBuffer(),moving=gpuBuffer();
+function upload(target,arr){gl.bindBuffer(gl.ARRAY_BUFFER,target.handle);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);target.count=arr.length/10;softNeedsSort=true;}
+function assign(target){gl.bindBuffer(gl.ARRAY_BUFFER,target.handle);const stride=10*4;gl.enableVertexAttribArray(attr.pos);gl.vertexAttribPointer(attr.pos,3,gl.FLOAT,false,stride,0);gl.enableVertexAttribArray(attr.normal);gl.vertexAttribPointer(attr.normal,3,gl.FLOAT,false,stride,3*4);gl.enableVertexAttribArray(attr.color);gl.vertexAttribPointer(attr.color,4,gl.FLOAT,false,stride,6*4);gl.drawArrays(gl.TRIANGLES,0,target.count);}
+let softTris=[],softNeedsSort=true;
+function softRebuild(){softTris=[];for(let obj of [fixed,moving]){let arr=obj.handle.data;if(!arr)continue;for(let i=0;i<arr.length;i+=30){let pts=[],dep=0;for(let j=0;j<3;j++){const ii=i+j*10,x=arr[ii],y=arr[ii+1],z=arr[ii+2];pts.push([x,y,z]);dep+=(x*depth[0]+z*depth[1])*cv+y*sv;}
+ const n=[arr[i+3],arr[i+4],arr[i+5]],lum=.72+.31*Math.max(0,(n[0]*-.55+n[1]*.9+n[2]*.65)/Math.sqrt(.55*.55+.9*.9+.65*.65));const r=Math.min(255,Math.round(arr[i+6]*lum*255)),g=Math.min(255,Math.round(arr[i+7]*lum*255)),b=Math.min(255,Math.round(arr[i+8]*lum*255));const alpha=arr[i+9];softTris.push({pts,dep:dep/3,color:`rgb(${r},${g},${b})`,alpha});}}
+ softTris.sort((a,b)=>a.dep-b.dep);}
+function drawSoft(){if(softNeedsSort){softRebuild();softNeedsSort=false;}ctx2d.setTransform(DPR,0,0,DPR,0,0);ctx2d.clearRect(0,0,W,H);for(const tri of softTris){const pts=tri.pts.map(p=>project(...p));ctx2d.beginPath();ctx2d.moveTo(pts[0][0],pts[0][1]);ctx2d.lineTo(pts[1][0],pts[1][1]);ctx2d.lineTo(pts[2][0],pts[2][1]);ctx2d.closePath();ctx2d.fillStyle=tri.color;ctx2d.globalAlpha=tri.alpha;ctx2d.fill();ctx2d.strokeStyle=tri.color;ctx2d.lineWidth=.4;ctx2d.stroke();}ctx2d.globalAlpha=1;}
+let W=0,H=0,DPR=1,zoom=1.06,shiftX=0,shiftY=0,projW=17.3,projH=32;
+const camAngle=Math.PI/4;const right=[Math.cos(camAngle),-Math.sin(camAngle)],depth=[Math.sin(camAngle),Math.cos(camAngle)],elev=.77;
+const sv=Math.sin(elev),cv=Math.cos(elev);
+function resize(){const ww=innerWidth,hh=innerHeight;if(ww===W&&hh===H)return;W=ww;H=hh;DPR=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);gl.viewport(0,0,canvas.width,canvas.height);}
+function project(x,y,z){const u=x*right[0]+z*right[1],v=y*cv-(x*depth[0]+z*depth[1])*sv;return [W*.5+(u/projW)*W+shiftX,H*.49-(v/projH)*H+shiftY];}
+function screenPoly(i){const x=-2.98+(i%4)*1.52,z=-2.78+Math.floor(i/4)*1.52;return [project(x,.44,z),project(x+1.34,.44,z),project(x+1.34,.44,z+1.34),project(x,.44,z+1.34)];}
+function contains(x,y,p){let inside=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a[1]>y)!=(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])inside=!inside}return inside}
+let needsStatic=true,needsDynamic=true,lastCropUpdate=0,lastSoftPaint=0;
+function frame(time){resize();projW=(W>=H?19.8:17.3)/zoom;projH=projW*(H/W);
+ if(needsStatic){upload(fixed,sceneStatic());needsStatic=false;needsDynamic=true;}
+ if(needsDynamic||time-lastCropUpdate>1000){upload(moving,sceneCrops());needsDynamic=false;lastCropUpdate=time;}
+ if(soft){if(time-lastSoftPaint>65){drawSoft();lastSoftPaint=time;}}
+ else{gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+ gl.uniform1f(uni.halfW,projW/2);gl.uniform1f(uni.halfH,projH/2);
+ gl.uniform2f(uni.shift,shiftX/W*2,-shiftY/H*2+.02);
+ gl.uniform2f(uni.right,right[0],right[1]);gl.uniform2f(uni.depth,depth[0],depth[1]);gl.uniform1f(uni.sine,sv);gl.uniform1f(uni.cos,cv);
+ assign(fixed);assign(moving);}
+ requestAnimationFrame(frame);
+}
+let toastTimeout;function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>$('toast').classList.remove('show'),1700)}
+function sparkleAt(x,y){for(let j=0;j<7;j++){const el=document.createElement('span');el.className='sparkle';el.textContent=['✨','🪙','✦','🌟'][j%4];el.style.left=x+'px';el.style.top=y+'px';let ang=j*2*Math.PI/7;el.style.setProperty('--tx',`calc(-50% + ${Math.cos(ang)*(30+j*4)}px)`);el.style.setProperty('--ty',`calc(-50% + ${Math.sin(ang)*(28+j*3)-25}px)`);$('spark').appendChild(el);setTimeout(()=>el.remove(),1100);}}
+function gainXP(n){state.xp+=n;while(state.xp>=state.level*10+60){state.xp-=state.level*10+60;state.level++;state.coins+=100;toast('🎉 升级！获得 100 金币');}hud();}
+function tapPlot(i,x,y){const p=state.plots[i];if(!p.unlock){const price=160+Math.max(0,i-9)*80;if(state.coins<price){toast('🔒 解锁需要 '+price+' 金币');return;}if(!confirm('花费 '+price+' 金币解锁这块农田？'))return;state.coins-=price;p.unlock=true;needsStatic=true;toast('🌱 新农田解锁成功！');}
+ else if(p.seed<0){const c=CROPS[state.selected];if(state.coins<c.cost){toast('金币不足，先收获成熟作物吧');return;}state.coins-=c.cost;p.seed=state.selected;p.at=Date.now();needsDynamic=true;toast('🌱 已种植'+c.name);}
+ else{const c=CROPS[p.seed],remain=c.time-(Date.now()-p.at);if(remain>0){toast(c.emoji+' 还有 '+Math.ceil(remain/1000)+' 秒成熟');return;}state.coins+=c.sell;state.total++;state.harvest[p.seed]=(state.harvest[p.seed]||0)+1;p.seed=-1;p.at=0;needsDynamic=true;gainXP(c.xp);sparkleAt(x,y);toast('🎉 收获 '+c.emoji+' +'+c.sell+' 金币');}
+ save();hud();}
+function hud(){$('coins').textContent=state.coins;$('level').textContent=state.level;const cap=state.level*10+60;$('xpText').textContent=state.xp+'/'+cap;$('xpBar').style.width=Math.min(100,100*state.xp/cap)+'%';$('currentSeed').textContent=CROPS[state.selected].emoji+' 当前种子：'+CROPS[state.selected].name;document.querySelectorAll('.seed').forEach((el,i)=>el.classList.toggle('active',i===state.selected));}
+function drawSeeds(){$('seedStrip').innerHTML=CROPS.map((c,i)=>`<button class="seed${i===state.selected?' active':''}" data-seed="${i}"><span class="icon">${c.emoji}</span><span class="price">🪙 ${c.cost}</span></button>`).join('');}
+const tasks=[{name:'丰收初体验',need:3,reward:120},{name:'快乐农场主',need:10,reward:280},{name:'云端种田达人',need:25,reward:600}];
+let openPanelName='';function panel(name){openPanelName=name;const titles={shop:'🛒 种子商店',bag:'🧺 我的收获',goals:'📜 农场任务',help:'📖 游戏说明'};$('panelTitle').textContent=titles[name];let content='';if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">选择种子后，点击岛上空的农田即可播种。金币会自动扣除，成熟后再次点击收获。</div>';
+ }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+'<div class="sub">目前收获后自动出售换金币，后续版本会加入真正的物品仓库。</div>';
+ }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击下方种子，再点击空农田播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 单指拖动可以平移视角，双指可缩放。<br>⑤ 游戏自动保存进度，下次打开继续游玩。<br><br>当前为手机浏览器 V2 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
+function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
+document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>panel(b.dataset.panel));$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
+$('seedStrip').addEventListener('click',e=>{const button=e.target.closest('[data-seed]');if(!button)return;state.selected=+button.dataset.seed;save();hud();toast('🌱 选择了'+CROPS[state.selected].name)});
+$('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
+$('play').onclick=()=>{$('welcome').classList.add('hide');save();};
+let touches=new Map(),startTouch=null,moved=false,initialDistance=0,initialZoom=1;
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture?.(e.pointerId);touches.set(e.pointerId,{x:e.clientX,y:e.clientY});if(touches.size===1){startTouch={x:e.clientX,y:e.clientY,shiftX,shiftY};moved=false;}else if(touches.size===2){const a=[...touches.values()];initialDistance=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);initialZoom=zoom;moved=true;}});
+canvas.addEventListener('pointermove',e=>{if(!touches.has(e.pointerId))return;touches.set(e.pointerId,{x:e.clientX,y:e.clientY});if(touches.size===2){const a=[...touches.values()];const dist=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);zoom=Math.min(1.85,Math.max(.75,initialZoom*dist/Math.max(10,initialDistance)));moved=true;}else if(startTouch){const dx=e.clientX-startTouch.x,dy=e.clientY-startTouch.y;if(Math.hypot(dx,dy)>11)moved=true;if(moved){shiftX=Math.min(W*.42,Math.max(-W*.42,startTouch.shiftX+dx));shiftY=Math.min(H*.26,Math.max(-H*.26,startTouch.shiftY+dy));}}});
+function pointerEnd(e){if(!touches.has(e.pointerId))return;touches.delete(e.pointerId);if(touches.size===0&&startTouch&&!moved&&!openPanelName&&$('welcome').classList.contains('hide')){const x=e.clientX,y=e.clientY;for(let i=15;i>=0;i--){if(contains(x,y,screenPoly(i))){tapPlot(i,x,y);break;}}}if(touches.size===0)startTouch=null;}
+canvas.addEventListener('pointerup',pointerEnd);canvas.addEventListener('pointercancel',pointerEnd);
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.min(1.85,Math.max(.75,zoom*(e.deltaY>0?.93:1.07)))},{passive:false});
+window.addEventListener('resize',resize,{passive:true});canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();$('no3d').style.display='block';});
+resize();drawSeeds();hud();requestAnimationFrame(frame);
+})();
+</script></body></html>
