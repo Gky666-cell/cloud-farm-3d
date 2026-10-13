@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 精致空岛 V4</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 自然美术 V7</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 3px 6px;font-size:10px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
 
-/* V3: softer daylight, foreground depth and polished compact mobile HUD. */
+/* V7: natural canopy silhouettes, sculpted farmland and improved 2D fallback. */
 #world{background:radial-gradient(circle at 77% 16%,#fff3c7 0%,#e5f8e7 23%,transparent 47%),linear-gradient(170deg,#a5dded 0%,#d3f1e3 55%,#fcefd5 100%)}
 #world:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 45%,transparent 36%,#d9efd624 95%)}
 #sun{width:165px;height:165px;top:9%;left:67%;background:radial-gradient(circle,#fffbeaef 0%,#fff4d77b 31%,#fff3d000 70%)}
@@ -15,7 +15,7 @@
 @media(max-width:365px){.brand{padding:9px}.count{padding:9px 8px}#dock{left:7px;right:7px}.nav{gap:4px}}
 </style></head>
 <body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
-<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">V3</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><div class="count">⭐ <b id="level">1</b></div></div></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">V7</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><div class="count">⭐ <b id="level">1</b></div></div></div>
 <div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 滑动平移 · 双指缩放</div><div id="toast"></div><div id="spark"></div>
 <div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子商店</button><button data-panel="bag"><span class="sym">🧺</span>收获记录</button><button data-panel="goals"><span class="sym">📜</span>每日任务</button><button data-panel="help"><span class="sym">📖</span>玩法介绍</button></div></div>
 <div id="panelShade"></div><section id="panel" role="dialog" aria-label="农场菜单"><div class="panelHead"><h2 id="panelTitle"></h2><button id="closePanel" class="x" aria-label="关闭">×</button></div><div id="panelBody"></div></section>
@@ -75,8 +75,17 @@ function buildIsland(){// thicker layered sky island with stronger cliff silhoue
     let a=island[i],b=island[(i+1)%island.length];
     face([a[0]*last.r,last.y,a[1]*last.r],[b[0]*last.r,last.y,b[1]*last.r],tip,i%2===0?'#645148':'#7a6053');
   }
-  // top grassland
-  for(let i=0;i<island.length;i++)face([0,.06,0],[island[(i+1)%island.length][0],.06,island[(i+1)%island.length][1]],[island[i][0],.06,island[i][1]],'#a3d688');
+  // segmented meadow instead of 24 giant triangles: prevents 2D fallback
+  // from incorrectly painting grass over the garden beds when depth sorting.
+  for(let layer=0;layer<8;layer++){
+    const r0=layer/8,r1=(layer+1)/8;
+    for(let i=0;i<island.length;i++){
+      const a=island[i],b=island[(i+1)%island.length];
+      const p=[a[0]*r0,.061,a[1]*r0],q=[b[0]*r0,.061,b[1]*r0];
+      const u=[a[0]*r1,.061,a[1]*r1],v=[b[0]*r1,.061,b[1]*r1];
+      quad(p,q,v,u,'#a3d688');
+    }
+  }
   // irregular lighter meadows
   for(let k=0;k<31;k++){
     const a=k*2.19,r=.9+Math.sqrt((k*67%31)/31)*6.0,x=Math.cos(a)*r,z=Math.sin(a)*r;
@@ -101,13 +110,14 @@ function buildIsland(){// thicker layered sky island with stronger cliff silhoue
     if(j%4===0) rock(Math.cos(a)*r,-.72,Math.sin(a)*r,.24);
     else ball(Math.cos(a)*r,-.43,Math.sin(a)*r,.19,.10,.18,['#bca989','#ccb896','#ab9679'],3,5);
   }
+}
+function makeGroundDetails(){
   for(let i=0;i<55;i++){let t=i*2.39996,r=5.2+Math.sin(i*4.3)*1.35;const x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.6&&Math.abs(z)<3.3)continue;if(i%3===0)flower(x,z,i%2?'#fff5ca':'#ffdad7',.09);else grassTuft(x,z,.10)}
   for(let j=0;j<10;j++){const a=j*2.39;rock(Math.sin(a)*4.9,0.05,Math.cos(a)*5.8,.1+.08*(j%3));}
-  // trail winding behind farm, made from warm stone tiles
   for(let i=0;i<11;i++){let x=-4.85+i*.72,z=-3.3+.25*Math.sin(i*.8);box(x,.08,z,.38,.08,.32,['#f6dfaf','#dcc18f','#d6b889']);}
   for(let i=0;i<8;i++){let x=4.65+Math.sin(i*.7)*.2,z=-3.1+i*.7;box(x,.09,z,.29,.06,.37,['#f8e3b5','#dfc79a','#ddc396']);}
 }
-function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.65,1.40);
+function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.78,1.48);
  // stone plinth with painted stucco walls and timber frame
  box(x-.10,.06,z-.06,2.75,.23,2.55,['#e8d2ad','#c9b28d','#bbaa8a']);
  box(x,.29,z,2.55,1.72,2.35,['#ffe7ca','#f0bd9b','#e9ac91']);
@@ -115,6 +125,12 @@ function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.65,1.40);
  [x+.09,x+2.37].forEach(X=>{box(X,.36,z+2.34,.10,1.60,.08,['#fff6db','#b38b69','#9a785b']);});
  box(x,.55,z+2.37,2.55,.12,.08,['#e8bf90','#c39471','#aa8164']);
  box(x,1.65,z+2.37,2.55,.13,.09,['#e8cba6','#b58c6a','#9d7055']);
+ // porch deck and front stairs
+ box(x+.42,.17,z+2.40,1.50,.16,.95,['#d7ac7e','#b98462','#9e7255']);
+ box(x+.86,.04,z+3.02,.62,.13,.36,['#d7ac7e','#b98462','#9e7255']);
+ for(let i=0;i<3;i++)box(x+.90+i*.18,.01,z+3.18,.10,.05,.18,['#e3c192','#c89a72','#b78665']);
+ [x+.52,x+1.82].forEach(X=>{box(X,.33,z+2.58,.11,1.18,.11,['#f8e5c0','#bf906d','#a8795d']);});
+ box(x+.47,1.47,z+2.61,1.48,.11,.09,['#f5d4a6','#b58563','#a37356']);
  // coral gabled roof double slopes (large eaves)
  const front=z+2.62,back=z-.22,mid=x+1.275,left=x-.30,right=x+2.85,ridgeY=3.10,edgeY=1.95;
  quad([left,edgeY,front],[mid,ridgeY,front],[mid,ridgeY,back],[left,edgeY,back],'#d37d74');
@@ -122,78 +138,158 @@ function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.65,1.40);
  face([left,edgeY,front],[right,edgeY,front],[mid,ridgeY,front],'#f6ddba');
  face([left,edgeY,back],[mid,ridgeY,back],[right,edgeY,back],'#de9a86');
  postLine([left,edgeY,front],[mid,ridgeY,front],.105,.11,['#f2b9a4','#bd6d6b']);postLine([mid,ridgeY,front],[right,edgeY,front],.105,.11,['#ecaba1','#b96a64']);
- for(let j=0;j<5;j++){let zz=front-j*.52;postLine([left+.17,edgeY+.13,zz],[mid,ridgeY+.03,zz],.035,.035,'#e89a89');postLine([mid,ridgeY+.04,zz],[right-.17,edgeY+.13,zz],.035,.035,'#e39383');}
+ for(let j=0;j<6;j++){let zz=front-j*.44;postLine([left+.17,edgeY+.13,zz],[mid,ridgeY+.03,zz],.038,.038,'#e89a89');postLine([mid,ridgeY+.04,zz],[right-.17,edgeY+.13,zz],.038,.038,'#e39383');}
  // chimney protruding from roof
  box(x+.43,2.55,z+.43,.43,1.0,.44,['#f4d5b6','#c59780','#b88372']);box(x+.36,3.50,z+.36,.58,.12,.58,['#fcdfbb','#b78777','#9b6a64']);
  // door with arch-like top and golden knob
  box(x+1.03,.30,front-.18,.59,1.24,.08,['#b47d61','#986449','#8e5944']);
  box(x+.97,1.53,front-.185,.71,.13,.09,['#edc399','#c38d68','#ba8260']);ball(x+1.51,1.00,front-.22,.046,.047,.047,'#f8d978',4,6);
- // window cross-panes and flower shelf
+ // windows, shutters and flower shelf
  box(x+.26,.88,front-.20,.61,.60,.08,['#eaf6e9','#a3d4cc','#a6c8c3']);
  postLine([x+.56,.89,front-.21],[x+.56,1.47,front-.21],.055,.05,'#fff9e8');postLine([x+.26,1.18,front-.22],[x+.87,1.18,front-.22],.055,.05,'#fff9e8');
+ box(x+.16,.89,front-.24,.08,.59,.05,['#c78a6e','#9f654c','#8a573f']);box(x+.89,.89,front-.24,.08,.59,.05,['#c78a6e','#9f654c','#8a573f']);
  box(x+.20,.78,front-.27,.76,.13,.18,['#b97f64','#a46b51','#986246']);for(let i=0;i<4;i++)flower(x+.26+i*.17,z+2.52,i%2?'#ffd8d9':'#ffffff',.1);
- // side-wall window
+ // side-wall window + tool pegs
  box(x+2.53,.90,z+.51,.06,.65,.69,['#e9f7e5','#b8dccc','#a0cbcb']);
  for(let k=0;k<3;k++)box(x+2.62,.20,z+.25+k*.8,.16,.22,.18,['#e9cf9e','#bc9870','#bd966a']);
- // cute lantern by door
+ // cute lantern by door and porch clutter
  box(x+1.88,1.36,front-.17,.15,.24,.15,['#fff0af','#deb36f','#d4a267']);ball(x+1.95,1.55,front-.20,.17,.17,.17,['#fff2b7','#ffe6a8'],4,7);
+ box(x+.58,.33,z+2.73,.28,.24,.23,['#c99661','#a66b48','#915b40']);ball(x+.72,.62,z+2.84,.10,.08,.10,['#86c46b','#67aa58'],3,6);
+ box(x+1.82,.33,z+2.86,.24,.14,.24,['#c7a16c','#a67c4f','#8d6a44']);for(let j=0;j<3;j++)ball(x+1.87+j*.06,.53,z+2.93,.045,.045,.045,j%2?'#ee9f52':'#d95f69',4,5);
 }
-function makeTree(x,z,scale=1,variant=0){shadow(x,z,1.02*scale,.86*scale);
- const bark=variant%2?['#9f7354','#7b5a44','#b48663']:['#8f684d','#6d503e','#a37a59'];
- const leaves=variant%3===0?['#5ea671','#6fba7a','#87c98a','#4f8f62']:variant%3===1?['#6faf78','#84c487','#99d39a','#5f9c66']:['#5a9f86','#73b697','#8dd0aa','#4c8f78'];
- const h=1.46*scale;
- cyl(x,.04,z,.24*scale,h,bark,8,.16*scale);
- for(let r=0;r<4;r++){let ang=.72+r*1.57;postLine([x,.18,z],[x+Math.cos(ang)*.19*scale,.05,z+Math.sin(ang)*.18*scale],.05*scale,.06*scale,[bark[1],bark[2]]);}
- const branchBase=1.08*scale;
- [[-0.46,1.56,-0.12,.18], [0.41,1.66,0.24,.16], [0.18,1.90,-0.46,.14], [-0.12,1.84,0.43,.15]].forEach((q,i)=>{
-   postLine([x,branchBase,z],[x+q[0]*scale,q[1]*scale,z+q[2]*scale],q[3]*scale,q[3]*scale,[bark[0],bark[2]]);
-   ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,.19*scale,.16*scale,.19*scale,['#7a553f','#8c6548'],3,6);
- });
- ball(x,2.08*scale,z,.42*scale,.48*scale,.42*scale,['#6f563d','#8d6b4d'],3,6);
- [
-  [0,2.30,0,.70,.58,.70],[ -0.58,2.02,-0.10,.48,.42,.46],[ 0.52,2.08,0.30,.46,.40,.42],[0.28,2.46,-0.48,.45,.38,.43],[-0.18,2.64,0.20,.38,.32,.36]
- ].forEach((q,i)=>ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,q[3]*scale,q[4]*scale,q[5]*scale,leaves.slice(i%2).concat(leaves),4,7));
- for(let k=0;k<7;k++){
-   let a=k*0.9+variant*.35,rr=.58+.09*Math.sin(k*2.4);
-   ball(x+Math.cos(a)*rr*scale,(2.15+.18*Math.sin(k))*scale,z+Math.sin(a)*rr*.82*scale,.20*scale,.17*scale,.18*scale,[leaves[k%leaves.length],leaves[(k+1)%leaves.length]],3,6);
- }
- for(let j=0;j<6;j++){let a=j*1.02+variant*.5;flower(x+Math.cos(a)*.72*scale,z+Math.sin(a)*.55*scale,j%2?'#ffecc1':'#ffd8df',.06*scale+.01*(j%2));}
+// Different tree species: broadleaf woodland, fruit tree, and conifer.
+// Leaf fans are distinct tapered planes, rather than a solid green sphere.
+function leafFan(cx,cy,cz,rad,kind,palette,seed){
+  const blades=kind===1?8:10;
+  ball(cx,cy,cz,rad*.50,rad*.35,rad*.46,
+       [palette[1],palette[0],palette[2],palette[0]],3,6);
+  for(let j=0;j<blades;j++){
+    const a=j*6.283185/blades+seed*.41;
+    const up=.12+.20*Math.sin(a*2.4+seed);
+    const dx=Math.cos(a)*rad, dz=Math.sin(a)*rad;
+    const start=[cx+dx*.16,cy+up*.22,cz+dz*.16];
+    const mid=[cx+dx*.64,cy+up*.75,cz+dz*.64];
+    const end=[cx+dx,cy+up,cz+dz];
+    const side=[-Math.sin(a)*rad*.16,0,Math.cos(a)*rad*.16];
+    const L=[mid[0]+side[0],mid[1]+.065,mid[2]+side[2]],R=[mid[0]-side[0],mid[1]+.065,mid[2]-side[2]];
+    face(start,L,end,palette[(j+seed)%palette.length]);
+    face(start,end,R,palette[(j+seed+1)%palette.length]);
+  }
 }
-function windmill(){let x=5.0,z=-3.75;shadow(x,z,.9,.85);cyl(x,.06,z,.69,2.85,['#efdbc2','#d3c19f'],8,.45);
- // balcony rim, door, roof
- cyl(x,2.70,z,.58,.14,['#f6edd8','#c2a77f'],8);cyl(x,2.88,z,.68,.72,['#c37b6b','#e49d84'],8,.045);
- box(x-.18,.15,z+.58,.37,.91,.075,['#a87a63','#875c48','#714c3e']);
- // wooden clock face and windmill propeller as crossed timber beams
- ball(x,2.20,z+.54,.19,.19,.13,'#e9d39e',4,8);
- const hub=[x,2.22,z+.74];for(let i=0;i<4;i++){let a=Math.PI/2*i+.4;let vec=[Math.cos(a),Math.sin(a)];postLine(hub,[x+vec[0]*1.27,2.22+vec[1]*1.27,z+.77],.12,.13,['#e6bb82','#b6815b']);const px=x+vec[0]*.87,py=2.22+vec[1]*.87;box(px-.14,py-.12,z+.74,.28,.24,.06,['#f8e4bc','#dfc9a1','#d2ad85']);}
- ball(x,2.22,z+.81,.2,.2,.11,'#e8b67d',4,9);
-}
-function well(){let x=4.86,z=2.72;shadow(x,z,.8,.7);cyl(x,.12,z,.57,.64,['#d1bd9d','#bda486','#e6d3b4'],9);cyl(x,.75,z,.47,.08,'#8abec1',9);for(let j of [-.5,.5])box(x+j-.06,.12,z-.48,.12,1.55,.11,['#edd3a4','#c4a075','#b99167']);
- const yy=1.72;quad([x-.78,yy,z+.53],[x,2.14,z+.53],[x,2.14,z-.57],[x-.78,yy,z-.57],'#e0a97b');quad([x,2.14,z+.53],[x+.78,yy,z+.53],[x+.78,yy,z-.57],[x,2.14,z-.57],'#c58760');
-}
-function fence(x,z,w,d){for(let i=0;i<=Math.round(w/.65);i++){let xx=x+i*w/Math.round(w/.65);box(xx,.07,z,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(xx,.07,z+d,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let j=0;j<=Math.round(d/.65);j++){let zz=z+j*d/Math.round(d/.65);box(x,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(x+w,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let y of [.28,.53]){postLine([x,y,z],[x+w,y,z],.08,.08,'#e4c393');postLine([x,y,z+d],[x+w,y,z+d],.08,.08,'#e4c393');}}
-function makePlotBase(i){const ix=i%4,iz=Math.floor(i/4),x=-2.98+ix*1.52,z=-2.78+iz*1.52,w=1.34;const s=state.plots[i];shadow(x+w/2,z+w/2,.79,.72);
- box(x,.12,z,w,.12,w,[s.unlock?'#ad855f':'#bccba0',s.unlock?'#8f6d4f':'#9fb48a',s.unlock?'#7b5b42':'#8fa882']);
- if(!s.unlock){
-   box(x+.06,.24,z+.06,w-.12,.06,w-.12,['#c8d8b1','#aab99a','#94ab84']);
-   polyGround([[x+.14,z+.14],[x+w-.14,z+.14],[x+w-.14,z+w-.14],[x+.14,z+w-.14]],.305,'#dfe8d4');
-   for(let j=0;j<4;j++)ball(x+.34+(j%2)*.52,.34,z+.33+Math.floor(j/2)*.52,.09,.09,.08,['#d9e6cb','#adbea6'],4,6);
+function makeTree(x,z,scale=1,variant=0){
+ const pine=variant%3===2;
+ const bark=variant%2?['#91694d','#70523e','#a78160']:['#916a50','#6d4f3d','#ac8161'];
+ shadow(x,z,1.05*scale,.90*scale);
+ if(pine){
+   cyl(x,.07,z,.15*scale,1.65*scale,bark,8,.10*scale);
+   // layered needles create an evergreen silhouette
+   for(let layer=0;layer<4;layer++){
+     const by=.74+layer*.43,rr=(.78-layer*.17)*scale;
+     tapered(x,by*scale,z,rr,.82*scale,[layer%2?'#4f8974':'#5d9f7f','#7abd95','#83b993'],9);
+     for(let j=0;j<10;j++){
+       const a=j*2*Math.PI/10+layer*.21;
+       leafFan(x+Math.cos(a)*rr*.76,(by+.20)*scale,z+Math.sin(a)*rr*.72,.11*scale,0,['#529e79','#70bb8a','#89c9a2'],j);
+     }
+   }
+   tapered(x,2.33*scale,z,.34*scale,.69*scale,['#64ae89','#4b8d73'],9);
+   for(let j=0;j<5;j++){let a=j*1.26;rock(x+Math.cos(a)*.53*scale,.09,z+Math.sin(a)*.49*scale,.09*scale);}
    return;
  }
- // more realistic earthen field: embankment, ridges and irrigation grooves
- box(x+.04,.21,z+.04,w-.08,.10,w-.08,['#b58d66','#8e6a4d','#7c5a42']);
- box(x+.10,.30,z+.10,w-.20,.055,w-.20,['#7a583f','#5e422f','#684836']);
- for(let r=0;r<4;r++){
-   const zz=z+.18+r*.25;
-   box(x+.15,.325,zz,w-.30,.06,.10,['#8a6244','#6c4b35','#775239']);
+ // visibly tapered trunk, roots and branched framework
+ cyl(x,.07,z,.19*scale,1.75*scale,bark,9,.10*scale);
+ for(let j=0;j<5;j++){
+   const a=j*1.257+variant*.32;
+   postLine([x,.15*scale,z],[x+Math.cos(a)*.25*scale,.08,z+Math.sin(a)*.19*scale],.065*scale,.065*scale,[bark[1],bark[0]]);
  }
- for(let g=0;g<3;g++){
-   const zz=z+.235+g*.25;
-   box(x+.17,.315,zz,w-.34,.018,.06,['#5e4330','#483022','#523728']);
+ const leaves=variant%3===1?['#6eab67','#86c17a','#aad892','#539453']:['#4b965e','#70b875','#96d192','#418453'];
+ // distinct limbs visible between clusters (tree is not a single bubble)
+ const limbs=[[-.58,1.80,-.28,.34], [.60,1.92,.21,.31],[-.24,2.25,.37,.32],[.33,2.37,-.34,.32],[-.09,2.64,-.11,.34]];
+ limbs.forEach((q,i)=>{
+   const mid=[x+q[0]*.42*scale,1.37*scale,z+q[2]*.38*scale];
+   const tip=[x+q[0]*scale,q[1]*scale,z+q[2]*scale];
+   postLine([x,1.23*scale,z],mid,.13*scale,.11*scale,[bark[1],bark[0]]);
+   postLine(mid,tip,.09*scale,.09*scale,[bark[0],bark[2]]);
+   for(let n=0;n<3;n++){
+     const a=(n*2.1+i*.53),cx=tip[0]+Math.cos(a)*(.17+(n%2)*.10)*scale,cz=tip[2]+Math.sin(a)*.17*scale,cy=tip[1]+(.05+(n%2)*.11)*scale;
+     leafFan(cx,cy,cz,(n%2?.37:.30)*scale,variant,leaves,i+n);
+   }
+ });
+ // small cherries/pears distinguish orchard specimens from ordinary trees
+ if(variant%3===1){
+   for(let j=0;j<12;j++){
+     const a=j*2.39996,rr=.43+.26*Math.sin(j*.8),yy=1.83+.24*(j%4);
+     const xx=x+Math.cos(a)*rr*scale,zz=z+Math.sin(a)*rr*.82*scale;
+     ball(xx,yy*scale,zz,.074*scale,.083*scale,.076*scale,j%3===0?'#f1b753':'#da7770',4,7);
+     tapered(xx,(yy+.075)*scale,zz,.033*scale,.11*scale,['#659d62','#86bc6c'],5);
+   }
  }
- for(let j=0;j<4;j++){
-   ball(x+.17+j*.28,.345,z+.17,.018,.012,.018,'#d9b887',3,5);
-   ball(x+.17+j*.28,.345,z+w-.17,.018,.012,.018,'#d9b887',3,5);
+ // little ground herbs around the tree, not numerous geometry-heavy flowers
+ for(let j=0;j<4;j++){const a=j*1.63+variant*.2;grassTuft(x+Math.cos(a)*.62*scale,z+Math.sin(a)*.55*scale,.09*scale);}
+}
+function windmill(){let x=5.0,z=-3.75;shadow(x,z,.95,.92);cyl(x,.06,z,.69,2.95,['#efdbc2','#d3c19f'],8,.45);
+ // base trim, balcony rim, roof and door
+ cyl(x,.22,z,.76,.10,['#d9c8aa','#baa58a'],8);cyl(x,2.78,z,.60,.14,['#f6edd8','#c2a77f'],8);cyl(x,2.94,z,.70,.82,['#c37b6b','#e49d84'],8,.045);
+ box(x-.18,.15,z+.58,.37,.91,.075,['#a87a63','#875c48','#714c3e']);
+ box(x-.28,.04,z+.70,.56,.08,.26,['#dcc09b','#b78d66','#9b7353']);
+ // tiny side windows
+ for(let a of [0,2.1,4.2]){box(x+Math.cos(a)*.60,.98,z+Math.sin(a)*.58,.09,.34,.09,['#ecf7ee','#bfded5','#abd1cc']);}
+ // wooden clock face and propeller with braces
+ ball(x,2.20,z+.54,.19,.19,.13,'#e9d39e',4,8);
+ const hub=[x,2.22,z+.74];for(let i=0;i<4;i++){let a=Math.PI/2*i+.4;let vec=[Math.cos(a),Math.sin(a)];postLine(hub,[x+vec[0]*1.30,2.22+vec[1]*1.30,z+.77],.11,.12,['#e6bb82','#b6815b']);const px=x+vec[0]*.89,py=2.22+vec[1]*.89;box(px-.14,py-.12,z+.74,.28,.24,.06,['#f8e4bc','#dfc9a1','#d2ad85']);postLine([x+vec[0]*.42,2.22+vec[1]*.42,z+.76],[x+vec[0]*1.12,2.22+vec[1]*1.12,z+.76],.03,.03,'#b88860');}
+ ball(x,2.22,z+.81,.2,.2,.11,'#e8b67d',4,9);
+ for(let i=0;i<6;i++){let a=i*1.04;ball(x+Math.cos(a)*.88,.12,z+Math.sin(a)*.73,.08,.05,.08,['#d6c4a5','#bea786'],3,5);}
+}
+function well(){let x=4.86,z=2.72;shadow(x,z,.86,.76);
+ cyl(x,.12,z,.57,.64,['#d1bd9d','#bda486','#e6d3b4'],9);cyl(x,.75,z,.47,.08,'#8abec1',9);
+ for(let j of [-.5,.5])box(x+j-.06,.12,z-.48,.12,1.55,.11,['#edd3a4','#c4a075','#b99167']);
+ const yy=1.72;quad([x-.78,yy,z+.53],[x,2.14,z+.53],[x,2.14,z-.57],[x-.78,yy,z-.57],'#e0a97b');quad([x,2.14,z+.53],[x+.78,yy,z+.53],[x+.78,yy,z-.57],[x,2.14,z-.57],'#c58760');
+ // pulley beam, roof cap and bucket
+ postLine([x,2.11,z+.50],[x,2.11,z-.52],.06,.06,['#a47553','#865d45']);
+ ball(x,2.15,z,.08,.08,.08,'#d8b07b',4,6);
+ postLine([x,2.09,z],[x,1.28,z],.02,.02,'#c7ae7c');
+ box(x-.10,1.00,z-.10,.20,.23,.20,['#d7b181','#a27854','#8e6546']);
+ box(x-.14,.95,z-.14,.28,.05,.28,['#f0d39c','#b88a60','#9b714f']);
+ // little roof over the well
+ quad([x-.72,1.96,z+.58],[x,2.44,z+.58],[x,2.44,z-.58],[x-.72,1.96,z-.58],'#d8887c');
+ quad([x,2.44,z+.58],[x+.72,1.96,z+.58],[x+.72,1.96,z-.58],[x,2.44,z-.58],'#c86f68');
+}
+function fence(x,z,w,d){
+ const nx=Math.round(w/.65),nz=Math.round(d/.65);
+ for(let i=0;i<=nx;i++){let xx=x+i*w/nx;box(xx,.07,z,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(xx,.07,z+d,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);tapered(xx+.06,.73,z+.06,.08,.15,['#f3e2be','#ccac7d'],4);tapered(xx+.06,.73,z+d+.06,.08,.15,['#f3e2be','#ccac7d'],4);}
+ for(let j=0;j<=nz;j++){let zz=z+j*d/nz;box(x,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(x+w,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}
+ for(let y of [.28,.53]){postLine([x+.02,y,z+.06],[x+w+.08,y,z+.06],.07,.07,'#e4c393');postLine([x+.02,y,z+d+.06],[x+w+.08,y,z+d+.06],.07,.07,'#e4c393');}
+ for(let j=0;j<=nz;j++){let zz=z+j*d/nz;postLine([x+.06,.30,zz+.06],[x+.06,.52,zz+.06],.03,.03,'#dcb889');if(j<nz)postLine([x+w+.06,.30,zz+.06],[x+w+.06,.52,zz+.06],.03,.03,'#dcb889');}
+}
+function makePlotBase(i){
+ const ix=i%4,iz=Math.floor(i/4),x=-2.62+ix*1.52,z=-1.92+iz*1.52,w=1.34;
+ const s=state.plots[i];shadow(x+w/2,z+w/2,.80,.73);
+ // soft field edge - no solid timber slab under the soil
+ box(x,.12,z,w,.11,w,s.unlock?['#a17c57','#876346','#785639']:['#a9bd96','#99ac88','#8da17c']);
+ if(!s.unlock){
+  box(x+.07,.23,z+.07,w-.14,.045,w-.14,['#bacfad','#a3b99b','#9caf8f']);
+  for(let j=0;j<6;j++){let xx=x+.26+(j%3)*.38,zz=z+.32+Math.floor(j/3)*.52;
+   rock(xx,.28,zz,.058);}
+  // unopened plots have pale stone markers
+  box(x+.56,.265,z+.06,.20,.20,.07,['#d7d4b9','#b8b59e','#a9a48d']);
+  return;
+ }
+ box(x+.07,.23,z+.07,w-.14,.065,w-.14,['#8d6a4c','#6e5039','#765640']);
+ // curved, earth-colored furrows; each is made of short tapered mounds
+ // rather than continuous rectangular dark wooden stripes
+ for(let row=0;row<4;row++){
+  const zz=z+.24+row*.275;
+  for(let k=0;k<5;k++){
+   const xx=x+.20+k*.23,yy=.296;
+   ball(xx,yy,zz,.165,.065,.095,[row%2?'#906848':'#9a7451','#b08660','#725137'],3,7);
+  }
+  // shallow moisture in the grooves
+  if(row<3)box(x+.15,.291,zz+.118,w-.30,.012,.055,['#5e4736','#634a35','#654b37']);
+ }
+ // little grass and soil crumbs at the boundaries
+ for(let j=0;j<5;j++){
+  const xx=x+.12+j*.245;
+  ball(xx,.30,z+.10,.034,.022,.031,j%2?'#cbaa7d':'#8a674a',3,5);
+  if(j%2===0)grassTuft(xx,z+w-.045,.055);
  }
 }
 function leaf(x,y,z,dx,dy,dz,color){let end=[x+dx,y+dy,z+dz],mid=[x+dx*.54,y+dy*.58,z+dz*.54];let perp=[-dz,0,dx];let len=Math.hypot(...perp)||1;perp=perp.map(q=>q/len*.105);let a=mid.map((q,i)=>q+perp[i]),b=mid.map((q,i)=>q-perp[i]);face([x,y,z],a,end,color);face([x,y,z],end,b,color);}
@@ -361,8 +457,9 @@ function makeIslandDetails(){
  }
 }
 
-function sceneStatic(){mesh=[];buildIsland(); // satellites projected past main island
- satellite(9.45,-2.45,1.15,-1.25);satellite(-9.0,2.1,.78,-1.0);
+let islandGeometryTriangles=0;
+function sceneStatic(){mesh=[];buildIsland();islandGeometryTriangles=mesh.length/30; // satellites projected past main island
+ satellite(9.45,-2.45,1.15,-1.25);satellite(-9.0,2.1,.78,-1.0);makeGroundDetails();
  makeHouse();windmill();well();makeIslandDetails();
  makeTree(-5.35,.25,.95,0);makeTree(-5.0,4.6,.87,1);makeTree(4.25,4.76,.82,2);makeTree(5.20,.03,.75,1);makeTree(-2.2,5.55,.71,0);makeTree(1.96,-5.62,.60,2);
  fence(-5.8,1.95,2.32,2.75);
@@ -371,7 +468,7 @@ function sceneStatic(){mesh=[];buildIsland(); // satellites projected past main 
  for(let i=0;i<21;i++){let t=i*2.399963,r=4.15+Math.sin(i*4.6)*1.25;let x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.8&&Math.abs(z)<3.5)continue;flower(x,z,['#f7d3d9','#fbf1bc','#ffffff','#eec9f2'][i%4],.07+.02*(i%3));}
  return new Float32Array(mesh);
 }
-function sceneCrops(){mesh=[];for(let i=0;i<16;i++){let p=state.plots[i];if(!p.unlock||p.seed<0)continue;let x=-2.98+(i%4)*1.52,z=-2.78+Math.floor(i/4)*1.52;crop(x+.68,z+.68,p.seed,(Date.now()-p.at)/CROPS[p.seed].time);}
+function sceneCrops(){mesh=[];for(let i=0;i<16;i++){let p=state.plots[i];if(!p.unlock||p.seed<0)continue;let x=-2.62+(i%4)*1.52,z=-1.92+Math.floor(i/4)*1.52;crop(x+.68,z+.68,p.seed,(Date.now()-p.at)/CROPS[p.seed].time);}
  return new Float32Array(mesh);
 }
 function gpuBuffer(){return {handle:gl.createBuffer(),count:0};}let fixed=gpuBuffer(),moving=gpuBuffer();
@@ -379,15 +476,24 @@ function upload(target,arr){gl.bindBuffer(gl.ARRAY_BUFFER,target.handle);gl.buff
 function assign(target){gl.bindBuffer(gl.ARRAY_BUFFER,target.handle);const stride=10*4;gl.enableVertexAttribArray(attr.pos);gl.vertexAttribPointer(attr.pos,3,gl.FLOAT,false,stride,0);gl.enableVertexAttribArray(attr.normal);gl.vertexAttribPointer(attr.normal,3,gl.FLOAT,false,stride,3*4);gl.enableVertexAttribArray(attr.color);gl.vertexAttribPointer(attr.color,4,gl.FLOAT,false,stride,6*4);gl.drawArrays(gl.TRIANGLES,0,target.count);}
 let softTris=[],softNeedsSort=true;
 function softRebuild(){softTris=[];for(let obj of [fixed,moving]){let arr=obj.handle.data;if(!arr)continue;for(let i=0;i<arr.length;i+=30){let pts=[],dep=0;for(let j=0;j<3;j++){const ii=i+j*10,x=arr[ii],y=arr[ii+1],z=arr[ii+2];pts.push([x,y,z]);dep+=(x*depth[0]+z*depth[1])*cv+y*sv;}
- const n=[arr[i+3],arr[i+4],arr[i+5]],lum=.72+.31*Math.max(0,(n[0]*-.55+n[1]*.9+n[2]*.65)/Math.sqrt(.55*.55+.9*.9+.65*.65));const r=Math.min(255,Math.round(arr[i+6]*lum*255)),g=Math.min(255,Math.round(arr[i+7]*lum*255)),b=Math.min(255,Math.round(arr[i+8]*lum*255));const alpha=arr[i+9];softTris.push({pts,dep:dep/3,color:`rgb(${r},${g},${b})`,alpha});}}
+ const n=[arr[i+3],arr[i+4],arr[i+5]],lum=.72+.31*Math.max(0,(n[0]*-.55+n[1]*.9+n[2]*.65)/Math.sqrt(.55*.55+.9*.9+.65*.65));const r=Math.min(255,Math.round(arr[i+6]*lum*255)),g=Math.min(255,Math.round(arr[i+7]*lum*255)),b=Math.min(255,Math.round(arr[i+8]*lum*255));const alpha=arr[i+9];if(!pts.every(p=>Math.abs(p[1]-.061)<.0005))softTris.push({pts,dep:dep/3,color:`rgb(${r},${g},${b})`,alpha,layer:obj===fixed&&(i/30<islandGeometryTriangles||pts.every(p=>p[1]<.04))?0:1});}}
  softTris.sort((a,b)=>a.dep-b.dep);}
-function drawSoft(){if(softNeedsSort){softRebuild();softNeedsSort=false;}ctx2d.setTransform(DPR,0,0,DPR,0,0);ctx2d.clearRect(0,0,W,H);for(const tri of softTris){const pts=tri.pts.map(p=>project(...p));ctx2d.beginPath();ctx2d.moveTo(pts[0][0],pts[0][1]);ctx2d.lineTo(pts[1][0],pts[1][1]);ctx2d.lineTo(pts[2][0],pts[2][1]);ctx2d.closePath();ctx2d.fillStyle=tri.color;ctx2d.globalAlpha=tri.alpha;ctx2d.fill();ctx2d.strokeStyle=tri.color;ctx2d.lineWidth=tri.pts.every(p=>Math.abs(p[1]-.06)<.001)?.85:.25;ctx2d.stroke();}ctx2d.globalAlpha=1;}
+function drawSoft(){
+ if(softNeedsSort){softRebuild();softNeedsSort=false;}
+ ctx2d.setTransform(DPR,0,0,DPR,0,0);ctx2d.clearRect(0,0,W,H);
+ function triangle(t){const pts=t.pts.map(p=>project(...p));ctx2d.beginPath();ctx2d.moveTo(pts[0][0],pts[0][1]);ctx2d.lineTo(pts[1][0],pts[1][1]);ctx2d.lineTo(pts[2][0],pts[2][1]);ctx2d.closePath();ctx2d.fillStyle=t.color;ctx2d.globalAlpha=t.alpha;ctx2d.fill();ctx2d.strokeStyle=t.color;ctx2d.lineWidth=.18;ctx2d.stroke();}
+ // Island cliffs must always appear behind the grassland and the farm objects.
+ for(const t of softTris){if(t.layer===0)triangle(t);}
+ ctx2d.globalAlpha=1;ctx2d.beginPath();island.forEach((p,i)=>{const q=project(p[0],.061,p[1]);if(i)ctx2d.lineTo(q[0],q[1]);else ctx2d.moveTo(q[0],q[1]);});ctx2d.closePath();ctx2d.fillStyle='#9ac97d';ctx2d.fill();
+ for(const t of softTris){if(t.layer!==0)triangle(t);}
+ ctx2d.globalAlpha=1;
+}
 let W=0,H=0,DPR=1,zoom=1.08,shiftX=0,shiftY=0,projW=17.3,projH=32;
 const camAngle=Math.PI/4;const right=[Math.cos(camAngle),-Math.sin(camAngle)],depth=[Math.sin(camAngle),Math.cos(camAngle)],elev=.77;
 const sv=Math.sin(elev),cv=Math.cos(elev);
 function resize(){const ww=innerWidth,hh=innerHeight;if(ww===W&&hh===H)return;W=ww;H=hh;DPR=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);gl.viewport(0,0,canvas.width,canvas.height);}
 function project(x,y,z){const u=x*right[0]+z*right[1],v=y*cv-(x*depth[0]+z*depth[1])*sv;return [W*.5+(u/projW)*W+shiftX,H*.49-(v/projH)*H+shiftY];}
-function screenPoly(i){const x=-2.98+(i%4)*1.52,z=-2.78+Math.floor(i/4)*1.52;return [project(x,.44,z),project(x+1.34,.44,z),project(x+1.34,.44,z+1.34),project(x,.44,z+1.34)];}
+function screenPoly(i){const x=-2.62+(i%4)*1.52,z=-1.92+Math.floor(i/4)*1.52;return [project(x,.44,z),project(x+1.34,.44,z),project(x+1.34,.44,z+1.34),project(x,.44,z+1.34)];}
 function contains(x,y,p){let inside=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a[1]>y)!=(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])inside=!inside}return inside}
 let needsStatic=true,needsDynamic=true,lastCropUpdate=0,lastSoftPaint=0;
 function frame(time){resize();projW=(W>=H?19.8:17.3)/zoom;projH=projW*(H/W);
@@ -414,7 +520,7 @@ const tasks=[{name:'丰收初体验',need:3,reward:120},{name:'快乐农场主',
 let openPanelName='';function panel(name){openPanelName=name;const titles={shop:'🛒 种子商店',bag:'🧺 我的收获',goals:'📜 农场任务',help:'📖 游戏说明'};$('panelTitle').textContent=titles[name];let content='';if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">选择种子后，点击岛上空的农田即可播种。金币会自动扣除，成熟后再次点击收获。</div>';
  }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+'<div class="sub">目前收获后自动出售换金币，后续版本会加入真正的物品仓库。</div>';
  }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
- }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击下方种子，再点击空农田播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 单指拖动可以平移视角，双指可缩放。<br>⑤ 游戏自动保存进度，下次打开继续游玩。<br><br>当前为手机浏览器 V3 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击下方种子，再点击空农田播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 单指拖动可以平移视角，双指可缩放。<br>⑤ 游戏自动保存进度，下次打开继续游玩。<br><br>当前为手机浏览器 V7 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
  $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
 function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
 document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>panel(b.dataset.panel));$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
