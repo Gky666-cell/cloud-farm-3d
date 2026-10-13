@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 精致空岛 V3</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 精致空岛 V4</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 3px 6px;font-size:10px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
 
@@ -59,21 +59,48 @@ function flower(x,z,color,size=.075){cyl(x,.09,z,.02,.18,'#4e9c64',5);for(let k=
 function grassTuft(x,z,s=.16){for(let k=0;k<3;k++){const a=k*2*Math.PI/3;tapered(x+Math.cos(a)*.04,.05,z+Math.sin(a)*.04,.06*s/.16,.24*s/.16,['#5fae6a','#91d58a'],4);}}
 function rock(x,y,z,r=.25){ball(x,y,z,r,r*.73,r*.88,['#c6c4a5','#a6ae95','#dedac0','#b2ae91'],3,7)}
 const island=[];for(let i=0;i<24;i++){const a=i*2*Math.PI/24;const r=7.2+Math.sin(i*2.91)*.26+Math.cos(i*1.47)*.17;island.push([Math.cos(a)*r*1.05,Math.sin(a)*r*.92]);}
-function buildIsland(){// tapered sediment rings create a thick sculpted floating rock
-  const rings=[{r:1.0,y:-.04},{r:1.065,y:-.22},{r:.99,y:-.63},{r:.81,y:-2.05},{r:.49,y:-3.35},{r:.24,y:-5.10}];
-  for(let layer=0;layer<rings.length-1;layer++){const ra=rings[layer],rb=rings[layer+1];for(let i=0;i<island.length;i++){const j=(i+1)%island.length;const a=island[i],b=island[j];const p=[a[0]*ra.r,ra.y,a[1]*ra.r],q=[b[0]*ra.r,ra.y,b[1]*ra.r],r=[b[0]*rb.r,rb.y,b[1]*rb.r],t=[a[0]*rb.r,rb.y,a[1]*rb.r];const cols=layer===0?['#a6c77f','#8fba72','#b2cd82']:layer===1?['#d4bb86','#c7ac79','#c1ad84']:layer===2?['#ac8665','#aa7959','#c19b74']:layer===3?['#8d6e60','#967462','#826656']:['#6f5a4f','#80604f','#756356'];quad(p,q,r,t,cols[(i*7+layer)%3]);}}
-  const tip=[.1,-8.25,.2],last=rings[rings.length-1];for(let i=0;i<island.length;i++){let a=island[i],b=island[(i+1)%island.length];face([a[0]*last.r,last.y,a[1]*last.r],[b[0]*last.r,last.y,b[1]*last.r],tip,i%3===0?'#69554d':'#826855');}
-  // top grass with recessed lighter meadow and a natural irregular transition
-  for(let i=0;i<island.length;i++)face([0,.06,0],[island[(i+1)%island.length][0],.06,island[(i+1)%island.length][1]],[island[i][0],.06,island[i][1]],'#a1d487');
-  // soft meadow color patches, not giant triangles across the farm
-  for(let k=0;k<27;k++){const a=k*2.399,r=.8+Math.sqrt((k*71%29)/29)*5.9,x=Math.cos(a)*r,z=Math.sin(a)*r;if(Math.abs(x)<3.45&&Math.abs(z)<3.4)continue;
-    let pts=[];for(let j=0;j<7;j++){const t=j*6.28/7;pts.push([x+Math.cos(t)*(.26+(k%3)*.07),z+Math.sin(t)*(.19+(k%2)*.06)]);}
-    polyGround(pts,.068,k%3===0?'#a9db96':'#9ace84');}
-  // jagged cliff protrusions, make the floating rock readable from the side
-  for(let k=0;k<9;k++){let a=Math.PI*.12+k*.25,x=Math.sin(a)*4.9,z=Math.cos(a)*4.3;const baseY=-1.1-(k%3)*.25;
-    face([x-.50,baseY,z-.26],[x+.45,baseY-.13,z+.10],[x+.09,baseY-1.75-(k%3)*.46,z+.08],k%2?'#93715b':'#785d4f');}
-  // tiny strata breaks along cliff and rocky clusters
-  for(let j=0;j<28;j++){const a=j*6.28/28,r=6.3+.25*Math.sin(j*9);if(j%3===0){rock(Math.cos(a)*r,-.60,Math.sin(a)*r,.25)}else{ball(Math.cos(a)*r,-.35,Math.sin(a)*r,.2,.1,.2,['#b29d7a','#b9a984'],3,5)}}
+function buildIsland(){// thicker layered sky island with stronger cliff silhouette
+  const rings=[{r:1.02,y:-.04},{r:1.10,y:-.26},{r:1.03,y:-.74},{r:.92,y:-1.45},{r:.78,y:-2.35},{r:.59,y:-3.55},{r:.40,y:-5.15},{r:.22,y:-7.05}];
+  for(let layer=0;layer<rings.length-1;layer++){
+    const ra=rings[layer],rb=rings[layer+1];
+    for(let i=0;i<island.length;i++){
+      const j=(i+1)%island.length,a=island[i],b=island[j];
+      const p=[a[0]*ra.r,ra.y,a[1]*ra.r],q=[b[0]*ra.r,ra.y,b[1]*ra.r],r=[b[0]*rb.r,rb.y,b[1]*rb.r],t=[a[0]*rb.r,rb.y,a[1]*rb.r];
+      const cols=layer===0?['#a8cc82','#96c273','#b6d489']:layer===1?['#d8c28f','#cfb47d','#c8b187']:layer===2?['#b88f6f','#ad8260','#c49b79']:layer===3?['#9b7865','#8e6f60','#a38271']:layer===4?['#83685b','#775c52','#8d7064']:layer===5?['#70584e','#664e47','#7a6054']:['#5d4a42','#6a5348','#71574d'];
+      quad(p,q,r,t,cols[(i*5+layer)%3]);
+    }
+  }
+  const tip=[.08,-10.1,.18],last=rings[rings.length-1];
+  for(let i=0;i<island.length;i++){
+    let a=island[i],b=island[(i+1)%island.length];
+    face([a[0]*last.r,last.y,a[1]*last.r],[b[0]*last.r,last.y,b[1]*last.r],tip,i%2===0?'#645148':'#7a6053');
+  }
+  // top grassland
+  for(let i=0;i<island.length;i++)face([0,.06,0],[island[(i+1)%island.length][0],.06,island[(i+1)%island.length][1]],[island[i][0],.06,island[i][1]],'#a3d688');
+  // irregular lighter meadows
+  for(let k=0;k<31;k++){
+    const a=k*2.19,r=.9+Math.sqrt((k*67%31)/31)*6.0,x=Math.cos(a)*r,z=Math.sin(a)*r;
+    if(Math.abs(x)<3.45&&Math.abs(z)<3.5)continue;
+    let pts=[];for(let j=0;j<7;j++){const t=j*6.28/7;pts.push([x+Math.cos(t)*(.22+(k%3)*.08),z+Math.sin(t)*(.17+(k%2)*.08)]);}
+    polyGround(pts,.068,k%3===0?'#addd97':k%3===1?'#9fd283':'#b9e3a6');
+  }
+  // broad rocky shelves and overhangs around the island body
+  for(let k=0;k<13;k++){
+    const a=k*0.48+.17,x=Math.sin(a)*5.45,z=Math.cos(a)*4.72,baseY=-.95-(k%4)*.33;
+    quad([x-.42,baseY,z-.28],[x+.56,baseY-.08,z-.02],[x+.18,baseY-.62,z+.30],[x-.35,baseY-.45,z+.18],k%2?'#9a775f':'#846655');
+    face([x-.18,baseY-.45,z+.12],[x+.24,baseY-.52,z+.10],[x+.02,baseY-1.95-(k%3)*.45,z+.14],k%2?'#8c6a57':'#75584c');
+  }
+  // vertical stone ribs near the bottom, making the island feel less flat
+  for(let k=0;k<8;k++){
+    const a=k*0.78+.25,x=Math.sin(a)*3.9,z=Math.cos(a)*3.25;
+    face([x-.18,-3.0,z-.12],[x+.22,-2.85,z+.05],[x+.06,-5.65-(k%2)*.55,z+.02],k%2?'#6f564b':'#7d6155');
+  }
+  // cliff pebbles / strata breakup
+  for(let j=0;j<34;j++){
+    const a=j*6.28/34,r=6.45+.35*Math.sin(j*7.0);
+    if(j%4===0) rock(Math.cos(a)*r,-.72,Math.sin(a)*r,.24);
+    else ball(Math.cos(a)*r,-.43,Math.sin(a)*r,.19,.10,.18,['#bca989','#ccb896','#ab9679'],3,5);
+  }
   for(let i=0;i<55;i++){let t=i*2.39996,r=5.2+Math.sin(i*4.3)*1.35;const x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.6&&Math.abs(z)<3.3)continue;if(i%3===0)flower(x,z,i%2?'#fff5ca':'#ffdad7',.09);else grassTuft(x,z,.10)}
   for(let j=0;j<10;j++){const a=j*2.39;rock(Math.sin(a)*4.9,0.05,Math.cos(a)*5.8,.1+.08*(j%3));}
   // trail winding behind farm, made from warm stone tiles
@@ -111,12 +138,26 @@ function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.65,1.40);
  // cute lantern by door
  box(x+1.88,1.36,front-.17,.15,.24,.15,['#fff0af','#deb36f','#d4a267']);ball(x+1.95,1.55,front-.20,.17,.17,.17,['#fff2b7','#ffe6a8'],4,7);
 }
-function makeTree(x,z,scale=1,variant=0){shadow(x,z,.95*scale,.75*scale);cyl(x,.03,z,.20*scale,1.25*scale,['#936a4e','#ab7d55'],7,.14*scale);
- // soft rounded multi-lobed faceted canopy
- const palettes=variant%3===0?['#68b982','#81c894','#97d7a3','#5da878']:variant%3===1?['#8fc48a','#abd899','#73b983','#98cd86']:['#65af8f','#7ac6a1','#95d2ad','#58a27f'];
- ball(x,1.92*scale,z,.82*scale,.75*scale,.82*scale,palettes,5,9);
- [[-.53,1.73,-.12],[.42,1.9,.37],[.21,2.28,-.35],[-.12,2.30,.2]].forEach((q,i)=>ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,.53*scale,.49*scale,.51*scale,palettes.slice(i%3).concat(palettes),5,8));
- for(let j=0;j<5;j++){let a=j*2.32;ball(x+Math.cos(a)*.65*scale,(1.7+.18*Math.sin(a))*scale,z+Math.sin(a)*.57*scale,.09*scale,.095*scale,.085*scale,j%2?'#f7a9a4':'#f9d99c',3,6);}
+function makeTree(x,z,scale=1,variant=0){shadow(x,z,1.02*scale,.86*scale);
+ const bark=variant%2?['#9f7354','#7b5a44','#b48663']:['#8f684d','#6d503e','#a37a59'];
+ const leaves=variant%3===0?['#5ea671','#6fba7a','#87c98a','#4f8f62']:variant%3===1?['#6faf78','#84c487','#99d39a','#5f9c66']:['#5a9f86','#73b697','#8dd0aa','#4c8f78'];
+ const h=1.46*scale;
+ cyl(x,.04,z,.24*scale,h,bark,8,.16*scale);
+ for(let r=0;r<4;r++){let ang=.72+r*1.57;postLine([x,.18,z],[x+Math.cos(ang)*.19*scale,.05,z+Math.sin(ang)*.18*scale],.05*scale,.06*scale,[bark[1],bark[2]]);}
+ const branchBase=1.08*scale;
+ [[-0.46,1.56,-0.12,.18], [0.41,1.66,0.24,.16], [0.18,1.90,-0.46,.14], [-0.12,1.84,0.43,.15]].forEach((q,i)=>{
+   postLine([x,branchBase,z],[x+q[0]*scale,q[1]*scale,z+q[2]*scale],q[3]*scale,q[3]*scale,[bark[0],bark[2]]);
+   ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,.19*scale,.16*scale,.19*scale,['#7a553f','#8c6548'],3,6);
+ });
+ ball(x,2.08*scale,z,.42*scale,.48*scale,.42*scale,['#6f563d','#8d6b4d'],3,6);
+ [
+  [0,2.30,0,.70,.58,.70],[ -0.58,2.02,-0.10,.48,.42,.46],[ 0.52,2.08,0.30,.46,.40,.42],[0.28,2.46,-0.48,.45,.38,.43],[-0.18,2.64,0.20,.38,.32,.36]
+ ].forEach((q,i)=>ball(x+q[0]*scale,q[1]*scale,z+q[2]*scale,q[3]*scale,q[4]*scale,q[5]*scale,leaves.slice(i%2).concat(leaves),4,7));
+ for(let k=0;k<7;k++){
+   let a=k*0.9+variant*.35,rr=.58+.09*Math.sin(k*2.4);
+   ball(x+Math.cos(a)*rr*scale,(2.15+.18*Math.sin(k))*scale,z+Math.sin(a)*rr*.82*scale,.20*scale,.17*scale,.18*scale,[leaves[k%leaves.length],leaves[(k+1)%leaves.length]],3,6);
+ }
+ for(let j=0;j<6;j++){let a=j*1.02+variant*.5;flower(x+Math.cos(a)*.72*scale,z+Math.sin(a)*.55*scale,j%2?'#ffecc1':'#ffd8df',.06*scale+.01*(j%2));}
 }
 function windmill(){let x=5.0,z=-3.75;shadow(x,z,.9,.85);cyl(x,.06,z,.69,2.85,['#efdbc2','#d3c19f'],8,.45);
  // balcony rim, door, roof
@@ -131,14 +172,29 @@ function well(){let x=4.86,z=2.72;shadow(x,z,.8,.7);cyl(x,.12,z,.57,.64,['#d1bd9
  const yy=1.72;quad([x-.78,yy,z+.53],[x,2.14,z+.53],[x,2.14,z-.57],[x-.78,yy,z-.57],'#e0a97b');quad([x,2.14,z+.53],[x+.78,yy,z+.53],[x+.78,yy,z-.57],[x,2.14,z-.57],'#c58760');
 }
 function fence(x,z,w,d){for(let i=0;i<=Math.round(w/.65);i++){let xx=x+i*w/Math.round(w/.65);box(xx,.07,z,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(xx,.07,z+d,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let j=0;j<=Math.round(d/.65);j++){let zz=z+j*d/Math.round(d/.65);box(x,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(x+w,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}for(let y of [.28,.53]){postLine([x,y,z],[x+w,y,z],.08,.08,'#e4c393');postLine([x,y,z+d],[x+w,y,z+d],.08,.08,'#e4c393');}}
-function makePlotBase(i){const ix=i%4,iz=Math.floor(i/4),x=-2.98+ix*1.52,z=-2.78+iz*1.52,w=1.34;const s=state.plots[i];shadow(x+w/2,z+w/2,.75,.69);
- box(x,.13,z,w,.16,w,[s.unlock?'#bb8e62':'#b9ca9c',s.unlock?'#987251':'#9eb58e',s.unlock?'#876245':'#94ad83']);
- if(!s.unlock){box(x+.09,.27,z+.09,w-.18,.045,w-.18,['#c8d8b1','#9eae92','#91ad84']);for(let j=0;j<4;j++)ball(x+.35+(j%2)*.49,.35,z+.32+Math.floor(j/2)*.5,.10,.1,.09,['#d9e6cb','#adbea6'],4,6);return;}
- // raised wooden beds with plank joints and decorative nails
- for(let j of [0,1]){const zz=z+j*w-.035;box(x,.25,zz,w,.17,.09,['#d5a877','#a77953','#c18e60']);for(let t=0;t<4;t++)ball(x+.12+t*.34,.36,zz+.04,.024,.017,.022,'#f0daaa',3,5)}
- for(let j of [0,1]){const xx=x+j*w-.035;box(xx,.25,z,.09,.17,w,['#d5a877','#a77953','#ae8058']);}
- box(x+.095,.30,z+.095,w-.19,.045,w-.19,['#8a6549','#684935','#76533b']);
- for(let t=0;t<3;t++){let xx=x+.30+t*.36;box(xx,.34,z+.17,.035,.023,w-.34,['#ac8160','#8f6d50','#8a684f']);}
+function makePlotBase(i){const ix=i%4,iz=Math.floor(i/4),x=-2.98+ix*1.52,z=-2.78+iz*1.52,w=1.34;const s=state.plots[i];shadow(x+w/2,z+w/2,.79,.72);
+ box(x,.12,z,w,.12,w,[s.unlock?'#ad855f':'#bccba0',s.unlock?'#8f6d4f':'#9fb48a',s.unlock?'#7b5b42':'#8fa882']);
+ if(!s.unlock){
+   box(x+.06,.24,z+.06,w-.12,.06,w-.12,['#c8d8b1','#aab99a','#94ab84']);
+   polyGround([[x+.14,z+.14],[x+w-.14,z+.14],[x+w-.14,z+w-.14],[x+.14,z+w-.14]],.305,'#dfe8d4');
+   for(let j=0;j<4;j++)ball(x+.34+(j%2)*.52,.34,z+.33+Math.floor(j/2)*.52,.09,.09,.08,['#d9e6cb','#adbea6'],4,6);
+   return;
+ }
+ // more realistic earthen field: embankment, ridges and irrigation grooves
+ box(x+.04,.21,z+.04,w-.08,.10,w-.08,['#b58d66','#8e6a4d','#7c5a42']);
+ box(x+.10,.30,z+.10,w-.20,.055,w-.20,['#7a583f','#5e422f','#684836']);
+ for(let r=0;r<4;r++){
+   const zz=z+.18+r*.25;
+   box(x+.15,.325,zz,w-.30,.06,.10,['#8a6244','#6c4b35','#775239']);
+ }
+ for(let g=0;g<3;g++){
+   const zz=z+.235+g*.25;
+   box(x+.17,.315,zz,w-.34,.018,.06,['#5e4330','#483022','#523728']);
+ }
+ for(let j=0;j<4;j++){
+   ball(x+.17+j*.28,.345,z+.17,.018,.012,.018,'#d9b887',3,5);
+   ball(x+.17+j*.28,.345,z+w-.17,.018,.012,.018,'#d9b887',3,5);
+ }
 }
 function leaf(x,y,z,dx,dy,dz,color){let end=[x+dx,y+dy,z+dz],mid=[x+dx*.54,y+dy*.58,z+dz*.54];let perp=[-dz,0,dx];let len=Math.hypot(...perp)||1;perp=perp.map(q=>q/len*.105);let a=mid.map((q,i)=>q+perp[i]),b=mid.map((q,i)=>q-perp[i]);face([x,y,z],a,end,color);face([x,y,z],end,b,color);}
 function crop(x,z,type,progress){const k=Math.max(0.12,Math.min(1,progress));const grow=.25+.75*Math.min(1,k*2.2),mature=k>=.93;
@@ -151,7 +207,10 @@ function crop(x,z,type,progress){const k=Math.max(0.12,Math.min(1,progress));con
  }
 }
 // Small satellite islands are separate modeled bodies, visible past the main island.
-function satellite(x,z,r,yOffset){let n=9;for(let i=0;i<n;i++){let a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;const top=[x+Math.cos(a)*r,yOffset,z+Math.sin(a)*r],top2=[x+Math.cos(b)*r,yOffset,z+Math.sin(b)*r],side=[x+Math.cos(a)*r*.72,yOffset-1,z+Math.sin(a)*r*.72],side2=[x+Math.cos(b)*r*.72,yOffset-1,z+Math.sin(b)*r*.72];face([x,yOffset+.04,z],top2,top,'#a8d294');quad(top,top2,side2,side,i%3===0?'#b18d69':'#93745c');face(side,side2,[x,yOffset-1.5,z],'#785c4d');}ball(x,yOffset+.28,z,.42,.35,.36,['#8fca8a','#6db77d','#a2dba2'],4,7);}
+function satellite(x,z,r,yOffset){let n=10;for(let i=0;i<n;i++){let a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;const top=[x+Math.cos(a)*r,yOffset,z+Math.sin(a)*r],top2=[x+Math.cos(b)*r,yOffset,z+Math.sin(b)*r],side=[x+Math.cos(a)*r*.68,yOffset-1.25,z+Math.sin(a)*r*.68],side2=[x+Math.cos(b)*r*.68,yOffset-1.25,z+Math.sin(b)*r*.68];face([x,yOffset+.04,z],top2,top,'#add78f');quad(top,top2,side2,side,i%3===0?'#b5906e':'#8d6d58');face(side,side2,[x,yOffset-1.92,z],i%2?'#73584a':'#846759');}
+ ball(x,yOffset+.28,z,.44,.36,.40,['#8fca8a','#6db77d','#a2dba2'],4,7);
+ for(let j=0;j<4;j++)rock(x+Math.cos(j*1.5)*.42,yOffset-.08,z+Math.sin(j*1.5)*.33,.08);
+}
 
 // V3 artwork: faceted architecture and decorations built from real triangle meshes.
 function petalCluster(x,z,palette,scale=1){
