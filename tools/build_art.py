@@ -11,12 +11,12 @@ P={'cream':'#f8e7cb','trim':'#fef6df','wood':'#ae7957','darkwood':'#765441','roo
 
 class Model:
  def __init__(self,name): self.name=name;self.parts=[]
- def part(self,name,v,t,color,n=None):
+ def part(self,name,v,t,color,n=None,vertex_colors=None):
   v=np.asarray(v,dtype=np.float32);t=np.asarray(t,dtype=np.uint16)
   if n is None:
    a=v[t[:,1]]-v[t[:,0]];b=v[t[:,2]]-v[t[:,0]];normal=np.cross(a,b);ln=np.linalg.norm(normal,axis=1);normal/=np.maximum(ln[:,None],1e-8)
    v=v[t].reshape(-1,3);n=np.repeat(normal,3,axis=0);t=np.arange(len(v),dtype=np.uint16).reshape(-1,3)
-  self.parts.append((name,v,t,np.asarray(n,dtype=np.float32),P.get(color,color)))
+  self.parts.append((name,v,t,np.asarray(n,dtype=np.float32),P.get(color,color),vertex_colors))
  def box(self,name,c,s,color):
   x,y,z=c;w,h,d=np.array(s)/2
   v=[[x+dx*w,y+dy*h,z+dz*d] for dx,dy,dz in [(-1,-1,-1),(1,-1,-1),(1,1,-1),(-1,1,-1),(-1,-1,1),(1,-1,1),(1,1,1),(-1,1,1)]]
@@ -51,12 +51,13 @@ class Model:
    d={'bufferView':len(views)-1,'componentType':ct,'count':len(a),'type':typ}
    if typ=='VEC3':d.update(min=a.min(axis=0).tolist(),max=a.max(axis=0).tolist())
    access.append(d);return len(access)-1
-  for name,v,t,n,col in self.parts:
+  for name,v,t,n,col,vc in self.parts:
    if col not in [m['name'] for m in mats]:
     rgb=[int(col[i:i+2],16)/255 for i in (1,3,5)];rgb=[c/12.92 if c<=.04045 else ((c+.055)/1.055)**2.4 for c in rgb];mats.append({'name':col,'pbrMetallicRoughness':{'baseColorFactor':rgb+[1],'metallicFactor':0,'roughnessFactor':.85}})
    primitive={'attributes':{'POSITION':acc(v,'VEC3',5126),'NORMAL':acc(n,'VEC3',5126)},'indices':acc(t.reshape(-1),'SCALAR',5123),'material':[m['name'] for m in mats].index(col)}
+   if vc is not None:primitive['attributes']['COLOR_0']=acc(np.asarray(vc,dtype=np.float32),'VEC4',5126)
    meshes.append({'name':name,'primitives':[primitive]});nodes.append({'name':name,'mesh':len(meshes)-1});nodes[0]['children'].append(len(nodes)-1)
-  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.0.0'}}
+  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1.1'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.1.0'}}
   js=json.dumps(g,separators=(',',':')).encode();js+=b' '*((-len(js))%4);data+=b'\0'*((-len(data))%4)
   glb=struct.pack('<III',0x46546c67,2,12+8+len(js)+8+len(data))+struct.pack('<II',len(js),0x4e4f534a)+js+struct.pack('<II',len(data),0x004e4942)+data
   OUT.mkdir(parents=True,exist_ok=True);(OUT/(self.name+'.glb')).write_bytes(glb)
@@ -111,20 +112,6 @@ def tree(apple=False):
    m.ell('fruit-apple-'+str(i),(x,y,z),(.13,.125,.12),'apple',5,9);m.beam('fruit-stem-'+str(i),(x,y+.10,z),(x+.014,y+.18,z),.018,'darkwood',5);m.ell('fruit-leaf-'+str(i),(x+.06,y+.15,z),(.07,.023,.035),'deepgreen',3,7)
  return m
 
-def sheep():
- m=Model('sheep')
- for i,(x,z) in enumerate([(-.24,-.27),(.24,-.27),(-.24,.28),(.24,.28)]):
-  m.beam('leg-'+str(i),(x,.12,z),(x,.62,z),.065,'face',7,.055);m.ell('hoof-'+str(i),(x,.105,z),(.095,.105,.1),'darkwood',4,8)
- m.ell('wool-body',(0,.79,0),(.53,.41,.64),'wool',7,14)
- for i,(x,y,z) in enumerate([(-.40,.87,-.3),(.40,.9,-.24),(-.38,.92,.26),(.38,.93,.3),(-.22,1.11,-.2),(.17,1.15,-.17),(-.2,1.15,.22),(.18,1.12,.27)]):m.ell('wool-curl-'+str(i),(x,y,z),(.19,.16,.19),'wool',4,8)
- m.ell('head',(0,.92,.62),(.25,.28,.28),'face',6,12);m.ell('muzzle',(0,.85,.81),(.20,.16,.18),'#ddbd9f',5,10)
- for sign in [-1,1]:
-  m.ell('ear-'+str(sign),(sign*.29,1.10,.61),(.17,.07,.11),'face',4,9);m.ell('ear-inner-'+str(sign),(sign*.30,1.13,.645),(.105,.028,.065),'pink',3,8)
-  m.ell('eye-'+str(sign),(sign*.12,1.02,.854),(.037,.044,.025),'eye',4,8);m.ell('eye-sparkle-'+str(sign),(sign*.115,1.035,.877),(.009,.012,.009),'#ffffff',3,6)
-  m.ell('cheek-'+str(sign),(sign*.17,.91,.866),(.05,.025,.017),'pink',3,8)
- m.ell('nose',(0,.874,.984),(.045,.027,.015),'darkwood',3,8);m.ell('forelock',(0,1.17,.65),(.21,.12,.19),'wool',5,10);m.ell('tail',(0,.86,-.66),(.13,.16,.15),'wool',4,8)
- return m
-
 def plot(locked=False):
  m=Model('plot-locked' if locked else 'plot-tilled');m.box('earth-block',(0,.055,0),(1.34,.11,1.34),'#a6ba91' if locked else 'soil')
  m.box('topsoil',(0,.14,0),(1.20,.06,1.20),'#bdd0a4' if locked else '#79573e')
@@ -139,5 +126,7 @@ def plot(locked=False):
  return m
 
 if __name__=='__main__':
- stats=[m.export() for m in [house(),tree(),tree(True),sheep(),plot(),plot(True)]]
- (OUT/'manifest.json').write_text(json.dumps({'version':'1.0.0','models':stats,'palette':P},indent=2));print(json.dumps(stats,indent=2))
+ from animal_shapes import build_animals
+ animals=build_animals(Model)
+ stats=[m.export() for m in [house(),tree(),tree(True),*animals,plot(),plot(True)]]
+ (OUT/'manifest.json').write_text(json.dumps({'version':'1.1.0','models':stats,'palette':P},indent=2));print(json.dumps(stats,indent=2))

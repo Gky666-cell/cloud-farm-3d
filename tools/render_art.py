@@ -34,6 +34,12 @@ if __name__=='__main__':
   image=render(n+'.f32',480,430);image.save(OUT/(n+'.png'));x=10+(i%3)*500;y=50+(i//3)*490;sheet.paste(image,(x,y));draw.text((x+16,y+439),n.replace('-',' ').upper(),font=font,fill='#436350')
  draw.text((26,14),'CLOUD FARM / ORIGINAL 3D ART V1',font=font,fill='#436350');sheet.save(OUT/'art-v1-lineup.png')
  # Same projection angle as the actual game. Framing is computed from mesh bounds.
- for scene in ['island','sheep','orchard']:
+ for scene in ['island','sheep','cow','coop','orchard']:
   image=render('scene-'+scene+'.f32',720,1050,yaw=-math.pi/4,elev=.77,margin=.03);image.save(OUT/('game-'+scene+'-mesh.png'))
+ animal_sheet=Image.new('RGB',(1500,590),'#f8f7ed');ad=ImageDraw.Draw(animal_sheet)
+ for i,n in enumerate(['sheep','cow','chicken']):
+  image=render(n+'.f32',480,480);image.save(OUT/(n+'.png'));animal_sheet.paste(image,(10+i*500,52));ad.text((30+i*500,545),n.upper()+' / V1.1',font=font,fill='#426050')
+ ad.text((24,12),'CLOUD FARM / ANIMAL SCULPT REBUILD',font=font,fill='#426050');animal_sheet.save(OUT/'animals-v1-1.png')
+ for n in ['sheep','cow','chicken']:
+  image=render(n+'.f32',700,650,yaw=2.55,elev=.32);image.save(OUT/(n+'-rear.png'))
  print('Rendered actual imported assets and game scene buffers to',OUT)
