@@ -28,3 +28,6 @@ python3 tools/render_art.py
 
 ## V1.3 建筑包与场景改进
 已新增六个原创 GLB/GLTF：鸡舍、牛棚、羊圈、加工坊、风车、水井；同步到主岛与独立牧场（或鸡舍）场景。源文件在 `tools/build_buildings.cjs`，细节参见 [原创建筑 V1.3 说明](docs/BUILDINGS_V1_3.md)。原 V1.1 ZIP 为历史归档。正式分支不更改。
+
+### 六座原创建筑实物模型总览
+![原创建筑模型 GLB 网格预览](docs/previews/buildings-v1-3.svg)
