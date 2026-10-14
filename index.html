@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 轻界面交互 v0.11.1</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 连续操作 v0.11.2</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 1px 6px;font-size:9px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center;min-width:0;white-space:nowrap}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
 
@@ -67,7 +67,7 @@ body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 233px)}
 @media (max-width:390px){#sceneDock{padding:11px 10px 12px}.sceneHeading{max-width:58%}.sceneActions .action{font-size:11px}}
 @media (max-height:620px){#sceneHUD{top:calc(env(safe-area-inset-top) + 108px)}#sceneDock{max-height:48dvh}body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 164px)}}
 
-/* v0.11.1 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
+/* v0.11.2 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
 #dock,#sceneDock,.brand,.levelbar,#floatHint,#ambientTag{display:none!important}
 #header{top:calc(env(safe-area-inset-top) + 12px);left:12px;right:12px;justify-content:flex-end}
 .wallet{gap:7px}
@@ -96,21 +96,34 @@ body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 233px)}
 #contextBody .sceneDesc{display:none}#contextBody .sceneChip{font-size:11px}#contextBody .sceneStatline{margin:6px 0 10px;display:flex;flex-wrap:wrap;gap:7px}#contextBody .sceneActions{display:flex;gap:9px;flex-wrap:wrap}#contextBody .sceneActions .action{flex:1;min-width:120px}
 #contextBody .scenePlotRow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#contextBody .scenePlot{min-width:0;padding:10px 9px;border-radius:14px}#contextBody .scenePlot strong{font-size:12px}#contextBody .scenePlot small{font-size:10px}#contextBody .scenePlot .action{white-space:normal;max-width:100%;padding:9px 7px;font-size:11px;margin-top:7px}
 #panel{max-height:65dvh}
+/* Slim, temporary gesture-mode controls; do not obstruct the main farming view. */
+#brushBar[hidden]{display:none!important}
+#brushBar{position:fixed;left:77px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 23px);height:48px;max-width:450px;margin:0 auto;z-index:9;display:flex;gap:6px;align-items:center;justify-content:space-between;padding:5px 6px 5px 12px;border-radius:17px;border:2px solid white;background:#fffdf1f7;box-shadow:0 7px 28px #3f77534c;backdrop-filter:blur(12px)}
+#brushText{font-size:11px;font-weight:850;color:#477c5f;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0;flex:1}
+#brushBar button{background:#e9f3e5;color:#4c8863;border-radius:11px;font-size:11px;font-weight:900;padding:9px 8px;white-space:nowrap}
+#brushBar #brushDone{background:#69b484;color:#fff}
+.chickenStateList{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 10px;font-size:11px;color:#5a896b}
+.chickenStateList span{border-radius:9px;background:#eaf3e3;padding:4px 6px}
+.chickenDirect{padding:10px 12px;background:#edf5e6;border-radius:13px;color:#53836c;font-size:12px;font-weight:800;margin-bottom:10px}
+.chickenDirect .sceneActions{display:flex;gap:7px;margin-top:8px}
+.chickenDirect .action{flex:1;min-width:0}
+@media(orientation:landscape){#brushBar{left:82px;right:150px;bottom:13px;max-width:430px}}
 @media (orientation:landscape){#quickBag{bottom:15px}#quickMenu{bottom:80px}#contextDrawer{width:min(440px,66vw);left:auto;right:13px;bottom:12px;max-height:82dvh}#cameraControls,body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 80px)}}
 </style></head>
 <body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
-<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.11.1</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.11.2</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
 <div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 双指放大到近景 · ⊕/- 调整</div><div id="cameraControls" role="group" aria-label="农场镜头操作"><button id="cameraPlus" type="button" aria-label="放大农场">+</button><div id="zoomBadge" aria-live="off">1.0×</div><button id="cameraMinus" type="button" aria-label="缩小农场">−</button><button id="cameraReset" type="button" aria-label="还原农场全景" title="还原农场全景">⌂</button></div><div id="toast"></div><div id="spark"></div>
 <div id="sceneHUD" hidden><button id="sceneBack" type="button" aria-label="返回主岛" title="返回主岛">←</button><div class="sceneHeading"><strong id="sceneName">🐔 鸡舍小院</strong><small id="sceneSubtitle">可以在场景里照顾动物</small></div></div>
 <div id="sceneDock" hidden aria-label="独立经营场景操作面板"><div id="sceneDockBody"></div></div>
 <div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子</button><button data-panel="bag"><span class="sym">🧺</span>仓库</button><button data-panel="coop"><span class="sym">🐔</span>鸡舍</button><button data-panel="orchard"><span class="sym">🍎</span>果园</button><button data-panel="goals"><span class="sym">📜</span>任务</button><button data-panel="help"><span class="sym">📖</span>帮助</button></div></div>
 
-<!-- v0.11.1: always-on controls are intentionally tiny. All operations are contextual. -->
+<!-- v0.11.2: scene brush modes are opt-in; normal drags continue to pan the camera. -->
 <button id="quickBag" type="button" aria-label="打开农场背包" title="农场背包">🧺</button>
+<div id="brushBar" hidden aria-live="polite"><span id="brushText">🌱 连续播种</span><button id="brushChange" type="button">换种子</button><button id="brushDone" type="button">✓ 完成</button></div>
 <div id="quickMenu" hidden role="menu" aria-label="农场功能">
- <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.11.1 · 点击物体进行经营</small></div>
+ <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.11.2 · 点击物体进行经营</small></div>
  <div class="quickGrid">
-  <button type="button" data-quick-nav="shop">🌱<span>种子图鉴</span></button>
+  <button type="button" data-quick-nav="paint">🌱<span>连续播种</span></button><button type="button" data-quick-nav="shop">🌱<span>种子图鉴</span></button>
   <button type="button" data-quick-nav="bag">🎒<span>仓库</span></button>
   <button type="button" data-quick-nav="coop">🐔<span>鸡舍</span></button>
   <button type="button" data-quick-nav="orchard">🍎<span>果园</span></button>
@@ -131,6 +144,7 @@ const $=id=>document.getElementById(id);
 const CROPS=[{name:'胡萝卜',emoji:'🥕',cost:10,sell:24,time:8000,xp:12},{name:'草莓',emoji:'🍓',cost:22,sell:58,time:15000,xp:21},{name:'玉米',emoji:'🌽',cost:38,sell:96,time:23000,xp:30},{name:'南瓜',emoji:'🎃',cost:65,sell:158,time:35000,xp:44}];
 const KEY='yun-farm-3d-2026-v1';
 const FEED_COST=20, EGG_COUNT=3, EGG_PRICE=18, COOP_TIME=35000;
+const CHICKEN_FEED_COSTS=[7,7,6]; // Three individual feeds cost 20 total, like the old group feed.
 const FRUITS=[
  {name:'苹果',emoji:'🍎',sapling:125,first:40000,regrow:28000,count:3,price:26,xp:20},
  {name:'橙子',emoji:'🍊',sapling:170,first:55000,regrow:38000,count:3,price:37,xp:28}
@@ -139,10 +153,17 @@ const FRUITS=[
 // Site index stays unchanged: existing saved apple/orange trees move with their slots.
 const ORCHARD_SITES=[{x:3.55,z:-7.48},{x:8.30,z:-6.28}]; // Original slot identities preserved for saves.
 const ORCHARD_ROOM_SITES=[{x:-2.35,z:.25},{x:2.35,z:.25}];
-const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0,coop:{fedAt:0,eggs:0,total:0,feeds:0},orchard:{trees:[{type:-1,plantedAt:0,readyAt:0,harvests:0},{type:-1,plantedAt:0,readyAt:0,harvests:0}],stock:[0,0],total:[0,0]}});
+const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0,coop:{fedAt:0,eggs:0,total:0,feeds:0,chickens:[{fedAt:0},{fedAt:0},{fedAt:0}]},orchard:{trees:[{type:-1,plantedAt:0,readyAt:0,harvests:0},{type:-1,plantedAt:0,readyAt:0,harvests:0}],stock:[0,0],total:[0,0]}});
 let state=initial();try{let p=JSON.parse(localStorage.getItem(KEY));if(p&&p.plots&&p.plots.length===16){state={...state,...p};}}catch(_e){}
 // Upgrade old saves without resetting the original field, coin, XP or quest state.
-function normalizeCoop(){const c=state.coop||{};state.coop={fedAt:Number.isFinite(+c.fedAt)?Math.max(0,+c.fedAt):0,eggs:Number.isFinite(+c.eggs)?Math.max(0,Math.floor(+c.eggs)):0,total:Number.isFinite(+c.total)?Math.max(0,Math.floor(+c.total)):0,feeds:Number.isFinite(+c.feeds)?Math.max(0,Math.floor(+c.feeds)):0};}
+function normalizeCoop(){
+ const c=state.coop||{},positiveNumber=x=>Number.isFinite(+x)?Math.max(0,+x):0;
+ // Old versions had one 3-egg cycle. Turn it into three individual cycles, all
+ // retaining the old start time; never discard an in-progress feeding.
+ const oldFedAt=positiveNumber(c.fedAt);
+ const chickens=Array.from({length:3},(_,i)=>({fedAt:positiveNumber(Array.isArray(c.chickens)?c.chickens[i]?.fedAt:oldFedAt)}));
+ state.coop={fedAt:0,eggs:Math.floor(positiveNumber(c.eggs)),total:Math.floor(positiveNumber(c.total)),feeds:Math.floor(positiveNumber(c.feeds)),chickens};
+}
 normalizeCoop();
 function normalizeOrchard(){
  const old=state.orchard&&typeof state.orchard==='object'?state.orchard:{};
@@ -157,7 +178,7 @@ function normalizeOrchard(){
 normalizeOrchard();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(_e){}}
 // Scene navigation is view-only; game inventory remains in the original save.
-let activeScene='island',previousIslandCamera=null,chosenTreeSlot=-1;
+let activeScene='island',previousIslandCamera=null,chosenTreeSlot=-1,chosenChicken=-1;
 let pendingPlot=-1,contextMode='',sceneTitleTimer=null,contextOpenedAt=-1000;
 const canvas=$('glCanvas');let gl,soft=false,ctx2d=null;
 try{gl=canvas.getContext('webgl',{alpha:true,antialias:true,preserveDrawingBuffer:false,premultipliedAlpha:false})||canvas.getContext('experimental-webgl',{alpha:true,antialias:true});}catch(e){}
@@ -662,9 +683,9 @@ function makeChickenCoop(showHens=true){
  for(let j=0;j<5;j++)flower(x-.15+j*.47,z+2.98,j%2?'#fff2ba':'#f9c8c5',.09);
 }
 function makeCoopEggs(){
- if(!state.coop.fedAt||Date.now()-state.coop.fedAt<COOP_TIME)return;
  const x=COOP_X,z=COOP_Z;
  for(let i=0;i<3;i++){
+  if(coopStage(i)!=='ready')continue;
   const xx=x+.59+i*.29,zz=z+2.42+(i%2)*.17;
   ball(xx,.47,zz,.12,.16,.11,['#fff5db','#eee1c2','#faf4e5'],4,8);
   ball(xx,.31,zz,.13,.026,.12,['#edca84','#d5ae70'],2,6);
@@ -762,19 +783,16 @@ function sceneChickenYard(){
  for(let i=0;i<12;i++){const a=i*1.45;flower(-4.85+Math.cos(a)*.37,2.35+Math.sin(a)*.40,i%2?'#ffe3a8':'#ffc3d0',.09);}
  for(let i=0;i<6;i++)rock(-4.66+i*.87,.12,-6.78+i%2*.34,.12);
 }
+function chickenPose(i,now=performance.now()){
+ const t=now/2400+i*1.45;
+ return {x:-1.65+i*1.55+Math.sin(t)*.43,z:1.08+Math.cos(t*.77+i)*.68,scale:i===2?.89:.77};
+}
 function sceneChickenActivity(now){
- // Happy chickens wander slowly inside the yard, independently of production timer.
  for(let i=0;i<3;i++){
-  const t=now/2400+i*1.45;
-  const x=-1.65+i*1.55+Math.sin(t)*.43;
-  const z=1.08+Math.cos(t*.77+i)*.68;
-  const bounce=Math.max(0,Math.sin(now/240+i))*.03;
-  makeChicken(x,z,(i===2?.89:.77)+bounce,i===2?2:0);
- }
- if(coopStage()==='ready'){
-  for(let i=0;i<3;i++){
-   const x=-.8+i*.52,z=2.75+(i%2)*.18;
-   ball(x,.25,z,.16,.21,.14,['#fff1d4','#f9f4e4','#e9d6b7'],5,8);
+  const p=chickenPose(i,now),bounce=Math.max(0,Math.sin(now/240+i))*.03;
+  makeChicken(p.x,p.z,p.scale+bounce,i===2?2:0);
+  if(coopStage(i)==='ready'){
+   ball(p.x+.18,.22,p.z+.29,.14,.19,.14,['#fff4dc','#f7e8cf','#f5e3bb'],5,8);
   }
  }
 }
@@ -924,18 +942,50 @@ function tapPlot(i,x,y){const p=state.plots[i];if(!p.unlock){const price=160+Mat
 function hud(){$('coins').textContent=state.coins;$('level').textContent=state.level;const cap=state.level*10+60;$('xpText').textContent=state.xp+'/'+cap;$('xpBar').style.width=Math.min(100,100*state.xp/cap)+'%';$('currentSeed').textContent=CROPS[state.selected].emoji+' 当前种子：'+CROPS[state.selected].name;document.querySelectorAll('.seed').forEach((el,i)=>el.classList.toggle('active',i===state.selected));}
 function drawSeeds(){$('seedStrip').innerHTML=CROPS.map((c,i)=>`<button class="seed${i===state.selected?' active':''}" data-seed="${i}"><span class="icon">${c.emoji}</span><span class="price">🪙 ${c.cost}</span></button>`).join('');}
 
-function coopSecondsLeft(){return Math.max(0,Math.ceil((state.coop.fedAt+COOP_TIME-Date.now())/1000));}
-function coopStage(){return state.coop.fedAt?(coopSecondsLeft()>0?'growing':'ready'):'idle';}
-function feedChickens(){
- if(coopStage()!=='idle'){toast('🐔 先收取这一批鸡蛋吧');return;}
- if(state.coins<FEED_COST){toast('🪙 金币不足，喂食需要 '+FEED_COST+' 金币');return;}
- state.coins-=FEED_COST;state.coop.fedAt=Date.now();state.coop.feeds++;
- save();hud();needsDynamic=true;toast('🐔 已喂食！小鸡正在努力产蛋');refreshBusinessUI('coop');
+function coopSecondsLeft(i){
+ if(Number.isInteger(i)){
+  const fedAt=state.coop.chickens[i]?.fedAt||0;
+  return fedAt?Math.max(0,Math.ceil((fedAt+COOP_TIME-Date.now())/1000)):0;
+ }
+ return Math.max(0,...state.coop.chickens.map((_,j)=>coopSecondsLeft(j)));
 }
-function collectEggs(){
- if(coopStage()!=='ready'){toast('🥚 鸡蛋还没有准备好');return;}
- state.coop.eggs+=EGG_COUNT;state.coop.total+=EGG_COUNT;state.coop.fedAt=0;
- gainXP(16);needsDynamic=true;save();hud();toast('🥚 收到 '+EGG_COUNT+' 个鸡蛋，已加入仓库');refreshBusinessUI('coop');
+function coopStage(i){
+ if(Number.isInteger(i)){
+  const fedAt=state.coop.chickens[i]?.fedAt||0;
+  return !fedAt?'idle':coopSecondsLeft(i)>0?'growing':'ready';
+ }
+ const stages=state.coop.chickens.map((_,j)=>coopStage(j));
+ if(stages.includes('ready'))return 'ready';
+ if(stages.includes('idle'))return 'idle';
+ return 'growing';
+}
+function coopStages(){return state.coop.chickens.map((_,i)=>coopStage(i)).join(',');}
+function feedOneChicken(i,quiet=false){
+ if(!Number.isInteger(i)||i<0||i>=3||coopStage(i)!=='idle')return false;
+ const cost=CHICKEN_FEED_COSTS[i];
+ if(state.coins<cost){if(!quiet)toast('🪙 金币不足，喂食需要 '+cost+' 金币');return false;}
+ state.coins-=cost;state.coop.chickens[i].fedAt=Date.now();state.coop.feeds++;
+ needsDynamic=true;save();hud();
+ if(!quiet)toast('🐤 已给第 '+(i+1)+' 只小鸡喂食');
+ renderSceneDock();return true;
+}
+function feedChickens(){
+ const ids=[0,1,2].filter(i=>coopStage(i)==='idle');
+ if(!ids.length){toast('🐥 小鸡已喂食，先等它们产蛋并收取');return;}
+ const cost=ids.reduce((total,i)=>total+CHICKEN_FEED_COSTS[i],0);
+ if(state.coins<cost){toast('🪙 一键喂食需要 '+cost+' 金币，也可以逐只喂食');return;}
+ let n=0;for(const i of ids)if(feedOneChicken(i,true))n++;
+ toast('🌽 已喂食 '+n+' 只小鸡 · 总花费 '+cost+' 金币');
+}
+function collectEggs(i){
+ const ids=Number.isInteger(i)?[i]:[0,1,2];
+ const ready=ids.filter(j=>coopStage(j)==='ready');
+ if(!ready.length){toast('🥚 这会儿还没有准备好的鸡蛋');return;}
+ for(const j of ready)state.coop.chickens[j].fedAt=0;
+ state.coop.eggs+=ready.length;state.coop.total+=ready.length;
+ gainXP(ready.length===3?16:ready.length*5);needsDynamic=true;save();hud();
+ toast('🥚 收到 '+ready.length+' 个鸡蛋，已放入仓库');renderSceneDock();
+ if(openPanelName==='coop')panel('coop');
 }
 function sellEggs(){
  if(!state.coop.eggs){toast('🧺 暂时没有可以出售的鸡蛋');return;}
@@ -943,15 +993,13 @@ function sellEggs(){
  state.coins+=earned;state.coop.eggs=0;save();hud();toast('🪙 卖出 '+n+' 个鸡蛋，获得 '+earned+' 金币');refreshBusinessUI(openPanelName==='bag'?'bag':'coop');
 }
 function coopContent(){
- const stage=coopStage(),time=coopSecondsLeft(),c=state.coop;
- const btn=stage==='idle'?`<button class="action" data-coop-action="feed">🌽 喂食 · 🪙${FEED_COST}</button>`:
-   stage==='growing'?`<button class="action" disabled>⏳ 产蛋中</button>`:`<button class="action" data-coop-action="collect">🥚 收集 ${EGG_COUNT} 枚鸡蛋</button>`;
- return `<div class="tip"><span class="coopBanner">🐔🐤🐣</span><strong>小鸡之家 · 三只小鸡</strong><div class="coopInstructions">点击主岛的鸡舍，进入独立小鸡活动场景。</div></div>`+
- `<div class="coopStat"><div>🥚 仓库鸡蛋<span>${c.eggs}</span></div><div>🌼 累计产蛋<span>${c.total}</span></div><div>🕒 当前状态<span id="coopCountdown">${stage==='growing'?time+'秒':stage==='ready'?'可收集':'待喂食'}</span></div></div>`+
- `<div class="item"><div class="big">${stage==='ready'?'🥚':stage==='growing'?'🐥':'🌽'}</div><div class="txt"><strong>${stage==='idle'?'给小鸡喂食':stage==='growing'?'小鸡正在产蛋':'鸡蛋已经准备好了！'}</strong>`+
- `<small>${stage==='idle'?'消耗 '+FEED_COST+' 金币，'+Math.round(COOP_TIME/1000)+' 秒后可收集 '+EGG_COUNT+' 个鸡蛋':stage==='growing'?'离线期间也会继续计时，回来就能收取':'鸡蛋先进入仓库，选择卖出才会得到金币'}</small></div>${btn}</div>`+
- `<div class="item"><div class="big">🧺</div><div class="txt"><strong>出售鸡蛋</strong><small>${EGG_PRICE} 金币 / 个 · 当前可售 ${c.eggs} 个</small></div><button class="action" data-coop-action="sell" ${c.eggs?'':'disabled'}>出售全部</button></div>`+
- `<div class="tip">鸡舍和农田使用同一份本地存档；不会自动消耗你仓库里的鸡蛋。</div>`;
+ const c=state.coop,states=state.coop.chickens.map((_,i)=>coopStage(i)),idle=states.filter(x=>x==='idle').length,ready=states.filter(x=>x==='ready').length;
+ const cost=state.coop.chickens.reduce((v,_,i)=>v+(coopStage(i)==='idle'?CHICKEN_FEED_COSTS[i]:0),0);
+ const names=states.map((status,i)=>'🐤 第'+(i+1)+'只 '+(status==='idle'?'待喂食':status==='ready'?'🥚 可收取':'⏳'+coopSecondsLeft(i)+'秒')).join('　');
+ return `<div class="tip"><strong>🐔 三只小鸡 · 分别喂食</strong><div>${names}</div><div>🥚 仓库 ${c.eggs} 枚 · 累计 ${c.total} 枚</div></div>`+
+ `<div class="item"><div class="big">🌽</div><div class="txt"><strong>喂食与收蛋</strong><small>每只消耗 7 / 7 / 6 金币，35 秒后各产 1 枚蛋</small></div></div>`+
+ `<div class="sceneActions"><button class="action" data-coop-action="brushFeed" ${idle?'':'disabled'}>👆 滑动喂食</button><button class="action" data-coop-action="feed" ${(!idle||state.coins<cost)?'disabled':''}>🌽 喂全部 · ${cost} 金币</button><button class="action" data-coop-action="collect" ${ready?'':'disabled'}>🥚 收取 ${ready} 枚</button></div>`+
+ `<div class="item"><div class="big">🧺</div><div class="txt"><strong>出售鸡蛋</strong><small>库存 ${c.eggs} 个 · 每个 ${EGG_PRICE} 金币</small></div><button class="action" data-coop-action="sell" ${c.eggs?'':'disabled'}>出售</button></div>`;
 }
 function orchardRemaining(i){const t=state.orchard.trees[i];return t.type>=0?Math.max(0,Math.ceil((t.readyAt-Date.now())/1000)):0;}
 function plantFruitTree(slot,type){
@@ -1030,12 +1078,12 @@ function centerRoomAt(x,z,focusY=.75){
 function enterScene(next){
  if(next!=='coop'&&next!=='orchard')return;
  if(activeScene==='island')previousIslandCamera={zoom,shiftX,shiftY};
- closePanel();closeContext();closeQuickMenu();activeScene=next;document.body.classList.add('subscene');
+ finishBrush(true);closePanel();closeContext();closeQuickMenu();activeScene=next;document.body.classList.add('subscene');
  $('sceneHUD').hidden=$('sceneDock').hidden=false;
  $('sceneName').textContent=next==='coop'?'🐔 小鸡活动院':'🍎 云端果树园';
  $('sceneSubtitle').textContent=next==='coop'?'喂食、捡蛋 · 小鸡自由走动':'种树、采摘 · 果实随时间成熟';
  const heading=document.querySelector('.sceneHeading');heading.classList.remove('sceneFade');clearTimeout(sceneTitleTimer);sceneTitleTimer=setTimeout(()=>heading.classList.add('sceneFade'),2000);
- $('floatHint').textContent=next==='coop'?'🐔 点击小鸡或下方按钮照顾它们':'🍎 点击果树查看成长和采摘';
+ $('floatHint').textContent=next==='coop'?'🐔 点小鸡可选择滑动喂食':'🍎 点击果树查看成长和采摘';
  zoom=next==='coop'?1.86:1.82;
  centerRoomAt(0,next==='coop'?-1.28:0,.8);
  chosenTreeSlot=-1;updateZoomBadge();needsStatic=needsDynamic=true;lastCropUpdate=0;
@@ -1043,7 +1091,7 @@ function enterScene(next){
 }
 function returnIsland(){
  if(activeScene==='island')return;
- closePanel();closeContext();closeQuickMenu();clearTimeout(sceneTitleTimer);activeScene='island';document.body.classList.remove('subscene');
+ finishBrush(true);closePanel();closeContext();closeQuickMenu();clearTimeout(sceneTitleTimer);activeScene='island';document.body.classList.remove('subscene');
  $('sceneHUD').hidden=$('sceneDock').hidden=true;
  $('floatHint').textContent='👆 点农田种植 · 点击鸡舍或果园进入 · 双指缩放';
  if(previousIslandCamera){zoom=previousIslandCamera.zoom;shiftX=previousIslandCamera.shiftX;shiftY=previousIslandCamera.shiftY;clampCamera();}
@@ -1060,14 +1108,13 @@ function renderSceneDock(){
  const el=$('sceneDock'),oldScroll=el.scrollTop;
  let content='';
  if(activeScene==='coop'){
-  const stage=coopStage(),c=state.coop;
-  const primary=stage==='idle'?`<button class="action" data-scene-action="feed">🌽 喂食 · ${FEED_COST} 金币</button>`:
-     stage==='ready'?`<button class="action" data-scene-action="collect">🥚 收取 ${EGG_COUNT} 枚鸡蛋</button>`:
-     `<button class="action" disabled data-scene-wait="true">🐣 产蛋中 · ${coopSecondsLeft()}秒</button>`;
-  content=`<div class="sceneDockTitle">🐔 小鸡活动院 <small>3只小鸡 · 周期生产</small></div>
-    <div class="sceneStatline"><span class="sceneChip">🥚 库存 ${c.eggs}</span><span class="sceneChip">✨ 累计 ${c.total}</span><span class="sceneChip">${stage==='ready'?'可以收蛋':stage==='growing'?'产蛋中':'待喂食'}</span></div>
-    <div class="sceneActions">${primary}<button class="action" data-scene-action="sellEggs" ${c.eggs?'':'disabled'}>🧺 卖鸡蛋 · ${EGG_PRICE}/个</button></div>
-    <div class="sceneDesc">小鸡会在院子里活动，点击小鸡或使用按钮操作。退出场景后产蛋倒计时继续。</div>`;
+  const c=state.coop,stages=state.coop.chickens.map((_,i)=>coopStage(i));
+  const idle=stages.filter(x=>x==='idle').length,ready=stages.filter(x=>x==='ready').length;
+  const cost=state.coop.chickens.reduce((v,_,i)=>v+(coopStage(i)==='idle'?CHICKEN_FEED_COSTS[i]:0),0);
+  content=`<div class="sceneDockTitle">🐔 小鸡活动院 <small>三只小鸡 · 独立产蛋</small></div>
+   <div class="sceneStatline"><span class="sceneChip">🥚 库存 ${c.eggs}</span><span class="sceneChip">🌽 待喂 ${idle}</span><span class="sceneChip">✨ 可收 ${ready}</span></div>
+   <div class="chickenStateList">${stages.map((v,i)=>`<span>🐤 ${i+1}：${v==='idle'?'待喂食':v==='ready'?'🥚可收':'⏳'+coopSecondsLeft(i)+'秒'}</span>`).join('')}</div>
+   <div class="sceneActions"><button class="action" data-scene-action="brushFeed" ${idle?'':'disabled'}>👆 滑动喂食</button><button class="action" data-scene-action="feed" ${(!idle||state.coins<cost)?'disabled':''}>🌽 喂全部 ${cost}金</button><button class="action" data-scene-action="collect" ${ready?'':'disabled'}>🥚 收蛋 ${ready}枚</button><button class="action" data-scene-action="sellEggs" ${c.eggs?'':'disabled'}>🧺 出售</button></div>`;
  }else{
   content='<div class="sceneDockTitle">🍎 果树小天地 <small>两处永久果树位 · 可反复收获</small></div><div class="scenePlotRow">';
   for(let i=0;i<ORCHARD_ROOM_SITES.length;i++){
@@ -1089,7 +1136,7 @@ function renderSceneDock(){
   content+='</div><div class="sceneDesc">树苗只需购买一次。点击果树可查看状态，成熟后可点击果树或采摘按钮，水果进入仓库。</div>';
  }
  $('sceneDockBody').innerHTML=content;el.scrollTop=oldScroll;
- el.dataset.coopStage=activeScene==='coop'?coopStage():'';
+ el.dataset.coopStage=activeScene==='coop'?coopStages():'';
  el.dataset.orchardStages=activeScene==='orchard'?orchardSceneStates():'';
  if(contextMode===activeScene)syncSceneContext();
 }
@@ -1098,10 +1145,9 @@ function tickSceneDock(){
  if(activeScene==='island')return;
  const el=$('sceneDock');
  if(activeScene==='coop'){
-  const stage=coopStage();
-  if(stage!==el.dataset.coopStage){renderSceneDock();return;}
-  const wait=el.querySelector('[data-scene-wait]');
-  if(wait)wait.textContent='🐣 产蛋中 · '+coopSecondsLeft()+'秒';
+  if(coopStages()!==el.dataset.coopStage){renderSceneDock();return;}
+  const labels=el.querySelectorAll('.chickenStateList span');
+  labels.forEach((label,i)=>{label.textContent='🐤 '+(i+1)+'：'+(coopStage(i)==='idle'?'待喂食':coopStage(i)==='ready'?'🥚可收':'⏳'+coopSecondsLeft(i)+'秒');});
  }else{
   if(orchardSceneStates()!==el.dataset.orchardStages){renderSceneDock();return;}
   for(let i=0;i<state.orchard.trees.length;i++){
@@ -1113,9 +1159,20 @@ function tickSceneDock(){
  }
  if(contextMode===activeScene)syncSceneContext();
 }
+function chickenHit(px,py){
+ let chosen=-1,minDist=Infinity;
+ const radius=Math.min(56,Math.max(24,W/projW*.85));
+ for(let i=0;i<3;i++){
+  const p=chickenPose(i),screen=project(p.x,.48*p.scale,p.z);
+  const d=Math.hypot(screen[0]-px,screen[1]-py);
+  if(d<radius&&d<minDist){chosen=i;minDist=d;}
+ }
+ return chosen;
+}
 function sceneCanvasTap(px,py){
  if(activeScene==='coop'){
-  if(hitWorldBox(px,py,-3.8,3.7,-5.8,4.1,2.6))openSceneContext('coop');
+  chosenChicken=chickenHit(px,py);
+  if(chosenChicken>=0||hitWorldBox(px,py,-3.8,3.7,-5.8,4.1,2.6))openSceneContext('coop');
  }else if(activeScene==='orchard'){
   const i=localTreeHit(px,py);
   if(i<0)return;
@@ -1125,49 +1182,107 @@ function sceneCanvasTap(px,py){
 }
 
 const tasks=[{name:'丰收初体验',need:3,reward:120},{name:'快乐农场主',need:10,reward:280},{name:'云端种田达人',need:25,reward:600}];
-let openPanelName='';function panel(name){closeQuickMenu();closeContext();openPanelName=name;const titles={shop:'🌱 种子图鉴',bag:'🎒 我的仓库',coop:'🐔 鸡舍经营',orchard:'🍎 果园经营',goals:'📜 农场任务',help:'📖 游戏说明',stats:'⭐ 农场成长'};$('panelTitle').textContent=titles[name];let content='';if(name==='stats'){const max=state.level*10+60;content=`<div class="tip"><strong>⭐ 农场等级 ${state.level}</strong><p>成长经验：${state.xp} / ${max}</p><p>金币：🪙 ${state.coins}</p><p>累计收获 ${state.total} 次 · 鸡蛋 ${state.coop.total} 枚</p></div>`;}else if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">点击主岛的空农田会直接弹出种子篮，选一种即可播种。成熟后点击田地收获。</div>';
+let openPanelName='';function panel(name){closeQuickMenu();closeContext();openPanelName=name;const titles={shop:'🌱 种子图鉴',bag:'🎒 我的仓库',coop:'🐔 鸡舍经营',orchard:'🍎 果园经营',goals:'📜 农场任务',help:'📖 游戏说明',stats:'⭐ 农场成长'};$('panelTitle').textContent=titles[name];let content='';if(name==='stats'){const max=state.level*10+60;content=`<div class="tip"><strong>⭐ 农场等级 ${state.level}</strong><p>成长经验：${state.xp} / ${max}</p><p>金币：🪙 ${state.coins}</p><p>累计收获 ${state.total} 次 · 鸡蛋 ${state.coop.total} 枚</p></div>`;}else if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">点空农田选择种子后，划过多个空田连续播种；点「完成」恢复镜头平移。</div>';
  }else if(name==='coop'){content=coopContent();
  }else if(name==='orchard'){content=orchardContent();
  }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+`<div class="item"><div class="big">🥚</div><div class="txt"><strong>鸡蛋</strong><small>仓库 ${state.coop.eggs} 个 · 累计收集 ${state.coop.total} 个</small></div><button class="action" data-coop-action="sell" ${state.coop.eggs?'':'disabled'}>出售</button></div>${FRUITS.map((p,i)=>`<div class="item"><div class="big">${p.emoji}</div><div class="txt"><strong>${p.name}</strong><small>仓库 ${state.orchard.stock[i]} 个 · 累计采摘 ${state.orchard.total[i]} 个</small></div><button class="action" data-fruit-action="sell" data-fruit="${i}" ${state.orchard.stock[i]?'':'disabled'}>出售</button></div>`).join('')}<div class="sub">农作物收获后直接出售；鸡蛋和水果可以存入仓库，随时卖出。</div>`;
  }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
- }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田，弹出种子篮，选择后播种。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 点击鸡舍可喂食小鸡、收蛋并出售。<br>⑤ 点击主岛鸡舍或果园入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能；游戏自动保存进度。<br><br>当前为手机浏览器 v0.11.1 试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田选择种子，接着滑过多块空田连续播种，按「完成」恢复拖图。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 进入鸡舍可单只喂食，或启动「滑动喂食」划过多只小鸡。<br>⑤ 点击主岛鸡舍或果园入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能；游戏自动保存进度。<br><br>当前为手机浏览器 v0.11.2 连续操作试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
  $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
 function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
 document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>{const where=b.dataset.panel;if(where==='coop'||where==='orchard')enterScene(where);else panel(where);});$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
 $('seedStrip').addEventListener('click',e=>{const button=e.target.closest('[data-seed]');if(!button)return;state.selected=+button.dataset.seed;save();hud();toast('🌱 选择了'+CROPS[state.selected].name)});
-$('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.dataset.coopAction==='feed'){feedChickens();return;}if(b.dataset.coopAction==='collect'){collectEggs();return;}if(b.dataset.coopAction==='sell'){sellEggs();return;}if(b.dataset.fruitAction==='view'){viewOrchard();return;}if(b.dataset.fruitAction==='plant'){plantFruitTree(+b.dataset.slot,+b.dataset.fruit);return;}if(b.dataset.fruitAction==='harvest'){harvestFruit(+b.dataset.slot);return;}if(b.dataset.fruitAction==='sell'){sellFruit(+b.dataset.fruit);return;}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
+$('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.dataset.coopAction==='feed'){feedChickens();return;}if(b.dataset.coopAction==='collect'){collectEggs();return;}if(b.dataset.coopAction==='sell'){sellEggs();return;}if(b.dataset.fruitAction==='view'){viewOrchard();return;}if(b.dataset.fruitAction==='plant'){plantFruitTree(+b.dataset.slot,+b.dataset.fruit);return;}if(b.dataset.fruitAction==='harvest'){harvestFruit(+b.dataset.slot);return;}if(b.dataset.fruitAction==='sell'){sellFruit(+b.dataset.fruit);return;}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();normalizeCoop();finishBrush(true);save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
 
-/* v0.11.1 contextual interaction layer. Business state and save schema are unchanged. */
+/* v0.11.2 contextual interaction layer. Business state and save schema are unchanged. */
 function closeQuickMenu(){$('quickMenu').hidden=true;}
 function closeContext(){contextMode='';pendingPlot=-1;$('contextDrawer').hidden=true;$('contextShade').hidden=true;}
 function showContext(title,html,mode){closeQuickMenu();contextOpenedAt=performance.now();contextMode=mode;$('contextTitle').textContent=title;$('contextBody').innerHTML=html;$('contextShade').hidden=false;$('contextDrawer').hidden=false;$('contextDrawer').scrollTop=0;}
-function openSeedChooser(index){
- if(activeScene!=='island'||!state.plots[index]||state.plots[index].seed!==-1||!state.plots[index].unlock)return;
+function openSeedChooser(index=-1){
+ if(activeScene!=='island')return;
+ if(index>=0&&(!state.plots[index]||state.plots[index].seed!==-1||!state.plots[index].unlock))return;
  pendingPlot=index;
- const content='<div class="seedChoiceGrid">'+CROPS.map((c,i)=>`<button type="button" class="seedChoice" data-plant-seed="${i}" ${state.coins<c.cost?'disabled':''}><span class="fruitIcon">${c.emoji}</span><span><strong>${c.name}</strong><small>🪙 ${c.cost} · ${c.time/1000}秒成熟</small></span></button>`).join('')+'</div>';
- showContext('🧺 农田 '+(index+1)+' · 选择种子',content,'seed');pendingPlot=index;
+ const content='<div class="tip" style="margin-bottom:9px">选好种子后，划过想种的空田就会连续播种；种过的田和未解锁地块会跳过。</div><div class="seedChoiceGrid">'+CROPS.map((c,i)=>`<button type="button" class="seedChoice" data-plant-seed="${i}" ${state.coins<c.cost?'disabled':''}><span class="fruitIcon">${c.emoji}</span><span><strong>${c.name}</strong><small>🪙 ${c.cost} / 块 · ${c.time/1000}秒成熟</small></span></button>`).join('')+'</div>';
+ showContext(index>=0?'🧺 农田 '+(index+1)+' · 选择种子':'🧺 选择连续播种的种子',content,'seed');pendingPlot=index;
+}
+let brush={mode:'',seed:-1,count:0},brushDown=null;
+function updateBrushBar(){
+ const active=Boolean(brush.mode);
+ $('brushBar').hidden=!active;
+ $('brushChange').hidden=brush.mode!=='plant';
+ if(!active)return;
+ $('brushText').textContent=brush.mode==='plant'?CROPS[brush.seed].emoji+' 连种 '+brush.count+' 块 · 划过空田':'🌽 已喂 '+brush.count+' 只 · 划过小鸡';
+}
+function finishBrush(silent=false){
+ if(!brush.mode)return;
+ const {mode,count}=brush;
+ brush={mode:'',seed:-1,count:0};brushDown=null;
+ updateBrushBar();
+ if(!silent)toast((mode==='plant'?'🌱 本轮播种 ':'🐤 本轮喂食 ')+count+(mode==='plant'?' 块完成':' 只完成'));
+}
+function startBrush(mode,value=-1){
+ finishBrush(true);closePanel();closeContext();closeQuickMenu();
+ if(mode==='plant'&&activeScene==='island'&&CROPS[value])brush={mode,seed:value,count:0};
+ else if(mode==='feed'&&activeScene==='coop')brush={mode,seed:-1,count:0};
+ else return;
+ updateBrushBar();
+ toast(mode==='plant'?'🌱 划过空田即可播种，结束点「完成」':'🌽 划过小鸡即可逐只喂食');
+}
+function tryPaintPlot(i){
+ const p=state.plots[i],c=CROPS[brush.seed];
+ if(brush.mode!=='plant'||!p||!c||!p.unlock||p.seed>=0)return false;
+ if(state.coins<c.cost){if(!brush.noFunds){toast('🪙 金币不足，已经停止扣费');brush.noFunds=true;}return false;}
+ state.coins-=c.cost;p.seed=brush.seed;p.at=Date.now();brush.count++;
+ needsDynamic=true;save();hud();updateBrushBar();return true;
+}
+function tryPaintChicken(i){
+ if(brush.mode!=='feed'||!Number.isInteger(i)||coopStage(i)!=='idle')return false;
+ if(state.coins<CHICKEN_FEED_COSTS[i]){
+  if(!brush.noFunds){toast('🪙 金币不足，不能再喂食');brush.noFunds=true;}return false;
+ }
+ if(!feedOneChicken(i,true))return false;
+ brush.count++;updateBrushBar();return true;
+}
+function paintAt(x,y){
+ if(brush.mode==='plant'){
+  for(let i=15;i>=0;i--){if(contains(x,y,screenPoly(i))){tryPaintPlot(i);break;}}
+ }else if(brush.mode==='feed'){
+  const i=chickenHit(x,y);if(i>=0)tryPaintChicken(i);
+ }
+}
+function paintSegment(x1,y1,x2,y2){
+ const steps=Math.min(120,Math.max(1,Math.ceil(Math.hypot(x2-x1,y2-y1)/10)));
+ for(let i=0;i<=steps;i++)paintAt(x1+(x2-x1)*i/steps,y1+(y2-y1)*i/steps);
 }
 function plantSelectedSeed(seedIndex){
- const i=pendingPlot,c=CROPS[seedIndex],p=state.plots[i];
- if(activeScene!=='island'||!p||!p.unlock||p.seed>=0||!c){closeContext();return;}
+ const i=pendingPlot,c=CROPS[seedIndex];
+ if(activeScene!=='island'||!c)return;
  if(state.coins<c.cost){toast('🪙 金币不足');return;}
- state.coins-=c.cost;p.seed=seedIndex;p.at=Date.now();state.selected=seedIndex;needsDynamic=true;save();hud();closeContext();toast('🌱 已种植'+c.name);
+ state.selected=seedIndex;save();hud();
+ startBrush('plant',seedIndex);
+ if(i>=0)tryPaintPlot(i);
 }
 function syncSceneContext(){
  if(contextMode!==activeScene||activeScene==='island')return;
  const el=$('contextBody'),scroll=el.scrollTop;
- el.innerHTML=$('sceneDockBody').innerHTML;
+ const extra=contextMode==='coop'&&chosenChicken>=0?`<div class="chickenDirect">🐤 第 ${chosenChicken+1} 只 · ${coopStage(chosenChicken)==='idle'?'待喂食':coopStage(chosenChicken)==='ready'?'🥚可以收蛋':'⏳'+coopSecondsLeft(chosenChicken)+'秒'}<div class="sceneActions"><button class="action" data-scene-action="feedOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='idle'?'':'disabled'}>🌽 喂这只 · ${CHICKEN_FEED_COSTS[chosenChicken]} 金</button><button class="action" data-scene-action="collectOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='ready'?'':'disabled'}>🥚 收这只</button></div></div>`:'';
+ el.innerHTML=extra+$('sceneDockBody').innerHTML;
  el.scrollTop=scroll;
 }
 function openSceneContext(which){
  if(which!==activeScene||which==='island')return;
- renderSceneDock();showContext(which==='coop'?'🐔 照顾小鸡':'🍎 果园管理',$('sceneDockBody').innerHTML,which);
+ renderSceneDock();
+ const extra=which==='coop'&&chosenChicken>=0?`<div class="chickenDirect">🐤 第 ${chosenChicken+1} 只小鸡 · ${coopStage(chosenChicken)==='idle'?'还没喂食':coopStage(chosenChicken)==='ready'?'可以收蛋':'正在产蛋'}<div class="sceneActions"><button class="action" data-scene-action="feedOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='idle'?'':'disabled'}>🌽 喂这只 · ${CHICKEN_FEED_COSTS[chosenChicken]} 金币</button><button class="action" data-scene-action="collectOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='ready'?'':'disabled'}>🥚 收这只</button></div></div>`:'';
+ showContext(which==='coop'?'🐔 照顾小鸡':'🍎 果园管理',extra+$('sceneDockBody').innerHTML,which);
 }
 function handleContextAction(b){
  if(b.dataset.plantSeed!==undefined){plantSelectedSeed(+b.dataset.plantSeed);return;}
  const action=b.dataset.sceneAction;
  if(!action)return;
  if(action==='feed')feedChickens();else if(action==='collect')collectEggs();else if(action==='sellEggs')sellEggs();
+ else if(action==='brushFeed'){const choice=chosenChicken;startBrush('feed');if(choice>=0)tryPaintChicken(choice);return;}
+ else if(action==='feedOne')feedOneChicken(+b.dataset.chicken);
+ else if(action==='collectOne')collectEggs(+b.dataset.chicken);
  else if(action==='plant')plantFruitTree(+b.dataset.slot,+b.dataset.fruit);
  else if(action==='harvest')harvestFruit(+b.dataset.slot);
  else if(action==='sellFruit')sellFruit(+b.dataset.fruit);
@@ -1177,6 +1292,7 @@ $('quickBag').addEventListener('click',()=>{if(!$('contextDrawer').hidden)closeC
 $('quickMenu').addEventListener('click',e=>{
  const b=e.target.closest('[data-quick-nav]');if(!b)return;
  const name=b.dataset.quickNav;closeQuickMenu();
+ if(name==='paint'){openSeedChooser(-1);return;}
  if(name==='coop'||name==='orchard'){
   if(activeScene!==name)enterScene(name);
   else openSceneContext(name);
@@ -1188,12 +1304,17 @@ $('contextClose').addEventListener('click',closeContext);
 $('contextBody').addEventListener('click',e=>{if(performance.now()-contextOpenedAt<180)return;const b=e.target.closest('button');if(b)handleContextAction(b);});
 window.addEventListener('keydown',e=>{if(e.key==='Escape'){if(contextMode)closeContext();else if(!$('quickMenu').hidden)closeQuickMenu();else if(openPanelName)closePanel();else if(activeScene!=='island')returnIsland();}});
 
+$('brushDone').onclick=()=>finishBrush();
+$('brushChange').onclick=()=>{if(brush.mode!=='plant')return;finishBrush(true);openSeedChooser(-1);};
 $('play').onclick=()=>{$('welcome').classList.add('hide');save();};
 $('sceneBack').onclick=returnIsland;
 $('sceneDockBody').addEventListener('click',e=>{
  const b=e.target.closest('[data-scene-action]');if(!b)return;
  const action=b.dataset.sceneAction;
  if(action==='feed')feedChickens();else if(action==='collect')collectEggs();else if(action==='sellEggs')sellEggs();
+ else if(action==='brushFeed'){startBrush('feed');return;}
+ else if(action==='feedOne')feedOneChicken(+b.dataset.chicken);
+ else if(action==='collectOne')collectEggs(+b.dataset.chicken);
  else if(action==='plant')plantFruitTree(+b.dataset.slot,+b.dataset.fruit);
  else if(action==='harvest')harvestFruit(+b.dataset.slot);
  else if(action==='sellFruit')sellFruit(+b.dataset.fruit);
@@ -1202,13 +1323,17 @@ let touches=new Map(),startTouch=null,moved=false,pinchOrigin=null;
 canvas.addEventListener('pointerdown',e=>{
  canvas.setPointerCapture?.(e.pointerId);
  touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
- if(touches.size===1){startTouch={x:e.clientX,y:e.clientY,shiftX,shiftY};moved=false;pinchOrigin=null;}
- else if(touches.size===2){
+ if(touches.size===1){
+  startTouch={x:e.clientX,y:e.clientY,shiftX,shiftY};moved=false;pinchOrigin=null;
+  brushDown=brush.mode?{x:e.clientX,y:e.clientY,painted:false,cancel:false}:null;
+ }else if(touches.size===2){
+  if(brushDown)brushDown.cancel=true;
   const a=[...touches.values()];pinchOrigin={x:(a[0].x+a[1].x)/2,y:(a[0].y+a[1].y)/2,shiftX,shiftY,zoom,dist:Math.max(10,Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y))};moved=true;
  }
 });
 canvas.addEventListener('pointermove',e=>{
- if(!touches.has(e.pointerId))return;
+ const previous=touches.get(e.pointerId);
+ if(!previous)return;
  touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
  if(touches.size===2&&pinchOrigin){
   const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y),centerX=(a[0].x+a[1].x)/2,centerY=(a[0].y+a[1].y)/2;
@@ -1218,14 +1343,27 @@ canvas.addEventListener('pointermove',e=>{
   zoom=next;clampCamera();updateZoomBadge();moved=true;
  }else if(touches.size===1&&startTouch){
   const dx=e.clientX-startTouch.x,dy=e.clientY-startTouch.y;
-  if(Math.hypot(dx,dy)>11)moved=true;
-  if(moved){shiftX=startTouch.shiftX+dx;shiftY=startTouch.shiftY+dy;clampCamera();}
+  if(brush.mode&&brushDown&&!brushDown.cancel){
+   if(Math.hypot(dx,dy)>7){
+    if(!brushDown.painted)paintSegment(brushDown.x,brushDown.y,e.clientX,e.clientY);
+    else paintSegment(previous.x,previous.y,e.clientX,e.clientY);
+    brushDown.painted=true;moved=true;
+   }
+  }else{
+   if(Math.hypot(dx,dy)>11)moved=true;
+   if(moved){shiftX=startTouch.shiftX+dx;shiftY=startTouch.shiftY+dy;clampCamera();}
+  }
  }
 });
 function pointerEnd(e){
  if(!touches.has(e.pointerId))return;
  touches.delete(e.pointerId);
- if(touches.size===0&&startTouch&&!moved&&!openPanelName&&!contextMode&&$('quickMenu').hidden&&$('welcome').classList.contains('hide')){
+ const last=touches.size===0;
+ if(last&&brush.mode&&brushDown&&!brushDown.cancel&&e.type==='pointerup'){
+  if(brushDown.painted)paintSegment(brushDown.x,brushDown.y,e.clientX,e.clientY);
+  else paintAt(e.clientX,e.clientY);
+  save();hud();
+ }else if(last&&startTouch&&!moved&&!brush.mode&&!openPanelName&&!contextMode&&$('quickMenu').hidden&&$('welcome').classList.contains('hide')&&e.type==='pointerup'){
   const x=e.clientX,y=e.clientY;
   if(activeScene!=='island')sceneCanvasTap(x,y);
   else{
@@ -1236,7 +1374,7 @@ function pointerEnd(e){
   }
  }
  if(touches.size===1){const remaining=[...touches.values()][0];startTouch={x:remaining.x,y:remaining.y,shiftX,shiftY};pinchOrigin=null;moved=true;}
- else if(touches.size===0){startTouch=null;pinchOrigin=null;}
+ else if(last){startTouch=null;pinchOrigin=null;brushDown=null;}
 }
 canvas.addEventListener('pointerup',pointerEnd);canvas.addEventListener('pointercancel',pointerEnd);
 canvas.addEventListener('wheel',e=>{e.preventDefault();zoomTo(zoom*(e.deltaY>0?.90:1.11),e.clientX,e.clientY);},{passive:false});
@@ -1260,9 +1398,8 @@ setInterval(()=>{
  }
  if(openPanelName!=='coop')return;
  const el=$('coopCountdown');if(!el)return;
- const stage=coopStage();
- if(stage==='growing')el.textContent=coopSecondsLeft()+'秒';
- else if(stage==='ready'&&el.textContent!=='可收集')panel('coop');
+ const stages=coopStages();
+ el.textContent=stages.split(',').map((stage,i)=>'第'+(i+1)+'只：'+(stage==='idle'?'待喂食':stage==='ready'?'可收蛋':coopSecondsLeft(i)+'秒')).join(' · ');
 },1000);
 window.addEventListener('resize',resize,{passive:true});canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();$('no3d').style.display='block';});
 resize();drawSeeds();hud();updateZoomBadge();requestAnimationFrame(frame);
