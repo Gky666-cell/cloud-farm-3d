@@ -16,9 +16,9 @@ jobs:
           node-version: '22'
       - name: Check model generator syntax
         run: node --check tools/build_buildings.cjs
-      - name: Regenerate editable building assets
+      - name: Regenerate all six editable building assets
         run: node tools/build_buildings.cjs
-      - name: Confirm generated GLB and GLTF files are reproducible
-        run: git diff --exit-code -- assets/art-v1
-      - name: Validate loader, model geometry, game production and saved data
+      - name: Confirm GLB/GLTF geometry is reproducible across V8 float rounding
+        run: node tools/check_building_repro.cjs
+      - name: Validate loader, geometry, gameplay, save data and fallback
         run: node tests/art-v1.test.cjs
