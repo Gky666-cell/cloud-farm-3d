@@ -1,6 +1,6 @@
-# 云朵农场 · 原创三维美术 V1.2 连接与五官精修测试版
+# 云朵农场 · 原创三维美术 V1.3 原创建筑精修测试版
 
-当前分支为 `art-v1-test`，版本 `v0.23.1-art-fixes-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
+当前分支为 `art-v1-test`，版本 `v0.24.0-buildings-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
 
 - [模型互动预览](preview.html)
 - [游戏测试入口](index.html)
@@ -25,3 +25,6 @@ python3 tools/render_art.py
 - 奶牛及低面数奶牛增加眼白、前移眼睛/高光，增加深入躯干的尾根连接网格。
 - 同步保存修正版 GLB/GLTF、源代码、资源清单及导入缓存版本。
 - 正式 main 仍是 v0.18.0；此分支手机帧率与触摸体验待实机验证。原 V1.1 ZIP 为旧档案，最新 GLB/GLTF 请从 assets/art-v1 获取。
+
+## V1.3 建筑包与场景改进
+已新增六个原创 GLB/GLTF：鸡舍、牛棚、羊圈、加工坊、风车、水井；同步到主岛与独立牧场（或鸡舍）场景。源文件在 `tools/build_buildings.cjs`，细节参见 [原创建筑 V1.3 说明](docs/BUILDINGS_V1_3.md)。原 V1.1 ZIP 为历史归档。正式分支不更改。

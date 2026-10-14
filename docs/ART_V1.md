@@ -1,4 +1,4 @@
-# 原创 3D 美术资源包 V1.2
+# 原创 3D 美术资源包 V1.3
 
 风格：奶油色建筑、鼠尾草绿门窗、珊瑚陶瓦、柔和圆润树冠、奶油绵羊。所有网格由本仓库源码生成，没有下载第三方模型或用概念图片冒充模型。
 
@@ -24,7 +24,7 @@ Blender：文件 → 导入 → glTF 2.0 → 选择 GLB；在 Outliner 展开模
 
 ## 游戏接入
 
-- 独立分支 `art-v1-test`，版本 `v0.23.1-art-fixes-test`；基于 v0.21.0 美术底稿，正式 main 与 GitHub Pages 不改动。
+- 独立分支 `art-v1-test`，版本 `v0.24.0-buildings-test`；基于 v0.21.0 美术底稿，正式 main 与 GitHub Pages 不改动。
 - `index.html` 为完整经营测试版；`preview.html` 为资源预览，可单指旋转、双指缩放、选择部件改颜色，下载原始文件。
 - 主屋、场景普通树、羊圈与放养绵羊、奶牛、小鸡、16 块农田底座使用实际 GLB。苹果树接入果园的生长、成熟、采摘和再结果阶段；橘子树及其他设施继续使用旧版模型。
 - 经营流程、固定角度竖屏投影、拖动、捏合缩放和触摸命中算法保留。
@@ -57,3 +57,6 @@ Blender：文件 → 导入 → glTF 2.0 → 选择 GLB；在 Outliner 展开模
 - 三个修正模型均已重新构造为 GLB 2.0 和自包含 GLTF，并同步修改 `tools/build_art.py`、`tools/animal_shapes.py` 生成源码；加载 URL 已更新缓存版本。
 - 本轮进行了模型几何及格式结构检查，但未完成真实手机 WebGL、FPS、点击/手势回归验证；详见 `docs/validation.json`。
 - `downloads/cloud-farm-original-art-v1-1.zip` 是旧版本归档；最新三个修复模型请从 `assets/art-v1/` 获取。
+
+## V1.3 建筑资源与场景升级
+新增 6 个可编辑的 GLB/GLTF：鸡舍、牛棚、羊圈、加工坊、风车和水井；主岛和独立养殖场景使用同一套建筑模型。所有 6 个建筑资源都由仓库的 `tools/build_buildings.cjs` 生成，详情参见 [建筑改进说明](BUILDINGS_V1_3.md)。正式 main 尚未合并。真实手机测试仍待验收。

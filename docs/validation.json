@@ -78,7 +78,8 @@
     "No browser/WebGL driver or physical-phone QA in this environment",
     "DOM and WebGL API are mocked; mesh import and business logic run unchanged",
     "Raster previews use actual imported mesh buffers; they are not browser screenshots",
-    "V1.2 model patch not yet exercised in an actual WebGL browser or phone"
+    "V1.2 model patch not yet exercised in an actual WebGL browser or phone",
+    "V1.3 actual browser and physical phone validation pending; do not interpret archived scenes data as V1.3 measurements"
   ],
   "animalLODTriangles": [
     {
@@ -110,7 +111,7 @@
   "maxDPR": 1.5,
   "targetRenderFPS": 30,
   "testedAt": "2026-10-14T12:57:56.906Z",
-  "baseline": "V1.1 automated runtime results; test suite not rerun after V1.2 changes",
+  "baseline": "V1.1 VM tests completed previously; V1.2/V1.3 code changes await execution on GitHub Actions",
   "v12MeshCorrections": {
     "format": "GLB 2.0 + embedded GLTF",
     "house": {
@@ -131,5 +132,20 @@
       "tailRoot": 1
     },
     "status": "structural export verification only; runtime regression and physical-phone QA pending"
+  },
+  "v13Buildings": {
+    "status": "generated and structurally assembled; full integration runtime and physical phone test pending",
+    "models": [
+      "coop-house",
+      "cow-barn",
+      "sheep-barn",
+      "workshop-house",
+      "windmill",
+      "well"
+    ],
+    "extraTriangles": 9988,
+    "extraGLBBytes": 919044,
+    "buildingsFollowEditor": "tools/build_buildings.cjs",
+    "includesGameFallback": true
   }
 }
