@@ -1,0 +1,83 @@
+{
+  "checks": [
+    "All six GLB assets load through production adapter",
+    "GLB + embedded GLTF agree; mesh normals and coordinates are finite",
+    "Apple fruit groups can hide without replacing the grown tree",
+    "v0.18-compatible save copied read-only; test save reloads; live save untouched",
+    "Planting and timed crop harvest update coins/experience",
+    "Sheep feeding, wait and wool collection preserve production",
+    "Apple sapling growth and repeated harvest remain functional",
+    "Workshop recipes consume stock and yield finished goods",
+    "Customer order delivery consumes correct goods",
+    "All seven game scenes build valid meshes with actual imported GLB resources",
+    "Portrait projection and touch handler registration retained",
+    "Missing model files fall back to v0.21 geometry"
+  ],
+  "scenes": {
+    "island": {
+      "staticTriangles": 71248,
+      "dynamicTriangles": 96,
+      "v018StaticTriangles": 72766,
+      "v021StaticTriangles": 114979,
+      "renderDrawCalls": 2,
+      "meshMiB": 8.1646728515625
+    },
+    "coop": {
+      "staticTriangles": 3936,
+      "dynamicTriangles": 2133,
+      "v018StaticTriangles": 5100,
+      "v021StaticTriangles": 5100,
+      "renderDrawCalls": 2,
+      "meshMiB": 0.6945419311523438
+    },
+    "cow": {
+      "staticTriangles": 5050,
+      "dynamicTriangles": 1900,
+      "v018StaticTriangles": 6658,
+      "v021StaticTriangles": 6658,
+      "renderDrawCalls": 2,
+      "meshMiB": 0.7953643798828125
+    },
+    "sheep": {
+      "staticTriangles": 5388,
+      "dynamicTriangles": 4842,
+      "v018StaticTriangles": 7008,
+      "v021StaticTriangles": 7008,
+      "renderDrawCalls": 2,
+      "meshMiB": 1.1707305908203125
+    },
+    "orchard": {
+      "staticTriangles": 5567,
+      "dynamicTriangles": 1642,
+      "v018StaticTriangles": 7595,
+      "v021StaticTriangles": 7595,
+      "renderDrawCalls": 2,
+      "meshMiB": 0.8250045776367188
+    },
+    "workshop": {
+      "staticTriangles": 5143,
+      "dynamicTriangles": 0,
+      "v018StaticTriangles": 6451,
+      "v021StaticTriangles": 6451,
+      "renderDrawCalls": 2,
+      "meshMiB": 0.5885696411132812
+    },
+    "orders": {
+      "staticTriangles": 3683,
+      "dynamicTriangles": 714,
+      "v018StaticTriangles": 4595,
+      "v021StaticTriangles": 4595,
+      "renderDrawCalls": 2,
+      "meshMiB": 0.5031967163085938
+    }
+  },
+  "limitations": [
+    "No browser/WebGL driver or physical-phone QA in this environment",
+    "DOM and WebGL API are mocked; mesh import and business logic run unchanged",
+    "Raster previews use actual imported mesh buffers; they are not browser screenshots"
+  ],
+  "assetBytes": 351540,
+  "maxDPR": 1.5,
+  "targetRenderFPS": 30,
+  "testedAt": "2026-10-14T12:28:38.549Z"
+}

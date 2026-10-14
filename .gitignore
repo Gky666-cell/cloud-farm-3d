@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+tests/*.f32
+.DS_Store
