@@ -147,10 +147,13 @@ def cow(Model):
   sculpt(m,'ear-'+str(sign),(sign*.39,1.437,.75),(.255,.085,.145),'#e9d9ba',10,18,.9,ear)
   sculpt(m,'ear-interior-'+str(sign),(sign*.46,1.435,.829),(.15,.04,.075),'#dfad97',8,16)
   tube(m,'curved-horn-'+str(sign),[(sign*.21,1.57,.69),(sign*.29,1.67,.68),(sign*.27,1.76,.72),(sign*.22,1.81,.76)],[.066,.057,.035,.005],'#dfd4ad',10,3)
-  sculpt(m,'eye-'+str(sign),(sign*.18,1.343,1.033),(.046,.066,.028),'#252f26',9,16)
-  sculpt(m,'eye-sparkle-'+str(sign),(sign*.173,1.365,1.055),(.012,.017,.008),'#fffef1',6,10)
+  sculpt(m,'eye-ivory-sclera-'+str(sign),(sign*.20,1.356,1.091),(.083,.092,.052),'#fffaf0',9,16)
+  sculpt(m,'eye-'+str(sign),(sign*.20,1.355,1.146),(.052,.073,.034),'#252f26',9,16)
+  sculpt(m,'eye-sparkle-'+str(sign),(sign*.188,1.377,1.171),(.012,.017,.008),'#fffef1',6,10)
   sculpt(m,'nostril-'+str(sign),(sign*.143,1.102,1.291),(.037,.025,.010),'#9d7664',7,14,.8)
  tube(m,'muzzle-smile',[(-.12,1.003,1.276),(0,.982,1.30),(.12,1.003,1.276)],[.007,.007,.007],'#b88a74',7,3)
+ # Anchor extends inside rump; eliminates apparent tail detachment from side/rear views.
+ tube(m,'tail-root-connected',[(0,1.24,-.66),(.030,1.255,-.79),(.10,1.17,-.94)],[.085,.065,.037],'#dbc9aa',12,2)
  tube(m,'curving-tail',[(0,1.29,-.79),(.12,1.13,-.99),(.18,.87,-1.03),(.13,.70,-1.06)],[.033,.026,.024,.023],'#dbc9aa',8,3)
  sculpt(m,'tail-tuft',(.13,.645,-1.06),(.068,.13,.069),'#535347',10,16,.86)
  return m

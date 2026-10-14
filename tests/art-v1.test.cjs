@@ -17,6 +17,14 @@ async function main(){
  for(const m of manifest.models){const b=fs.readFileSync('assets/art-v1/'+m.id+'.glb'),model=run.env.FarmArtV1.parseGLB(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength));assert.equal(model.triangles,m.triangles);for(const p of model.parts){assert(p.data.every(Number.isFinite));for(let i=0;i<p.data.length;i+=10)assert(Math.abs(Math.hypot(p.data[i+3],p.data[i+4],p.data[i+5])-1)<1e-5);}
   const gt=JSON.parse(fs.readFileSync('assets/art-v1/'+m.id+'.gltf')),bin=Buffer.from(gt.buffers[0].uri.split(',')[1],'base64'),gmodel=run.env.FarmArtV1.parse(gt,bin.buffer.slice(bin.byteOffset,bin.byteOffset+bin.byteLength));assert.equal(gmodel.triangles,m.triangles);fs.writeFileSync('tests/'+m.id+'.f32',Buffer.from(run.env.FarmArtV1.compile(model).buffer));
  }check('GLB + embedded GLTF agree; mesh normals and coordinates are finite');
+ // V1.2 regression check: physical roof joins and cow eye/tail meshes.
+ for(const id of ['house','cow','cow-lod']){
+  const b=fs.readFileSync('assets/art-v1/'+id+'.glb'),model=run.env.FarmArtV1.parseGLB(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength));
+  const names=new Set(model.parts.map(p=>p.name));
+  if(id==='house'){for(const sign of [-1,1])assert(names.has('roof-to-wall-connection-'+sign));}
+  else{for(const sign of [-1,1]){assert(names.has('eye-ivory-sclera-'+sign));const eye=model.parts.find(p=>p.name==='eye-'+sign);assert(eye,'missing pupil');let z=0,n=0;for(let k=2;k<eye.data.length;k+=10){z+=eye.data[k];n++;}assert(z/n>1.10,'Cow pupil needs to face forward');}assert(names.has('tail-root-connected'));}
+ }
+ check('V1.2 roof-wall joints, cow eye sockets and attached tail-root are present');
  const tree=run.env.FarmArtV1.parseGLB((b=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength))(fs.readFileSync('assets/art-v1/apple-tree.glb')));assert(run.env.FarmArtV1.compile(tree,{fruit:false}).length<run.env.FarmArtV1.compile(tree).length);check('Apple fruit groups can hide without replacing the grown tree');
  const q=run.qa,state=q.getState(),legacy=JSON.stringify(state),storage=new Map([[q.LEGACY_KEY,legacy]]),saved=makeEnv(html,storage);await new Promise(r=>setImmediate(r));assert.equal(saved.qa.getState().coins,state.coins);saved.qa.getState().coins+=17;saved.qa.save();assert.equal(storage.get(q.LEGACY_KEY),legacy);assert(storage.has(q.KEY));const reloaded=makeEnv(html,storage);await new Promise(r=>setImmediate(r));assert.equal(reloaded.qa.getState().coins,state.coins+17);check('v0.18-compatible save copied read-only; test save reloads; live save untouched');
  state.coins=1000;q.setScene('island');q.startBrush('plant',0);q.tryPaintPlot(0);assert.equal(state.plots[0].seed,0);clock+=9000;q.tapPlot(0,100,100);assert.equal(state.plots[0].seed,-1);assert.equal(state.total,1);check('Planting and timed crop harvest update coins/experience');

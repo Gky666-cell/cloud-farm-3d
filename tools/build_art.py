@@ -57,7 +57,7 @@ class Model:
    primitive={'attributes':{'POSITION':acc(v,'VEC3',5126),'NORMAL':acc(n,'VEC3',5126)},'indices':acc(t.reshape(-1),'SCALAR',5123),'material':[m['name'] for m in mats].index(col)}
    if vc is not None:primitive['attributes']['COLOR_0']=acc(np.asarray(vc,dtype=np.float32),'VEC4',5126)
    meshes.append({'name':name,'primitives':[primitive]});nodes.append({'name':name,'mesh':len(meshes)-1});nodes[0]['children'].append(len(nodes)-1)
-  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1.1'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.1.0'}}
+  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1.2'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.2.0'}}
   js=json.dumps(g,separators=(',',':')).encode();js+=b' '*((-len(js))%4);data+=b'\0'*((-len(data))%4)
   glb=struct.pack('<III',0x46546c67,2,12+8+len(js)+8+len(data))+struct.pack('<II',len(js),0x4e4f534a)+js+struct.pack('<II',len(data),0x004e4942)+data
   OUT.mkdir(parents=True,exist_ok=True);(OUT/(self.name+'.glb')).write_bytes(glb)
@@ -68,14 +68,15 @@ def house():
  m=Model('house');m.box('stone-foundation',(0,.13,0),(2.75,.26,2.4),'stone');m.box('plaster-walls',(0,1.07,0),(2.48,1.7,2.16),'cream')
  for x in [-1.17,1.17]:m.box('corner-post-'+str(x),(x,1.08,1.105),(.10,1.72,.1),'wood')
  m.box('front-crossbeam',(0,1.83,1.11),(2.48,.12,.1),'wood');m.box('wall-base-trim',(0,.37,1.12),(2.5,.1,.09),'trim')
+ for side in [-1,1]:m.box('roof-to-wall-connection-'+str(side),(side*1.23,1.845,0),(.12,.20,2.22),'cream')
  # Solid roof planes and gables, all editable.
  m.part('gable-front',[[-1.24,1.91,1.08],[1.24,1.91,1.08],[0,2.98,1.08]],[[0,1,2]],'cream')
  m.part('gable-back',[[1.24,1.91,-1.08],[-1.24,1.91,-1.08],[0,2.98,-1.08]],[[0,1,2]],'cream')
  for sign in [-1,1]:
-  m.part('roof-slope-'+str(sign),[[0,3.02,-1.38],[0,3.02,1.42],[sign*1.52,1.94,1.42],[sign*1.52,1.94,-1.38]],[[0,1,2],[0,2,3]] if sign>0 else [[0,2,1],[0,3,2]],'roof')
-  m.beam('roof-fascia-'+str(sign),(0,3.025,1.43),(sign*1.52,1.94,1.43),.065,'rooflight',6)
+  m.part('roof-slope-'+str(sign),[[0,3.02,-1.38],[0,3.02,1.42],[sign*1.52,1.68,1.42],[sign*1.52,1.68,-1.38]],[[0,1,2],[0,2,3]] if sign>0 else [[0,2,1],[0,3,2]],'roof')
+  m.beam('roof-fascia-'+str(sign),(0,3.025,1.43),(sign*1.52,1.68,1.43),.065,'rooflight',6)
   for j in range(1,5):
-   x=sign*j*.295;y=3.02-abs(x)*1.08/1.52+.025
+   x=sign*j*.295;y=3.02-abs(x)*1.34/1.52+.025
    m.beam('tile-row-'+str(sign)+'-'+str(j),(x,y,-1.38),(x,y,1.42),.022,'rooflight',5)
  for j in range(8):m.ell('ridge-cap-'+str(j),(0,3.04,-1.2+j*.35),(.12,.095,.20),'rooflight',3,8)
  m.box('chimney',(-.72,2.98,-.5),(.36,.9,.38),'cream');m.box('chimney-cap',(-.72,3.45,-.5),(.48,.1,.48),'wood');m.box('chimney-opening',(-.72,3.505,-.5),(.28,.011,.28),'darkwood')
@@ -129,4 +130,4 @@ if __name__=='__main__':
  from animal_shapes import build_animals
  animals=build_animals(Model)
  stats=[m.export() for m in [house(),tree(),tree(True),*animals,plot(),plot(True)]]
- (OUT/'manifest.json').write_text(json.dumps({'version':'1.1.0','models':stats,'palette':P},indent=2));print(json.dumps(stats,indent=2))
+ (OUT/'manifest.json').write_text(json.dumps({'version':'1.2.0','models':stats,'palette':P},indent=2));print(json.dumps(stats,indent=2))

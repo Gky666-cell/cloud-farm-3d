@@ -77,7 +77,8 @@
   "limitations": [
     "No browser/WebGL driver or physical-phone QA in this environment",
     "DOM and WebGL API are mocked; mesh import and business logic run unchanged",
-    "Raster previews use actual imported mesh buffers; they are not browser screenshots"
+    "Raster previews use actual imported mesh buffers; they are not browser screenshots",
+    "V1.2 model patch not yet exercised in an actual WebGL browser or phone"
   ],
   "animalLODTriangles": [
     {
@@ -108,5 +109,27 @@
   "assetBytes": 1174612,
   "maxDPR": 1.5,
   "targetRenderFPS": 30,
-  "testedAt": "2026-10-14T12:57:56.906Z"
+  "testedAt": "2026-10-14T12:57:56.906Z",
+  "baseline": "V1.1 automated runtime results; test suite not rerun after V1.2 changes",
+  "v12MeshCorrections": {
+    "format": "GLB 2.0 + embedded GLTF",
+    "house": {
+      "triangles": 1800,
+      "parts": 82,
+      "roofConnectors": 2
+    },
+    "cow": {
+      "triangles": 12246,
+      "parts": 39,
+      "eyeSclera": 2,
+      "tailRoot": 1
+    },
+    "cow-lod": {
+      "triangles": 4192,
+      "parts": 39,
+      "eyeSclera": 2,
+      "tailRoot": 1
+    },
+    "status": "structural export verification only; runtime regression and physical-phone QA pending"
+  }
 }
