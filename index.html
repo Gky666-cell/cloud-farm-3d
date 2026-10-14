@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 加工工坊 v0.16.0</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 顾客订单 v0.17.0</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 1px 6px;font-size:9px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center;min-width:0;white-space:nowrap}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
 
@@ -67,7 +67,7 @@ body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 233px)}
 @media (max-width:390px){#sceneDock{padding:11px 10px 12px}.sceneHeading{max-width:58%}.sceneActions .action{font-size:11px}}
 @media (max-height:620px){#sceneHUD{top:calc(env(safe-area-inset-top) + 108px)}#sceneDock{max-height:48dvh}body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 164px)}}
 
-/* v0.16.0 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
+/* v0.17.0 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
 #dock,#sceneDock,.brand,.levelbar,#floatHint,#ambientTag{display:none!important}
 #header{top:calc(env(safe-area-inset-top) + 12px);left:12px;right:12px;justify-content:flex-end}
 .wallet{gap:7px}
@@ -127,7 +127,7 @@ body.subscene #roamChip{display:none}
 .roamChoice{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.roamChoice button{flex:1;min-width:90px}
 .roamStatus{color:#51836c;font-weight:750;font-size:11px;margin-top:6px}
 @media(orientation:landscape){#roamChip{bottom:17px}}
-/* v0.16.0 production recipes and world-space animal nibble bubbles */
+/* v0.17.0 production recipes and world-space animal nibble bubbles */
 .workshopCard{margin:9px 0;border-radius:16px;border:1px solid #dce9d5;background:#f7f7ec;padding:10px}
 .workshopCard.ready{border-color:#81c59a;background:#eef9e9}
 .workshopCard .workshopTop{display:flex;gap:9px;align-items:center}
@@ -143,25 +143,40 @@ body.subscene #roamChip{display:none}
 .nibbleBubble span{font-size:18px}
 @keyframes nibbleBounce{from{translate:0 0}to{translate:0 -6px}}
 @media(prefers-reduced-motion:reduce){.nibbleBubble{animation:none}}
+
+/* v0.17.0 - orders use the same lightweight bottom sheet, not a persistent HUD. */
+.orderOverview{font-size:11px;line-height:1.65;color:#688b78;background:#f1f6ea;padding:9px 12px;border-radius:13px;margin-bottom:10px}
+.orderGrid{display:grid;grid-template-columns:1fr;gap:10px}
+.orderCard{background:linear-gradient(155deg,#fffef5,#edf3e7);border:2px solid #e6eada;border-radius:17px;padding:12px}
+.orderCard.highlight{border-color:#7fbf90;box-shadow:0 3px 14px #78b78032}
+.orderHeader{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.orderAvatar{width:42px;height:42px;border-radius:13px;background:#fff6d8;display:grid;place-items:center;font-size:23px;flex-shrink:0}
+.orderHeader strong{font-size:13px;display:block;color:#466e57}
+.orderHeader small{font-size:10px;color:#92a18b}
+.orderMaterial{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:12px;padding:7px 8px;margin:4px 0;border-radius:9px;background:#ffffffbf}
+.orderMaterial.short{background:#fff2e4;color:#a87356}.orderMaterial.good{color:#57846a}
+.orderFooter{display:flex;gap:7px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
+.orderPay{font-size:12px;font-weight:850;color:#9e7b39}
+.orderFooter .action{flex:1;max-width:180px}
 </style></head>
 <body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
-<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.16.0</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.17.0</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
 <div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 双指放大到近景 · ⊕/- 调整</div><div id="cameraControls" role="group" aria-label="农场镜头操作"><button id="cameraPlus" type="button" aria-label="放大农场">+</button><div id="zoomBadge" aria-live="off">1.0×</div><button id="cameraMinus" type="button" aria-label="缩小农场">−</button><button id="cameraReset" type="button" aria-label="还原农场全景" title="还原农场全景">⌂</button></div><div id="toast"></div><div id="spark"></div>
 <div id="nibbleBubbles" aria-hidden="true"></div>
 <div id="sceneHUD" hidden><button id="sceneBack" type="button" aria-label="返回主岛" title="返回主岛">←</button><div class="sceneHeading"><strong id="sceneName">🐔 鸡舍小院</strong><small id="sceneSubtitle">可以在场景里照顾动物</small></div></div>
 <div id="sceneDock" hidden aria-label="独立经营场景操作面板"><div id="sceneDockBody"></div></div>
 <div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子</button><button data-panel="bag"><span class="sym">🧺</span>仓库</button><button data-panel="coop"><span class="sym">🐔</span>鸡舍</button><button data-panel="orchard"><span class="sym">🍎</span>果园</button><button data-panel="goals"><span class="sym">📜</span>任务</button><button data-panel="help"><span class="sym">📖</span>帮助</button></div></div>
 
-<!-- v0.16.0: scene brush modes are opt-in; normal drags continue to pan the camera. -->
+<!-- v0.17.0: scene brush modes are opt-in; normal drags continue to pan the camera. -->
 <button id="quickBag" type="button" aria-label="打开农场背包" title="农场背包">🧺</button><button id="roamChip" type="button" hidden aria-label="查看在主岛放养的动物">🐾 0只放养中</button>
 <div id="brushBar" hidden aria-live="polite"><span id="brushText">🌱 连续播种</span><button id="brushChange" type="button">换种子</button><button id="brushDone" type="button">✓ 完成</button></div>
 <div id="quickMenu" hidden role="menu" aria-label="农场功能">
- <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.16.0 · 点击物体进行经营</small></div>
+ <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.17.0 · 点击物体进行经营</small></div>
  <div class="quickGrid">
   <button type="button" data-quick-nav="paint">🌱<span>连续播种</span></button><button type="button" data-quick-nav="shop">🌱<span>种子图鉴</span></button>
   <button type="button" data-quick-nav="bag">🎒<span>仓库</span></button>
   <button type="button" data-quick-nav="coop">🐔<span>鸡舍</span></button>
-  <button type="button" data-quick-nav="orchard">🍎<span>果园</span></button><button type="button" data-quick-nav="cow">🐄<span>牛棚</span></button><button type="button" data-quick-nav="sheep">🐑<span>羊圈</span></button><button type="button" data-quick-nav="roam">🐾<span>动物放养</span></button><button type="button" data-quick-nav="workshop">🏭<span>加工坊</span></button>
+  <button type="button" data-quick-nav="orchard">🍎<span>果园</span></button><button type="button" data-quick-nav="cow">🐄<span>牛棚</span></button><button type="button" data-quick-nav="sheep">🐑<span>羊圈</span></button><button type="button" data-quick-nav="roam">🐾<span>动物放养</span></button><button type="button" data-quick-nav="workshop">🏭<span>加工坊</span></button><button type="button" data-quick-nav="orders">📦<span>顾客订单</span></button>
   <button type="button" data-quick-nav="goals">📜<span>任务</span></button>
   <button type="button" data-quick-nav="help">📖<span>说明</span></button>
  </div>
@@ -192,6 +207,18 @@ const WORKSHOP_RECIPES=[
  {name:'柔软毛线',emoji:'🧵',input:'wool',need:2,time:45000,sell:62,xp:16}
 ];
 const WORKSHOP_INPUTS={eggs:'🥚 鸡蛋',milk:'🥛 牛奶',apple:'🍎 苹果',orange:'🍊 橙子',wool:'🧶 羊毛'};
+// Orders draw from stock that already exists in v0.16.0 (field crops still sell immediately).
+const ORDER_GOODS=[
+ {id:'eggs',name:'鸡蛋',emoji:'🥚',price:EGG_PRICE},
+ {id:'milk',name:'牛奶',emoji:'🥛',price:MILK_PRICE},
+ {id:'wool',name:'羊毛',emoji:'🧶',price:WOOL_PRICE},
+ {id:'apple',name:'苹果',emoji:'🍎',price:26},
+ {id:'orange',name:'橙子',emoji:'🍊',price:37},
+ ...WORKSHOP_RECIPES.map((r,i)=>({id:'crafted'+i,name:r.name,emoji:r.emoji,price:r.sell}))
+];
+const ORDER_CUSTOMERS=[['👩🏻‍🌾','小葵'],['🧑🏻‍🍳','阿麦'],['👨🏽‍🌾','阿田'],['👩🏽‍🍳','小柚'],['👩🏻‍🦰','豆豆'],['👨🏻','小森']];
+const ORDER_SITES=[{x:-3.50,z:.65},{x:0,z:.65},{x:3.50,z:.65}];
+const ORDER_HUT_X=7.10,ORDER_HUT_Z=2.30;
 const FRUITS=[
  {name:'苹果',emoji:'🍎',sapling:125,first:40000,regrow:28000,count:3,price:26,xp:20},
  {name:'橙子',emoji:'🍊',sapling:170,first:55000,regrow:38000,count:3,price:37,xp:28}
@@ -200,7 +227,7 @@ const FRUITS=[
 // Site index stays unchanged: existing saved apple/orange trees move with their slots.
 const ORCHARD_SITES=[{x:3.55,z:-7.48},{x:8.30,z:-6.28}]; // Original slot identities preserved for saves.
 const ORCHARD_ROOM_SITES=[{x:-2.35,z:.25},{x:2.35,z:.25}];
-const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0,coop:{fedAt:0,eggs:0,total:0,feeds:0,chickens:[{fedAt:0},{fedAt:0},{fedAt:0}]},orchard:{trees:[{type:-1,plantedAt:0,readyAt:0,harvests:0},{type:-1,plantedAt:0,readyAt:0,harvests:0}],stock:[0,0],total:[0,0]},cow:{milk:0,total:0,feeds:0,cows:[{fedAt:0},{fedAt:0}]},sheep:{wool:0,total:0,feeds:0,animals:[{fedAt:0},{fedAt:0},{fedAt:0}]},roam:{animals:{},events:[]},workshop:{job:null,stock:[0,0,0,0,0],crafted:0}});
+const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0,coop:{fedAt:0,eggs:0,total:0,feeds:0,chickens:[{fedAt:0},{fedAt:0},{fedAt:0}]},orchard:{trees:[{type:-1,plantedAt:0,readyAt:0,harvests:0},{type:-1,plantedAt:0,readyAt:0,harvests:0}],stock:[0,0],total:[0,0]},cow:{milk:0,total:0,feeds:0,cows:[{fedAt:0},{fedAt:0}]},sheep:{wool:0,total:0,feeds:0,animals:[{fedAt:0},{fedAt:0},{fedAt:0}]},roam:{animals:{},events:[]},workshop:{job:null,stock:[0,0,0,0,0],crafted:0},orders:{serial:0,completed:0,coinsEarned:0,slots:[]}});
 let state=initial();try{let p=JSON.parse(localStorage.getItem(KEY));if(p&&p.plots&&p.plots.length===16){state={...state,...p};}}catch(_e){}
 // Upgrade old saves without resetting the original field, coin, XP or quest state.
 function normalizeCoop(){
@@ -231,7 +258,7 @@ function normalizeCow(){
    cows:Array.from({length:2},(_,i)=>({fedAt:nonneg(Array.isArray(old.cows)?old.cows[i]?.fedAt:0)}))};
 }
 normalizeCow();
-// v0.16.0 extends existing saves with independent sheep cycles; all older data stays untouched.
+// v0.17.0 extends existing saves with independent sheep cycles; all older data stays untouched.
 function normalizeSheep(){
  const old=state.sheep&&typeof state.sheep==='object'?state.sheep:{};
  const value=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
@@ -239,7 +266,7 @@ function normalizeSheep(){
   animals:Array.from({length:3},(_,i)=>({fedAt:value(Array.isArray(old.animals)?old.animals[i]?.fedAt:0)}))};
 }
 normalizeSheep();
-// v0.16.0: opt-in animal outings. Existing farm/production state is not modified by save migration.
+// v0.17.0: opt-in animal outings. Existing farm/production state is not modified by save migration.
 function normalizeRoam(){
  const old=state.roam&&typeof state.roam==='object'?state.roam:{};
  const original=old.animals&&typeof old.animals==='object'?old.animals:{};
@@ -259,7 +286,7 @@ function normalizeRoam(){
  state.roam={animals,events,friendship,petLast};
 }
 normalizeRoam();
-// v0.16.0 extends the same localStorage record. No old resources are removed.
+// v0.17.0 extends the same localStorage record. No old resources are removed.
 function normalizeWorkshop(){
  const old=state.workshop&&typeof state.workshop==='object'?state.workshop:{};
  const safe=v=>Number.isFinite(Number(v))?Math.max(0,Math.floor(Number(v))):0;
@@ -268,6 +295,93 @@ function normalizeWorkshop(){
  state.workshop={job,stock:WORKSHOP_RECIPES.map((_,i)=>safe(old.stock?.[i])),crafted:safe(old.crafted)};
 }
 normalizeWorkshop();
+function orderStock(id){
+ if(id==='eggs')return state.coop.eggs;
+ if(id==='milk')return state.cow.milk;
+ if(id==='wool')return state.sheep.wool;
+ if(id==='apple')return state.orchard.stock[0];
+ if(id==='orange')return state.orchard.stock[1];
+ if(/^crafted[0-4]$/.test(id))return state.workshop.stock[Number(id.slice(7))];
+ return 0;
+}
+function changeOrderStock(id,amount){
+ if(id==='eggs')state.coop.eggs+=amount;
+ else if(id==='milk')state.cow.milk+=amount;
+ else if(id==='wool')state.sheep.wool+=amount;
+ else if(id==='apple')state.orchard.stock[0]+=amount;
+ else if(id==='orange')state.orchard.stock[1]+=amount;
+ else if(/^crafted[0-4]$/.test(id))state.workshop.stock[Number(id.slice(7))]+=amount;
+}
+function createOrder(slot,serial){
+ // Stable variety across refreshes; always at least one accessible basic order.
+ const t=serial+slot*17;
+ const simple=[0,1,2,3,4];
+ let items;
+ if(slot===0)items=[{id:ORDER_GOODS[simple[(t*3+1)%5]].id,count:1+(t%2)}];
+ else if(slot===1){
+  const a=(t*7+2)%5,b=(a+2+t%2)%5;
+  items=[{id:ORDER_GOODS[a].id,count:1+t%2},{id:ORDER_GOODS[b].id,count:1}];
+ }else{
+  const processed=5+(t*3%5);
+  items=[{id:ORDER_GOODS[processed].id,count:1}];
+  if(t%3===0)items.push({id:ORDER_GOODS[(t+1)%5].id,count:1});
+ }
+ const subtotal=items.reduce((n,item)=>n+ORDER_GOODS.find(g=>g.id===item.id).price*item.count,0);
+ const coins=Math.ceil(subtotal*1.45/5)*5+5;
+ const xp=12+items.reduce((n,item)=>n+item.count*4,0)+(slot===2?10:slot*4);
+ const customer=ORDER_CUSTOMERS[(t+slot)%ORDER_CUSTOMERS.length];
+ return {serial,customer:customer[1],avatar:customer[0],items,coins,xp};
+}
+function normalizeOrders(){
+ const old=state.orders&&typeof state.orders==='object'?state.orders:{};
+ const safe=v=>Number.isFinite(Number(v))?Math.min(1000000,Math.max(0,Math.floor(Number(v)))):0;
+ const slots=Array.isArray(old.slots)?old.slots:[];
+ let serial=safe(old.serial);
+ const valid=order=>order&&Array.isArray(order.items)&&order.items.length>0&&order.items.length<=2&&
+   order.items.every(x=>ORDER_GOODS.some(g=>g.id===x.id)&&Number.isInteger(x.count)&&x.count>=1&&x.count<=5)&&
+   Number.isInteger(order.coins)&&order.coins>0&&order.coins<10000&&Number.isInteger(order.xp)&&order.xp>=1&&order.xp<1000&&
+   ORDER_CUSTOMERS.some(c=>c[1]===order.customer)&&ORDER_CUSTOMERS.some(c=>c[0]===order.avatar);
+ state.orders={serial,completed:safe(old.completed),coinsEarned:safe(old.coinsEarned),slots:[0,1,2].map(i=>{
+  if(valid(slots[i]))return slots[i];
+  return createOrder(i,serial++);
+ })};
+ state.orders.serial=serial;
+}
+normalizeOrders();
+function orderCanDeliver(order){return order&&order.items.every(it=>orderStock(it.id)>=it.count);}
+function deliverOrder(slot){
+ const idx=Number(slot),order=state.orders.slots[idx];
+ if(!Number.isInteger(idx)||idx<0||idx>2||!order)return false;
+ if(!orderCanDeliver(order)){toast('📦 仓库货物不足，先收获或加工');return false;}
+ for(const item of order.items)changeOrderStock(item.id,-item.count);
+ state.coins+=order.coins;
+ state.orders.completed++;state.orders.coinsEarned+=order.coins;
+ gainXP(order.xp);
+ state.orders.slots[idx]=createOrder(idx,state.orders.serial++);
+ save();hud();needsDynamic=true;
+ toast('📦 交付成功！+'+order.coins+'金币 · +'+order.xp+'经验');
+ if(activeScene==='orders')renderSceneDock();
+ if(contextMode==='orders'){$('contextBody').innerHTML=ordersContent();}
+ if(openPanelName==='orders'||openPanelName==='bag')panel(openPanelName);
+ return true;
+}
+function ordersContent(){
+ const o=state.orders;
+ let html='<div class="orderOverview">📦 已完成 <strong>'+o.completed+'</strong> 单 · 累计订单收入 🪙'+o.coinsEarned+'<br>将仓库货物交付给顾客，即可获得金币和经验。每完成一单会出现新订单。</div><div class="orderGrid">';
+ o.slots.forEach((order,i)=>{
+  const ok=orderCanDeliver(order);
+  html+='<div class="orderCard'+(chosenOrderSlot===i?' highlight':'')+'"><div class="orderHeader"><span class="orderAvatar">'+order.avatar+'</span><div><strong>'+order.customer+' 的订单 · '+(i+1)+'号柜台</strong><small>'+ (i===2?'需要加工品 · 回报更高':'农场货物 · 轻松交付')+'</small></div></div>';
+  order.items.forEach(it=>{const good=ORDER_GOODS.find(g=>g.id===it.id),n=orderStock(it.id);
+   html+='<div class="orderMaterial '+(n>=it.count?'good':'short')+'"><span>'+good.emoji+' '+good.name+' ×'+it.count+'</span><span>仓库 '+n+(n<it.count?' · 缺'+(it.count-n):' ✓')+'</span></div>';
+  });
+  html+='<div class="orderFooter"><span class="orderPay">🪙 '+order.coins+' · ⭐ '+order.xp+'经验</span><button class="action" data-order-deliver="'+i+'" '+(ok?'':'disabled')+'>'+(ok?'📦 交付订单':'还需备货')+'</button></div></div>';
+ });
+ return html+'</div><div class="sceneDesc">提示：农田作物收获后仍直接兑换金币，不计入仓库订单；鸡蛋、牛奶、羊毛、水果和加工品可以交付。</div>';
+}
+function handleOrderAction(b){
+ if(b.dataset.orderDeliver===undefined)return false;
+ deliverOrder(Number(b.dataset.orderDeliver));return true;
+}
 function roamActive(kind,now=Date.now()){return !!(state.roam.animals[kind]&&state.roam.animals[kind].until>now);}
 function activeRoamKinds(now=Date.now()){return Object.keys(ROAM_KINDS).filter(k=>roamActive(k,now));}
 function roamSeconds(kind){return Math.max(0,Math.ceil(((state.roam.animals[kind]?.until||0)-Date.now())/1000));}
@@ -470,9 +584,11 @@ for(let i=0;i<36;i++){
  const grove=4.05*Math.exp(-d*d/(2*.66*.66));
  const sheepAngle=Math.atan2(Math.sin(a-1.79),Math.cos(a-1.79));
  const sheepMeadow=2.75*Math.exp(-sheepAngle*sheepAngle/(2*.39*.39));
+ const orderAngle=Math.atan2(Math.sin(a-.40),Math.cos(a-.40));
+ const orderMeadow=2.35*Math.exp(-orderAngle*orderAngle/(2*.34*.34));
  const craftAngle=Math.atan2(Math.sin(a+2.72),Math.cos(a+2.72));
  const workshopMeadow=4.8*Math.exp(-craftAngle*craftAngle/(2*.38*.38));
- const r=7.40+.43*Math.sin(i*2.91)+.19*Math.cos(i*1.47)+grove+sheepMeadow+workshopMeadow;
+ const r=7.40+.43*Math.sin(i*2.91)+.19*Math.cos(i*1.47)+grove+sheepMeadow+workshopMeadow+orderMeadow;
  island.push([Math.cos(a)*r*1.045,Math.sin(a)*r*.965]);
 }
 function buildIsland(){// thicker layered sky island with stronger cliff silhouette
@@ -1184,7 +1300,7 @@ function orchardExteriorFruits(){
   }
  }
 }
-// v0.16.0: dairy barn entrance on the newly extended east pasture.
+// v0.17.0: dairy barn entrance on the newly extended east pasture.
 const COW_BARN_X=6.55,COW_BARN_Z=-.75;
 function makeCow(x,z,scale=1,variant=0){
  const s=scale,cream=variant?['#fff2df','#e9e0cb','#d9d2c0']:['#f4eee2','#e2daca','#fff8ea'];
@@ -1287,7 +1403,7 @@ function sceneCowActivity(now){
   }
  }
 }
-// v0.16.0: dedicated sheep barn near southern island meadow, separate from cows and orchard.
+// v0.17.0: dedicated sheep barn near southern island meadow, separate from cows and orchard.
 const SHEEP_BARN_X=-2.85,SHEEP_BARN_Z=6.24;
 function makeSheep(x,z,scale=1,variant=0){
  const s=scale,wool=variant%3===0?['#faf1db','#e7dcc4','#fff9e8']:variant%3===1?['#f3eedf','#dad8c9','#fff9ed']:['#e7e1d3','#d3cdbf','#f7f2e7'];
@@ -1451,15 +1567,68 @@ function sceneWorkshopActivity(now){
   }
  }
 }
+function makeOrderKiosk(x,z,s=1){
+ shadow(x+1.0*s,z+.75*s,1.46*s,1.30*s);
+ box(x-.17*s,.075,z-.18*s,2.42*s,.20*s,2.04*s,['#cbb188','#a88d6b','#987858']);
+ box(x,.25*s,z,2.02*s,1.38*s,1.60*s,['#f0dbb0','#d9b68c','#b78f67']);
+ const lo=x-.24*s,hi=x+2.29*s,mid=x+1.04*s,front=z+1.78*s,back=z-.20*s;
+ quad([lo,1.55*s,front],[mid,2.35*s,front],[mid,2.35*s,back],[lo,1.55*s,back],'#b66c65');
+ quad([mid,2.35*s,front],[hi,1.55*s,front],[hi,1.55*s,back],[mid,2.35*s,back],'#d48d72');
+ box(x+.49*s,.28*s,z+1.59*s,1.14*s,.77*s,.12*s,['#94694d','#79543f','#644631']);
+ box(x-.15*s,.75*s,z+1.87*s,2.30*s,.16*s,.42*s,['#d5a673','#ae7f56','#986d4c']);
+ // Shipping crates, envelope placard, wooden information post.
+ box(x+.12*s,.12*s,z+1.92*s,.54*s,.56*s,.57*s,['#e6bb84','#bd925d','#ad7d4f']);
+ box(x+1.44*s,.12*s,z+1.94*s,.50*s,.40*s,.45*s,['#ecc99a','#c79e6f','#aa855c']);
+ box(x+.67*s,1.25*s,z+1.65*s,.67*s,.42*s,.065*s,['#fff2cd','#dcb997','#c49d75']);
+ for(let k=0;k<2;k++)box(x+(.79+k*.19)*s,1.43*s,z+1.69*s,.12*s,.034*s,.024*s,'#a67858');
+ for(let k=0;k<5;k++)flower(x+(.2+k*.42)*s,z+2.62*s,k%2?'#f9d6c9':'#f7e7a8',.07*s);
+}
+function sceneOrders(){
+ polyGround([[-7,-6.2],[-7,5.9],[7,5.9],[7,-6.2]],.032,'#91c989');
+ polyGround([[-6.65,-5.95],[-6.65,5.57],[6.65,5.57],[6.65,-5.95]],.063,'#b3dc9c');
+ // Use small flagstones rather than two very large triangles: consistent WebGL and Canvas layering.
+ for(let r=0;r<4;r++)for(let c=0;c<4;c++){
+  const xx=-5.55+c*2.78,zz=-4.13+r*1.88;
+  polyGround([[xx,zz],[xx+2.75,zz],[xx+2.75,zz+1.85],[xx,zz+1.85]],.124,(r+c)%2?'#e2d0ac':'#dfcaa4');
+ }
+ for(let j=0;j<9;j++)box(-5.22+j*1.25,.119,-3.92,.045,.012,7.06,['#e9d8b8','#d6c4a3','#c0aa89']);
+ makeOrderKiosk(-1.05,-5.78,.9);
+ for(let i=0;i<3;i++){
+  const p=ORDER_SITES[i],colors=[['#f6daa7','#d3a16f','#b88658'],['#cde6bd','#9fbe95','#7fa575'],['#f3c8b8','#dca39c','#c78987']][i];
+  box(p.x-.96,.18,p.z-.92,1.93,.27,1.63,colors);
+  box(p.x-.83,.47,p.z+.38,1.64,.68,.48,['#e8bf8f','#b68b67','#a57d56']);
+  box(p.x-.56,1.19,p.z+.43,1.14,.87,.12,['#f4e7c8','#c5a885','#af8c6d']);
+  // mini order sign and cardboard parcel box
+  box(p.x-.42,1.50,p.z+.58,.83,.09,.06,['#a78262','#986e52','#866349']);
+  box(p.x-.45,.49,p.z+.02,.64,.42,.55,['#e9c390','#c69c67','#b58a60']);
+  box(p.x+.35,.49,p.z-.22,.32,.35,.39,['#efd09b','#c9a26d','#b98f61']);
+  cyl(p.x+.70,.38,p.z-.42,.17,.31,['#b58867','#986f51'],7);
+  for(let j=0;j<3;j++)flower(p.x-1.14+j*.88,p.z+2.05,i===1?'#f8eac2':'#ffc8d4',.095);
+ }
+ fence(-6,3.85,12,.10);
+ for(let k=0;k<8;k++)rock(-5.7+k*1.55,.1,-4.6,.17);
+}
+function sceneOrdersActivity(now){
+ for(let i=0;i<3;i++){
+  const p=ORDER_SITES[i],bob=.035*Math.sin(now/460+i*1.6),c=['#f0c4ab','#bbd29c','#f6bfab'][i];
+  // Visitors wait behind the delivery tables; a subtle idle bob makes the depot lively.
+  ball(p.x,1.38+bob,p.z-.60,.30,.38,.27,['#e7aa80','#dca380','#e5ae8a'],5,8);
+  ball(p.x,1.85+bob,p.z-.60,.25,.24,.23,['#f6d4b6','#e6b69a'],5,8);
+  ball(p.x,2.05+bob,p.z-.65,.27,.11,.26,[i===2?'#aa7160':'#80654a',i===1?'#a9895d':'#684e3e'],4,7);
+  for(const dx of [-.10,.10])ball(p.x+dx,1.88+bob,p.z-.40,.024,.032,.021,'#514739',3,5);
+  if(orderCanDeliver(state.orders.slots[i]))ball(p.x+.68,2.21+bob,p.z,.14,.14,.14,['#f2d47b','#fff2af','#efbc56'],4,7);
+ }
+}
 function sceneStatic(){mesh=[];
  if(activeScene==='coop'){sceneChickenYard();return new Float32Array(mesh);}
  if(activeScene==='cow'){sceneCowPasture();return new Float32Array(mesh);}
  if(activeScene==='sheep'){sceneSheepPasture();return new Float32Array(mesh);}
  if(activeScene==='orchard'){sceneFruitGarden();return new Float32Array(mesh);}
  if(activeScene==='workshop'){sceneWorkshop();return new Float32Array(mesh);}
+ if(activeScene==='orders'){sceneOrders();return new Float32Array(mesh);}
  buildIsland();
  satellite(14.1,-3.2,1.15,-1.25);satellite(-9.35,2.5,.78,-1.0);
- makeHouse();windmill();well();makeIslandDetails();makeChickenCoop();makeOrchardMeadow();makeOrchardGate();makeCowBarnExterior();makeSheepBarnExterior();makeWorkshopBuilding(WORKSHOP_X,WORKSHOP_Z,.96);
+ makeHouse();windmill();well();makeIslandDetails();makeChickenCoop();makeOrchardMeadow();makeOrchardGate();makeCowBarnExterior();makeSheepBarnExterior();makeWorkshopBuilding(WORKSHOP_X,WORKSHOP_Z,.96);makeOrderKiosk(ORDER_HUT_X,ORDER_HUT_Z,.87);
  makeTree(-5.35,.25,.95,0);makeTree(-5.0,4.6,.87,1);makeTree(4.25,4.76,.82,2);makeTree(5.20,.03,.75,1);makeTree(-2.2,5.55,.71,0);
  fence(-5.8,1.95,2.32,2.75);
  for(let i=0;i<16;i++)makePlotBase(i);
@@ -1472,6 +1641,7 @@ function sceneCrops(now=Date.now()){mesh=[];
  if(activeScene==='sheep'){sceneSheepActivity(now);return new Float32Array(mesh);}
  if(activeScene==='orchard'){sceneOrchardActivity(now);return new Float32Array(mesh);}
  if(activeScene==='workshop'){sceneWorkshopActivity(now);return new Float32Array(mesh);}
+ if(activeScene==='orders'){sceneOrdersActivity(now);return new Float32Array(mesh);}
  for(let i=0;i<16;i++){let p=state.plots[i];if(!p.unlock||p.seed<0)continue;let x=-2.62+(i%4)*1.52,z=-1.92+Math.floor(i/4)*1.52;crop(x+.68,z+.68,p.seed,(Date.now()-p.at)/CROPS[p.seed].time);}
  makeCoopEggs();orchardExteriorFruits();sceneRoamingAnimals(now);
  return new Float32Array(mesh);
@@ -1719,6 +1889,7 @@ function hitWorldBox(px,py,x1,x2,z1,z2,ymax=2.7){
  const minY=Math.min(...pts.map(p=>p[1])),maxY=Math.max(...pts.map(p=>p[1]));
  return px>=minX&&px<=maxX&&py>=minY&&py<=maxY;
 }
+function orderKioskHit(px,py){return hitWorldBox(px,py,ORDER_HUT_X-.45,ORDER_HUT_X+2.38,ORDER_HUT_Z-.34,ORDER_HUT_Z+2.45,3.05);}
 function workshopBarnHit(px,py){return hitWorldBox(px,py,WORKSHOP_X-.3,WORKSHOP_X+2.55,WORKSHOP_Z-.30,WORKSHOP_Z+2.9,3.3);}
 function sheepBarnHit(px,py){return hitWorldBox(px,py,SHEEP_BARN_X-.4,SHEEP_BARN_X+2.7,SHEEP_BARN_Z-.45,SHEEP_BARN_Z+3.2,2.9);}
 function cowBarnHit(px,py){return hitWorldBox(px,py,COW_BARN_X-.34,COW_BARN_X+2.55,COW_BARN_Z-.46,COW_BARN_Z+2.90,2.82);}
@@ -1747,16 +1918,16 @@ function centerRoomAt(x,z,focusY=.75){
  shiftX=W*.49-p[0];shiftY=H*.45-p[1];clampCamera();
 }
 function enterScene(next){
- if(next!=='coop'&&next!=='orchard'&&next!=='cow'&&next!=='sheep'&&next!=='workshop')return;
+ if(next!=='coop'&&next!=='orchard'&&next!=='cow'&&next!=='sheep'&&next!=='workshop'&&next!=='orders')return;
  if(activeScene==='island')previousIslandCamera={zoom,shiftX,shiftY};
  finishBrush(true);closePanel();closeContext();closeQuickMenu();$('roamChip').hidden=true;activeScene=next;document.body.classList.add('subscene');
  $('sceneHUD').hidden=$('sceneDock').hidden=false;
- $('sceneName').textContent=next==='coop'?'🐔 小鸡活动院':next==='cow'?'🐄 云端奶牛牧场':next==='sheep'?'🐑 云端羊圈':next==='workshop'?'🏭 云端加工坊':'🍎 云端果树园';
- $('sceneSubtitle').textContent=next==='coop'?'喂食、捡蛋 · 小鸡自由走动':next==='cow'?'喂草、挤奶 · 奶牛在草地散步':next==='sheep'?'喂食、剪羊毛 · 小羊在草地散步':next==='workshop'?'原料制作、等待收取 · 成品卖金币':'种树、采摘 · 果实随时间成熟';
+ $('sceneName').textContent=next==='coop'?'🐔 小鸡活动院':next==='cow'?'🐄 云端奶牛牧场':next==='sheep'?'🐑 云端羊圈':next==='workshop'?'🏭 云端加工坊':next==='orders'?'📦 云端订单站':'🍎 云端果树园';
+ $('sceneSubtitle').textContent=next==='coop'?'喂食、捡蛋 · 小鸡自由走动':next==='cow'?'喂草、挤奶 · 奶牛在草地散步':next==='sheep'?'喂食、剪羊毛 · 小羊在草地散步':next==='workshop'?'原料制作、等待收取 · 成品卖金币':next==='orders'?'客人来访 · 交付库存领取奖励':'种树、采摘 · 果实随时间成熟';
  const heading=document.querySelector('.sceneHeading');heading.classList.remove('sceneFade');clearTimeout(sceneTitleTimer);sceneTitleTimer=setTimeout(()=>heading.classList.add('sceneFade'),2000);
- $('floatHint').textContent=next==='coop'?'🐔 点小鸡可选择滑动喂食':next==='cow'?'🐄 点奶牛喂食 · 可滑动喂养':next==='sheep'?'🐑 点小羊喂食 · 支持滑动喂养':next==='workshop'?'🏭 点击加工台查看配方和成品':'🍎 点击果树查看成长和采摘';
- zoom=next==='coop'?1.86:next==='cow'?1.73:next==='sheep'?1.82:next==='workshop'?1.65:1.82;
- centerRoomAt(0,next==='coop'?-1.28:next==='cow'?-1.0:next==='sheep'?-1.0:0,.8);
+ $('floatHint').textContent=next==='coop'?'🐔 点小鸡可选择滑动喂食':next==='cow'?'🐄 点奶牛喂食 · 可滑动喂养':next==='sheep'?'🐑 点小羊喂食 · 支持滑动喂养':next==='workshop'?'🏭 点击加工台查看配方和成品':next==='orders'?'📦 点击柜台查看顾客订单':'🍎 点击果树查看成长和采摘';
+ zoom=next==='coop'?1.86:next==='cow'?1.73:next==='sheep'?1.82:next==='workshop'?1.65:next==='orders'?1.75:1.82;
+ centerRoomAt(0,next==='coop'?-1.28:next==='cow'?-1.0:next==='sheep'?-1.0:next==='orders'?-1.05:0,.8);
  chosenTreeSlot=-1;chosenCow=-1;chosenSheep=-1;updateZoomBadge();needsStatic=needsDynamic=true;lastCropUpdate=0;
  renderSceneDock();
 }
@@ -1802,6 +1973,8 @@ function renderSceneDock(){
    <div class="sceneActions"><button class="action" data-scene-action="brushSheep" ${idle?'':'disabled'}>👆 滑动喂羊</button><button class="action" data-scene-action="feedSheep" ${(!idle||state.coins<cost)?'disabled':''}>🌿 喂全部 ${cost}金</button><button class="action" data-scene-action="collectWool" ${ready?'':'disabled'}>✂️ 收羊毛 ${ready*WOOL_PER_SHEEP}份</button><button class="action" data-scene-action="sellWool" ${state.sheep.wool?'':'disabled'}>🧶 出售</button></div>`;
  }else if(activeScene==='workshop'){
   content=workshopContent();
+ }else if(activeScene==='orders'){
+  content=ordersContent();
  }else{
   content='<div class="sceneDockTitle">🍎 果树小天地 <small>两处永久果树位 · 可反复收获</small></div><div class="scenePlotRow">';
   for(let i=0;i<ORCHARD_ROOM_SITES.length;i++){
@@ -1848,6 +2021,8 @@ function tickSceneDock(){
  }else if(activeScene==='sheep'){
   if(sheepStages()!==el.dataset.sheepStage){renderSceneDock();return;}
   el.querySelectorAll('.sheepStateList span').forEach((label,i)=>{label.textContent='🐑 '+(i+1)+'：'+(sheepStage(i)==='idle'?'待喂食':sheepStage(i)==='ready'?'🧶可剪毛':'⏳'+sheepSecondsLeft(i)+'秒');});
+ }else if(activeScene==='orders'){
+  return;
  }else if(activeScene==='workshop'){
   if(JSON.stringify(state.workshop.job)!==el.dataset.workshopJob){renderSceneDock();return;}
   const label=el.querySelector('[data-workshop-clock]');if(label){label.textContent=workshopReady()?'✨ 已完成，可以收取':'⏳ 还需 '+workshopWait()+' 秒';if(workshopReady()){renderSceneDock();}}
@@ -1900,6 +2075,9 @@ function sceneCanvasTap(px,py){
   if(chosenSheep>=0||hitWorldBox(px,py,-4.9,4.9,-5.9,4.7,3.3))openSceneContext('sheep');
  }else if(activeScene==='workshop'){
   if(hitWorldBox(px,py,-5.1,5.1,-5.7,4.3,3.5))openSceneContext('workshop');
+ }else if(activeScene==='orders'){
+  const found=ORDER_SITES.findIndex(p=>hitWorldBox(px,py,p.x-.94,p.x+.94,p.z-.96,p.z+1.55,2.65));
+  if(found>=0){chosenOrderSlot=found;openSceneContext('orders');}
  }else if(activeScene==='orchard'){
   const i=localTreeHit(px,py);
   if(i<0)return;
@@ -1909,23 +2087,25 @@ function sceneCanvasTap(px,py){
 }
 
 const tasks=[{name:'丰收初体验',need:3,reward:120},{name:'快乐农场主',need:10,reward:280},{name:'云端种田达人',need:25,reward:600}];
-let openPanelName='';function panel(name){closeQuickMenu();closeContext();openPanelName=name;const titles={workshop:'🏭 农产品加工',shop:'🌱 种子图鉴',bag:'🎒 我的仓库',coop:'🐔 鸡舍经营',orchard:'🍎 果园经营',cow:'🐄 奶牛牧场',sheep:'🐑 羊圈牧场',roam:'🐾 动物放养',goals:'📜 农场任务',help:'📖 游戏说明',stats:'⭐ 农场成长'};$('panelTitle').textContent=titles[name];let content='';if(name==='stats'){const max=state.level*10+60;content=`<div class="tip"><strong>⭐ 农场等级 ${state.level}</strong><p>成长经验：${state.xp} / ${max}</p><p>金币：🪙 ${state.coins}</p><p>累计收获 ${state.total} 次 · 鸡蛋 ${state.coop.total} 枚 · 牛奶 ${state.cow.total} 瓶 · 羊毛 ${state.sheep.total} 份</p></div>`;}else if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">点空农田选择种子后，划过多个空田连续播种；点「完成」恢复镜头平移。</div>';
+let chosenOrderSlot=-1;
+let openPanelName='';function panel(name){closeQuickMenu();closeContext();openPanelName=name;const titles={workshop:'🏭 农产品加工',orders:'📦 顾客订单',shop:'🌱 种子图鉴',bag:'🎒 我的仓库',coop:'🐔 鸡舍经营',orchard:'🍎 果园经营',cow:'🐄 奶牛牧场',sheep:'🐑 羊圈牧场',roam:'🐾 动物放养',goals:'📜 农场任务',help:'📖 游戏说明',stats:'⭐ 农场成长'};$('panelTitle').textContent=titles[name];let content='';if(name==='stats'){const max=state.level*10+60;content=`<div class="tip"><strong>⭐ 农场等级 ${state.level}</strong><p>成长经验：${state.xp} / ${max}</p><p>金币：🪙 ${state.coins}</p><p>累计收获 ${state.total} 次 · 鸡蛋 ${state.coop.total} 枚 · 牛奶 ${state.cow.total} 瓶 · 羊毛 ${state.sheep.total} 份</p></div>`;}else if(name==='shop'){content=CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>种植 🪙${c.cost}　收获 🪙${c.sell}<br>成熟约 ${c.time/1000} 秒 · 经验 +${c.xp}</small></div><button class="action" data-buy="${i}">${state.selected===i?'已选中':'选择'}</button></div>`).join('')+'<div class="tip">点空农田选择种子后，划过多个空田连续播种；点「完成」恢复镜头平移。</div>';
  }else if(name==='coop'){content=coopContent();
  }else if(name==='orchard'){content=orchardContent();
  }else if(name==='cow'){content=cowContent();
  }else if(name==='sheep'){content=sheepContent();
  }else if(name==='roam'){content=roamContent();
  }else if(name==='workshop'){content=workshopContent();
- }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+`<div class="item"><div class="big">🥚</div><div class="txt"><strong>鸡蛋</strong><small>仓库 ${state.coop.eggs} 个 · 累计收集 ${state.coop.total} 个</small></div><button class="action" data-coop-action="sell" ${state.coop.eggs?'':'disabled'}>出售</button></div><div class="item"><div class="big">🥛</div><div class="txt"><strong>牛奶</strong><small>仓库 ${state.cow.milk} 瓶 · 累计产奶 ${state.cow.total} 瓶</small></div><button class="action" data-cow-action="sell" ${state.cow.milk?'':'disabled'}>出售</button></div><div class="item"><div class="big">🧶</div><div class="txt"><strong>羊毛</strong><small>仓库 ${state.sheep.wool} 份 · 累计收集 ${state.sheep.total} 份</small></div><button class="action" data-sheep-action="sell" ${state.sheep.wool?'':'disabled'}>出售</button></div>${FRUITS.map((p,i)=>`<div class="item"><div class="big">${p.emoji}</div><div class="txt"><strong>${p.name}</strong><small>仓库 ${state.orchard.stock[i]} 个 · 累计采摘 ${state.orchard.total[i]} 个</small></div><button class="action" data-fruit-action="sell" data-fruit="${i}" ${state.orchard.stock[i]?'':'disabled'}>出售</button></div>`).join('')}${WORKSHOP_RECIPES.map((r,i)=>`<div class="item"><div class="big">${r.emoji}</div><div class="txt"><strong>${r.name}</strong><small>加工成品库存 ${state.workshop.stock[i]} · 售价 ${r.sell} 金币</small></div><button class="action" data-workshop-action="sell" data-recipe="${i}" ${state.workshop.stock[i]?'':'disabled'}>出售</button></div>`).join('')}<div class="sub">农作物收获后直接出售；鸡蛋、水果、牛奶和羊毛可以存入仓库，随时卖出。</div>`;
+ }else if(name==='orders'){content=ordersContent();
+ }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+`<div class="item"><div class="big">🥚</div><div class="txt"><strong>鸡蛋</strong><small>仓库 ${state.coop.eggs} 个 · 累计收集 ${state.coop.total} 个</small></div><button class="action" data-coop-action="sell" ${state.coop.eggs?'':'disabled'}>出售</button></div><div class="item"><div class="big">🥛</div><div class="txt"><strong>牛奶</strong><small>仓库 ${state.cow.milk} 瓶 · 累计产奶 ${state.cow.total} 瓶</small></div><button class="action" data-cow-action="sell" ${state.cow.milk?'':'disabled'}>出售</button></div><div class="item"><div class="big">🧶</div><div class="txt"><strong>羊毛</strong><small>仓库 ${state.sheep.wool} 份 · 累计收集 ${state.sheep.total} 份</small></div><button class="action" data-sheep-action="sell" ${state.sheep.wool?'':'disabled'}>出售</button></div>${FRUITS.map((p,i)=>`<div class="item"><div class="big">${p.emoji}</div><div class="txt"><strong>${p.name}</strong><small>仓库 ${state.orchard.stock[i]} 个 · 累计采摘 ${state.orchard.total[i]} 个</small></div><button class="action" data-fruit-action="sell" data-fruit="${i}" ${state.orchard.stock[i]?'':'disabled'}>出售</button></div>`).join('')}${WORKSHOP_RECIPES.map((r,i)=>`<div class="item"><div class="big">${r.emoji}</div><div class="txt"><strong>${r.name}</strong><small>加工成品库存 ${state.workshop.stock[i]} · 售价 ${r.sell} 金币</small></div><button class="action" data-workshop-action="sell" data-recipe="${i}" ${state.workshop.stock[i]?'':'disabled'}>出售</button></div>`).join('')}<div class="sub">农作物收获后直接出售；鸡蛋、水果、牛奶、羊毛及加工成品可以留在仓库，直接出售或交给订单站顾客。</div>`;
  }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
- }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田选择种子，接着滑过多块空田连续播种，按「完成」恢复拖图。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 进入鸡舍可单只喂食，或启动「滑动喂食」划过多只小鸡。<br>⑤ 点击主岛鸡舍、果园、牛棚或羊圈入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 进入牛棚场景后，可逐只喂奶牛、滑动喂牛，55秒后收集牛奶到仓库出售。<br>⑧ 新羊圈支持逐只喂羊、滑动喂羊，50 秒后剪羊毛入库出售。<br>⑨ 背包里的「动物放养」或动物场景中的放养按钮可以将鸡、牛、羊放到主岛；安全放养不会偷吃，自由放养有概率偷吃一块成熟庄稼，动物可随时召回。<br>⑩ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能。<br>⑪ 点击主岛加工坊小屋进入独立工坊，使用仓库的鸡蛋、牛奶、苹果、橙子和羊毛制作成品，制作好需要点击收取，再到仓库出售。<br>⑫ 自由放养动物靠近农田时，头顶会出现 !🥬 气泡，可及时赶离农田。游戏自动保存进度。<br><br>当前为手机浏览器 v0.16.0 加工坊试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田选择种子，接着滑过多块空田连续播种，按「完成」恢复拖图。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 进入鸡舍可单只喂食，或启动「滑动喂食」划过多只小鸡。<br>⑤ 点击主岛鸡舍、果园、牛棚或羊圈入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 进入牛棚场景后，可逐只喂奶牛、滑动喂牛，55秒后收集牛奶到仓库出售。<br>⑧ 新羊圈支持逐只喂羊、滑动喂羊，50 秒后剪羊毛入库出售。<br>⑨ 背包里的「动物放养」或动物场景中的放养按钮可以将鸡、牛、羊放到主岛；安全放养不会偷吃，自由放养有概率偷吃一块成熟庄稼，动物可随时召回。<br>⑩ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能。<br>⑪ 点击主岛加工坊小屋进入独立工坊，使用仓库的鸡蛋、牛奶、苹果、橙子和羊毛制作成品，制作好需要点击收取，再到仓库出售。<br>⑫ 自由放养动物靠近农田时，头顶会出现 !🥬 气泡，可及时赶离农田。<br>⑬ 点击主岛订单站或背包中的 📦 顾客订单，进入独立订单站，交付鸡蛋、牛奶、羊毛、水果或加工品获得金币和经验。游戏自动保存进度。<br><br>当前为手机浏览器 v0.17.0 加工坊试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
  $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
 function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
 document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>{const where=b.dataset.panel;if(where==='coop'||where==='orchard'||where==='cow')enterScene(where);else panel(where);});$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
 $('seedStrip').addEventListener('click',e=>{const button=e.target.closest('[data-seed]');if(!button)return;state.selected=+button.dataset.seed;save();hud();toast('🌱 选择了'+CROPS[state.selected].name)});
-$('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.workshopAction){handleWorkshopAction(b);return;}if(b.dataset.roamAction){const kind=b.dataset.kind,action=b.dataset.roamAction;if(action==='recall')recallAnimal(kind);else if(action==='pet')petAnimal(kind);else if(action==='shoo')shooAnimal(kind);else releaseAnimal(kind,action==='free');return;}if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.dataset.coopAction==='feed'){feedChickens();return;}if(b.dataset.coopAction==='collect'){collectEggs();return;}if(b.dataset.coopAction==='sell'){sellEggs();return;}if(b.dataset.fruitAction==='view'){viewOrchard();return;}if(b.dataset.fruitAction==='plant'){plantFruitTree(+b.dataset.slot,+b.dataset.fruit);return;}if(b.dataset.fruitAction==='harvest'){harvestFruit(+b.dataset.slot);return;}if(b.dataset.fruitAction==='sell'){sellFruit(+b.dataset.fruit);return;}if(b.dataset.cowAction){const a=b.dataset.cowAction;if(a==='sell')sellMilk();else if(a==='feed')feedAllCows();else if(a==='collect')collectMilk();else if(a==='brush')startBrush('feedCow');return;}if(b.dataset.sheepAction){const a=b.dataset.sheepAction;if(a==='sell')sellWool();else if(a==='feed')feedAllSheep();else if(a==='collect')collectWool();else if(a==='brush')startBrush('feedSheep');return;}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();normalizeCoop();normalizeOrchard();normalizeCow();normalizeSheep();normalizeRoam();normalizeWorkshop();finishBrush(true);save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
+$('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.workshopAction){handleWorkshopAction(b);return;}if(handleOrderAction(b))return;if(b.dataset.roamAction){const kind=b.dataset.kind,action=b.dataset.roamAction;if(action==='recall')recallAnimal(kind);else if(action==='pet')petAnimal(kind);else if(action==='shoo')shooAnimal(kind);else releaseAnimal(kind,action==='free');return;}if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.dataset.coopAction==='feed'){feedChickens();return;}if(b.dataset.coopAction==='collect'){collectEggs();return;}if(b.dataset.coopAction==='sell'){sellEggs();return;}if(b.dataset.fruitAction==='view'){viewOrchard();return;}if(b.dataset.fruitAction==='plant'){plantFruitTree(+b.dataset.slot,+b.dataset.fruit);return;}if(b.dataset.fruitAction==='harvest'){harvestFruit(+b.dataset.slot);return;}if(b.dataset.fruitAction==='sell'){sellFruit(+b.dataset.fruit);return;}if(b.dataset.cowAction){const a=b.dataset.cowAction;if(a==='sell')sellMilk();else if(a==='feed')feedAllCows();else if(a==='collect')collectMilk();else if(a==='brush')startBrush('feedCow');return;}if(b.dataset.sheepAction){const a=b.dataset.sheepAction;if(a==='sell')sellWool();else if(a==='feed')feedAllSheep();else if(a==='collect')collectWool();else if(a==='brush')startBrush('feedSheep');return;}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();normalizeCoop();normalizeOrchard();normalizeCow();normalizeSheep();normalizeRoam();normalizeWorkshop();normalizeOrders();finishBrush(true);save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
 
-/* v0.16.0 contextual interaction layer. Business state and save schema are unchanged. */
+/* v0.17.0 contextual interaction layer. Business state and save schema are unchanged. */
 function closeQuickMenu(){$('quickMenu').hidden=true;}
 function closeContext(){contextMode='';pendingPlot=-1;$('contextDrawer').hidden=true;$('contextShade').hidden=true;}
 function showContext(title,html,mode){closeQuickMenu();contextOpenedAt=performance.now();contextMode=mode;$('contextTitle').textContent=title;$('contextBody').innerHTML=html;$('contextShade').hidden=false;$('contextDrawer').hidden=false;$('contextDrawer').scrollTop=0;}
@@ -2013,6 +2193,7 @@ function plantSelectedSeed(seedIndex){
 function syncSceneContext(){
  if(contextMode!==activeScene||activeScene==='island')return;
  const el=$('contextBody'),scroll=el.scrollTop;
+ if(contextMode==='orders'){el.innerHTML=ordersContent();el.scrollTop=scroll;return;}
  const extra=contextMode==='coop'&&chosenChicken>=0?`<div class="chickenDirect">🐤 第 ${chosenChicken+1} 只 · ${coopStage(chosenChicken)==='idle'?'待喂食':coopStage(chosenChicken)==='ready'?'🥚可以收蛋':'⏳'+coopSecondsLeft(chosenChicken)+'秒'}<div class="sceneActions"><button class="action" data-scene-action="feedOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='idle'?'':'disabled'}>🌽 喂这只 · ${CHICKEN_FEED_COSTS[chosenChicken]} 金</button><button class="action" data-scene-action="collectOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='ready'?'':'disabled'}>🥚 收这只</button></div></div>`:'';
  const cowExtra=contextMode==='cow'&&chosenCow>=0?cowDirectContent(chosenCow):'';
  const sheepExtra=contextMode==='sheep'&&chosenSheep>=0?sheepDirectContent(chosenSheep):'';
@@ -2032,10 +2213,11 @@ function openSceneContext(which){
  if(which!==activeScene||which==='island')return;
  renderSceneDock();
  const extra=which==='coop'&&chosenChicken>=0?`<div class="chickenDirect">🐤 第 ${chosenChicken+1} 只小鸡 · ${coopStage(chosenChicken)==='idle'?'还没喂食':coopStage(chosenChicken)==='ready'?'可以收蛋':'正在产蛋'}<div class="sceneActions"><button class="action" data-scene-action="feedOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='idle'?'':'disabled'}>🌽 喂这只 · ${CHICKEN_FEED_COSTS[chosenChicken]} 金币</button><button class="action" data-scene-action="collectOne" data-chicken="${chosenChicken}" ${coopStage(chosenChicken)==='ready'?'':'disabled'}>🥚 收这只</button></div></div>`:'';
- showContext(which==='coop'?'🐔 照顾小鸡':which==='cow'?'🐄 照顾奶牛':which==='sheep'?'🐑 照顾小羊':which==='workshop'?'🏭 农产品加工':'🍎 果园管理',extra+(which==='cow'&&chosenCow>=0?cowDirectContent(chosenCow):'')+(which==='sheep'&&chosenSheep>=0?sheepDirectContent(chosenSheep):'')+$('sceneDockBody').innerHTML,which);
+ showContext(which==='coop'?'🐔 照顾小鸡':which==='cow'?'🐄 照顾奶牛':which==='sheep'?'🐑 照顾小羊':which==='workshop'?'🏭 农产品加工':which==='orders'?'📦 顾客订单':'🍎 果园管理',extra+(which==='cow'&&chosenCow>=0?cowDirectContent(chosenCow):'')+(which==='sheep'&&chosenSheep>=0?sheepDirectContent(chosenSheep):'')+$('sceneDockBody').innerHTML,which);
 }
 function handleContextAction(b){
  if(b.dataset.workshopAction){handleWorkshopAction(b);return;}
+ if(handleOrderAction(b))return;
  if(b.dataset.roamAction){const kind=b.dataset.kind,action=b.dataset.roamAction;if(action==='recall')recallAnimal(kind);else if(action==='pet')petAnimal(kind);else if(action==='shoo')shooAnimal(kind);else releaseAnimal(kind,action==='free');return;}
  if(b.dataset.plantSeed!==undefined){plantSelectedSeed(+b.dataset.plantSeed);return;}
  const action=b.dataset.sceneAction;
@@ -2069,7 +2251,7 @@ $('quickMenu').addEventListener('click',e=>{
  const b=e.target.closest('[data-quick-nav]');if(!b)return;
  const name=b.dataset.quickNav;closeQuickMenu();
  if(name==='paint'){openSeedChooser(-1);return;}
- if(name==='coop'||name==='orchard'||name==='cow'||name==='sheep'||name==='workshop'){
+ if(name==='coop'||name==='orchard'||name==='cow'||name==='sheep'||name==='workshop'||name==='orders'){
   if(activeScene!==name)enterScene(name);
   else openSceneContext(name);
  }else panel(name);
@@ -2087,6 +2269,7 @@ $('sceneBack').onclick=returnIsland;
 $('sceneDockBody').addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.workshopAction){handleWorkshopAction(b);return;}
+ if(handleOrderAction(b))return;
  if(!b.dataset.sceneAction)return;
  const action=b.dataset.sceneAction;
  if(action==='releaseSafe'||action==='releaseFree'){releaseAnimal(b.dataset.kind,action==='releaseFree');return;}
@@ -2166,7 +2349,8 @@ function pointerEnd(e){
    if(!tapped&&orchardGateHit(x,y)){enterScene('orchard');tapped=true;}
    if(!tapped&&cowBarnHit(x,y)){enterScene('cow');tapped=true;}
    if(!tapped&&sheepBarnHit(x,y)){enterScene('sheep');tapped=true;}
-   if(!tapped&&workshopBarnHit(x,y)){enterScene('workshop');}
+   if(!tapped&&workshopBarnHit(x,y)){enterScene('workshop');tapped=true;}
+   if(!tapped&&orderKioskHit(x,y)){enterScene('orders');}
   }
  }
  if(touches.size===1){const remaining=[...touches.values()][0];startTouch={x:remaining.x,y:remaining.y,shiftX,shiftY};pinchOrigin=null;moved=true;}
@@ -2176,7 +2360,7 @@ canvas.addEventListener('pointerup',pointerEnd);canvas.addEventListener('pointer
 canvas.addEventListener('wheel',e=>{e.preventDefault();zoomTo(zoom*(e.deltaY>0?.90:1.11),e.clientX,e.clientY);},{passive:false});
 $('cameraPlus').addEventListener('click',()=>zoomTo(zoom*1.43));
 $('cameraMinus').addEventListener('click',()=>zoomTo(zoom/1.43));
-$('cameraReset').addEventListener('click',()=>{if(activeScene==='island')resetCamera();else{zoom=activeScene==='coop'?1.86:activeScene==='cow'?1.73:activeScene==='sheep'?1.82:activeScene==='workshop'?1.65:1.82;centerRoomAt(0,activeScene==='coop'?-1.28:activeScene==='cow'?-1.0:activeScene==='sheep'?-1.0:0,.8);updateZoomBadge();}});
+$('cameraReset').addEventListener('click',()=>{if(activeScene==='island')resetCamera();else{zoom=activeScene==='coop'?1.86:activeScene==='cow'?1.73:activeScene==='sheep'?1.82:activeScene==='workshop'?1.65:activeScene==='orders'?1.75:1.82;centerRoomAt(0,activeScene==='coop'?-1.28:activeScene==='cow'?-1.0:activeScene==='sheep'?-1.0:activeScene==='orders'?-1.05:0,.8);updateZoomBadge();}});
 // Countdown refreshed only when the panel is open; gameplay uses wall-clock timestamps.
 setInterval(()=>{
  updateRoam();updateRoamChip();
