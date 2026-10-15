@@ -14,17 +14,18 @@ async function main(){
  const html=fs.readFileSync('index.html','utf8'),report={checks:[],scenes:{},limitations:['No browser/WebGL driver or physical-phone QA in this environment','DOM and WebGL API are mocked; mesh import and business logic run unchanged','Raster previews use actual imported mesh buffers; they are not browser screenshots']};
  const check=name=>report.checks.push(name),manifest=JSON.parse(fs.readFileSync('assets/art-v1/manifest.json'));
  const run=makeEnv(html);await new Promise(r=>setImmediate(r));assert.equal(run.env.FarmArtStatus.state,'ready');check('All seventeen original GLB assets load through production adapter');
- // Desktop input checks run real keyboard handlers with a minimal mocked event target.
- const desktopKeys=run.events.filter(e=>e.id==='window'&&e.type==='keydown');
+ // Desktop input checks use their own sandbox to leave gameplay regression state untouched.
+ const desktopRun=makeEnv(html);
+ const desktopKeys=desktopRun.events.filter(e=>e.id==='window'&&e.type==='keydown');
  assert(desktopKeys.length>=2,'Escape and desktop shortcut handlers should both register');
- run.env.document.getElementById('play').onclick();
+ desktopRun.env.document.getElementById('play').onclick();
  const pressKey=key=>{const e={key,target:{tagName:'BODY'},defaultPrevented:false,preventDefault(){this.defaultPrevented=true;}};desktopKeys.forEach(h=>h.fn(e));};
- const quick=run.env.document.getElementById('quickMenu');
+ const quick=desktopRun.env.document.getElementById('quickMenu');
  assert.equal(quick.hidden,true);pressKey('m');assert.equal(quick.hidden,false);pressKey('m');assert.equal(quick.hidden,true);
- const xBefore=run.qa.project(0,0,0)[0];pressKey('a');assert(run.qa.project(0,0,0)[0]>xBefore,'A should pan farm right');
- pressKey('+');assert.notEqual(run.env.document.getElementById('zoomBadge').textContent,'1.0×');
- pressKey('r');assert.equal(run.env.document.getElementById('zoomBadge').textContent,'1.0×');
- assert.equal(run.qa.project(0,0,0)[0],xBefore,'R should reset horizontal camera offset');
+ const xBefore=desktopRun.qa.project(0,0,0)[0];pressKey('a');assert(desktopRun.qa.project(0,0,0)[0]>xBefore,'A should pan farm right');
+ pressKey('+');assert.notEqual(desktopRun.env.document.getElementById('zoomBadge').textContent,'1.0×');
+ pressKey('r');assert.equal(desktopRun.env.document.getElementById('zoomBadge').textContent,'1.0×');
+ assert.equal(desktopRun.qa.project(0,0,0)[0],xBefore,'R should reset horizontal camera offset');
  check('Desktop M menu, A camera pan, + zoom and R reset respond to keyboard events');
 
  for(const m of manifest.models){const b=fs.readFileSync('assets/art-v1/'+m.id+'.glb'),model=run.env.FarmArtV1.parseGLB(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength));assert.equal(model.triangles,m.triangles);for(const p of model.parts){assert(p.data.every(Number.isFinite));for(let i=0;i<p.data.length;i+=10)assert(Math.abs(Math.hypot(p.data[i+3],p.data[i+4],p.data[i+5])-1)<1e-5);}
