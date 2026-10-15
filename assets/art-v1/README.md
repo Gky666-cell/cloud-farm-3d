@@ -1,4 +1,4 @@
-# Cloud Farm original art V1.3
+# Cloud Farm original art V1.4
 
 Eight editable primary models and three animal LOD meshes; all glTF 2.0 models, Y-up / +Z front. Open GLB in Blender and edit named mesh nodes. GLTF variants embed their binary buffers. No textures or downloaded third-party assets.
 
@@ -13,3 +13,13 @@ The farm house roof slopes now meet the walls at the eaves and include two named
 
 ## New buildings in V1.3
 Six independently-editable static low-poly buildings (`coop-house`, `cow-barn`, `sheep-barn`, `workshop-house`, `windmill`, `well`) are generated from `../../tools/build_buildings.cjs` with Node.js. Every building has a GLB file plus an embedded-buffer GLTF. The entire library now has 17 main/LOD files per format. See `../../docs/BUILDINGS_V1_3.md` for details; the archived V1.1 ZIP is not up to date.
+
+
+## v0.25.0 体验迭代
+
+精修 GLB/GLTF 和生成源码保持原样；当前体验分支为 `experience-v0.25.0`。游戏增加命名部件步态、地面接触、场景取景和交互修复，并已进行真实桌面浏览器经营流程验收。完整记录、限制和公开入口见 [v0.25.0 说明](../../docs/EXPERIENCE_V0_25.md)。本文前面的 v0.24.x 数字和验收边界为历史版本记录。
+
+
+## v0.25.1 / animals V1.4
+
+Refined slimmer sculpted bodies, clearer legs and coordinated distance-driven runtime motion. Six animal GLB/GLTF assets and their source are synchronized. Regenerate only animals with `python tools/build_art.py --animals-only`; verify with `python tools/check_animal_repro.py` (NumPy 2.3.5). No skeleton is embedded; the game animates named original mesh parts. See [feedback fixes and limitations](../../docs/FEEDBACK_V0_25_1.md). Earlier V1.2/V1.3 details above are historical.
