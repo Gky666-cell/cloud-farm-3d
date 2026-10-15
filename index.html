@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 装饰升级 v0.18.0</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#c3e9ec"><title>云朵农场 · 主岛二次精修 v0.24.1-desktop-test</title>
 <style>
 :root{--ink:#365c50;--muted:#81968a;--paper:#fffdf1;--gold:#fac767;--leaf:#79b882;--pine:#43886a}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c3e9ed;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit;border:0;cursor:pointer}#world{position:fixed;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(ellipse at 70% 21%,#fff5cf 0%,#d2f4e9 35%,transparent 62%),linear-gradient(180deg,#a9dce9 0%,#dbf3e2 62%,#fdf0cf 100%)}#world canvas{width:100%;height:100%;display:block;touch-action:none}#sun{position:absolute;left:74%;top:13%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle,#fffaddcc 2%,#fff9d088 35%,#fff5e400 70%);pointer-events:none}#clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cloud{position:absolute;background:#fffef8b0;filter:blur(2px);height:25px;width:110px;border-radius:100px;opacity:.58;animation:drift 28s ease-in-out infinite alternate}.cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud::before{width:56px;height:47px;top:-23px;left:22px}.cloud::after{width:47px;height:36px;top:-16px;left:55px}.cloud.c1{top:22%;left:6%;transform:scale(.7)}.cloud.c2{top:68%;left:65%;animation-duration:36s}.cloud.c3{top:80%;left:8%;transform:scale(1.25);animation-duration:42s}.cloud.c4{top:36%;left:80%;transform:scale(.48);animation-duration:25s}@keyframes drift{to{translate:28px -5px}}#glCanvas{position:absolute;inset:0}#header{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:14px;right:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;pointer-events:none;z-index:5}#header>*{pointer-events:auto}.brand{background:#fffdf0e6;border:1.5px solid #fff;border-radius:19px;padding:10px 13px;box-shadow:0 6px 18px #568b7440;backdrop-filter:blur(12px)}.brand .name{font-weight:950;font-size:15px;letter-spacing:.5px;white-space:nowrap}.brand .tag{font-size:9px;color:#86a294;margin-top:3px;letter-spacing:1px}.wallet{display:flex;align-items:center;gap:6px}.count{background:#fff9e5ed;border:2px solid #fff;border-radius:22px;padding:10px 11px;font-weight:900;box-shadow:0 6px 18px #47775b30;font-size:13px;white-space:nowrap}.count b{color:#ac773d}.levelbar{position:fixed;top:calc(env(safe-area-inset-top) + 80px);left:17px;background:#fffdf2de;border:1px solid white;border-radius:13px;padding:6px 9px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:11px;z-index:5}.levelbar .track{width:47px;height:6px;border-radius:10px;background:#d9e8d5;overflow:hidden}.levelbar i{display:block;background:linear-gradient(90deg,#7ccc9c,#48a57a);height:100%;width:0}#ambientTag{position:fixed;top:calc(env(safe-area-inset-top) + 112px);left:50%;transform:translateX(-50%);font-size:11px;color:#5e917f;background:#f5fff5aa;border-radius:50px;padding:5px 11px;pointer-events:none;white-space:nowrap;z-index:2}#floatHint{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 170px);left:50%;transform:translateX(-50%);color:#5e8f7e;font-size:11px;font-weight:700;white-space:nowrap;background:#fffef5b8;border:1px solid #ffffffad;border-radius:20px;padding:7px 14px;pointer-events:none;z-index:4}#toast{position:fixed;top:26%;left:50%;transform:translate(-50%,-9px);white-space:nowrap;background:#3c705adf;color:white;border:1px solid #ffffff77;border-radius:30px;box-shadow:0 8px 28px #3c775744;padding:12px 19px;font-size:12px;font-weight:800;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:18}#toast.show{opacity:1;transform:translate(-50%,0)}#dock{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 13px);background:#fffdf3f2;border:2px solid #fff;border-radius:27px;box-shadow:0 10px 36px #3d70564d;padding:11px 12px 12px;max-width:510px;margin:auto;z-index:7;backdrop-filter:blur(20px)}#selectedRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin:0 3px 9px}.selectedText{color:#517c61}#selectedRow small{color:#9ba999;font-size:10px;font-weight:600}.seedStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.seed{background:#f1f2e6;border:2px solid transparent;border-radius:15px;padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#58795c;min-width:0;transition:transform .15s,background .15s}.seed.active{background:#d9efd5;border-color:#8aca98;transform:translateY(-2px)}.seed .icon{font-size:23px;line-height:28px}.seed .price{font-weight:900;font-size:10px}.nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;border-top:1px dashed #dae9d2;padding-top:10px}.nav button{border-radius:13px;background:#f2f5e9;color:#6b8674;padding:8px 1px 6px;font-size:9px;font-weight:850;display:flex;flex-direction:column;gap:3px;align-items:center;min-width:0;white-space:nowrap}.nav button .sym{font-size:20px}.nav button:first-child{background:#e4f2df;color:#478764}#panelShade{position:fixed;inset:0;background:#31594953;z-index:10;display:none}#panelShade.show{display:block}#panel{position:fixed;z-index:11;left:0;right:0;bottom:0;margin:auto;max-width:540px;max-height:75dvh;overflow:auto;background:#fffdf4;border-radius:28px 28px 0 0;border:2px solid white;border-bottom:0;box-shadow:0 -12px 40px #325e4937;padding:18px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .23s}.panelShow{transform:translateY(0)!important}.panelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panelHead h2{font-size:18px;margin:0;font-weight:900}.x{border:0;background:#f1f2e9;border-radius:12px;width:35px;height:35px;font-size:20px;color:#718b7a}.item{display:flex;align-items:center;gap:10px;background:#f4f6ec;border-radius:15px;padding:10px;margin:9px 0}.item .big{background:white;border-radius:13px;width:46px;height:45px;display:grid;place-items:center;font-size:26px}.item .txt{flex:1;min-width:0}.item .txt strong{display:block;font-size:13px}.item .txt small{display:block;font-size:11px;color:#829386;line-height:1.5;margin-top:3px}.action{background:#6bb580;border:0;border-bottom:3px solid #428b5d;color:white;font-weight:850;border-radius:12px;padding:10px 12px;white-space:nowrap;font-size:12px}.action:disabled{opacity:.45}.tip{padding:12px;background:#f1f5e9;border-radius:12px;font-size:12px;color:#7c9183;line-height:1.9}.sub{font-size:11px;color:#7d9988}.noticeLine{font-weight:900;color:#548e6d;font-size:12px}#spark{position:fixed;inset:0;pointer-events:none;z-index:9}.sparkle{position:absolute;animation:pop .95s ease-out forwards;font-size:23px;text-shadow:0 1px 8px #fff}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}#welcome{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:linear-gradient(#b3e6eec2,#e2f0d6c5);backdrop-filter:blur(5px);padding:20px}#welcome.hide{display:none}.welcomeCard{width:min(340px,92vw);text-align:center;background:#fffdf2f5;border:2px solid white;border-radius:32px;box-shadow:0 20px 55px #46846c44;padding:22px 23px 25px}.welcomeIllustration{position:relative;height:133px;display:flex;align-items:center;justify-content:center;font-size:65px}.welcomeIllustration:after{content:'☁️';position:absolute;font-size:35px;top:16px;right:30px}.welcomeCard h1{font-size:25px;margin:3px 0 8px;color:#3a8062}.welcomeCard p{font-size:12px;line-height:1.8;color:#829a89;margin:0 0 20px}.play{display:block;width:100%;padding:13px 20px;border-radius:16px;background:linear-gradient(#83c99a,#59ac76);border-bottom:4px solid #39865c;color:white;font-weight:900;font-size:16px;box-shadow:0 7px 20px #6da98650}.welcomeCard .foot{font-size:10px;color:#a2b4a5;margin-top:15px}#no3d{display:none;position:fixed;top:38%;left:10%;right:10%;border-radius:16px;background:#fff9eb;padding:20px;z-index:30;text-align:center;font-size:13px;line-height:1.8}@media(max-height:650px){#dock{bottom:4px;padding:7px 10px}.seedStrip{margin-bottom:5px}.seed{padding:3px}.nav{padding-top:5px}.nav button{padding:5px}.nav button .sym{font-size:16px}#floatHint{bottom:145px}}@media(orientation:landscape){#dock{left:auto;right:12px;bottom:10px;width:min(45vw,420px)}#floatHint{left:28%;bottom:26px}}
 
@@ -67,7 +67,7 @@ body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 233px)}
 @media (max-width:390px){#sceneDock{padding:11px 10px 12px}.sceneHeading{max-width:58%}.sceneActions .action{font-size:11px}}
 @media (max-height:620px){#sceneHUD{top:calc(env(safe-area-inset-top) + 108px)}#sceneDock{max-height:48dvh}body.subscene #cameraControls{top:calc(env(safe-area-inset-top) + 164px)}}
 
-/* v0.18.0 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
+/* v0.24.1-desktop-test 轻界面：把原来遮挡三分之一画面的固定面板改成按需弹出。 */
 #dock,#sceneDock,.brand,.levelbar,#floatHint,#ambientTag{display:none!important}
 #header{top:calc(env(safe-area-inset-top) + 12px);left:12px;right:12px;justify-content:flex-end}
 .wallet{gap:7px}
@@ -127,7 +127,7 @@ body.subscene #roamChip{display:none}
 .roamChoice{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.roamChoice button{flex:1;min-width:90px}
 .roamStatus{color:#51836c;font-weight:750;font-size:11px;margin-top:6px}
 @media(orientation:landscape){#roamChip{bottom:17px}}
-/* v0.18.0 production recipes and world-space animal nibble bubbles */
+/* v0.24.1-desktop-test production recipes and world-space animal nibble bubbles */
 .workshopCard{margin:9px 0;border-radius:16px;border:1px solid #dce9d5;background:#f7f7ec;padding:10px}
 .workshopCard.ready{border-color:#81c59a;background:#eef9e9}
 .workshopCard .workshopTop{display:flex;gap:9px;align-items:center}
@@ -144,7 +144,7 @@ body.subscene #roamChip{display:none}
 @keyframes nibbleBounce{from{translate:0 0}to{translate:0 -6px}}
 @media(prefers-reduced-motion:reduce){.nibbleBubble{animation:none}}
 
-/* v0.18.0 - orders use the same lightweight bottom sheet, not a persistent HUD. */
+/* v0.24.1-desktop-test - orders use the same lightweight bottom sheet, not a persistent HUD. */
 .orderOverview{font-size:11px;line-height:1.65;color:#688b78;background:#f1f6ea;padding:9px 12px;border-radius:13px;margin-bottom:10px}
 .orderGrid{display:grid;grid-template-columns:1fr;gap:10px}
 .orderCard{background:linear-gradient(155deg,#fffef5,#edf3e7);border:2px solid #e6eada;border-radius:17px;padding:12px}
@@ -158,7 +158,7 @@ body.subscene #roamChip{display:none}
 .orderFooter{display:flex;gap:7px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
 .orderPay{font-size:12px;font-weight:850;color:#9e7b39}
 .orderFooter .action{flex:1;max-width:180px}
-/* v0.18.0 small decoration/upgrade cards, opened only on demand */
+/* v0.24.1-desktop-test small decoration/upgrade cards, opened only on demand */
 .designSelect{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
 .designSelect button{border:1px solid #e7debd;border-radius:14px;background:#f7f5e8;color:#557766;min-height:57px;font-size:12px;padding:8px 6px;font-weight:800;cursor:pointer}
 .designSelect button.isFocus{border:2px solid #83b99a;background:#e3f3df}
@@ -173,20 +173,29 @@ body.subscene #roamChip{display:none}
 .upgradeLine strong{display:block;color:#3c6756;font-size:15px}.upgradeLine small{display:block;color:#688877;line-height:1.55;margin:5px 0 10px}
 .upgradeLine button{width:100%;min-height:40px;border:0;background:#b3d5b7;border-radius:13px;color:#376049;font-weight:850}
 .upgradeLine button:disabled{opacity:.54}
+
+/* Desktop QA: compact keyboard hints without changing mobile view. */
+#desktopHelp{display:none}#desktopHelp[hidden]{display:none!important}
+@media(min-width:900px) and (hover:hover) and (pointer:fine){
+ #glCanvas{cursor:grab}#glCanvas:active{cursor:grabbing}
+ #desktopHelp{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:wrap;width:max-content;max-width:calc(100vw - 155px);padding:9px 12px;border-radius:16px;border:1px solid #fff;background:#fffdf2e8;box-shadow:0 5px 18px #4975582b;backdrop-filter:blur(12px);z-index:6;font-size:11px;font-weight:750;color:#537d64;line-height:1.6;text-align:center}
+ #desktopHelpClose{background:#e8efdd;border-radius:9px;padding:3px 8px;color:#688975;font-size:16px;line-height:1.2}
+}
 </style></head>
 <body><div id="world"><div id="sun"></div><div id="clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div><canvas id="glCanvas" aria-label="立体空岛农场"></canvas></div>
-<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.18.0</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
-<div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="ambientTag">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 双指放大到近景 · ⊕/- 调整</div><div id="cameraControls" role="group" aria-label="农场镜头操作"><button id="cameraPlus" type="button" aria-label="放大农场">+</button><div id="zoomBadge" aria-live="off">1.0×</div><button id="cameraMinus" type="button" aria-label="缩小农场">−</button><button id="cameraReset" type="button" aria-label="还原农场全景" title="还原农场全景">⌂</button></div><div id="toast"></div><div id="spark"></div>
+<div id="header"><div class="brand"><div class="name">☁️ 云朵农场 <span style="font-size:9px;color:#72a388">v0.24.1-desktop-test</span></div><div class="tag">SKY ISLAND FARM</div></div><div class="wallet"><div class="count">🪙 <b id="coins">500</b></div><button id="levelStatBtn" class="count" type="button" aria-label="查看等级与经验">⭐ <b id="level">1</b></button></div></div>
+<div class="levelbar">成长经验 <span id="xpText">0/70</span> <span class="track"><i id="xpBar"></i></span></div><div id="artTestBadge" style="position:fixed;top:calc(env(safe-area-inset-top) + 114px);left:50%;transform:translateX(-50%);font-size:10px;background:#fff7e6e0;border-radius:20px;padding:5px 10px;z-index:6;white-space:nowrap">原创美术 V1.3 加载中 · 独立存档</div><div id="ambientTag" style="display:none">🌤️ 晴空浮岛 · 微风与花香</div><div id="floatHint">👆 点农田种植 · 双指放大到近景 · ⊕/- 调整</div><div id="cameraControls" role="group" aria-label="农场镜头操作"><button id="cameraPlus" type="button" aria-label="放大农场">+</button><div id="zoomBadge" aria-live="off">1.0×</div><button id="cameraMinus" type="button" aria-label="缩小农场">−</button><button id="cameraReset" type="button" aria-label="还原农场全景" title="还原农场全景">⌂</button></div><div id="toast"></div><div id="spark"></div>
+<div id="desktopHelp" role="note" aria-label="电脑端操作提示"><span>🖱️ 点击经营 · 按住左键拖动 · 滚轮缩放</span><span>⌨️ WASD / 方向键移动 · ± 缩放 · R 复位 · M 菜单 · B 仓库 · Esc 返回</span><button id="desktopHelpClose" type="button" aria-label="关闭电脑操作提示" title="关闭提示">×</button></div>
 <div id="nibbleBubbles" aria-hidden="true"></div>
 <div id="sceneHUD" hidden><button id="sceneBack" type="button" aria-label="返回主岛" title="返回主岛">←</button><div class="sceneHeading"><strong id="sceneName">🐔 鸡舍小院</strong><small id="sceneSubtitle">可以在场景里照顾动物</small></div></div>
 <div id="sceneDock" hidden aria-label="独立经营场景操作面板"><div id="sceneDockBody"></div></div>
 <div id="dock"><div id="selectedRow"><span class="selectedText" id="currentSeed">🥕 当前种子：胡萝卜</span><small>播种自动扣除金币</small></div><div class="seedStrip" id="seedStrip"></div><div class="nav"><button data-panel="shop"><span class="sym">🛒</span>种子</button><button data-panel="bag"><span class="sym">🧺</span>仓库</button><button data-panel="coop"><span class="sym">🐔</span>鸡舍</button><button data-panel="orchard"><span class="sym">🍎</span>果园</button><button data-panel="goals"><span class="sym">📜</span>任务</button><button data-panel="help"><span class="sym">📖</span>帮助</button></div></div>
 
-<!-- v0.18.0: scene brush modes are opt-in; normal drags continue to pan the camera. -->
+<!-- v0.24.1-desktop-test: scene brush modes are opt-in; normal drags continue to pan the camera. -->
 <button id="quickBag" type="button" aria-label="打开农场背包" title="农场背包">🧺</button><button id="roamChip" type="button" hidden aria-label="查看在主岛放养的动物">🐾 0只放养中</button>
 <div id="brushBar" hidden aria-live="polite"><span id="brushText">🌱 连续播种</span><button id="brushChange" type="button">换种子</button><button id="brushDone" type="button">✓ 完成</button></div>
 <div id="quickMenu" hidden role="menu" aria-label="农场功能">
- <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.18.0 · 点击物体进行经营</small></div>
+ <div class="quickMenuHead"><strong>☁️ 云朵农场</strong><small>v0.24.1-desktop-test · 点击物体进行经营</small><a href="preview.html" style="font-size:11px;color:#54846c;white-space:nowrap">动物模型预览 ↗</a></div>
  <div class="quickGrid">
   <button type="button" data-quick-nav="paint">🌱<span>连续播种</span></button><button type="button" data-quick-nav="shop">🌱<span>种子图鉴</span></button>
   <button type="button" data-quick-nav="bag">🎒<span>仓库</span></button>
@@ -203,11 +212,13 @@ body.subscene #roamChip{display:none}
 </section>
 <div id="panelShade"></div><section id="panel" role="dialog" aria-label="农场菜单"><div class="panelHead"><h2 id="panelTitle"></h2><button id="closePanel" class="x" aria-label="关闭">×</button></div><div id="panelBody"></div></section>
 <div id="welcome"><div class="welcomeCard"><div class="welcomeIllustration">🏡🌳🌷</div><h1>欢迎来到云朵农场</h1><p>在天空中种下第一颗种子。<br>经营你自己的精致梦幻空岛农场吧！</p><button id="play" class="play">☁️ 进入我的空岛</button><div class="foot">立体 WebGL 场景 · 自动保存 · 无需安装</div></div></div><div id="no3d">当前浏览器未能启动 3D 图形。请尝试使用手机 Chrome、Safari 或系统浏览器打开。</div>
+<script src="assets/art-v1/loader.js?v=1.3.0"></script>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
 const CROPS=[{name:'胡萝卜',emoji:'🥕',cost:10,sell:24,time:8000,xp:12},{name:'草莓',emoji:'🍓',cost:22,sell:58,time:15000,xp:21},{name:'玉米',emoji:'🌽',cost:38,sell:96,time:23000,xp:30},{name:'南瓜',emoji:'🎃',cost:65,sell:158,time:35000,xp:44}];
-const KEY='yun-farm-3d-2026-v1';
+const LEGACY_KEY='yun-farm-3d-2026-v1';
+const KEY='yun-farm-3d-art-v1-test'; // isolated test save; never write the live key
 const FEED_COST=20, EGG_COUNT=3, EGG_PRICE=18, COOP_TIME=35000;
 const CHICKEN_FEED_COSTS=[7,7,6];
 const COW_FEED_COSTS=[18,18],COW_TIME=55000,MILK_PER_COW=2,MILK_PRICE=25;
@@ -261,7 +272,7 @@ const FACILITY_UPGRADES={
  orchard:{name:'果园',emoji:'🍎',base:3,costs:[460,920],unit:'个/棵'}
 };
 const initial=()=>({coins:500,xp:0,level:1,selected:0,plots:Array.from({length:16},(_,i)=>({unlock:(i%4<3&&Math.floor(i/4)<3),seed:-1,at:0})),harvest:[0,0,0,0],completed:[],total:0,coop:{fedAt:0,eggs:0,total:0,feeds:0,chickens:[{fedAt:0},{fedAt:0},{fedAt:0}]},orchard:{trees:[{type:-1,plantedAt:0,readyAt:0,harvests:0},{type:-1,plantedAt:0,readyAt:0,harvests:0}],stock:[0,0],total:[0,0]},cow:{milk:0,total:0,feeds:0,cows:[{fedAt:0},{fedAt:0}]},sheep:{wool:0,total:0,feeds:0,animals:[{fedAt:0},{fedAt:0},{fedAt:0}]},roam:{animals:{},events:[]},workshop:{job:null,stock:[0,0,0,0,0],crafted:0},orders:{serial:0,completed:0,coinsEarned:0,slots:[]},decor:{owned:[false,false,false,false],slots:[-1,-1,-1,-1]},facilities:{coop:1,cow:1,sheep:1,orchard:1}});
-let state=initial();try{let p=JSON.parse(localStorage.getItem(KEY));if(p&&p.plots&&p.plots.length===16){state={...state,...p};}}catch(_e){}
+let state=initial();try{let p=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY));if(p&&p.plots&&p.plots.length===16){state={...state,...p};}}catch(_e){}
 // Upgrade old saves without resetting the original field, coin, XP or quest state.
 function normalizeCoop(){
  const c=state.coop||{},positiveNumber=x=>Number.isFinite(+x)?Math.max(0,+x):0;
@@ -291,7 +302,7 @@ function normalizeCow(){
    cows:Array.from({length:2},(_,i)=>({fedAt:nonneg(Array.isArray(old.cows)?old.cows[i]?.fedAt:0)}))};
 }
 normalizeCow();
-// v0.18.0 extends existing saves with independent sheep cycles; all older data stays untouched.
+// v0.24.1-desktop-test extends existing saves with independent sheep cycles; all older data stays untouched.
 function normalizeSheep(){
  const old=state.sheep&&typeof state.sheep==='object'?state.sheep:{};
  const value=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
@@ -299,7 +310,7 @@ function normalizeSheep(){
   animals:Array.from({length:3},(_,i)=>({fedAt:value(Array.isArray(old.animals)?old.animals[i]?.fedAt:0)}))};
 }
 normalizeSheep();
-// v0.18.0: opt-in animal outings. Existing farm/production state is not modified by save migration.
+// v0.24.1-desktop-test: opt-in animal outings. Existing farm/production state is not modified by save migration.
 function normalizeRoam(){
  const old=state.roam&&typeof state.roam==='object'?state.roam:{};
  const original=old.animals&&typeof old.animals==='object'?old.animals:{};
@@ -319,7 +330,7 @@ function normalizeRoam(){
  state.roam={animals,events,friendship,petLast};
 }
 normalizeRoam();
-// v0.18.0 extends the same localStorage record. No old resources are removed.
+// v0.24.1-desktop-test extends the same localStorage record. No old resources are removed.
 function normalizeWorkshop(){
  const old=state.workshop&&typeof state.workshop==='object'?state.workshop:{};
  const safe=v=>Number.isFinite(Number(v))?Math.max(0,Math.floor(Number(v))):0;
@@ -662,12 +673,27 @@ gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.ena
 const PALETTE={grass:'#90c97e',grassLite:'#a8d88f',gold:'#f2cf7f',wood:'#b78c65',soil:'#946b4e'};
 function rgb(hex,alpha=1){let h=hex.replace('#','');if(h.length===3)h=h.split('').map(v=>v+v).join('');return [parseInt(h.slice(0,2),16)/255,parseInt(h.slice(2,4),16)/255,parseInt(h.slice(4,6),16)/255,alpha]}
 let mesh=[];
+let artAssets=null;
+const artStatus={version:'1.3.0',state:'loading',error:null};
+window.FarmArtStatus=artStatus;
+function artDraw(name,x,y,z,s=1,fruit=true){
+ if(!artAssets)return false;
+ const useLOD=['sheep','cow','chicken'].includes(name)&&zoom<2;
+ const entry=artAssets[useLOD?name+'-lod':name];if(!entry)return false;
+ FarmArtV1.append(mesh,fruit?entry.full:entry.bare,x,y,z,s);return true;
+}
+if(window.FarmArtV1)FarmArtV1.load().then(assets=>{
+ artAssets=assets;artStatus.state='ready';needsStatic=true;needsDynamic=true;
+ const badge=$('artTestBadge');if(badge)badge.textContent='原创美术 V1.3 · 独立存档';
+}).catch(error=>{artStatus.state='fallback';artStatus.error=String(error);const badge=$('artTestBadge');if(badge)badge.textContent='资源加载失败 · 使用原模型';console.warn('Art V1 fallback:',error);});
+else {artStatus.state='fallback';artStatus.error='Art loader unavailable';}
+
 function v(p,n,c){mesh.push(...p,...n,...c)}
 function face(a,b,c,col,alpha=1){const ab=b.map((q,i)=>q-a[i]),ac=c.map((q,i)=>q-a[i]);let n=[ab[1]*ac[2]-ab[2]*ac[1],ab[2]*ac[0]-ab[0]*ac[2],ab[0]*ac[1]-ab[1]*ac[0]];let len=Math.hypot(...n)||1;n=n.map(q=>q/len);const color=Array.isArray(col)?col:rgb(col,alpha);v(a,n,color);v(b,n,color);v(c,n,color)}
 function quad(a,b,c,d,col,alpha=1){face(a,b,c,col,alpha);face(a,c,d,col,alpha)}
 function box(x,y,z,w,h,d,cols){const a=[x,y,z],b=[x+w,y,z],c=[x+w,y,z+d],e=[x,y,z+d],A=[x,y+h,z],B=[x+w,y+h,z],C=[x+w,y+h,z+d],D=[x,y+h,z+d];const ct=Array.isArray(cols)?cols:[cols,cols,cols];quad(D,C,B,A,ct[0]);quad(e,c,C,D,ct[1]);quad(c,b,B,C,ct[2]);quad(a,e,D,A,ct[1]);quad(b,a,A,B,ct[2]);quad(a,b,c,e,ct[1]);}
 function cyl(x,y,z,r,h,cols,n=8,rTop=r){const col=Array.isArray(cols)?cols:[cols,cols];const top=[],bot=[];for(let j=0;j<n;j++){const a=j*2*Math.PI/n;top.push([x+Math.cos(a)*rTop,y+h,z+Math.sin(a)*rTop]);bot.push([x+Math.cos(a)*r,y,z+Math.sin(a)*r]);}for(let j=0;j<n;j++){const q=(j+1)%n;quad(bot[j],bot[q],top[q],top[j],j%3===0?col[1]:col[0]);face([x,y+h,z],top[j],top[q],col[0]);} }
-function ball(x,y,z,rx,ry,rz,colors,rows=5,cols=8){const colorArr=Array.isArray(colors)?colors:[colors];for(let j=0;j<rows;j++){const a=Math.PI*j/rows,b=Math.PI*(j+1)/rows;for(let k=0;k<cols;k++){const c=2*Math.PI*k/cols,d=2*Math.PI*(k+1)/cols;const f=(u,t)=>[x+Math.sin(u)*Math.cos(t)*rx,y+Math.cos(u)*ry,z+Math.sin(u)*Math.sin(t)*rz];const p=f(a,c),q=f(b,c),r=f(b,d),s=f(a,d);const cc=colorArr[(j*cols+k*3)%colorArr.length];quad(p,q,r,s,cc);}}}
+function ball(x,y,z,rx,ry,rz,colors,rows=5,cols=8){const colorArr=Array.isArray(colors)?colors:[colors];for(let j=0;j<rows;j++){const a=Math.PI*j/rows,b=Math.PI*(j+1)/rows;for(let k=0;k<cols;k++){const c=2*Math.PI*k/cols,d=2*Math.PI*(k+1)/cols;const f=(u,t)=>[x+Math.sin(u)*Math.cos(t)*rx,y+Math.cos(u)*ry,z+Math.sin(u)*Math.sin(t)*rz];const p=f(a,c),q=f(b,c),r=f(b,d),s=f(a,d);const cc=colorArr[(j*cols+k*3)%colorArr.length];if(j===0)face(p,q,r,cc);else if(j===rows-1)face(p,r,s,cc);else quad(p,q,r,s,cc);}}} // omit degenerate pole triangles
 function tapered(x,y,z,r,h,cols,n=7){cyl(x,y,z,r,h,cols,n,.02)}
 function polyGround(points,y,color){for(let i=1;i<points.length-1;i++)face([points[0][0],y,points[0][1]],[points[i][0],y,points[i][1]],[points[i+1][0],y,points[i+1][1]],color)}
 function postLine(a,b,width,depth,colors){const dx=b[0]-a[0],dy=b[1]-a[1],dz=b[2]-a[2],length=Math.hypot(dx,dy,dz);if(length<.001)return; // oriented square-section beam
@@ -709,47 +735,58 @@ function buildIsland(){// thicker layered sky island with stronger cliff silhoue
     face([a[0]*last.r,last.y,a[1]*last.r],[b[0]*last.r,last.y,b[1]*last.r],tip,i%2===0?'#645148':'#7a6053');
   }
   // segmented meadow instead of 24 giant triangles: prevents 2D fallback
-  // from incorrectly painting grass over the garden beds when depth sorting.
-  for(let layer=0;layer<8;layer++){
-    const r0=layer/8,r1=(layer+1)/8;
+  for(let layer=0;layer<9;layer++){
+    const r0=layer/9,r1=(layer+1)/9;
     for(let i=0;i<island.length;i++){
       const a=island[i],b=island[(i+1)%island.length];
       const p=[a[0]*r0,.061,a[1]*r0],q=[b[0]*r0,.061,b[1]*r0];
       const u=[a[0]*r1,.061,a[1]*r1],v=[b[0]*r1,.061,b[1]*r1];
-      quad(p,q,v,u,'#a3d688');
+      const tint=layer<3?'#a6d78d':(layer<6?'#9fd283':'#abd991');
+      quad(p,q,v,u,tint);
     }
   }
-  // irregular lighter meadows
-  for(let k=0;k<31;k++){
+  // irregular lighter meadows and soft zones to break the flat lawn.
+  for(let k=0;k<38;k++){
     const a=k*2.19,r=.9+Math.sqrt((k*67%31)/31)*6.0,x=Math.cos(a)*r,z=Math.sin(a)*r;
     if(Math.abs(x)<3.45&&Math.abs(z)<3.5)continue;
-    let pts=[];for(let j=0;j<7;j++){const t=j*6.28/7;pts.push([x+Math.cos(t)*(.22+(k%3)*.08),z+Math.sin(t)*(.17+(k%2)*.08)]);}
-    polyGround(pts,.068,k%3===0?'#addd97':k%3===1?'#9fd283':'#b9e3a6');
+    let pts=[];for(let j=0;j<7;j++){const t=j*6.28/7;pts.push([x+Math.cos(t)*(.22+(k%3)*.08),z+Math.sin(t)*(.17+(k%2)*.08)]);} 
+    polyGround(pts,.067,k%4===0?'#b8e2a3':k%4===1?'#a8d98d':k%4===2?'#9fd085':'#b3dfa0');
   }
+  // soft worn-earth transitions under key program zones
+  const softSpots=[
+    {x:-4.18,z:-2.45,rx:2.55,rz:1.55,c:'#cdbb95'},
+    {x:-3.58,z:.78,rx:1.35,rz:2.78,c:'#cfbf99'},
+    {x:4.92,z:-3.56,rx:1.62,rz:1.26,c:'#d2c19a'},
+    {x:4.92,z:2.62,rx:1.55,rz:1.42,c:'#d5c5a1'},
+    {x:6.98,z:1.12,rx:1.55,rz:1.22,c:'#d0bf95'},
+    {x:-6.92,z:-3.04,rx:1.32,rz:1.12,c:'#cab487'},
+    {x:-8.38,z:-3.22,rx:1.15,rz:1.02,c:'#ccb78e'},
+    {x:8.12,z:3.28,rx:1.10,rz:.95,c:'#ceb98d'}
+  ];
+  for(const s of softSpots){let pts=[];for(let j=0;j<9;j++){const t=j*6.28/9,rr=(.84+.18*Math.sin(j*2.7));pts.push([s.x+Math.cos(t)*s.rx*rr,s.z+Math.sin(t)*s.rz*(.88+.10*Math.cos(j*1.9))]);}polyGround(pts,.066,s.c);}
   // broad rocky shelves and overhangs around the island body
   for(let k=0;k<13;k++){
     const a=k*0.48+.17,x=Math.sin(a)*5.45,z=Math.cos(a)*4.72,baseY=-.95-(k%4)*.33;
     quad([x-.42,baseY,z-.28],[x+.56,baseY-.08,z-.02],[x+.18,baseY-.62,z+.30],[x-.35,baseY-.45,z+.18],k%2?'#9a775f':'#846655');
     face([x-.18,baseY-.45,z+.12],[x+.24,baseY-.52,z+.10],[x+.02,baseY-1.95-(k%3)*.45,z+.14],k%2?'#8c6a57':'#75584c');
   }
-  // vertical stone ribs near the bottom, making the island feel less flat
   for(let k=0;k<8;k++){
     const a=k*0.78+.25,x=Math.sin(a)*3.9,z=Math.cos(a)*3.25;
     face([x-.18,-3.0,z-.12],[x+.22,-2.85,z+.05],[x+.06,-5.65-(k%2)*.55,z+.02],k%2?'#6f564b':'#7d6155');
   }
-  // cliff pebbles / strata breakup
   for(let j=0;j<34;j++){
     const a=j*6.28/34,r=6.45+.35*Math.sin(j*7.0);
     if(j%4===0) rock(Math.cos(a)*r,-.72,Math.sin(a)*r,.24);
     else ball(Math.cos(a)*r,-.43,Math.sin(a)*r,.19,.10,.18,['#bca989','#ccb896','#ab9679'],3,5);
   }
-  for(let i=0;i<55;i++){let t=i*2.39996,r=5.2+Math.sin(i*4.3)*1.35;const x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.6&&Math.abs(z)<3.3)continue;if(i%3===0)flower(x,z,i%2?'#fff5ca':'#ffdad7',.09);else grassTuft(x,z,.10)}
-  for(let j=0;j<10;j++){const a=j*2.39;rock(Math.sin(a)*4.9,0.05,Math.cos(a)*5.8,.1+.08*(j%3));}
-  // trail winding behind farm, made from warm stone tiles
-  for(let i=0;i<11;i++){let x=-4.85+i*.72,z=-3.3+.25*Math.sin(i*.8);box(x,.08,z,.38,.08,.32,['#f6dfaf','#dcc18f','#d6b889']);}
-  for(let i=0;i<8;i++){let x=4.65+Math.sin(i*.7)*.2,z=-3.1+i*.7;box(x,.09,z,.29,.06,.37,['#f8e3b5','#dfc79a','#ddc396']);}
+  for(let i=0;i<60;i++){let t=i*2.39996,r=5.2+Math.sin(i*4.3)*1.35;const x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.6&&Math.abs(z)<3.3)continue;if(i%3===0)flower(x,z,i%2?'#fff5ca':'#ffdad7',.09);else grassTuft(x,z,.10)}
+  for(let j=0;j<12;j++){const a=j*2.22;rock(Math.sin(a)*4.9,0.05,Math.cos(a)*5.8,.1+.08*(j%3));}
+  // trail winding behind farm, made from warm stone tiles with softer curves
+  for(let i=0;i<13;i++){let x=-4.95+i*.64,z=-3.35+.28*Math.sin(i*.7);box(x,.08,z,.40,.08,.33,['#f6dfaf','#dcc18f','#d6b889']);}
+  for(let i=0;i<9;i++){let x=4.62+Math.sin(i*.7)*.22,z=-3.18+i*.67;box(x,.09,z,.31,.06,.38,['#f8e3b5','#dfc79a','#ddc396']);}
 }
-function makeHouse(){let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.78,1.48);
+
+function makeHouse(){if(artDraw('house',-3.975,.06,-3.18)){shadow(-3.975,-3.18,1.78,1.48);return;}let x=-5.25,z=-4.35;shadow(x+1.25,z+1,1.78,1.48);
  // stone plinth with painted stucco walls and timber frame
  box(x-.10,.06,z-.06,2.75,.23,2.55,['#e8d2ad','#c9b28d','#bbaa8a']);
  box(x,.29,z,2.55,1.72,2.35,['#ffe7ca','#f0bd9b','#e9ac91']);
@@ -808,7 +845,8 @@ function leafFan(cx,cy,cz,rad,kind,palette,seed){
     face(start,end,R,palette[(j+seed+1)%palette.length]);
   }
 }
-function makeTree(x,z,scale=1,variant=0){
+function makeTree(x,z,scale=1,variant=0){if(artDraw('tree',x,.06,z,scale)){shadow(x,z,.7*scale,.65*scale);return;}
+
  const pine=variant%3===2;
  const bark=variant%2?['#91694d','#70523e','#a78160']:['#916a50','#6d4f3d','#ac8161'];
  shadow(x,z,1.05*scale,.90*scale);
@@ -858,20 +896,27 @@ function makeTree(x,z,scale=1,variant=0){
  // little ground herbs around the tree, not numerous geometry-heavy flowers
  for(let j=0;j<4;j++){const a=j*1.63+variant*.2;grassTuft(x+Math.cos(a)*.62*scale,z+Math.sin(a)*.55*scale,.09*scale);}
 }
-function windmill(){let x=5.0,z=-3.75;shadow(x,z,.95,.92);cyl(x,.06,z,.69,2.95,['#efdbc2','#d3c19f'],8,.45);
+function windmill(){let x=5.0,z=-3.75;shadow(x,z,.95,.92);if(artDraw('windmill',x,0,z))return;cyl(x,.06,z,.69,2.95,['#efdbc2','#d3c19f'],8,.45);
  // base trim, balcony rim, roof and door
  cyl(x,.22,z,.76,.10,['#d9c8aa','#baa58a'],8);cyl(x,2.78,z,.60,.14,['#f6edd8','#c2a77f'],8);cyl(x,2.94,z,.70,.82,['#c37b6b','#e49d84'],8,.045);
  box(x-.18,.15,z+.58,.37,.91,.075,['#a87a63','#875c48','#714c3e']);
  box(x-.28,.04,z+.70,.56,.08,.26,['#dcc09b','#b78d66','#9b7353']);
- // tiny side windows
+ // tiny side windows and a higher loft vent
  for(let a of [0,2.1,4.2]){box(x+Math.cos(a)*.60,.98,z+Math.sin(a)*.58,.09,.34,.09,['#ecf7ee','#bfded5','#abd1cc']);}
+ box(x+.02,1.72,z+.60,.17,.22,.08,['#f0fbef','#bcd9d5','#abcbc7']);
  // wooden clock face and propeller with braces
  ball(x,2.20,z+.54,.19,.19,.13,'#e9d39e',4,8);
  const hub=[x,2.22,z+.74];for(let i=0;i<4;i++){let a=Math.PI/2*i+.4;let vec=[Math.cos(a),Math.sin(a)];postLine(hub,[x+vec[0]*1.30,2.22+vec[1]*1.30,z+.77],.11,.12,['#e6bb82','#b6815b']);const px=x+vec[0]*.89,py=2.22+vec[1]*.89;box(px-.14,py-.12,z+.74,.28,.24,.06,['#f8e4bc','#dfc9a1','#d2ad85']);postLine([x+vec[0]*.42,2.22+vec[1]*.42,z+.76],[x+vec[0]*1.12,2.22+vec[1]*1.12,z+.76],.03,.03,'#b88860');}
  ball(x,2.22,z+.81,.2,.2,.11,'#e8b67d',4,9);
+ // balcony rail + flour sacks + trailing ivy to make the windmill feel maintained
+ for(let i=0;i<7;i++)box(x-.46+i*.15,2.55,z+.52,.06,.20,.05,['#f4e2bf','#cfa983','#af805f']);
+ postLine([x-.52,2.58,z+.58],[x+.52,2.58,z+.58],.035,.035,['#eed2a8','#c9986a']);
+ box(x-.70,.12,z-.18,.28,.36,.22,['#d4b07d','#b98a61','#9d734f']);box(x-.46,.12,z-.14,.28,.32,.24,['#e2c89b','#bf9d72','#a57f5e']);
+ for(let j=0;j<5;j++){postLine([x+.42,.62+j*.24,z+.06],[x+.47,.86+j*.24,z+.12],.02,.02,'#6da962');ball(x+.48,.88+j*.24,z+.13,.05,.04,.04,['#7ac16f','#5ca25a'],4,5);} 
  for(let i=0;i<6;i++){let a=i*1.04;ball(x+Math.cos(a)*.88,.12,z+Math.sin(a)*.73,.08,.05,.08,['#d6c4a5','#bea786'],3,5);}
 }
-function well(){let x=4.86,z=2.72;shadow(x,z,.86,.76);
+
+function well(){let x=4.86,z=2.72;shadow(x,z,.86,.76);if(artDraw('well',x,0,z))return;
  cyl(x,.12,z,.57,.64,['#d1bd9d','#bda486','#e6d3b4'],9);cyl(x,.75,z,.47,.08,'#8abec1',9);
  for(let j of [-.5,.5])box(x+j-.06,.12,z-.48,.12,1.55,.11,['#edd3a4','#c4a075','#b99167']);
  const yy=1.72;quad([x-.78,yy,z+.53],[x,2.14,z+.53],[x,2.14,z-.57],[x-.78,yy,z-.57],'#e0a97b');quad([x,2.14,z+.53],[x+.78,yy,z+.53],[x+.78,yy,z-.57],[x,2.14,z-.57],'#c58760');
@@ -884,9 +929,17 @@ function well(){let x=4.86,z=2.72;shadow(x,z,.86,.76);
  // little roof over the well
  quad([x-.72,1.96,z+.58],[x,2.44,z+.58],[x,2.44,z-.58],[x-.72,1.96,z-.58],'#d8887c');
  quad([x,2.44,z+.58],[x+.72,1.96,z+.58],[x+.72,1.96,z-.58],[x,2.44,z-.58],'#c86f68');
+ // detail trim, hanging cloth and wash basin
+ for(let k=0;k<4;k++){box(x-.61+k*.42,1.95,z+.62,.08,.10,.10,['#f0ccb0','#d79a82','#bf786f']);}
+ box(x+.72,1.05,z+.28,.13,.42,.07,['#e9d0a7','#c2976d','#a77755']);
+ box(x+.79,.72,z+.28,.22,.26,.06,['#d8f1f5','#8cc6d0','#79b1b8']);
+ box(x-1.02,.12,z+.24,.26,.18,.22,['#c79a70','#9f704d','#875c3e']);
+ ball(x-1.10,.36,z+.32,.08,.08,.08,['#8cc7d8','#6db4c6'],4,6);
+ for(let i=0;i<4;i++)flower(x-.86+i*.22,z-.92+(i%2)*.06,i%2?'#fff1c1':'#ffd3da',.08);
 }
+
 function fence(x,z,w,d){
- const nx=Math.round(w/.65),nz=Math.round(d/.65);
+ const nx=Math.max(1,Math.round(w/.65)),nz=Math.max(1,Math.round(d/.65)); // thin fence rows must not divide by zero
  for(let i=0;i<=nx;i++){let xx=x+i*w/nx;box(xx,.07,z,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(xx,.07,z+d,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);tapered(xx+.06,.73,z+.06,.08,.15,['#f3e2be','#ccac7d'],4);tapered(xx+.06,.73,z+d+.06,.08,.15,['#f3e2be','#ccac7d'],4);}
  for(let j=0;j<=nz;j++){let zz=z+j*d/nz;box(x,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);box(x+w,.07,zz,.12,.66,.13,['#fff1d1','#d9bd8f','#cfaf84']);}
  for(let y of [.28,.53]){postLine([x+.02,y,z+.06],[x+w+.08,y,z+.06],.07,.07,'#e4c393');postLine([x+.02,y,z+d+.06],[x+w+.08,y,z+d+.06],.07,.07,'#e4c393');}
@@ -895,6 +948,7 @@ function fence(x,z,w,d){
 function makePlotBase(i){
  const ix=i%4,iz=Math.floor(i/4),x=-2.62+ix*1.52,z=-1.92+iz*1.52,w=1.34;
  const s=state.plots[i];shadow(x+w/2,z+w/2,.80,.73);
+ if(artDraw(s.unlock?'plot-tilled':'plot-locked',x+w/2,.12,z+w/2))return;
  // soft field edge - no solid timber slab under the soil
  box(x,.12,z,w,.11,w,s.unlock?['#a17c57','#876346','#785639']:['#a9bd96','#99ac88','#8da17c']);
  if(!s.unlock){
@@ -926,15 +980,59 @@ function makePlotBase(i){
 }
 function leaf(x,y,z,dx,dy,dz,color){let end=[x+dx,y+dy,z+dz],mid=[x+dx*.54,y+dy*.58,z+dz*.54];let perp=[-dz,0,dx];let len=Math.hypot(...perp)||1;perp=perp.map(q=>q/len*.105);let a=mid.map((q,i)=>q+perp[i]),b=mid.map((q,i)=>q-perp[i]);face([x,y,z],a,end,color);face([x,y,z],end,b,color);}
 function crop(x,z,type,progress){const k=Math.max(0.12,Math.min(1,progress));const grow=.25+.75*Math.min(1,k*2.2),mature=k>=.93;
- for(let j=0;j<3;j++){let cx=x+(j-1)*.31;let cz=z+(.08*((j%2)*2-1));if(type===0){ // carrot crown + leafy fronds
- if(k>.24)tapered(cx,.35,cz,.12*grow,.44*grow,['#e48a4d','#ffac64'],7);
- for(let a=0;a<5;a++){let ang=a*1.26+j*.41;leaf(cx,.43,cz,Math.cos(ang)*.22*grow,.56*grow,Math.sin(ang)*.23*grow,a%2?'#4f9b5f':'#83c879');}
- }else if(type===1){cyl(cx,.39,cz,.038*grow,.43*grow,'#5d9e5d',5);for(let a=0;a<6;a++){let ang=a*1.047;leaf(cx,.48+grow*.18,cz,Math.cos(ang)*.30*grow,.18*grow,Math.sin(ang)*.3*grow,a%2?'#62af69':'#8ed48c');}if(k>.5){for(let a=0;a<3;a++){let ang=a*2.12+j*.5;const xx=cx+Math.cos(ang)*.15*grow,zz=cz+Math.sin(ang)*.14*grow;ball(xx,.43+grow*.13,zz,.105*grow,.13*grow,.10*grow,['#e75960','#f3756c','#d44251'],4,8);ball(xx,.55+grow*.14,zz,.065,.025,.065,'#72b66c',3,5);}}
- }else if(type===2){cyl(cx,.38,cz,.050*grow,.76*grow,['#519a5a','#78c878'],6,.03*grow);for(let a=0;a<4;a++){let ang=a*1.57+.4;leaf(cx,.43+grow*.18,cz,Math.cos(ang)*.26*grow,.39*grow,Math.sin(ang)*.29*grow,a%2?'#5fac5e':'#86ce7e');}if(k>.5){cyl(cx+.08,.58,cz,.13*grow,.34*grow,['#f2c962','#e6b94d'],7,.11*grow);ball(cx+.08,.93,cz,.1,.14,.1,'#f6dc88',4,7);}
- }else {for(let a=0;a<5;a++){let ang=a*1.26;leaf(cx,.39,cz,Math.cos(ang)*.23*grow,.19*grow,Math.sin(ang)*.26*grow,'#61a95c')}if(k>.37){ball(cx,.50,cz,.20*grow,.17*grow,.21*grow,['#df913e','#f7af58','#d47f34'],4,9);cyl(cx,.61,cz,.033,.13,'#56854b',5);} }
+ for(let j=0;j<3;j++){
+  let cx=x+(j-1)*.31,cz=z+(.08*((j%2)*2-1));
+  if(type===0){
+   // carrot: thicker root shoulders and layered leafy crown
+   if(k>.18){
+    tapered(cx,.33,cz,.14*grow,.47*grow,['#e07e3e','#ffab62','#cb6b31'],7);
+    ball(cx,.29,cz,.10*grow,.05*grow,.10*grow,['#b96f3e','#9a5b32'],4,6);
+   }
+   for(let a=0;a<6;a++){
+    let ang=a*1.047+j*.36,len=(a%2?0.52:0.64)*grow;
+    leaf(cx,.43,cz,Math.cos(ang)*.23*grow,len,Math.sin(ang)*.23*grow,a%2?'#4f9e60':'#87cd7f');
+   }
+   if(mature){for(let a=0;a<3;a++)grassTuft(cx+(a-1)*.05,cz+.04*a,.05*grow);}
+  }else if(type===1){
+   // strawberry: dense leafy cap and berry clusters
+   cyl(cx,.36,cz,.04*grow,.30*grow,'#5a9f58',5);
+   for(let a=0;a<7;a++){
+    let ang=a*.897;leaf(cx,.47+grow*.15,cz,Math.cos(ang)*.31*grow,.21*grow,Math.sin(ang)*.30*grow,a%2?'#69b36a':'#8fd98b');
+   }
+   if(k>.42){
+    for(let a=0;a<4;a++){
+     let ang=a*1.58+j*.43,xx=cx+Math.cos(ang)*.16*grow,zz=cz+Math.sin(ang)*.15*grow;
+     ball(xx,.42+grow*.14,zz,.11*grow,.15*grow,.11*grow,['#eb4f5f','#ff7b73','#d63951'],5,8);
+     for(let s2=0;s2<4;s2++)ball(xx+Math.cos(s2*1.57)*.03*grow,.56+grow*.13,zz+Math.sin(s2*1.57)*.03*grow,.03*grow,.012*grow,.03*grow,['#82be67','#6cae5c'],3,4);
+    }
+   }
+  }else if(type===2){
+   // corn: central stalk, broad leaves and fuller ear with husk
+   cyl(cx,.38,cz,.055*grow,.80*grow,['#579f59','#82cd7a'],6,.03*grow);
+   for(let a=0;a<5;a++){
+    let ang=a*1.257+.32,side=(a%2?1:-1);
+    leaf(cx,.44+grow*.14,cz,Math.cos(ang)*(.22+.03*a)*grow,(.34+.06*a)*grow,Math.sin(ang)*(.22+.03*a)*grow,a%2?'#5eaf60':'#8fd67f');
+   }
+   if(k>.46){
+    cyl(cx+.08,.59,cz,.14*grow,.38*grow,['#f2ca5d','#e4b347','#f7de83'],8,.11*grow);
+    ball(cx+.08,.94,cz,.11*grow,.15*grow,.11*grow,['#f7de83','#edd072'],4,7);
+    leaf(cx+.03,.61,cz,-.12*grow,.36*grow,.07*grow,['#78be67','#5ea75e']);
+    leaf(cx+.14,.55,cz,.14*grow,.31*grow,-.06*grow,['#8ccf7b','#6ab865']);
+   }
+  }else {
+   // pumpkin: sprawling leaves plus ribbed, chunkier pumpkin body
+   for(let a=0;a<6;a++){
+    let ang=a*1.047;leaf(cx,.38,cz,Math.cos(ang)*.24*grow,.20*grow,Math.sin(ang)*.28*grow,a%2?'#62a95b':'#7bc66e');
+   }
+   if(k>.34){
+    ball(cx,.50,cz,.24*grow,.19*grow,.24*grow,['#df8935','#f5af57','#cd7330'],6,10);
+    for(let rib=0;rib<4;rib++)ball(cx+(rib-1.5)*.045*grow,.51,cz,.06*grow,.17*grow,.22*grow,['#d07a2f','#c66e2b'],4,5);
+    cyl(cx,.64,cz,.034,.14,'#557f47',5);
+   }
+  }
  }
 }
-// Small satellite islands are separate modeled bodies, visible past the main island.
+
 function satellite(x,z,r,yOffset){let n=10;for(let i=0;i<n;i++){let a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;const top=[x+Math.cos(a)*r,yOffset,z+Math.sin(a)*r],top2=[x+Math.cos(b)*r,yOffset,z+Math.sin(b)*r],side=[x+Math.cos(a)*r*.68,yOffset-1.25,z+Math.sin(a)*r*.68],side2=[x+Math.cos(b)*r*.68,yOffset-1.25,z+Math.sin(b)*r*.68];face([x,yOffset+.04,z],top2,top,'#add78f');quad(top,top2,side2,side,i%3===0?'#b5906e':'#8d6d58');face(side,side2,[x,yOffset-1.92,z],i%2?'#73584a':'#846759');}
  ball(x,yOffset+.28,z,.44,.36,.40,['#8fca8a','#6db77d','#a2dba2'],4,7);
  for(let j=0;j<4;j++)rock(x+Math.cos(j*1.5)*.42,yOffset-.08,z+Math.sin(j*1.5)*.33,.08);
@@ -1012,12 +1110,20 @@ function makeLantern(x,z){
  tapered(x,1.30,z,.17,.23,['#e4b780','#c38b5f'],6);
 }
 function makeStoneWalk(){
- // garden walkway and stepping stones keep every clickable plot unobstructed
- const pts=[[-4.38,-2.05],[-4.1,-1.55],[-3.85,-.95],[-3.63,-.35],[-3.72,.35],[-3.92,1.02],[-4.12,1.65]];
- for(let i=0;i<pts.length;i++){let p=pts[i];ball(p[0],.097,p[1],.24,.035,.18,i%3===0?['#f5e3c2','#e2d2ae']:['#ead9b9','#d9c49b'],2,7);}
- makeLantern(-3.66,-1.65);makeLantern(-4.37,1.59);
+ // More continuous pedestrian route stitching together house, farm, well and rest areas.
+ const pts=[[-4.38,-2.05],[-4.12,-1.58],[-3.90,-1.02],[-3.70,-.38],[-3.78,.26],[-3.98,.88],[-4.16,1.48],[-4.26,2.08],[-4.08,2.66],[-3.58,3.10],[-2.82,3.34],[-1.92,3.46],[-.88,3.44],[.18,3.34],[1.28,3.18],[2.42,3.02],[3.54,2.84],[4.30,2.72]];
+ for(let i=0;i<pts.length;i++){
+   let p=pts[i],s=.22-.05*Math.sin(i*.7);
+   ball(p[0],.097,p[1],s,.035,.16,i%3===0?['#f5e3c2','#e2d2ae']:i%3===1?['#ead9b9','#d9c49b']:['#efdfc0','#d5bf95'],2,7);
+ }
+ // secondary spur to the windmill
+ const spur=[[1.82,1.78],[2.44,1.18],[3.12,.55],[3.84,-.06],[4.36,-.72],[4.76,-1.46],[4.95,-2.22]];
+ for(let i=0;i<spur.length;i++){let p=spur[i];ball(p[0],.094,p[1],.18,.032,.14,['#f1e0bf','#d6c09b'],3,6);}
+ makeLantern(-3.66,-1.65);makeLantern(-4.37,1.59);makeLantern(2.58,1.04);makeLantern(4.20,.05);
 }
-function makeHouseDetails(){
+
+function makeHouseDetails(){if(artAssets)return; // V1 house owns its detail geometry
+
  let x=-5.25,z=-4.35,front=z+2.62;
  // ridge cap tiles and hanging eave trim
  for(let j=0;j<11;j++){
@@ -1046,7 +1152,22 @@ function makeHouseDetails(){
  // timber-framed gable crest and wooden paneling
  postLine([x+1.275,3.05,front+.009],[x+1.275,2.10,front+.009],.07,.06,'#d3a47d');
  box(x+.08,.33,z+2.37,2.36,.075,.095,['#f8dcc0','#cd9a7c','#bb836a']);
+ // side patio trellis, herb bench and wall ivy to soften the house mass
+ for(const xx of [x+2.70,x+2.98])box(xx,.12,z+.30,.07,1.05,.07,['#ead7ae','#c59a72','#aa7d5d']);
+ for(let k=0;k<4;k++)postLine([x+2.73,.30+k*.20,z+.32],[x+2.95,.30+k*.20,z+.32],.025,.025,['#ddc293','#c09269']);
+ for(let j=0;j<6;j++)flower(x+2.67,z+.24+j*.16,j%2?'#fff0be':'#ffd1d8',.08);
+ box(x+2.68,.12,z+1.74,.38,.20,.22,['#c29060','#9e6949','#87593f']);
+ for(let j=0;j<4;j++)ball(x+2.73+j*.07,.40,z+1.82,.05,.04,.05,j%2?'#7fbe71':'#5aa963',4,5);
+ for(let j=0;j<5;j++){postLine([x+2.59,.58+j*.20,z+.66+j*.15],[x+2.59,.80+j*.20,z+.76+j*.15],.02,.02,'#6cae63');ball(x+2.60,.82+j*.20,z+.77+j*.15,.05,.04,.04,['#7fc974','#5ea960'],4,5);}
+ // small dormer accent on the roof for a more layered silhouette
+ box(x+1.62,2.02,z+1.18,.42,.36,.36,['#ffe8c6','#e1b18f','#cb9476']);
+ quad([x+1.48,2.28,z+1.55],[x+1.83,2.56,z+1.55],[x+1.83,2.56,z+1.01],[x+1.48,2.28,z+1.01],'#df8b7e');
+ quad([x+1.83,2.56,z+1.55],[x+2.18,2.28,z+1.55],[x+2.18,2.28,z+1.01],[x+1.83,2.56,z+1.01],'#c86e68');
+ box(x+1.69,2.10,z+1.51,.26,.22,.08,['#eaf6e9','#b7dad1','#a7c8c0']);
+ // rear-side flower border to merge house into lawn
+ for(let i=0;i<7;i++)flower(x-.28+i*.42,z-.36+(i%2)*.10,i%3===0?'#fff3be':(i%3===1?'#ffd4db':'#f0d7f8'),.075);
 }
+
 function makeCliffDetails(){
  // diagonal sediment bands on visible island walls + pointed crystals
  for(let i=0;i<29;i++){
@@ -1136,7 +1257,103 @@ function makeIslandDetails(){
   if(x<-3.3&&z<-.8)continue;
   rock(x,.14,z,.11+.04*(i%3));
  }
+ makeFarmFrontGarden();
+ makeWindmillGarden();
+ makeWellCorner();
+ makeFieldAccents();
+ makeIslandMeadowDetails();
 }
+
+function makePlanterBox(x,z,w=.72,h=.28,d=.30){
+ box(x,.12,z,w,.18,d,['#bd8f63','#9b6d4e','#84583d']);
+ box(x+.05,.22,z+.03,w-.10,.10,d-.06,['#8c6a45','#745635','#694f33']);
+ for(let i=0;i<4;i++)flower(x+.10+i*(w-.20)/3,z+.04+(i%2)*.08,i%2?'#ffd5da':'#fff1b8',.09);
+}
+function scatterPebbles(list){for(const p of list)ball(p[0],.10,p[1],.06,.025,.05,p[2]||['#d2c4ae','#beb19c'],3,5);}
+function makeFarmFrontGarden(){
+ const fencePts=[[-4.58,-1.05],[-3.98,-1.05],[-3.38,-1.05],[-2.78,-1.05]];
+ for(const p of fencePts)box(p[0],.12,p[1],.08,.50,.08,['#edd5ae','#ca9d72','#b98963']);
+ for(const y of [.34,.54])postLine([-4.54,y,-1.01],[-2.70,y,-1.01],.045,.045,['#e9c89d','#c08f67']);
+ makePlanterBox(-4.85,-1.40,.86,.30,.34);makePlanterBox(-3.72,-1.46,.76,.28,.31);makePlanterBox(-2.84,-1.36,.68,.26,.30);
+ // stepping stones from door to field path
+ const stones=[[-4.04,-.78],[-3.52,-.52],[-2.98,-.25],[-2.52,.04],[-2.06,.34]];
+ for(let i=0;i<stones.length;i++)ball(stones[i][0],.09,stones[i][1],.18+.02*(i%2),.03,.14,['#f0debb','#d4bd95'],3,7);
+ // porch decor: crate, watering can, tiny shrub
+ box(-4.70,.12,-1.96,.34,.22,.28,['#c08c5e','#9e6947','#87583d']);
+ ball(-4.55,.43,-1.84,.12,.10,.11,['#7bbc6f','#5ca45b'],4,6);
+ postLine([-3.12,.30,-1.84],[-2.87,.41,-1.86],.04,.04,'#8fb9c7');
+ ball(-2.82,.35,-1.87,.06,.05,.08,'#9fd2de',3,5);
+ // a trellis and flower arch beside the porch
+ for(const xx of [-2.24,-1.98])box(xx,.12,-1.50,.07,.95,.07,['#e5d2a8','#c59a72','#aa7d5d']);
+ for(let k=0;k<4;k++)postLine([-2.22,.28+k*.18,-1.47],[-1.93,.28+k*.18,-1.47],.028,.028,['#ddc293','#c09269']);
+ for(let j=0;j<6;j++)flower(-2.26+(j%2)*.16,-1.52+j*.06,j%3?'#ffd6db':'#f8e8af',.08);
+}
+function makeWindmillGarden(){
+ const cx=4.98,cz=-3.72;
+ for(let i=0;i<12;i++){let a=i*Math.PI/6;ball(cx+Math.cos(a)*1.04,.07,cz+Math.sin(a)*.96,.12,.03,.10,i%2?['#e7d7b7','#ccb894']:['#dac8aa','#c0ab8a'],3,5);} 
+ for(let i=0;i<14;i++){let a=i*.47;grassTuft(cx+Math.cos(a)*1.28,cz+Math.sin(a)*1.14,.10);if(i%2===0)flower(cx+Math.cos(a)*1.36,cz+Math.sin(a)*1.22,i%3?'#ffd4de':'#fff0bc',.08);} 
+ const stones=[[3.86,-2.22],[4.18,-2.54],[4.48,-2.82],[4.73,-3.09],[4.94,-3.35],[5.24,-3.98],[5.50,-4.34],[5.82,-4.72]];
+ for(let i=0;i<stones.length;i++)ball(stones[i][0],.085,stones[i][1],.15,.028,.12,i<5?['#f0dfba','#d5be95']:['#ebd8b3','#ccb289'],3,6);
+ // flower cart, spare blades and a tiny herb bench
+ box(3.98,.12,-4.76,.46,.18,.30,['#c69363','#9d6d4c','#83563d']);
+ cyl(4.08,.07,-4.63,.07,.07,['#77695e','#5e534c'],7);cyl(4.29,.07,-4.63,.07,.07,['#77695e','#5e534c'],7);
+ for(let j=0;j<5;j++)flower(4.02+j*.08,-4.70,j%2?'#ffcbd3':'#fff2b7',.08);
+ box(3.56,.12,-3.98,.54,.18,.20,['#caa67c','#a17653','#8a5e41']);
+ for(let i=0;i<4;i++)ball(3.62+i*.12,.34,-3.92,.05,.04,.05,i%2?'#7bbb6d':'#5fa65d',4,5);
+ postLine([5.76,.12,-4.38],[6.22,.40,-4.18],.05,.05,['#cb9d6c','#a97751']);postLine([5.78,.40,-4.38],[6.18,.12,-4.14],.05,.05,['#cb9d6c','#a97751']);
+}
+
+function makeWellCorner(){
+ const stones=[[4.12,2.24],[4.50,2.04],[4.88,1.94],[5.30,2.02],[5.64,2.22],[5.77,2.61],[5.60,3.01],[5.21,3.17],[4.82,3.20],[4.36,3.05],[4.12,2.70]];
+ for(const s of stones)ball(s[0],.08,s[1],.19,.03,.14,['#e8d8b6','#cfbb98'],3,6);
+ box(5.74,.12,2.56,.38,.16,.28,['#b58157','#986744','#875538']);
+ ball(5.90,.31,2.70,.12,.10,.10,['#8ed0d9','#6fbcc8'],4,6);
+ box(4.00,.12,2.98,.26,.24,.26,['#d0a46d','#aa7d51','#8e6946']);
+ for(let j=0;j<3;j++)ball(4.08+j*.06,.45,3.05,.045,.045,.045,j%2?'#f0ad57':'#d87076',4,5);
+ for(let i=0;i<6;i++)flower(4.00+i*.23,3.38,i%2?'#f9d0d5':'#f9efb6',.08);
+ // clothesline, soap crate and smooth edge grass to complete the domestic corner
+ for(const xx of [6.18,6.86])box(xx,.12,2.06,.08,1.05,.08,['#ead7ae','#c59b73','#ab7c5b']);
+ postLine([6.22,1.04,2.06],[6.84,1.00,2.06],.02,.02,'#e7d8c3');
+ box(6.42,.88,2.02,.18,.10,.03,['#f7efe4','#d7d6f1','#b0c4e9']);
+ box(6.60,.88,2.04,.16,.12,.03,['#f4dfde','#ddcdb6','#e6e2c1']);
+ box(5.48,.12,3.24,.32,.16,.26,['#b98a63','#966744','#7d543b']);
+ ball(5.56,.29,3.31,.05,.04,.05,['#f1ead8','#cfe6ef'],4,5); ball(5.68,.29,3.31,.05,.04,.05,['#f1ead8','#cfe6ef'],4,5);
+ for(let i=0;i<5;i++)grassTuft(6.00+i*.18,3.30+(i%2)*.05,.09);
+}
+
+function makeFieldAccents(){
+ for(let i=0;i<4;i++)ball(-2.82+i*1.52,.08,4.38,.17,.03,.12,['#ebd9b3','#ccb58a'],3,6);
+ for(let i=0;i<3;i++)ball(-3.22,.08,-1.82+i*1.52,.16,.03,.12,['#ecdcb8','#ccb590'],3,6);
+ box(-4.12,.12,4.18,.46,.22,.34,['#c39163','#9d6c4c','#87573b']);
+ for(let j=0;j<5;j++)ball(-4.02+j*.07,.37,4.31,.07,.06,.07,j%2?'#e59f55':'#d76e7b',4,5);
+ box(3.18,.12,1.48,.42,.18,.28,['#c6a16b','#a77d52','#8d6944']);
+ for(let j=0;j<4;j++)ball(3.25+j*.07,.35,1.55,.055,.04,.055,['#f0ce7b','#d9b666'],3,5);
+ // wheelbarrow, seed sacks and border flowers help frame the cropland area.
+ postLine([-4.96,.12,3.62],[-4.64,.35,3.54],.05,.05,['#a87a55','#84583f']);
+ box(-4.58,.21,3.50,.32,.16,.24,['#ca9a65','#a06c49','#84553b']);
+ cyl(-4.96,.09,3.62,.07,.06,['#6c6158','#564a42'],6);
+ box(2.98,.12,2.06,.28,.20,.24,['#d7c3a1','#b79f7d','#9a8368']);box(3.24,.12,2.10,.26,.18,.22,['#cfba96','#ae9475','#8e765f']);
+ for(let i=0;i<10;i++)flower(-4.10+i*.32,4.80+(i%2)*.04,i%3===0?'#ffd3db':(i%3===1?'#fff0b7':'#f0d6f7'),.07);
+}
+
+function makeIslandMeadowDetails(){
+ const shrubs=[[-6.00,-2.60,.15],[-5.82,1.58,.12],[-1.25,5.55,.11],[2.55,5.38,.12],[6.58,2.72,.14],[7.10,-2.12,.13],[-.55,-5.34,.14],[-6.48,3.28,.12],[6.92,-.12,.11]];
+ for(const s of shrubs){grassTuft(s[0],s[1],s[2]);grassTuft(s[0]+.12,s[1]-.08,s[2]*.75);} 
+ scatterPebbles([[-6.18,-1.86],[-5.92,-1.70],[-5.68,-1.89],[-.72,5.16],[.80,5.36],[6.20,2.20],[6.44,2.38],[6.80,2.18],[2.15,-5.34],[2.45,-5.56],[2.76,-5.41],[-6.62,2.88],[-6.34,3.06],[7.46,.46],[7.58,.72]]);
+ const blooms=[[-6.38,-.55],[-6.10,.18],[-5.80,.48],[-5.50,.77],[-1.62,5.05],[-.95,5.18],[-.24,5.02],[2.45,5.76],[3.00,5.44],[3.48,5.18],[6.72,3.42],[7.04,3.20],[7.26,2.90],[7.35,-1.45],[7.08,-1.03],[6.82,-.70],[-6.72,2.22],[-6.44,2.56],[-6.18,2.86],[7.56,.18],[7.36,.44],[7.18,.72]];
+ for(let i=0;i<blooms.length;i++)flower(blooms[i][0],blooms[i][1],i%3===0?'#ffd4de':(i%3===1?'#fff1bf':'#f0d4f6'),.07+.01*(i%2));
+ // pergola / rest nook on the east lawn
+ const x=7.10,z=1.02;
+ for(const dx of [0,.88])for(const dz of [0,.88])box(x+dx,.12,z+dz,.08,.88,.08,['#ecd7ae','#cfa476','#b78961']);
+ for(let i=0;i<3;i++)postLine([x,.92,z+.12+i*.26],[x+.88,.92,z+.12+i*.26],.035,.035,['#e6c897','#c79669']);
+ postLine([x+.08,.76,z+1.05],[x+.82,.76,z+1.05],.05,.05,['#c69166','#a06e50']);
+ for(let i=0;i<5;i++)flower(x+.04+i*.16,z+.98,i%2?'#ffcfd7':'#fff0b4',.07);
+ // a picnic crate and border edging create a clearer leisure zone.
+ box(7.68,.12,1.66,.44,.18,.32,['#c19264','#9d6d49','#84563d']);
+ for(let i=0;i<4;i++)ball(7.73+i*.08,.36,1.75,.05,.04,.05,i%2?'#f4d275':'#d96c77',4,5);
+ for(let i=0;i<6;i++)ball(6.82+i*.18,.08,2.06,.14,.03,.10,['#ebd9b4','#ccb790'],3,5);
+}
+
 
 
 // Chicken house on the upper meadow, away from the 4x4 plots and main farmhouse.
@@ -1203,24 +1420,30 @@ function handleWorkshopAction(b){
  if(contextMode==='workshop'){$('contextBody').innerHTML=workshopContent();}
 }
 const COOP_X=-.95,COOP_Z=-5.14;
-function makeChicken(x,z,scale=1,variant=0){
- const s=scale,feathers=variant===2?['#e9bb79','#dca05f','#f0c98e']:['#fff4dd','#f7e6c4','#e9d9b6'];
- shadow(x,z,.29*s,.24*s);
- // Feet, oval body, upright neck/head, tail fan and paired folded wings.
+function makeChicken(x,z,scale=1,variant=0){if(artDraw('chicken',x,activeScene==='coop'?.09:.06,z,scale)){shadow(x,z,.31*scale,.26*scale);return;}
+
+ const s=scale,feathers=variant===2?['#eab870','#d49c5d','#f1c98d']:variant===1?['#fff0dc','#f5dfbb','#ead5a7']:['#fff6e6','#f3e4c9','#ebd6b4'];
+ shadow(x,z,.31*s,.26*s);
  for(const dx of [-.12,.12]){
-  cyl(x+dx*s,.09,z+.10*s,.035*s,.17*s,'#c98c48',5);
-  for(const side of [-1,1])postLine([x+dx*s,.09,z+.14*s],[x+(dx+side*.065)*s,.09,z+.21*s],.025*s,.025*s,'#d49a56');
+  cyl(x+dx*s,.08,z+.09*s,.032*s,.18*s,'#cc9151',5);
+  for(const t of [-1,0,1])postLine([x+dx*s,.08,z+.16*s],[x+(dx+t*.05)*s,.08,z+.22*s],.02*s,.02*s,'#dca25d');
  }
- ball(x,.39*s,z,.33*s,.26*s,.28*s,feathers,5,9);
- ball(x,.56*s,z+.20*s,.19*s,.22*s,.19*s,feathers,5,8);
- ball(x-.22*s,.43*s,z,.11*s,.18*s,.19*s,[feathers[1],feathers[0]],4,7);
- ball(x+.22*s,.43*s,z,.11*s,.18*s,.19*s,[feathers[1],feathers[0]],4,7);
- for(let k=0;k<3;k++)ball(x+(k-1)*.11*s,.60*s,z-.25*s,.11*s,.16*s,.09*s,feathers,3,5);
- // Beak facing the yard toward +Z.
- tapered(x,.51*s,z+.38*s,.11*s,.14*s,['#edaf57','#e49b46'],5);
- for(const dx of [-.09,.09])ball(x+dx*s,.65*s,z+.355*s,.025*s,.028*s,.025*s,'#4a4036',3,6);
- for(let k=0;k<3;k++)ball(x+(k-1)*.09*s,.78*s,z+.20*s,.067*s,.089*s,.055*s,['#e76a57','#c94d47'],3,6);
+ ball(x,.41*s,z,.35*s,.29*s,.31*s,feathers,6,10);
+ ball(x,.34*s,z+.03*s,.22*s,.16*s,.23*s,['#f9e9cf','#eddab8'],5,8);
+ ball(x-.24*s,.44*s,z-.02*s,.12*s,.20*s,.18*s,[feathers[1],feathers[0]],4,7);
+ ball(x+.24*s,.44*s,z-.02*s,.12*s,.20*s,.18*s,[feathers[1],feathers[0]],4,7);
+ for(let k=0;k<4;k++){const off=(k-1.5)*.08;ball(x+off*s,.60*s,z-.27*s,.09*s,.18*s,.08*s,[feathers[2],feathers[1]],3,6);}
+ ball(x,.57*s,z+.20*s,.18*s,.20*s,.18*s,feathers,5,8);
+ tapered(x,.53*s,z+.42*s,.12*s,.15*s,['#f0b45b','#df9940'],5);
+ for(let k=0;k<3;k++)ball(x+(k-1)*.08*s,.78*s,z+.20*s,.055*s,.09*s,.055*s,['#ea6b58','#c84c48'],3,6);
+ ball(x-.05*s,.54*s,z+.31*s,.05*s,.08*s,.04*s,['#d85c52','#c14647'],3,5);
+ ball(x+.05*s,.54*s,z+.31*s,.05*s,.08*s,.04*s,['#d85c52','#c14647'],3,5);
+ for(const dx of [-.09,.09]){
+  ball(x+dx*s,.64*s,z+.34*s,.026*s,.028*s,.024*s,'#43392f',3,6);
+  ball(x+dx*s,.655*s,z+.352*s,.008*s,.01*s,.01*s,'#ffffff',3,4);
+ }
 }
+
 function makeChickenCoop(showHens=true){
  let x=COOP_X,z=COOP_Z;
  shadow(x+.95,z+1.15,1.45,1.38);
@@ -1230,6 +1453,8 @@ function makeChickenCoop(showHens=true){
   const px=x+(i*7%16)*.11,pz=z+1.30+(i*5%11)*.12;
   postLine([px,.17,pz],[px+.17,.20,pz+.08],.012,.012,i%2?'#d8be7e':'#e8cf90');
  }
+ if(!artDraw('coop-house',x+.90,0,z+.15)){
+ // Original farm house fallback when models are unavailable.
  // Warm wooden base and hen-house walls.
  box(x,.15,z,1.80,.22,1.30,['#f0d3a2','#c79c6d','#b68d64']);
  box(x+.10,.37,z+.06,1.60,1.30,1.12,['#ffe0b2','#d9ae7e','#be946c']);
@@ -1251,6 +1476,7 @@ function makeChickenCoop(showHens=true){
  box(x+.43,.14,z+2.28,.80,.19,.35,['#deb385','#b38359','#9d704a']);
  box(x+.51,.34,z+2.34,.63,.055,.23,['#b59c62','#9b874e','#907947']);
  for(let i=0;i<6;i++)ball(x+.54+(i%3)*.18,.38,z+2.37+Math.floor(i/3)*.11,.052,.035,.048,['#eacb87','#caa962'],3,5);
+ }
  // Low enclosure posts and rails (leave yard entrance open).
  for(const xx of [x-.18,x+.39,x+.96,x+1.53,x+2.10]){
   box(xx,.12,z+2.76,.095,.62,.095,['#f2d6a7','#d8ad7d','#c99866']);
@@ -1313,6 +1539,8 @@ function orchardProgress(t){
  return Math.max(.12,Math.min(1,(Date.now()-t.plantedAt)/FRUITS[t.type].first));
 }
 function drawFruitTree(site,t){
+ if(artAssets&&t.type===0){if(t.type<0)return;const scale=.28+.72*orchardProgress(t);artDraw('apple-tree',site.x,.25,site.z,scale,t.readyAt<=Date.now());return;}
+
  if(t.type<0)return;
  const kind=t.type,prog=orchardProgress(t),scale=(.28+.72*prog);
  const x=site.x,z=site.z,green=kind===0?['#63aa6b','#7dc67a','#9ad78c','#4b955d']:['#549d72','#70ba82','#91cd8c','#4f9169'];
@@ -1450,39 +1678,38 @@ function orchardExteriorFruits(){
   }
  }
 }
-// v0.18.0: dairy barn entrance on the newly extended east pasture.
+// v0.24.1-desktop-test: dairy barn entrance on the newly extended east pasture.
 const COW_BARN_X=6.55,COW_BARN_Z=-.75;
-function makeCow(x,z,scale=1,variant=0){
- const s=scale,cream=variant?['#fff2df','#e9e0cb','#d9d2c0']:['#f4eee2','#e2daca','#fff8ea'];
- shadow(x,z,.63*s,.85*s);
- // Hooves, four legs, barrel-shaped body and a soft belly.
+function makeCow(x,z,scale=1,variant=0){if(artDraw('cow',x,.07,z,scale)){shadow(x,z,.66*scale,.88*scale);return;}
+
+ const s=scale,cream=variant?['#fff4e6','#e9decf','#d8cebe']:['#f7f1e4','#e5dece','#fff8ec'];
+ shadow(x,z,.66*s,.88*s);
  for(let dx of [-.34,.34])for(let dz of [-.43,.38]){
-  cyl(x+dx*s,.10,z+dz*s,.115*s,.61*s,['#eee4d4','#d0c6b8'],7,.102*s);
-  box(x+(dx-.13)*s,.10,z+(dz-.13)*s,.26*s,.17*s,.26*s,['#75625a','#5e524c','#6a5851']);
+  cyl(x+dx*s,.10,z+dz*s,.11*s,.64*s,['#efe5d6','#d7cbbd'],7,.10*s);
+  box(x+(dx-.12)*s,.09,z+(dz-.12)*s,.24*s,.16*s,.24*s,['#6f6158','#5a4e48','#7b6b61']);
  }
- ball(x,.99*s,z,.65*s,.52*s,.91*s,cream,5,10);
- // Asymmetrical cow markings laid against the body, visible in closeup.
- ball(x-.45*s,1.16*s,z-.30*s,.21*s,.23*s,.33*s,['#464848','#343d3b','#56534c'],4,7);
- ball(x+.43*s,1.00*s,z+.16*s,.23*s,.25*s,.28*s,['#414544','#343b3b'],4,8);
- ball(x-.06*s,1.40*s,z-.29*s,.26*s,.10*s,.34*s,['#434744','#3c4140'],3,7);
- // Neck and expressive head (facing the front of the pasture).
- ball(x,1.32*s,z+.74*s,.39*s,.42*s,.35*s,cream,5,9);
- ball(x,1.18*s,z+1.045*s,.32*s,.21*s,.24*s,['#edc1b3','#f6d2c8','#dfa99d'],4,9);
- for(let dx of [-.19,.19]){
-  ball(x+dx*s,1.52*s,z+1.02*s,.060*s,.073*s,.05*s,'#342f2e',4,7);
-  ball(x+dx*s,1.54*s,z+1.065*s,.016*s,.020*s,.020*s,'#ffffff',3,5);
-  ball(x+dx*1.02*s,1.11*s,z+1.28*s,.052*s,.035*s,.025*s,'#c48d88',3,6);
-  ball(x+dx*2.0*s,1.63*s,z+.76*s,.24*s,.115*s,.18*s,['#eed2bf','#d69a91'],4,8);
-  cyl(x+dx*1.08*s,1.73*s,z+.76*s,.09*s,.24*s,['#e7dfce','#c9bda9'],6,.04*s);
+ ball(x,.99*s,z,.70*s,.56*s,.96*s,cream,6,11);
+ ball(x,.76*s,z,.56*s,.48*s,.15*s,.42*s,['#f2e6d8','#d7cab9'],5,8);
+ const spots=[[ -.43,1.15,-.33,.20,.23,.30],[ .42,1.02,.12,.25,.24,.30],[-.08,1.34,-.12,.21,.11,.28],[.18,1.22,.34,.18,.16,.22]];
+ for(const q of spots)ball(x+q[0]*s,q[1]*s,z+q[2]*s,q[3]*s,q[4]*s,q[5]*s,['#434847','#353b3a','#555450'],4,7);
+ ball(x,1.32*s,z+.76*s,.41*s,.43*s,.37*s,cream,5,9);
+ ball(x,1.18*s,z+1.07*s,.34*s,.23*s,.26*s,['#efc6b8','#f7d7cc','#e3ada1'],4,9);
+ for(const dx of [-.18,.18]){
+  ball(x+dx*s,1.53*s,z+1.03*s,.06*s,.075*s,.05*s,'#342f2e',4,7);
+  ball(x+dx*s,1.55*s,z+1.075*s,.016*s,.02*s,.02*s,'#ffffff',3,5);
+  ball(x+dx*1.05*s,1.11*s,z+1.30*s,.054*s,.036*s,.026*s,'#c58f8a',3,6);
+  ball(x+dx*2.05*s,1.63*s,z+.80*s,.24*s,.12*s,.19*s,['#f0d4c1','#d89e95'],4,8);
+  cyl(x+dx*1.10*s,1.72*s,z+.78*s,.085*s,.23*s,['#e5dbca','#c8bcaa'],6,.04*s);
  }
- // A tail with tuft, and a tiny udder below the torso.
- postLine([x,1.24*s,z-.84*s],[x+.13*s,.58*s,z-1.15*s],.055*s,.052*s,'#ded7c8');
- ball(x+.14*s,.51*s,z-1.19*s,.09*s,.18*s,.08*s,'#55524a',4,6);
- ball(x,.49*s,z+.10*s,.18*s,.12*s,.21*s,'#e4b2ad',4,8);
+ postLine([x,1.22*s,z-.88*s],[x+.16*s,.63*s,z-1.18*s],.05*s,.05*s,'#ded7c8');
+ ball(x+.18*s,.57*s,z-1.22*s,.09*s,.17*s,.08*s,'#4f4b45',4,6);
+ ball(x,.50*s,z+.10*s,.19*s,.13*s,.22*s,'#e8b5af',4,8);
 }
+
 function makeCowBarnExterior(){
  const x=COW_BARN_X,z=COW_BARN_Z;
  shadow(x+1.25,z+.75,1.6,1.5);
+ if(!artDraw('cow-barn',x+1.08,0,z+.80)){
  box(x-.32,.06,z-.34,2.74,.22,2.36,['#cfca9c','#afa982','#9c906f']);
  box(x-.14,.29,z-.20,2.43,1.45,1.94,['#f1d3a2','#d3a378','#bb8963']);
  for(let dx of [0,2.02])box(x+dx,.30,z+1.75,.14,1.45,.11,['#b77e57','#9a684c','#84543f']);
@@ -1497,6 +1724,7 @@ function makeCowBarnExterior(){
  // Small recognizable cow emblem over the entrance.
  ball(x+1.09,1.70,front+.08,.29,.23,.075,'#faf4e8',3,7);
  ball(x+1.09,1.69,front+.16,.135,.09,.045,'#dda99e',3,7);
+ }
  // A hint of a cow and milk outside, but main husbandry is in the dedicated scene.
  makeCow(x-.18,z+2.48,.40,1);
  box(x+1.55,.12,z+2.03,.49,.18,.38,['#c9ad79','#a77c56','#92704d']);
@@ -1515,6 +1743,7 @@ function sceneCowPasture(){
  for(let y of [.36,.63]){postLine([-4.68,y,-2.0],[-4.68,y,4.61],.075,.07,'#d0a779');postLine([4.77,y,-2.0],[4.77,y,4.61],.075,.07,'#d0a779');}
  // The warm timber cattle shed at the back.
  const x=-2.35,z=-5.45;
+ if(!artDraw('cow-barn',x+2.30,0,z+.75,1.40)){
  box(x-.15,.10,z-.2,4.9,.18,2.70,['#d8b78b','#b68c68','#a27a5a']);
  box(x,.27,z,4.6,1.75,2.35,['#ead7b3','#cca77c','#b98c69']);
  const left=x-.38,right=x+4.98,mid=x+2.3,front=z+2.67,back=z-.27;
@@ -1525,6 +1754,7 @@ function sceneCowPasture(){
  box(x+.48,.27,front-.12,1.20,1.53,.12,['#987052','#785742','#6f4e3e']);
  box(x+2.95,.86,front-.12,.90,.66,.10,['#d9ebe1','#a8cbbd','#89b6ad']);
  box(x+2.11,.30,front+.08,.44,.80,.12,['#b1825c','#946b4a','#7f5d45']);
+ }
  for(let i=0;i<4;i++){
   const zz=-.3+(i%2)*.78,xx=2.7+Math.floor(i/2)*1.0;
   box(xx,.12,zz,.75,.47,.58,['#e4c785','#d5ab67','#c4965b']);
@@ -1553,35 +1783,36 @@ function sceneCowActivity(now){
   }
  }
 }
-// v0.18.0: dedicated sheep barn near southern island meadow, separate from cows and orchard.
+// v0.24.1-desktop-test: dedicated sheep barn near southern island meadow, separate from cows and orchard.
 const SHEEP_BARN_X=-2.85,SHEEP_BARN_Z=6.24;
-function makeSheep(x,z,scale=1,variant=0){
- const s=scale,wool=variant%3===0?['#faf1db','#e7dcc4','#fff9e8']:variant%3===1?['#f3eedf','#dad8c9','#fff9ed']:['#e7e1d3','#d3cdbf','#f7f2e7'];
- shadow(x,z,.49*s,.60*s);
- // Four slim legs, dark hooves and a soft wool-covered torso.
- for(const dx of [-.25,.25])for(const dz of [-.29,.28]){
-  cyl(x+dx*s,.09,z+dz*s,.071*s,.49*s,['#d8c9b7','#ad9b89'],6,.061*s);
-  box(x+(dx-.09)*s,.07,z+(dz-.085)*s,.18*s,.12*s,.18*s,['#78695d','#60584e','#887467']);
+function makeSheep(x,z,scale=1,variant=0){if(artDraw('sheep',x,.07,z,scale)){shadow(x,z,.55*scale,.65*scale);return;}
+
+ const s=scale,wool=variant%3===0?['#fff7eb','#ede1d0','#fffdf3']:variant%3===1?['#f6f0e6','#ddd5c8','#fff9ee']:['#ece5d8','#d6cfc2','#faf6eb'];
+ shadow(x,z,.55*s,.65*s);
+ for(const dx of [-.24,.24])for(const dz of [-.30,.27]){
+  cyl(x+dx*s,.09,z+dz*s,.072*s,.52*s,['#dcccc0','#b6a69b'],6,.062*s);
+  box(x+(dx-.085)*s,.07,z+(dz-.08)*s,.17*s,.11*s,.17*s,['#725f58','#5e504b','#826d64']);
  }
- ball(x,.89*s,z,.49*s,.40*s,.61*s,wool,5,10);
- // Irregular wool curls soften the angular outline at close zoom.
- const curls=[[-.39,.92,-.33],[-.38,1.11,-.12],[-.36,.89,.20],[.37,.96,-.32],[.39,1.14,.05],[.38,.90,.28],[-.12,1.30,-.33],[.18,1.31,.02],[-.13,1.31,.39],[.10,1.32,.27],[-.20,.66,-.10],[.20,.68,.34]];
- for(let j=0;j<curls.length;j++){let q=curls[j];ball(x+q[0]*s,q[1]*s,z+q[2]*s,.16*s,.145*s,.16*s,j%3===0?'#fff9ec':wool[j%wool.length],4,7);}
- ball(x,1.03*s,z+.54*s,.26*s,.29*s,.27*s,['#d5b7a7','#ecd3bd','#cba795'],5,8);
- // Face, ears, eyes, tiny nose and short wool cap.
- ball(x,1.02*s,z+.80*s,.19*s,.20*s,.17*s,['#e7c5b2','#d6af9d'],4,8);
+ ball(x,.92*s,z,.56*s,.46*s,.66*s,wool,6,10);
+ const curls=[[-.44,.95,-.28],[-.43,1.15,-.05],[-.40,.94,.23],[.43,.98,-.26],[.42,1.13,.03],[.40,.95,.24],[-.14,1.31,-.27],[.13,1.32,-.09],[-.17,1.30,.16],[.16,1.30,.24],[-.01,1.27,.38],[-.23,.72,-.09],[.24,.72,.18]];
+ for(let j=0;j<curls.length;j++){const q=curls[j];ball(x+q[0]*s,q[1]*s,z+q[2]*s,.17*s,.15*s,.15*s,j%4===0?'#fffdf4':wool[j%wool.length],4,7);}
+ ball(x,1.00*s,z+.59*s,.28*s,.31*s,.28*s,['#d8b8aa','#edcfbf','#cfa797'],5,8);
+ ball(x,1.01*s,z+.86*s,.20*s,.22*s,.18*s,['#ebcbbc','#d9b09f'],4,8);
  for(const sign of [-1,1]){
-  ball(x+sign*.28*s,1.21*s,z+.56*s,.15*s,.095*s,.12*s,['#e9c6b5','#dcaeaa'],3,6);
-  ball(x+sign*.105*s,1.14*s,z+.942*s,.045*s,.049*s,.029*s,'#322f2d',4,6);
-  ball(x+sign*.105*s,1.158*s,z+.961*s,.012*s,.015*s,.015*s,'#ffffff',3,5);
-  ball(x+sign*.078*s,.925*s,z+.966*s,.034*s,.024*s,.023*s,'#9a7773',3,5);
+  ball(x+sign*.28*s,1.20*s,z+.59*s,.15*s,.095*s,.12*s,['#edd0c2','#d8b0aa'],3,6);
+  ball(x+sign*.105*s,1.14*s,z+.99*s,.045*s,.048*s,.03*s,'#2f2d2c',4,6);
+  ball(x+sign*.108*s,1.16*s,z+1.00*s,.012*s,.014*s,.014*s,'#ffffff',3,5);
  }
- for(let k=0;k<4;k++){let a=k*1.55;ball(x+Math.cos(a)*.17*s,1.31*s,z+.57*s+Math.sin(a)*.12*s,.135*s,.11*s,.13*s,wool[k%wool.length],4,6);}
- ball(x,.96*s,z-.56*s,.17*s,.16*s,.19*s,wool,4,6);
+ ball(x-.06*s,.93*s,z+1.00*s,.03*s,.02*s,.022*s,'#8f6d6e',3,5);
+ ball(x+.06*s,.93*s,z+1.00*s,.03*s,.02*s,.022*s,'#8f6d6e',3,5);
+ ball(x,1.31*s,z+.60*s,.18*s,.11*s,.14*s,wool,4,6);
+ ball(x,.98*s,z-.57*s,.16*s,.16*s,.18*s,wool,4,6);
 }
+
 function makeSheepBarnExterior(){
  const x=SHEEP_BARN_X,z=SHEEP_BARN_Z;
  shadow(x+1.12,z+.92,1.50,1.42);
+ if(!artDraw('sheep-barn',x+1.20,0,z+.92)){
  // Cream walls, warm oak timber and an ochre roof, visually distinct from cow barn.
  box(x-.20,.06,z-.22,2.82,.23,2.48,['#d8ca9f','#bea980','#a5956f']);
  box(x,.29,z,2.40,1.55,2.12,['#f4e2b7','#d8b991','#c9a27b']);
@@ -1595,6 +1826,7 @@ function makeSheepBarnExterior(){
  box(x+.18,.87,front-.14,.43,.51,.09,['#d9f2df','#9fcab5','#93bdb2']);
  box(x+1.76,.82,front-.14,.38,.49,.07,['#d9f2df','#99c7b7','#8ebcaa']);
  ball(x+1.23,1.78,front+.11,.28,.24,.08,['#fff8eb','#e4d9c4'],4,7);
+ }
  // Recognizable sheep by the porch without turning the outside into the full pasture.
  makeSheep(x-.49,z+2.64,.42,1);
  for(let j=0;j<3;j++){let xx=x+1.96+(j%2)*.32,zz=z+2.50+j*.13;box(xx,.12,zz,.44,.32,.35,['#e9ce91','#dcb67c','#c49a65']);}
@@ -1614,6 +1846,7 @@ function sceneSheepPasture(){
  }
  // Distinctive light yellow lamb house with a front porch.
  const x=-2.35,z=-5.37;
+ if(!artDraw('sheep-barn',x+2.26,0,z+.80,1.40)){
  box(x-.2,.12,z-.2,4.9,.19,2.8,['#d7c49e','#bd9f7a','#a9896a']);
  box(x,.31,z,4.55,1.54,2.43,['#f0ddbc','#d8b78b','#c19c73']);
  const left=x-.32,right=x+4.85,mid=x+2.26,front=z+2.65,back=z-.25;
@@ -1623,6 +1856,7 @@ function sceneSheepPasture(){
  for(let k=0;k<6;k++){let zz=back+k*.52;postLine([left+.19,1.95,zz],[mid,2.91,zz],.044,.042,'#e9be8c');postLine([mid,2.91,zz],[right-.19,1.95,zz],.044,.042,'#d7a278');}
  box(x+.61,.31,front-.09,1.08,1.27,.12,['#ad815c','#8d694b','#79563d']);
  box(x+2.80,.91,front-.13,1.05,.57,.10,['#d8efe2','#a2c9b4','#86b7a4']);
+ }
  for(let i=0;i<4;i++)box(2.60+(i%2)*.8,.11,-.83+Math.floor(i/2)*.75,.65,.35,.49,['#ecd391','#d7b373','#bd945b']);
  // Straw manger, little water trough, clover patches and flower border.
  box(-4.20,.10,2.66,1.53,.35,.65,['#d3b18a','#b18c65','#9c7957']);
@@ -1649,6 +1883,7 @@ function sceneSheepActivity(now){
 // Handcrafted workshop entrance and stand-alone indoor production scene.
 function makeWorkshopBuilding(x,z,size=1){
  shadow(x+1.18*size,z+.96*size,1.6*size,1.45*size);
+ if(artDraw('workshop-house',x+1.21*size,0,z+1.08*size,size))return;
  box(x-.18*size,.08,z-.20*size,2.83*size,.24*size,2.50*size,['#ccb492','#b69a7e','#927960']);
  box(x,.32*size,z,2.45*size,1.55*size,2.14*size,['#f3d9ae','#dcb48a','#bd916f']);
  for(let dx of [.06,2.26])box(x+dx*size,.34*size,z+2.10*size,.14*size,1.48*size,.09*size,['#e8be8b','#b88360','#ad7b59']);
@@ -1780,9 +2015,10 @@ function sceneStatic(){mesh=[];
  satellite(14.1,-3.2,1.15,-1.25);satellite(-9.35,2.5,.78,-1.0);
  makeHouse();windmill();well();makeIslandDetails();makeOwnedDecor();makeFacilityMarkers();makeChickenCoop();makeOrchardMeadow();makeOrchardGate();makeCowBarnExterior();makeSheepBarnExterior();makeWorkshopBuilding(WORKSHOP_X,WORKSHOP_Z,.96);makeOrderKiosk(ORDER_HUT_X,ORDER_HUT_Z,.87);
  makeTree(-5.35,.25,.95,0);makeTree(-5.0,4.6,.87,1);makeTree(4.25,4.76,.82,2);makeTree(5.20,.03,.75,1);makeTree(-2.2,5.55,.71,0);
+ makeTree(-6.15,-2.25,.62,1);makeTree(-6.55,2.62,.66,0);makeTree(6.18,2.88,.62,2);makeTree(6.95,-1.84,.56,1);makeTree(1.82,5.92,.58,2);makeTree(-6.95,3.50,.54,0);makeTree(7.42,.58,.48,2);
  fence(-5.8,1.95,2.32,2.75);
  for(let i=0;i<16;i++)makePlotBase(i);
- for(let i=0;i<21;i++){let t=i*2.399963,r=4.15+Math.sin(i*4.6)*1.25;let x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.8&&Math.abs(z)<3.5)continue;flower(x,z,['#f7d3d9','#fbf1bc','#ffffff','#eec9f2'][i%4],.07+.02*(i%3));}
+ for(let i=0;i<36;i++){let t=i*2.399963,r=4.25+Math.sin(i*4.6)*1.38;let x=Math.sin(t)*r,z=Math.cos(t)*r;if(Math.abs(x)<3.5&&Math.abs(z)<3.25)continue;flower(x,z,['#f7d3d9','#fbf1bc','#ffffff','#eec9f2'][i%4],.07+.02*(i%3));}
  return new Float32Array(mesh);
 }
 function sceneCrops(now=Date.now()){mesh=[];
@@ -1825,12 +2061,16 @@ function resetCamera(){zoom=START_ZOOM;shiftX=0;shiftY=0;updateZoomBadge();}
 
 const camAngle=Math.PI/4;const right=[Math.cos(camAngle),-Math.sin(camAngle)],depth=[Math.sin(camAngle),Math.cos(camAngle)],elev=.77;
 const sv=Math.sin(elev),cv=Math.cos(elev);
-function resize(){const ww=innerWidth,hh=innerHeight;if(ww===W&&hh===H)return;W=ww;H=hh;DPR=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);gl.viewport(0,0,canvas.width,canvas.height);}
+function resize(){const ww=innerWidth,hh=innerHeight;if(ww===W&&hh===H)return;W=ww;H=hh;DPR=Math.min(1.5,devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);gl.viewport(0,0,canvas.width,canvas.height);}
 function project(x,y,z){const u=x*right[0]+z*right[1],v=y*cv-(x*depth[0]+z*depth[1])*sv;return [W*.5+(u/projW)*W+shiftX,H*.49-(v/projH)*H+shiftY];}
 function screenPoly(i){const x=-2.62+(i%4)*1.52,z=-1.92+Math.floor(i/4)*1.52;return [project(x,.44,z),project(x+1.34,.44,z),project(x+1.34,.44,z+1.34),project(x,.44,z+1.34)];}
 function contains(x,y,p){let inside=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a[1]>y)!=(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])inside=!inside}return inside}
 let needsStatic=true,needsDynamic=true,lastCropUpdate=0,lastSoftPaint=0;
-function frame(time){resize();projW=(W>=H?19.8:17.3)/zoom;projH=projW*(H/W);
+let artLastFrame=-Infinity,artLODMode=true;
+function frame(time){
+ if(document.hidden||time-artLastFrame<32){requestAnimationFrame(frame);return;}artLastFrame=time;
+ const nextLOD=zoom<2;if(nextLOD!==artLODMode){artLODMode=nextLOD;needsStatic=true;needsDynamic=true;}
+ resize();projW=(W>=H?19.8:17.3)/zoom;projH=projW*(H/W);
  if(needsStatic){upload(fixed,sceneStatic());needsStatic=false;needsDynamic=true;}
  const motionInterval=activeScene==='island'?(activeRoamKinds().length?(soft?400:220):1000):(soft?280:145);
  if(needsDynamic||time-lastCropUpdate>motionInterval){upload(moving,sceneCrops(time));needsDynamic=false;lastCropUpdate=time;}
@@ -2250,14 +2490,14 @@ let selectedDecorSlot=0;let openPanelName='';function panel(name){closeQuickMenu
  }else if(name==='orders'){content=ordersContent();
  }else if(name==='bag'){content=`<div class="tip"><span class="noticeLine">累计收获 ${state.total} 次</span> · 你的农场正在蓬勃生长！</div>`+CROPS.map((c,i)=>`<div class="item"><div class="big">${c.emoji}</div><div class="txt"><strong>${c.name}</strong><small>累计收获 ${(state.harvest[i]||0)} 次</small></div><span style="font-weight:900;color:#5b9773">× ${state.harvest[i]||0}</span></div>`).join('')+`<div class="item"><div class="big">🥚</div><div class="txt"><strong>鸡蛋</strong><small>仓库 ${state.coop.eggs} 个 · 累计收集 ${state.coop.total} 个</small></div><button class="action" data-coop-action="sell" ${state.coop.eggs?'':'disabled'}>出售</button></div><div class="item"><div class="big">🥛</div><div class="txt"><strong>牛奶</strong><small>仓库 ${state.cow.milk} 瓶 · 累计产奶 ${state.cow.total} 瓶</small></div><button class="action" data-cow-action="sell" ${state.cow.milk?'':'disabled'}>出售</button></div><div class="item"><div class="big">🧶</div><div class="txt"><strong>羊毛</strong><small>仓库 ${state.sheep.wool} 份 · 累计收集 ${state.sheep.total} 份</small></div><button class="action" data-sheep-action="sell" ${state.sheep.wool?'':'disabled'}>出售</button></div>${FRUITS.map((p,i)=>`<div class="item"><div class="big">${p.emoji}</div><div class="txt"><strong>${p.name}</strong><small>仓库 ${state.orchard.stock[i]} 个 · 累计采摘 ${state.orchard.total[i]} 个</small></div><button class="action" data-fruit-action="sell" data-fruit="${i}" ${state.orchard.stock[i]?'':'disabled'}>出售</button></div>`).join('')}${WORKSHOP_RECIPES.map((r,i)=>`<div class="item"><div class="big">${r.emoji}</div><div class="txt"><strong>${r.name}</strong><small>加工成品库存 ${state.workshop.stock[i]} · 售价 ${r.sell} 金币</small></div><button class="action" data-workshop-action="sell" data-recipe="${i}" ${state.workshop.stock[i]?'':'disabled'}>出售</button></div>`).join('')}<div class="sub">农作物收获后直接出售；鸡蛋、水果、牛奶、羊毛及加工成品可以留在仓库，直接出售或交给订单站顾客。</div>`;
  }else if(name==='goals'){content=tasks.map((t,i)=>{const done=state.completed.includes(i),ready=state.total>=t.need;return `<div class="item"><div class="big">${done?'🏆':'🎯'}</div><div class="txt"><strong>${t.name}</strong><small>收获累计 ${Math.min(t.need,state.total)} / ${t.need} 次 · 奖励 🪙 ${t.reward}</small></div><button class="action" data-claim="${i}" ${(!ready||done)?'disabled':''}>${done?'已领取':ready?'领取':'进行中'}</button></div>`}).join('');
- }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田选择种子，接着滑过多块空田连续播种，按「完成」恢复拖图。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 进入鸡舍可单只喂食，或启动「滑动喂食」划过多只小鸡。<br>⑤ 点击主岛鸡舍、果园、牛棚或羊圈入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 进入牛棚场景后，可逐只喂奶牛、滑动喂牛，55秒后收集牛奶到仓库出售。<br>⑧ 新羊圈支持逐只喂羊、滑动喂羊，50 秒后剪羊毛入库出售。<br>⑨ 背包里的「动物放养」或动物场景中的放养按钮可以将鸡、牛、羊放到主岛；安全放养不会偷吃，自由放养有概率偷吃一块成熟庄稼，动物可随时召回。<br>⑩ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能。<br>⑪ 点击主岛加工坊小屋进入独立工坊，使用仓库的鸡蛋、牛奶、苹果、橙子和羊毛制作成品，制作好需要点击收取，再到仓库出售。<br>⑫ 自由放养动物靠近农田时，头顶会出现 !🥬 气泡，可及时赶离农田。<br>⑬ 点击主岛订单站或背包中的 📦 顾客订单，进入独立订单站，交付鸡蛋、牛奶、羊毛、水果或加工品获得金币和经验。游戏自动保存进度。<br>⑭ 背包里选择「🌷 装饰布置」，在四个花园点购买或摆放花坛、长椅、路灯和喷泉；购买一次后可免费搬动。<br>⑮ 进入「🏠 设施升级」可以提高鸡舍、牛棚、羊圈、果园每次的产量。<br><br>当前为手机浏览器 v0.18.0 装饰升级试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
+ }else{content=`<div class="tip"><strong>☁️ 欢迎来到梦幻空岛！</strong><br>① 点击主岛空农田选择种子，接着滑过多块空田连续播种，按「完成」恢复拖图。<br>② 成熟后点击作物收获金币和经验。<br>③ 灰绿色农田可以花金币解锁。<br>④ 进入鸡舍可单只喂食，或启动「滑动喂食」划过多只小鸡。<br>⑤ 点击主岛鸡舍、果园、牛棚或羊圈入口进入独立的 3D 场景，点击鸡或果树弹出操作卡片。点左上角箭头返回主岛。<br>⑥ 单指拖动平移视角，双指捏合或右侧 + / − 可放大缩小（最高 4.8×）。<br>⑦ 进入牛棚场景后，可逐只喂奶牛、滑动喂牛，55秒后收集牛奶到仓库出售。<br>⑧ 新羊圈支持逐只喂羊、滑动喂羊，50 秒后剪羊毛入库出售。<br>⑨ 背包里的「动物放养」或动物场景中的放养按钮可以将鸡、牛、羊放到主岛；安全放养不会偷吃，自由放养有概率偷吃一块成熟庄稼，动物可随时召回。<br>⑩ 右侧小房子按钮恢复全景，左下角背包按钮打开仓库及其他功能。<br>⑪ 点击主岛加工坊小屋进入独立工坊，使用仓库的鸡蛋、牛奶、苹果、橙子和羊毛制作成品，制作好需要点击收取，再到仓库出售。<br>⑫ 自由放养动物靠近农田时，头顶会出现 !🥬 气泡，可及时赶离农田。<br>⑬ 点击主岛订单站或背包中的 📦 顾客订单，进入独立订单站，交付鸡蛋、牛奶、羊毛、水果或加工品获得金币和经验。游戏自动保存进度。<br>⑭ 背包里选择「🌷 装饰布置」，在四个花园点购买或摆放花坛、长椅、路灯和喷泉；购买一次后可免费搬动。<br>⑮ 进入「🏠 设施升级」可以提高鸡舍、牛棚、羊圈、果园每次的产量。<br><br>当前为手机浏览器 v0.24.1-desktop-test 装饰升级试玩版；3D 空岛、房屋、树木等均由立体几何构成，完全离线渲染，无需加载外部 3D 素材。</div><button class="action" style="margin-top:13px" id="resetProgress">重置游戏进度</button>`;}
  $('panelBody').innerHTML=content;$('panelShade').classList.add('show');$('panel').classList.add('panelShow');}
 function closePanel(){$('panelShade').classList.remove('show');$('panel').classList.remove('panelShow');openPanelName='';}
 document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>{const where=b.dataset.panel;if(where==='coop'||where==='orchard'||where==='cow')enterScene(where);else panel(where);});$('closePanel').onclick=closePanel;$('panelShade').onclick=closePanel;
 $('seedStrip').addEventListener('click',e=>{const button=e.target.closest('[data-seed]');if(!button)return;state.selected=+button.dataset.seed;save();hud();toast('🌱 选择了'+CROPS[state.selected].name)});
 $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(handleDesignButton(b))return;if(b.dataset.workshopAction){handleWorkshopAction(b);return;}if(handleOrderAction(b))return;if(b.dataset.roamAction){const kind=b.dataset.kind,action=b.dataset.roamAction;if(action==='recall')recallAnimal(kind);else if(action==='pet')petAnimal(kind);else if(action==='shoo')shooAnimal(kind);else releaseAnimal(kind,action==='free');return;}if(b.dataset.buy!==undefined){state.selected=+b.dataset.buy;save();hud();toast('🌱 选择了'+CROPS[state.selected].name);closePanel();}if(b.dataset.claim!==undefined){const i=+b.dataset.claim;if(state.total>=tasks[i].need&&!state.completed.includes(i)){state.completed.push(i);state.coins+=tasks[i].reward;save();hud();toast('🎁 任务奖励 +'+tasks[i].reward+' 金币');panel('goals');}}if(b.dataset.coopAction==='feed'){feedChickens();return;}if(b.dataset.coopAction==='collect'){collectEggs();return;}if(b.dataset.coopAction==='sell'){sellEggs();return;}if(b.dataset.fruitAction==='view'){viewOrchard();return;}if(b.dataset.fruitAction==='plant'){plantFruitTree(+b.dataset.slot,+b.dataset.fruit);return;}if(b.dataset.fruitAction==='harvest'){harvestFruit(+b.dataset.slot);return;}if(b.dataset.fruitAction==='sell'){sellFruit(+b.dataset.fruit);return;}if(b.dataset.cowAction){const a=b.dataset.cowAction;if(a==='sell')sellMilk();else if(a==='feed')feedAllCows();else if(a==='collect')collectMilk();else if(a==='brush')startBrush('feedCow');return;}if(b.dataset.sheepAction){const a=b.dataset.sheepAction;if(a==='sell')sellWool();else if(a==='feed')feedAllSheep();else if(a==='collect')collectWool();else if(a==='brush')startBrush('feedSheep');return;}if(b.id==='resetProgress'){if(!confirm('确定清空当前农场，重新开始吗？'))return;state=initial();normalizeCoop();normalizeOrchard();normalizeCow();normalizeSheep();normalizeRoam();normalizeWorkshop();normalizeOrders();normalizeDecorAndFacilities();finishBrush(true);save();needsStatic=needsDynamic=true;drawSeeds();hud();closePanel();toast('🌼 新农场已经准备好了！');}});
 
-/* v0.18.0 contextual interaction layer. Business state and save schema are unchanged. */
+/* v0.24.1-desktop-test contextual interaction layer. Business state and save schema are unchanged. */
 function closeQuickMenu(){$('quickMenu').hidden=true;}
 function closeContext(){contextMode='';pendingPlot=-1;$('contextDrawer').hidden=true;$('contextShade').hidden=true;}
 function showContext(title,html,mode){closeQuickMenu();contextOpenedAt=performance.now();contextMode=mode;$('contextTitle').textContent=title;$('contextBody').innerHTML=html;$('contextShade').hidden=false;$('contextDrawer').hidden=false;$('contextDrawer').scrollTop=0;}
@@ -2449,6 +2689,7 @@ $('sceneDockBody').addEventListener('click',e=>{
 });
 let touches=new Map(),startTouch=null,moved=false,pinchOrigin=null;
 canvas.addEventListener('pointerdown',e=>{
+ if(e.pointerType==='mouse'&&e.button!==0)return;
  canvas.setPointerCapture?.(e.pointerId);
  touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
  if(touches.size===1){
@@ -2515,6 +2756,30 @@ canvas.addEventListener('wheel',e=>{e.preventDefault();zoomTo(zoom*(e.deltaY>0?.
 $('cameraPlus').addEventListener('click',()=>zoomTo(zoom*1.43));
 $('cameraMinus').addEventListener('click',()=>zoomTo(zoom/1.43));
 $('cameraReset').addEventListener('click',()=>{if(activeScene==='island')resetCamera();else{zoom=activeScene==='coop'?1.86:activeScene==='cow'?1.73:activeScene==='sheep'?1.82:activeScene==='workshop'?1.65:activeScene==='orders'?1.75:1.82;centerRoomAt(0,activeScene==='coop'?-1.28:activeScene==='cow'?-1.0:activeScene==='sheep'?-1.0:activeScene==='orders'?-1.05:0,.8);updateZoomBadge();}});
+// Desktop QA shortcuts. Preserve touch and pointer gestures on phones.
+const desktopHelp=$('desktopHelp');
+$('desktopHelpClose').addEventListener('click',()=>{desktopHelp.hidden=true;});
+canvas.addEventListener('contextmenu',e=>e.preventDefault());
+window.addEventListener('keydown',e=>{
+ if(e.defaultPrevented||e.ctrlKey||e.metaKey||e.altKey)return;
+ const target=e.target;
+ if(target&&(target.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName||'')))return;
+ if(!$('welcome').classList.contains('hide'))return;
+ const key=e.key.toLowerCase();
+ if(key==='m'&&!contextMode&&!openPanelName){e.preventDefault();$('quickMenu').hidden=!$('quickMenu').hidden;return;}
+ if(key==='b'&&!contextMode&&!openPanelName){e.preventDefault();panel('bag');return;}
+ if(contextMode||openPanelName||!$('quickMenu').hidden)return;
+ if(key==='r'||key==='0'){e.preventDefault();$('cameraReset').click();return;}
+ if(key==='+'||key==='='||key==='add'){e.preventDefault();zoomTo(zoom*1.2);return;}
+ if(key==='-'||key==='_'||key==='subtract'){e.preventDefault();zoomTo(zoom/1.2);return;}
+ const delta=Math.max(28,Math.min(85,Math.min(W,H)*.08));let dx=0,dy=0;
+ if(key==='arrowleft'||key==='a')dx=delta;
+ else if(key==='arrowright'||key==='d')dx=-delta;
+ else if(key==='arrowup'||key==='w')dy=delta;
+ else if(key==='arrowdown'||key==='s')dy=-delta;
+ else return;
+ e.preventDefault();shiftX+=dx;shiftY+=dy;clampCamera();
+});
 // Countdown refreshed only when the panel is open; gameplay uses wall-clock timestamps.
 setInterval(()=>{
  updateRoam();updateRoamChip();
@@ -2543,6 +2808,7 @@ setInterval(()=>{
  el.textContent=stages.split(',').map((stage,i)=>'第'+(i+1)+'只：'+(stage==='idle'?'待喂食':stage==='ready'?'可收蛋':coopSecondsLeft(i)+'秒')).join(' · ');
 },1000);
 window.addEventListener('resize',resize,{passive:true});canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();$('no3d').style.display='block';});
+if(window.__FARM_TEST_HARNESS__)window.__farmQA={getState:()=>state,setState:s=>{state=s;},initial,save,sceneStatic,sceneCrops,setScene:s=>{activeScene=s;},setAssets:a=>{artAssets=a;},setZoom:z=>{zoom=z;},tapPlot,startBrush,tryPaintPlot,feedOneChicken,collectEggs,feedOneCow,collectMilk,feedOneSheep,collectWool,plantFruitTree,harvestFruit,startWorkshop,collectWorkshop,createOrder,deliverOrder,project,screenPoly,contains,frame,KEY,LEGACY_KEY};
 resize();drawSeeds();hud();updateZoomBadge();updateRoam();updateRoamChip();requestAnimationFrame(frame);
 })();
 </script></body></html>

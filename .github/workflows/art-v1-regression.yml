@@ -1,0 +1,24 @@
+name: Cloud Farm Art V1.3 regression
+on:
+  push:
+    branches: [art-v1-test]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  models-and-farm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check model generator syntax
+        run: node --check tools/build_buildings.cjs
+      - name: Regenerate all six editable building assets
+        run: node tools/build_buildings.cjs
+      - name: Confirm GLB/GLTF geometry is reproducible across V8 float rounding
+        run: node tools/check_building_repro.cjs
+      - name: Validate loader, geometry, gameplay, save data and fallback
+        run: node tests/art-v1.test.cjs
