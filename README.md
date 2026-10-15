@@ -1,6 +1,6 @@
 # 云朵农场 · 原创三维美术 V1.3 原创建筑精修测试版
 
-当前分支为 `art-v1-test`，版本 `v0.24.0-buildings-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
+当前分支为 `art-v1-test`，版本 `v0.24.1-desktop-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
 
 - [模型互动预览](preview.html)
 - [游戏测试入口](index.html)
