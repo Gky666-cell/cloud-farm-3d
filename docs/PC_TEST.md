@@ -1,11 +1,11 @@
-# 云朵农场 · 电脑版测试说明（v0.24.1）
+# 云朵农场 · 电脑版测试说明（v0.25.0）
 
-此页对应 `art-v1-test` 分支，包含原创动物 V1.2、六座建筑 V1.3 与电脑版控制优化。正式 `main` 版未修改。
+此页对应 `experience-v0.25.0` 分支（基于最新 `art-v1-test`），包含原创动物 V1.2、六座建筑 V1.3 与电脑版控制优化。正式 `main` 版未修改。
 
 ## 电脑浏览器直接测试
 
-- [打开测试游戏](https://raw.githack.com/Gky666-cell/cloud-farm-3d/art-v1-test/index.html)
-- [查看原始 3D 模型](https://raw.githack.com/Gky666-cell/cloud-farm-3d/art-v1-test/preview.html)
+- [打开测试游戏](https://raw.githack.com/Gky666-cell/cloud-farm-3d/experience-v0.25.0/index.html)
+- [查看原始 3D 模型](https://raw.githack.com/Gky666-cell/cloud-farm-3d/experience-v0.25.0/preview.html)
 
 公开仓库通过第三方 raw.githack 以 HTML 格式呈现；首次访问可能出现确认页面，确认后进入。预览服务不属于 GitHub Pages 官方发布渠道，CDN 缓存可能使新提交延迟显示；不保证所有网络环境都可访问。页面地址必须是 `raw.githack.com`，不是 GitHub 的 `blob` 源码展示页。测试使用独立 localStorage 存档 `yun-farm-3d-art-v1-test`，不会写入正式版存档键。
 
@@ -41,7 +41,7 @@
 
 ## 本地 HTTP 服务（可选）
 
-在 Windows 下载 `art-v1-test` 分支 ZIP，解压后打开此文件夹的 PowerShell（已安装 Python 3）：
+在 Windows 下载 `experience-v0.25.0` 分支（基于最新 `art-v1-test`） ZIP，解压后打开此文件夹的 PowerShell（已安装 Python 3）：
 
 ```powershell
 py -m http.server 8000
@@ -50,3 +50,8 @@ py -m http.server 8000
 浏览器访问 `http://localhost:8000/index.html`；模型预览为 `http://localhost:8000/preview.html`。不要直接双击 HTML 文件，以免浏览器限制 GLB 的 fetch 读取。
 
 **验证边界：** GitHub Actions 的 Node VM 回归检查不等于真实 Windows 浏览器、WebGL 或 PC GPU 帧率实测。电脑实际外观与操作需人工反馈。
+
+
+## v0.25.0 本轮验收记录
+
+已在内置 Chromium 实际运行七个 WebGL 场景，完成种植收获、鸡牛羊生产、双水果采摘、加工收取、订单交付及刷新恢复；另检查了 390×844 布局。详细步骤、数量、自动测试和仍待人工验收项目见 [本轮体验优化说明](EXPERIENCE_V0_25.md)。物理手机手势、长期帧率与不同浏览器仍需验收。

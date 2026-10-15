@@ -13,3 +13,8 @@ The farm house roof slopes now meet the walls at the eaves and include two named
 
 ## New buildings in V1.3
 Six independently-editable static low-poly buildings (`coop-house`, `cow-barn`, `sheep-barn`, `workshop-house`, `windmill`, `well`) are generated from `../../tools/build_buildings.cjs` with Node.js. Every building has a GLB file plus an embedded-buffer GLTF. The entire library now has 17 main/LOD files per format. See `../../docs/BUILDINGS_V1_3.md` for details; the archived V1.1 ZIP is not up to date.
+
+
+## v0.25.0 体验迭代
+
+精修 GLB/GLTF 和生成源码保持原样；当前体验分支为 `experience-v0.25.0`。游戏增加命名部件步态、地面接触、场景取景和交互修复，并已进行真实桌面浏览器经营流程验收。完整记录、限制和公开入口见 [v0.25.0 说明](../../docs/EXPERIENCE_V0_25.md)。本文前面的 v0.24.x 数字和验收边界为历史版本记录。

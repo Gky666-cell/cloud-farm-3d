@@ -1,7 +1,10 @@
 {
   "checks": [
-    "All eleven GLB assets load through production adapter",
+    "All seventeen original GLB assets load through production adapter",
+    "Desktop M menu, A camera pan, + zoom and R reset respond to keyboard events",
     "GLB + embedded GLTF agree; mesh normals and coordinates are finite",
+    "V1.2 roof-wall joints, cow eye sockets and attached tail-root are present",
+    "V1.3 six original building GLBs contain roof/door components and finite editable meshes",
     "Apple fruit groups can hide without replacing the grown tree",
     "v0.18-compatible save copied read-only; test save reloads; live save untouched",
     "Planting and timed crop harvest update coins/experience",
@@ -18,36 +21,36 @@
   ],
   "scenes": {
     "island": {
-      "staticTriangles": 83123,
+      "staticTriangles": 90605,
       "dynamicTriangles": 96,
       "v018StaticTriangles": 72766,
       "v021StaticTriangles": 114979,
       "renderDrawCalls": 2,
-      "meshMiB": 9.523658752441406
+      "meshMiB": 10.379905700683594
     },
     "coop": {
-      "staticTriangles": 3936,
+      "staticTriangles": 5084,
       "dynamicTriangles": 9072,
       "v018StaticTriangles": 5100,
       "v021StaticTriangles": 5100,
       "renderDrawCalls": 2,
-      "meshMiB": 1.4886474609375
+      "meshMiB": 1.620025634765625
     },
     "cow": {
-      "staticTriangles": 5050,
-      "dynamicTriangles": 7924,
+      "staticTriangles": 6813,
+      "dynamicTriangles": 8420,
       "v018StaticTriangles": 6658,
       "v021StaticTriangles": 6658,
       "renderDrawCalls": 2,
-      "meshMiB": 1.4847564697265625
+      "meshMiB": 1.7432785034179688
     },
     "sheep": {
-      "staticTriangles": 5388,
+      "staticTriangles": 7323,
       "dynamicTriangles": 10614,
       "v018StaticTriangles": 7008,
       "v021StaticTriangles": 7008,
       "renderDrawCalls": 2,
-      "meshMiB": 1.8312835693359375
+      "meshMiB": 2.0527267456054688
     },
     "orchard": {
       "staticTriangles": 5567,
@@ -58,12 +61,12 @@
       "meshMiB": 0.8250045776367188
     },
     "workshop": {
-      "staticTriangles": 5143,
+      "staticTriangles": 6843,
       "dynamicTriangles": 0,
       "v018StaticTriangles": 6451,
       "v021StaticTriangles": 6451,
       "renderDrawCalls": 2,
-      "meshMiB": 0.5885696411132812
+      "meshMiB": 0.7831192016601562
     },
     "orders": {
       "staticTriangles": 3683,
@@ -75,11 +78,9 @@
     }
   },
   "limitations": [
-    "No browser/WebGL driver or physical-phone QA in this environment",
+    "This Node VM suite uses no browser/WebGL driver; separate browser QA is documented in docs/EXPERIENCE_V0_25.md",
     "DOM and WebGL API are mocked; mesh import and business logic run unchanged",
-    "Raster previews use actual imported mesh buffers; they are not browser screenshots",
-    "V1.2 model patch not yet exercised in an actual WebGL browser or phone",
-    "V1.3 actual browser and physical phone validation pending; do not interpret archived scenes data as V1.3 measurements"
+    "Raster previews use actual imported mesh buffers; they are not browser screenshots"
   ],
   "animalLODTriangles": [
     {
@@ -88,7 +89,7 @@
     },
     {
       "id": "cow",
-      "triangles": 11686
+      "triangles": 12246
     },
     {
       "id": "chicken",
@@ -100,52 +101,15 @@
     },
     {
       "id": "cow-lod",
-      "triangles": 3944
+      "triangles": 4192
     },
     {
       "id": "chicken-lod",
       "triangles": 3006
     }
   ],
-  "assetBytes": 1174612,
+  "assetBytes": 2157524,
   "maxDPR": 1.5,
   "targetRenderFPS": 30,
-  "testedAt": "2026-10-14T12:57:56.906Z",
-  "baseline": "V1.1 VM tests completed previously; V1.2/V1.3 code changes await execution on GitHub Actions",
-  "v12MeshCorrections": {
-    "format": "GLB 2.0 + embedded GLTF",
-    "house": {
-      "triangles": 1800,
-      "parts": 82,
-      "roofConnectors": 2
-    },
-    "cow": {
-      "triangles": 12246,
-      "parts": 39,
-      "eyeSclera": 2,
-      "tailRoot": 1
-    },
-    "cow-lod": {
-      "triangles": 4192,
-      "parts": 39,
-      "eyeSclera": 2,
-      "tailRoot": 1
-    },
-    "status": "structural export verification only; runtime regression and physical-phone QA pending"
-  },
-  "v13Buildings": {
-    "status": "generated and structurally assembled; full integration runtime and physical phone test pending",
-    "models": [
-      "coop-house",
-      "cow-barn",
-      "sheep-barn",
-      "workshop-house",
-      "windmill",
-      "well"
-    ],
-    "extraTriangles": 9988,
-    "extraGLBBytes": 919044,
-    "buildingsFollowEditor": "tools/build_buildings.cjs",
-    "includesGameFallback": true
-  }
+  "testedAt": "2026-10-15T11:19:34.832Z"
 }

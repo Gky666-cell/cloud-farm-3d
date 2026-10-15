@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "Curved planting stroke never paints the release diagonal",
+    "A pinch followed by one-finger movement never becomes planting",
+    "Projected building corner outside the prism does not open a building",
+    "Imported building bounds include the real roof at every zoom",
+    "Roaming chicken and cow positions are continuous at loop seams",
+    "Animal already released to island has no ghost target in its pen",
+    "Cancelled planting and right mouse button cannot spend coins",
+    "Desktop and portrait reset frame the island cliff and key buildings",
+    "Animal hits use the last rendered pose at both LOD levels",
+    "Sculpted animal animation keeps all triangles, unit normals and grounded feet",
+    "Upgrade labels and actual animal/fruit harvest quantities agree",
+    "Open production panel enables collection when its timer matures",
+    "An unchanged animal card keeps its action buttons while clocks tick",
+    "In-progress crops, three animal cycles, both fruit types, workshop and orders survive reload",
+    "All four crops harvest once and both permanent fruit trees regrow",
+    "Rejected localStorage writes visibly warn and successful retry clears the warning",
+    "Risky animal retreat and warning end do not teleport"
+  ],
+  "limitations": [
+    "DOM/WebGL are mocked in this suite; see docs/EXPERIENCE_V0_25.md for separate real-browser verification.",
+    "Physical phone FPS, multitouch and Blender editing require manual acceptance."
+  ]
+}
