@@ -20,6 +20,14 @@ python3 tools/render_art.py
 
 ![原创新模型](docs/previews/animals-v1-1.png)
 
+## 🖥️ 电脑版直接测试（v0.24.1）
+
+- [电脑打开完整农场游戏](https://raw.githack.com/Gky666-cell/cloud-farm-3d/art-v1-test/index.html)
+- [旋转预览全部原创 3D 模型](https://raw.githack.com/Gky666-cell/cloud-farm-3d/art-v1-test/preview.html)
+- [电脑操作、验收步骤和故障排查](docs/PC_TEST.md)
+
+支持鼠标拖动、滚轮缩放、WASD / 方向键平移、R 复位、M 菜单、B 仓库、Esc 返回。公开预览通过第三方 CDN 提供，首次可能需要确认；此分支测试存档仍与正式版隔离。GitHub Actions 自动验证不代表已经进行真实浏览器人工验收。
+
 ## V1.2 更新（待手机验收）
 - 主屋降低屋檐并补充墙体连接件，解决屋顶与房屋脱节感。
 - 奶牛及低面数奶牛增加眼白、前移眼睛/高光，增加深入躯干的尾根连接网格。
