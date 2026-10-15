@@ -67,7 +67,7 @@ def fleece(v,u):
  d=((u[:,None,:]-np.array(dirs)[None,:,:])**2).sum(axis=2)
  bumps=np.exp(-d/.026).sum(axis=1)
  phase=1.4*u[:,0]+.9*u[:,2]
- amplitude=1+.083*bumps+.012*np.sin(24*phase)*np.sin(19*u[:,1])
+ amplitude=1+.046*bumps+.008*np.sin(24*phase)*np.sin(19*u[:,1])
  return v*amplitude[:,None]
 
 def hooves(m,prefix,x,z,y=.09,size=.11):
@@ -94,11 +94,11 @@ def conformal_patch(m,name,direction,radius,mapper,center,col):
 
 def sheep(Model):
  m=Model('sheep')
- sculpt(m,'continuous-sculpted-fleece',(0,.79,-.035),(.53,.43,.68),'#fff4df',32,54,.94,fleece)
+ sculpt(m,'continuous-sculpted-fleece',(0,.88,-.035),(.46,.35,.66),'#fff4df',32,54,.94,fleece)
  for i,(x,z) in enumerate([(-.26,-.31),(.26,-.31),(-.26,.28),(.26,.28)]):
   # Hidden fleshy upper leg -> knee -> tapered ankle. Short, curved lamb legs.
-  tube(m,'shaped-leg-'+str(i),[(x,.58,z),(x*1.035,.40,z-.025),(x*1.08,.25,z+.025),(x*1.03,.13,z+.04)],[.105,.084,.055,.062],'#e0ccb2',10,3)
-  hooves(m,'split-hoof-'+str(i),x*1.03,z+.04,size=.092)
+  tube(m,'shaped-leg-'+str(i),[(x,.66,z),(x*1.035,.47,z-.025),(x*1.08,.29,z+.025),(x*1.03,.13,z+.04)],[.095,.078,.053,.058],'#e0ccb2',10,3)
+  hooves(m,'split-hoof-'+str(i),x*1.03,z+.04,size=.084)
  def face(v,u):
   v[:,0]*=1+.12*u[:,1];v[:,2]+=.085*(1-u[:,1])*.5*np.maximum(0,u[:,2]);return v
  sculpt(m,'face-and-jaw',(0,.88,.65),(.245,.29,.26),'#cfb295',16,28,.89,face)
@@ -114,7 +114,11 @@ def sheep(Model):
  sculpt(m,'small-heart-nose',(0,.80,.966),(.037,.024,.018),'#796556',8,14,.8)
  tube(m,'mouth-center',[(0,.786,.967),(0,.758,.962)],[.004,.004],'#90745f',5,2)
  for sign in [-1,1]:tube(m,'mouth-smile-'+str(sign),[(0,.758,.962),(sign*.035,.751,.95),(sign*.052,.766,.945)],[.004,.004,.003],'#90745f',5,2)
- sculpt(m,'wool-tail',(0,.80,-.71),(.123,.135,.17),'#fff4df',12,20,.95,fleece)
+ sculpt(m,'wool-tail',(0,.90,-.71),(.10,.11,.155),'#fff4df',12,20,.95,fleece)
+ # Lift the complete face assembly together so ears, eyes and jaw stay attached.
+ for i,(name,v,t,n,col,vc) in enumerate(m.parts):
+  if name.startswith(('face-','soft-drooping-ear','ear-lining','eye-','gentle-cheek','eyebrow','sculpted-forelock','small-heart-nose','mouth-')):
+   v=(v-np.array([0,.88,.65]))*.96+np.array([0,.96,.665]);m.parts[i]=(name,v.astype(np.float32),t,n,col,vc)
  return m
 
 def cow(Model):
@@ -127,13 +131,13 @@ def cow(Model):
   for x,y,z,r in spots:
    d=np.linalg.norm(u-np.array([x,y,z]),axis=1);edge=r+.023*np.sin(6*u[:,1]+5*u[:,2]);dark=np.maximum(dark,np.clip((edge-d)/.075+.5,0,1))
   return color('#fff1d9')[None,:]*(1-dark[:,None])+color('#484d42')[None,:]*dark[:,None]
- sculpt(m,'sculpted-shoulders-belly',(0,.99,-.04),(.66,.50,.86),'#fff1d9',30,54,.88,body)
- def bodymap(u):return body(np.sign(u)*np.abs(u)**.88*np.array([.66,.50,.86]),u)+[0,.99,-.04]
+ sculpt(m,'sculpted-shoulders-belly',(0,1.08,-.08),(.56,.43,.82),'#fff1d9',30,54,.88,body)
+ def bodymap(u):return body(np.sign(u)*np.abs(u)**.88*np.array([.56,.43,.82]),u)+[0,1.08,-.08]
  for i,(direction,radius) in enumerate([((.91,.10,-.43),.47),((-.88,.20,.28),.49),((.08,.97,-.2),.46),((.68,.55,.55),.30),((-.65,.55,-.72),.33)]):
-  conformal_patch(m,'flush-coat-marking-'+str(i),direction,radius,bodymap,(0,.99,-.04),'#484d42')
- for i,(x,z) in enumerate([(-.36,-.49),(.36,-.49),(-.33,.43),(.33,.43)]):
-  tube(m,'curved-leg-'+str(i),[(x,.88,z),(x*1.03,.57,z-.028),(x,.35,z+.045),(x,.16,z+.05)],[.15,.105,.065,.077],'#ecdfc8',10,3)
-  hooves(m,'cloven-hoof-'+str(i),x,z+.05,.105,.12)
+  conformal_patch(m,'flush-coat-marking-'+str(i),direction,radius,bodymap,(0,1.08,-.08),'#484d42')
+ for i,(x,z) in enumerate([(-.31,-.49),(.31,-.49),(-.28,.43),(.28,.43)]):
+  tube(m,'curved-leg-'+str(i),[(x,.96,z),(x*1.03,.63,z-.028),(x,.36,z+.045),(x,.16,z+.05)],[.13,.095,.061,.071],'#ecdfc8',10,3)
+  hooves(m,'cloven-hoof-'+str(i),x,z+.05,.105,.105)
  def head(v,u):v[:,0]*=(1+.12*u[:,1]);v[:,2]+=.04*(1-u[:,1])*np.maximum(u[:,2],0);return v
  def headpaint(v,u):
   d=np.clip((u[:,0]+.11)/.2,0,1)*np.clip((u[:,1]+.10)/.25,0,1)
@@ -156,6 +160,9 @@ def cow(Model):
  tube(m,'tail-root-connected',[(0,1.24,-.66),(.030,1.255,-.79),(.10,1.17,-.94)],[.085,.065,.037],'#dbc9aa',12,2)
  tube(m,'curving-tail',[(0,1.29,-.79),(.12,1.13,-.99),(.18,.87,-1.03),(.13,.70,-1.06)],[.033,.026,.024,.023],'#dbc9aa',8,3)
  sculpt(m,'tail-tuft',(.13,.645,-1.06),(.068,.13,.069),'#535347',10,16,.86)
+ for i,(name,v,t,n,col,vc) in enumerate(m.parts):
+  if name.startswith(('head-','forehead-','soft-pink-muzzle','ear-','curved-horn','eye-','nostril','muzzle-')):
+   v=(v-np.array([0,1.2,.6]))*.92+np.array([0,1.24,.615]);m.parts[i]=(name,v.astype(np.float32),t,n,col,vc)
  return m
 
 def feather(m,name,base,tip,width,col):
@@ -172,7 +179,7 @@ def feather(m,name,base,tip,width,col):
 def chicken(Model):
  m=Model('chicken')
  # Loft body and neck as one curved pear silhouette.
- controls=[(.16,.012,.012,0),(.24,.20,.20,-.02),(.38,.31,.28,-.055),(.54,.31,.29,-.04),(.69,.225,.205,.04),(.81,.168,.17,.15),(.94,.17,.165,.185),(1.04,.09,.09,.18),(1.06,.005,.005,.18)]
+ controls=[(.16,.012,.012,0),(.24,.18,.18,-.02),(.38,.27,.24,-.055),(.54,.265,.25,-.04),(.69,.195,.18,.04),(.81,.168,.17,.15),(.94,.17,.165,.185),(1.04,.09,.09,.18),(1.06,.005,.005,.18)]
  rings=catmull(controls,max(2,round(3*DETAIL)));cols=max(12,round(28*DETAIL));v=[]
  for y,rx,rz,z in rings:
   for j in range(cols):a=j*math.tau/cols;v.append([max(.003,rx)*math.cos(a),y,z+max(.003,rz)*math.sin(a)])
@@ -183,12 +190,12 @@ def chicken(Model):
  smooth(m,'continuous-body-neck',v,t,'#fff2d9',center=np.array([0,.53,0]))
  for sign in [-1,1]:
   def wing(v,u,sign=sign):v[:,0]*=sign;v[:,2]*=(.84+.22*u[:,1]);v[:,1]+=.25*v[:,2];v[:,2]-=.07*(1-u[:,1]);return v
-  sculpt(m,'sculpted-wing-'+str(sign),(sign*.277,.48,-.065),(.078,.198,.227),'#eed8b4',12,20,.85,wing)
+  sculpt(m,'sculpted-wing-'+str(sign),(sign*.24,.48,-.065),(.065,.175,.20),'#eed8b4',12,20,.85,wing)
   for j in range(3):
    uy=-.36+j*.20;uz=np.array([-.62,-.25,.12,.44]);ux=np.sqrt(1-uy*uy-uz*uz)
-   u=np.column_stack([ux,np.full(4,uy),uz]);v=np.sign(u)*np.abs(u)**.85*np.array([.078,.198,.227]);v=wing(v,u)+[sign*.277,.48,-.065];v[:,0]+=sign*.002
+   u=np.column_stack([ux,np.full(4,uy),uz]);v=np.sign(u)*np.abs(u)**.85*np.array([.065,.175,.20]);v=wing(v,u)+[sign*.24,.48,-.065];v[:,0]+=sign*.002
    tube(m,'wing-feather-groove-'+str(sign)+'-'+str(j),v.tolist(),[.003,.003,.003,.0015],'#d7bd94',5,2)
-  tube(m,'ankle-'+str(sign),[(sign*.11,.25,.04),(sign*.11,.14,.07),(sign*.11,.065,.10)],[.025,.021,.025],'#db9d57',8,3)
+  tube(m,'ankle-'+str(sign),[(sign*.11,.29,.04),(sign*.11,.16,.07),(sign*.11,.065,.10)],[.025,.021,.025],'#db9d57',8,3)
   for j in [-1,0,1]:tube(m,'foot-toe-'+str(sign)+'-'+str(j),[(sign*.11,.061,.10),(sign*.11+j*.044,.05,.19),(sign*.11+j*.058,.043,.245)],[.018,.013,.007],'#d2954e',7,3)
   tube(m,'back-claw-'+str(sign),[(sign*.11,.06,.10),(sign*.13,.05,-.035)],[.014,.005],'#d2954e',7,3)
   sculpt(m,'eye-'+str(sign),(sign*.106,.909,.327),(.028,.038,.024),'#2c342c',8,14)
@@ -202,7 +209,10 @@ def chicken(Model):
  for j in range(5):
   off=(j-2)*.063;feather(m,'tail-feather-'+str(j),(off*.6,.48,-.24),(off, .69+.12*(1-abs(j-2)/2),-.49-.03*(1-abs(j-2)/2)),.083,'#d8bb8d' if j%2 else '#efdbb7')
  # Fit the prior chicken hit volume and the small farm proportions.
- for i,p in enumerate(m.parts):name,v,t,n,col,vc=p;m.parts[i]=(name,v*.82,t,n,col,vc)
+ for i,p in enumerate(m.parts):
+  name,v,t,n,col,vc=p
+  if not name.startswith(('ankle-','foot-toe-','back-claw-')):v=v+np.array([0,.04,0])
+  m.parts[i]=(name,(v*.82).astype(np.float32),t,n,col,vc)
  return m
 
 def build_animals(Model):

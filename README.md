@@ -1,7 +1,9 @@
-# 云朵农场 · v0.25.0 游戏体验优化测试版
+# 云朵农场 · v0.25.1 玩家反馈优化测试版
 
-当前分支为 `experience-v0.25.0`，基于 `art-v1-test` 最新提交 `b1f5043`，版本 `v0.25.0-experience-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
+当前分支为 `experience-v0.25.0`，基于 `art-v1-test` 最新提交 `b1f5043`，版本 `v0.25.1-feedback-test`。main / GitHub Pages 正式版保持 v0.18.0，未合并或覆盖。
 
+- [本轮动物比例、步态与玉米彩线修复](docs/FEEDBACK_V0_25_1.md)
+- [5 项反馈回归](docs/feedback-validation.json)
 - [模型互动预览](preview.html)
 - [游戏测试入口](index.html)
 - [资源说明、编辑方法与验收清单](docs/ART_V1.md)
@@ -13,9 +15,11 @@
 本地用任意静态 HTTP 服务打开项目；不要直接双击 HTML，因为浏览器可能阻止模型 fetch。
 
 ```bash
-python3 tools/build_art.py
+python3 tools/build_art.py --animals-only
 node tests/art-v1.test.cjs
 node tests/experience-v025.test.cjs
+node tests/feedback-v0251.test.cjs
+python3 tools/check_animal_repro.py
 python3 tools/render_art.py
 ```
 
@@ -23,7 +27,7 @@ python3 tools/render_art.py
 
 ![原创新模型](docs/previews/animals-v1-1.png)
 
-## 🖥️ 电脑版直接测试（v0.25.0）
+## 🖥️ 电脑版直接测试（v0.25.1）
 
 - [电脑打开完整农场游戏](https://raw.githack.com/Gky666-cell/cloud-farm-3d/experience-v0.25.0/index.html)
 - [旋转预览全部原创 3D 模型](https://raw.githack.com/Gky666-cell/cloud-farm-3d/experience-v0.25.0/preview.html)

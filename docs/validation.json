@@ -21,12 +21,12 @@
   ],
   "scenes": {
     "island": {
-      "staticTriangles": 90605,
+      "staticTriangles": 90571,
       "dynamicTriangles": 96,
       "v018StaticTriangles": 72766,
       "v021StaticTriangles": 114979,
       "renderDrawCalls": 2,
-      "meshMiB": 10.379905700683594
+      "meshMiB": 10.376014709472656
     },
     "coop": {
       "staticTriangles": 5084,
@@ -38,11 +38,11 @@
     },
     "cow": {
       "staticTriangles": 6813,
-      "dynamicTriangles": 8420,
+      "dynamicTriangles": 8352,
       "v018StaticTriangles": 6658,
       "v021StaticTriangles": 6658,
       "renderDrawCalls": 2,
-      "meshMiB": 1.7432785034179688
+      "meshMiB": 1.7354965209960938
     },
     "sheep": {
       "staticTriangles": 7323,
@@ -89,7 +89,7 @@
     },
     {
       "id": "cow",
-      "triangles": 12246
+      "triangles": 12318
     },
     {
       "id": "chicken",
@@ -101,15 +101,15 @@
     },
     {
       "id": "cow-lod",
-      "triangles": 4192
+      "triangles": 4158
     },
     {
       "id": "chicken-lod",
       "triangles": 3006
     }
   ],
-  "assetBytes": 2157524,
+  "assetBytes": 2116064,
   "maxDPR": 1.5,
   "targetRenderFPS": 30,
-  "testedAt": "2026-10-15T11:19:34.832Z"
+  "testedAt": "2026-10-15T11:50:56.837Z"
 }

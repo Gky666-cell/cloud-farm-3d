@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Corn husks and every crop growth stage produce a finite, aligned GPU stream",
+    "Mixed mature corn alongside other crops stays aligned after harvest and save reload",
+    "Every animal covers a meaningful route, rests without spinning and stays continuous",
+    "Supporting feet remain planted during straight travel at every animal scale",
+    "Movement adapter failure preserves all three animal scenes and their gameplay"
+  ]
+}

@@ -57,7 +57,7 @@ class Model:
    primitive={'attributes':{'POSITION':acc(v,'VEC3',5126),'NORMAL':acc(n,'VEC3',5126)},'indices':acc(t.reshape(-1),'SCALAR',5123),'material':[m['name'] for m in mats].index(col)}
    if vc is not None:primitive['attributes']['COLOR_0']=acc(np.asarray(vc,dtype=np.float32),'VEC4',5126)
    meshes.append({'name':name,'primitives':[primitive]});nodes.append({'name':name,'mesh':len(meshes)-1});nodes[0]['children'].append(len(nodes)-1)
-  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1.2'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.2.0'}}
+  g={'asset':{'version':'2.0','generator':'Cloud Farm original procedural art V1.4'},'scene':0,'scenes':[{'nodes':[0]}],'nodes':nodes,'meshes':meshes,'materials':mats,'accessors':access,'bufferViews':views,'buffers':[{'byteLength':len(data)}],'extras':{'author':'Gky666-cell/cloud-farm-3d','pivot':'ground centre','front':'+Z','units':'game metre','version':'1.4.0'}}
   js=json.dumps(g,separators=(',',':')).encode();js+=b' '*((-len(js))%4);data+=b'\0'*((-len(data))%4)
   glb=struct.pack('<III',0x46546c67,2,12+8+len(js)+8+len(data))+struct.pack('<II',len(js),0x4e4f534a)+js+struct.pack('<II',len(data),0x004e4942)+data
   OUT.mkdir(parents=True,exist_ok=True);(OUT/(self.name+'.glb')).write_bytes(glb)
@@ -127,7 +127,13 @@ def plot(locked=False):
  return m
 
 if __name__=='__main__':
+ import argparse
+ parser=argparse.ArgumentParser();parser.add_argument('--animals-only',action='store_true');args=parser.parse_args()
  from animal_shapes import build_animals
  animals=build_animals(Model)
- stats=[m.export() for m in [house(),tree(),tree(True),*animals,plot(),plot(True)]]
- (OUT/'manifest.json').write_text(json.dumps({'version':'1.2.0','models':stats,'palette':P},indent=2));print(json.dumps(stats,indent=2))
+ stats=[m.export() for m in (animals if args.animals_only else [house(),tree(),tree(True),*animals,plot(),plot(True)])]
+ # Preserve every existing building entry when regenerating this subset of the library.
+ manifest_path=OUT/'manifest.json';manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {'models':[]}
+ merged={m['id']:m for m in manifest['models']};merged.update({m['id']:m for m in stats})
+ manifest.update(version='1.4.0',models=list(merged.values()),palette=P)
+ manifest_path.write_text(json.dumps(manifest,indent=2));print(json.dumps(stats,indent=2))

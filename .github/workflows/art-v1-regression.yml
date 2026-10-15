@@ -1,4 +1,4 @@
-name: Cloud Farm Art V1.3 regression
+name: Cloud Farm Art and feedback regression
 on:
   push:
     branches: [art-v1-test, experience-v0.25.0]
@@ -26,3 +26,12 @@ jobs:
         run: node --check assets/art-v1/motion.js
       - name: Validate pointer gestures, motion, framing and complete save reload
         run: node tests/experience-v025.test.cjs
+      - name: Validate corn GPU streams, walking routes and planted feet
+        run: node tests/feedback-v0251.test.cjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install animal generator dependency
+        run: python -m pip install numpy==2.3.5
+      - name: Reproduce six editable animal meshes without changing other assets
+        run: python tools/check_animal_repro.py
